@@ -1,0 +1,8 @@
+Scenario - GoNoGo_Modifiziert
+Logfile written - 05/08/2018 09:51:00
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+900	0	Text Input	900	17826	17826	0
+900	0	Text Input	1	54499	54499	0
+900	1	Quit		415229	360579	NA

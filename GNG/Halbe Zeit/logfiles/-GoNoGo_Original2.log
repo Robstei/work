@@ -1,0 +1,60 @@
+Scenario - GoNoGo_Original
+Logfile written - 01/30/2018 11:56:04
+
+Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+0	Text Input	test01	48022	48022	0
+0	Text Input	1	54820	54820	0
+1	Response	2	65293	10195	0
+2	Response	2	80774	15445	0
+3	Response	2	98961	18092	0
+4	Response	2	119611	13576	0
+5	Response	2	132548	12822	0
+6	Response	2	150575	17965	0
+6	Response	2	156439	23829	0
+7	Response	2	173988	16211	0
+8	Response	2	185814	11729	0
+9	Response	2	200265	14301	0
+10	Response	2	212647	1517	0
+11	Response	2	221769	9028	0
+12	Response	2	231527	9741	0
+12	Response	2	241127	19340	0
+13	Response	2	248659	1692	0
+14	Response	2	293389	44610	0
+15	Response	2	299569	6095	0
+16	Response	2	324746	25030	0
+16	Response	2	346349	46633	0
+16	Response	2	357934	58218	0
+16	Response	2	366656	66940	0
+17	Response	2	378003	8224	0
+18	Response	2	395628	17608	0
+19	Response	2	447431	51680	0
+20	Response	2	468874	3059	0
+24	Response	2	516946	13482	0
+25	Response	2	521139	3784	0
+26	Response	2	536599	10184	0
+32	Response	2	601103	195	0
+40	Quit		708814	5428	NA
+
+
+Event Type	Code	Type	Response	RT	RT Uncertainty	Time	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur
+
+Picture		false_alarm	2	10195	1	55098	1	10231	239	0	next
+Picture		false_alarm	2	15445	239	65329	239	15539	239	0	next
+Picture		false_alarm	2	13576	1	106035	1	13691	1	0	next
+Picture		false_alarm	2	12822	1	119726	1	12885	1	0	next
+Picture		false_alarm	2	16211	1	157777	1	16308	1	0	next
+Picture		false_alarm	2	11729	1	174085	1	11879	1	0	next
+Picture		false_alarm	2	1517	1	211130	1	1611	1	0	next
+Picture		false_alarm	2	9028	1	212741	1	9046	216	0	next
+Picture		false_alarm	2	1692	1	246967	1	1812	1	0	next
+Picture		false_alarm	2	44610	1	248779	1	44696	1	0	next
+Picture		false_alarm	2	6095	1	293475	1	6241	1	0	next
+Picture		false_alarm	2	8224	1	369779	1	8241	216	0	next
+Picture		false_alarm	2	17608	216	378020	216	17731	216	0	next
+Picture		false_alarm	2	3059	1	465815	1	3221	1	0	next
+Picture		other				478297	1	20133	1	0	next
+Picture		false_alarm	2	10184	1	526415	1	20133	1	0	next
+Picture		other				575742	1	20133	1	0	next
+Picture		other				629296	1	20133	1	0	next
+Picture		other				678219	1	20133	1	0	next

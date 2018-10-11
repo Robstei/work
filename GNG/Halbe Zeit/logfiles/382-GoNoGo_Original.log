@@ -1,0 +1,12 @@
+Scenario - GoNoGo_Original
+Logfile written - 04/06/2018 11:01:49
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+382	0	Text Input	382	13364	13364	0
+382	0	Text Input	1	22854	22854	0
+382	1	Response	1	673576	650593	0
+382	1	Response	1	689550	666568	0
+382	1	Response	1	708667	685684	0
+382	1	Response	1	716964	693982	0
+382	1	Quit		723020	700037	NA

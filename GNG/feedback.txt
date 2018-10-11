@@ -1,0 +1,27 @@
+stimulus_data last = stimulus_manager.last_stimulus_data();
+			
+			bool correct = false;
+			int last_rt = 0;
+		
+			last_rt = last.reaction_time();			
+			if last_rt == 0 && !target then
+				correct = true;
+			elseif last_rt != 0 && target then
+				correct = true;
+			end;
+			
+			#term.print_line(string(last_rt) +   + string(target) +   + string(correct) +   + string(i) +   + string(stimulus_manager.stimulus_count()));
+			if block_with_circles[i] != 5
+			then
+				if correct
+				then
+					box_feedback.set_color(0,255,0);
+				else
+					box_feedback.set_color(255,0,0);
+				end;
+			end;
+			se_sound.set_stimulus(new nothing());
+			se_sound.set_target_button(0);
+			#trial_main.present();
+			circle.set_color(0,0,0,0);
+			circle.redraw();

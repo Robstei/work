@@ -1,0 +1,187 @@
+Scenario - GoNoGo_Modifiziert
+Logfile written - 01/30/2018 14:07:23
+
+Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+0	Text Input	vp01	77225	77225	0
+0	Text Input	1	93633	93633	0
+1	Response	2	114747	20792	0
+2	Response	2	129583	14690	0
+3	Response	2	142355	12563	0
+4	Response	2	155204	245	0
+5	Response	2	160586	5225	0
+6	Response	2	165093	4296	0
+6	Response	2	167537	6740	0
+6	Response	2	171808	11011	0
+6	Response	2	182434	21637	0
+7	Response	2	191948	5984	0
+8	Response	2	196537	4533	0
+9	Response	2	204382	7748	0
+9	Response	2	212704	16070	0
+9	Response	2	217134	20500	0
+10	Response	2	223154	1353	0
+11	Response	2	227743	4533	0
+12	Response	2	231219	3379	0
+12	Response	2	234061	6220	0
+12	Response	2	239364	11524	0
+12	Response	2	245860	18020	0
+13	Response	2	261415	8408	0
+14	Response	2	291910	30477	0
+15	Response	2	307306	15240	0
+16	Response	2	317934	10567	0
+16	Response	2	344444	37078	0
+16	Response	2	357928	50561	0
+17	Response	2	388969	11539	0
+18	Response	2	394114	5007	0
+19	Response	2	405217	11077	0
+19	Response	2	413541	19401	0
+19	Response	2	420434	26294	0
+19	Response	2	429708	35568	0
+19	Response	2	437553	43413	0
+19	Response	2	448022	53882	0
+19	Response	2	455946	61805	0
+19	Response	2	459818	65678	0
+20	Response	2	467503	3300	0
+61	Response	2	930426	18864	0
+62	Response	2	992005	61519	0
+63	Response	2	1017901	17351	0
+64	Response	2	1026387	8321	0
+65	Response	2	1043618	17097	0
+65	Response	2	1055206	28684	0
+65	Response	2	1069653	43132	0
+65	Response	2	1086406	59885	0
+66	Response	2	1108242	11657	0
+68	Response	2	1120539	4425	0
+107	Response	2	1555167	9412	0
+108	Response	2	1562299	7109	0
+109	Response	2	1618438	55972	0
+110	Response	2	1672461	39932	0
+111	Response	2	1707645	35051	0
+112	Response	2	1749112	41285	0
+113	Response	2	1785174	7284	0
+194	Response	2	3294500	626726	0
+195	Response	2	3313071	18552	0
+195	Response	2	3322983	28464	0
+195	Response	2	3335993	41474	0
+195	Response	2	3360845	66326	0
+196	Response	2	3379577	14994	0
+197	Response	2	3389330	9648	0
+198	Response	2	3457963	68617	0
+199	Response	2	3482179	22770	0
+271	Response	1	4257378	3516	0
+280	Response	2	4380920	16124	0
+281	Response	2	4407601	26497	0
+281	Response	2	4428244	47140	0
+282	Response	2	4452303	1135	0
+283	Response	2	4469525	17150	0
+284	Response	2	4495970	26280	0
+285	Response	2	4541401	1648	0
+335	Quit		5094956	5971	NA
+
+
+Event Type	Code	Type	Response	RT	RT Uncertainty	Time	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur
+
+Picture		false_alarm	2	20792	1	93955	1	20938	1	0	next
+Picture		false_alarm	2	14690	1	114894	1	14899	1	0	next
+Picture		false_alarm	2	245	1	154958	1	403	1	0	next
+Picture		false_alarm	2	5225	1	155361	1	5436	1	0	next
+Picture		false_alarm	2	5984	1	185963	1	6040	1	0	next
+Picture		false_alarm	2	4533	1	192003	1	4631	1	0	next
+Picture		false_alarm	2	1353	1	221800	1	1409	1	0	next
+Picture		false_alarm	2	4533	1	223210	1	4631	1	0	next
+Picture		false_alarm	2	8408	1	253007	1	8426	232	0	next
+Picture		false_alarm	2	30477	232	261433	232	30632	232	0	next
+Picture		false_alarm	2	15240	1	292065	1	15301	1	0	next
+Picture		false_alarm	2	11539	1	377430	1	11677	1	0	next
+Picture		false_alarm	2	5007	1	389107	1	5033	1	0	next
+Picture		false_alarm	2	3300	1	464203	1	3423	1	0	next
+Picture		other				477894	1	10067	1	0	next
+Picture		other				519972	1	10067	1	0	next
+Picture		other				564265	1	10067	1	0	next
+Picture		other				609363	1	10066	1	0	next
+Picture		other				649428	1	10067	1	0	next
+Picture		other				697546	1	10067	1	0	next
+Picture		other				748080	1	10067	1	0	next
+Picture		other				788951	1	10067	1	0	next
+Picture		other				833244	1	10067	1	0	next
+Picture		other				872705	1	10067	1	0	next
+Picture		false_alarm	2	18864	1	911562	1	18925	1	0	next
+Picture		false_alarm	2	17351	1	1000550	1	17516	1	0	next
+Picture		false_alarm	2	8321	1	1018066	1	8456	1	0	next
+Picture		false_alarm	2	11657	1	1096585	1	11677	1	0	next
+Picture		false_alarm	2	4425	1	1116114	1	10067	1	0	next
+Picture		other				1153159	1	10067	1	0	next
+Picture		other				1194432	1	10067	1	0	next
+Picture		other				1241544	1	10067	1	0	next
+Picture		other				1279998	1	10067	1	0	next
+Picture		other				1327915	1	10067	1	0	next
+Picture		other				1369993	1	10067	1	0	next
+Picture		other				1423144	1	10067	1	0	next
+Picture		other				1471867	1	10067	1	0	next
+Picture		other				1515757	1	10067	1	0	next
+Picture		false_alarm	2	9412	1	1545755	1	9435	230	0	next
+Picture		false_alarm	2	7109	230	1555190	230	7276	230	0	next
+Picture		false_alarm	2	39932	1	1632529	1	40065	1	0	next
+Picture		false_alarm	2	35051	1	1672594	1	35233	1	0	next
+Picture		false_alarm	2	7284	1	1777890	1	7449	1	0	next
+Picture		other				1792990	1	10067	1	0	next
+Picture		other				1840907	1	10067	1	0	next
+Picture		other				1886206	1	10067	1	0	next
+Picture		other				1924258	1	10067	1	0	next
+Picture		other				1964524	1	10067	1	0	next
+Picture		other				2012441	1	10067	1	0	next
+Picture		other				2060358	1	10067	1	0	next
+Picture		other				2113308	1	10067	1	0	next
+Picture		other				2163641	1	10067	1	0	next
+Picture		other				2203907	1	10067	1	0	next
+Picture		other				2244173	1	10067	1	0	next
+Picture		other				2284440	1	10067	1	0	next
+Picture		other				2329739	1	10067	1	0	next
+Picture		other				2367589	1	10067	1	0	next
+Picture		other				2402823	1	10067	1	0	next
+Picture		other				2440673	1	10067	1	0	next
+Picture		other				2493623	1	10067	1	0	next
+Picture		other				2534292	1	10067	1	0	next
+Picture		other				2579591	1	10067	1	0	next
+Picture		other				2632542	1	10067	1	0	next
+Picture		false_alarm	2	626726	1	2667775	1	626744	1	0	next
+Picture		false_alarm	2	14994	1	3364582	1	15100	1	0	next
+Picture		false_alarm	2	9648	1	3379682	1	9664	1	0	next
+Picture		false_alarm	2	22770	1	3459409	1	22952	1	0	next
+Picture		other				3497461	1	10067	1	0	next
+Picture		other				3530278	1	10067	1	0	next
+Picture		other				3580611	1	10067	1	0	next
+Picture		other				3620877	1	10067	1	0	next
+Picture		other				3668794	1	10067	1	0	next
+Picture		other				3719328	1	10067	1	0	next
+Picture		other				3762212	1	10067	1	0	next
+Picture		other				3810128	1	10067	1	0	next
+Picture		other				3863079	1	10067	1	0	next
+Picture		other				3900929	1	10067	1	0	next
+Picture		other				3936162	1	10067	1	0	next
+Picture		other				3968979	1	10067	1	0	next
+Picture		other				4019312	1	10067	1	0	next
+Picture		other				4064812	1	10067	1	0	next
+Picture		other				4120179	1	10067	1	0	next
+Picture		other				4163263	1	10067	1	0	next
+Picture		other				4203530	1	10067	1	0	next
+Picture		other				4238763	1	10067	1	0	next
+Picture		other				4286680	1	10067	1	0	next
+Picture		other				4334596	1	10067	1	0	next
+Picture		false_alarm	2	16124	1	4364796	1	16308	1	0	next
+Picture		false_alarm	2	1135	1	4451167	1	1208	1	0	next
+Picture		false_alarm	2	17150	1	4452375	1	17315	1	0	next
+Picture		false_alarm	2	1648	1	4539753	1	1812	1	0	next
+Picture		other				4554249	1	10067	1	0	next
+Picture		other				4602166	1	10067	1	0	next
+Picture		other				4642432	1	10067	1	0	next
+Picture		other				4692765	1	10067	1	0	next
+Picture		other				4733232	1	10067	1	0	next
+Picture		other				4776116	1	10067	1	0	next
+Picture		other				4813966	1	10067	1	0	next
+Picture		other				4866916	1	10067	1	0	next
+Picture		other				4919867	1	10067	1	0	next
+Picture		other				4975233	1	10067	1	0	next
+Picture		other				5015700	1	10067	1	0	next
+Picture		other				5048517	1	10067	1	0	next
+Picture		other				5088985	1	10616	1	0	next

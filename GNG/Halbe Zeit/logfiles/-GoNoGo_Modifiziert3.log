@@ -1,0 +1,39 @@
+Scenario - GoNoGo_Modifiziert
+Logfile written - 01/30/2018 11:57:36
+
+Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+0	Text Input	test01	31411	31411	0
+0	Text Input	1	42065	42065	0
+1	Response	2	51742	9530	0
+2	Response	2	62138	10261	0
+4	Response	2	98230	10717	0
+5	Response	2	112442	14058	0
+6	Response	2	132834	20375	0
+7	Response	2	148873	11229	0
+8	Response	2	160064	11173	0
+9	Response	2	179603	19410	0
+10	Response	2	195883	10523	0
+11	Response	2	216055	20025	0
+12	Response	2	235676	19512	0
+13	Response	2	257120	15790	0
+14	Response	2	273559	16324	0
+15	Response	2	327607	53863	0
+16	Response	2	371554	43853	0
+16	Response	2	383780	56079	0
+16	Quit		397157	69456	NA
+
+
+Event Type	Code	Type	Response	RT	RT Uncertainty	Time	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur
+
+Picture		false_alarm	2	9530	1	42213	1	9664	1	0	next
+Picture		false_alarm	2	10261	1	51877	1	10469	1	0	next
+Picture		false_alarm	2	10717	1	87513	1	10872	1	0	next
+Picture		false_alarm	2	14058	1	98384	1	14075	221	0	next
+Picture		false_alarm	2	11229	1	137644	1	11246	230	0	next
+Picture		false_alarm	2	11173	230	148891	230	11303	230	0	next
+Picture		false_alarm	2	10523	1	185360	1	10671	1	0	next
+Picture		false_alarm	2	20025	1	196030	1	20133	1	0	next
+Picture		false_alarm	2	15790	1	241330	1	15905	1	0	next
+Picture		false_alarm	2	16324	1	257235	1	16509	1	0	next
+Picture		false_alarm	2	53863	1	273744	1	53957	1	0	next
