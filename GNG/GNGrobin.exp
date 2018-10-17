@@ -1,5 +1,5 @@
 <ver>20.1</ver>
-<efn>C:\Praxisprojekt\GNG\GNGrobin.exp</efn>
+<efn>C:\work\GNG\GNGrobin.exp</efn>
 <author></author>
 <con>
 <pause>P</pause>
@@ -40,10 +40,10 @@
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\Praxisprojekt\GNG\stimuli</dsd>
+<dsd>C:\work\GNG\stimuli</dsd>
 <dxv>8</dxv>
 <efs>
-<filename>C:\Praxisprojekt\GNG\GNGrobin.sce</filename>
+<filename>C:\work\GNG\GNGrobin.sce</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -118,7 +118,7 @@
 <idt>0</idt>
 <ilc>0</ilc>
 <ip_chans></ip_chans>
-<lfd>C:\Praxisprojekt\GNG\logfiles</lfd>
+<lfd>C:\work\GNG\logfiles</lfd>
 <lnb>2</lnb>
 <lno>4</lno>
 <log>
@@ -152,25 +152,7 @@
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
 <plat>1</plat>
-<port_devices>
-<device>
-<parameters>
-<cts>0</cts>
-<dsrin>0</dsrin>
-<dsrout>0</dsrout>
-<dtr>disable</dtr>
-<rts>disable</rts>
-<set_fifo>1</set_fifo>
-<spd></spd>
-<spp></spp>
-<spr></spr>
-<sps></sps>
-</parameters>
-<piai>COM1</piai>
-<pian>Serial Port</pian>
-<pihpn>COM1</pihpn>
-</device>
-</port_devices>
+<port_devices></port_devices>
 <rdl>
 <device>
 <abs_axis>
@@ -222,7 +204,7 @@
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device</name>
+<name>Standard PS/2 Keyboard</name>
 </device>
 <device>
 <abs_axis>
@@ -264,22 +246,12 @@
 <dx_device_type>0</dx_device_type>
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
-<name>HID-compliant mouse</name>
+<name>Synaptics Pointing Device</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>HyperX 7.1 Audio</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte 1</name>
+<name>Lenovo HID Mini-driver for Hardware Radio Switch</name>
 </device>
 <device>
 <axis>
@@ -587,7 +559,7 @@
 <require_name_match>0</require_name_match>
 <reschg>1</reschg>
 <rng>1</rng>
-<rts>0</rts>
+<rts>1</rts>
 <sce>
 <overrides></overrides>
 <sfn>all_scenarios</sfn>
@@ -607,7 +579,7 @@
 <offset>57</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\Praxisprojekt\GNG\GNGrobin.sce</sfn>
+<sfn>C:\work\GNG\GNGrobin.sce</sfn>
 </sce>
 <sct>
 <capture_device>
@@ -653,13 +625,13 @@
 <use_rewind_distance>0</use_rewind_distance>
 </sde>
 <sdv>Primärer Soundtreiber</sdv>
-<show_dis>1</show_dis>
-<show_parm>1</show_parm>
+<show_dis>0</show_dis>
+<show_parm>0</show_parm>
 <show_term>1</show_term>
 <smc>2</smc>
 <smd>16</smd>
 <smr>44100</smr>
-<srs>0</srs>
+<srs>1</srs>
 <sse>
 <s>
 <a></a>

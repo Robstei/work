@@ -43,31 +43,75 @@ array{
 		sound { wavefile { filename = "sounds/original/Tacker.wav"; };attenuation = 0.05;}sound4;
 		}soundarray;
 				
+		box {color = 0,0,0; height = 400; width = 600;} box_feedback;
+		box {height = 380; width = 580;} box_feedback_inner;
+		
 		trial {
 			trial_type = first_response;
 			
 			stimulus_event {
-					nothing {};
-			} se_sound;
 				
+				picture {
+					box {color = 0,0,0; height = 400; width = 600;};
+					x=0;y=0;
+					box {height = 380; width = 580;};
+					x=0;y=0;
+				};
+			response_active = true;
+			code = "sound";
+			
+			} se_sound_box;
+			
+			stimulus_event {
+				sound { wavefile { filename = "sounds/original/Kugelschreiber.wav"; };
+							attenuation = 1;};
+			} se_sound;
+			
+		} trial_sound;
+		
+		trial {
+			trial_duration = 300;
 			stimulus_event {
 				picture {
-					box {color = 0,0,0; height = 400; width = 600;} box_feedback;
-					x = 0; y = 0;
-					box {height = 380; width = 580;};
-					x = 0; y = 0;
+					box box_feedback;
+					x=0;y=0;
+					
+					box box_feedback_inner;
+					x=0;y=0;
+					
 					ellipse_graphic {
 						height = 300;
 						width = 300;
 						ellipse_height = 300;
 						ellipse_width= 300;
-						color = 0,0,0,0;
-				} circle;
-				x=0;y=0;
-				} picture_visuell;
-			} se_visuell;
-				
-		} trial_main;
+						color = 0,0,0,255;
+					} circle;
+					x=0;y=0;
+				};
+			response_active = true;
+			code = "circle";
+
+			} se_circle;
+		} trial_circle;
+		
+		trial {
+			trial_type = specific_response;
+			terminator_button = 1;
+			trial_duration = 100;
+			
+			stimulus_event {
+				picture {
+					box box_feedback;
+					x=0;y=0;
+					
+					box box_feedback_inner;
+					x=0;y=0;
+				};
+			response_active = true;
+			code = "feedback";
+			} se_feedback_box;
+			
+		} trial_feedback;
 		
 begin_pcl;
 
@@ -76,6 +120,7 @@ array <int> fixArray[20];
 int size_with_circles;
 array<int> block_with_circles[0];
 array <int> added_iti_array[20];
+array <int> added_fix_array[20];
 array <int> start_time_array[0];
 
 
@@ -154,24 +199,37 @@ sub randomizeTiming
 			added_iti_array[i] = added_iti;
 			i = i + 1;
 		end;
+		
+		loop int i = 1
+		until i > fixArray.count()
+		begin
+			int added_fix = 0;
+			loop int j = 1
+			until j > i 
+			begin
+				added_fix = added_fix + fixArray[j];
+				j = j + 1;
+			end;
+			added_fix_array[i] = added_fix;
+			i = i + 1;
+		end;
 			
-		loop int i = 1; 	int sound_index = 0;
+		loop int i = 1; 	int sound_index = 1;
 		until i > size_with_circles
 		begin
 		int tmp_starttime = 0;
 			if block_with_circles[i] != 5
 			then
-				tmp_starttime = added_iti_array[sound_index + 1] + 2000 * (sound_index);
+				tmp_starttime = added_iti_array[sound_index] + added_fix_array[sound_index] + 2500 * (sound_index - 1) ;
 				sound_index = sound_index + 1;
-			elseif sound_index == 0
-			then
-				tmp_starttime = 0
-			elseif sound_index == added_iti_array.count() - 1
-			then
-				tmp_starttime = random(added_iti_array[added_iti_array.count()] + 300, added_iti_array[added_iti_array.count()] + 1700);
 			else
-				tmp_starttime = random(added_iti_array[sound_index] + 300, added_iti_array[sound_index + 1] - 300) + 2000 * (sound_index);
+				int tmp_trial_before = added_iti_array[sound_index - 1] + added_fix_array[sound_index - 1] + (sound_index - 2) * 2500;
+				int tmp_trial_after = added_iti_array[sound_index] + added_fix_array[sound_index] + (sound_index - 1) * 2500;
+				#term.print_line("before:" + string(tmp_trial_before));
+				#term.print_line("after:" + string(tmp_trial_after));
+				tmp_starttime = random(tmp_trial_before + 300, tmp_trial_after - 300);
 			end;
+		#term.print_line( "st " + string(tmp_starttime) + " " + string(block_with_circles[i]) + " ");
 		start_time_array.add(tmp_starttime);
 		i = i + 1;
 		end;
@@ -191,7 +249,11 @@ sub randomizeTiming
 			loop int j = 1
 			until j > circle_positions.count()
 			begin
-				if candidate == circle_positions[j] || candidate == 1 || candidate == size_with_circles
+				if candidate == circle_positions[j] || 
+					candidate == 1 || 
+					candidate == size_with_circles ||
+					candidate == circle_positions[j] + 1 ||
+					candidate == circle_positions[j] -1
 				then
 					valid = false;
 				end;
@@ -234,14 +296,9 @@ sub randomizeTiming
 		make_start_time_array();
 		bool target;
 		
-		
 		loop int i = 1
 		until i > size_with_circles
-		begin 
-			
-			
-		se_sound.set_response_active(true);
-		se_visuell.set_response_active(false);
+		begin
 		
 			if block_with_circles[i] == 1
 			then
@@ -259,31 +316,48 @@ sub randomizeTiming
 			then
 				se_sound.set_stimulus(sound4);
 				target = false;
+			end;
+			if block_with_circles[i] != 5
+			then
+				trial_sound.set_start_time(start_time_array[i]);
+				trial_sound.present();
 			elseif block_with_circles[i] == 5
 			then
-				se_sound.set_response_active(false);
-				se_visuell.set_response_active(true);
-				sound tmp_sound = sound(se_sound.get_stimulus());
-				tmp_sound.set_attenuation(1);
-				circle.set_color(0,0,0,255);
-				circle.redraw();
+				trial_circle.set_start_time(start_time_array[i]);
+				trial_circle.present();
 			end;
-			
-			trial_main.set_start_time(start_time_array[i]);
-			circle.redraw();
-			trial_main.present();
-			sound tmp_sound = sound(se_sound.get_stimulus());
-			tmp_sound.set_attenuation(0.05);
-			circle.set_color(0,0,0,0);
-			
-			i = i + 1;
-			
+			bool time_for_next_stimuli = false;
+			loop 
+			until time_for_next_stimuli
+			begin
+				int clock_time = clock.time();
+				if i < size_with_circles
+				then
+					if start_time_array[i+1] - clock_time > 200 
+					then
+						#trial_feedback.set_duration(start_time_array[i+1] - clock_time);
+						trial_feedback.present();
+					end;
+				end;
+				if i == size_with_circles
+				then
+					time_for_next_stimuli = true;
+				elseif clock_time > start_time_array[i+1]
+				then
+					time_for_next_stimuli = true;
+				end;
+			end;
+			i = i + 1;	
 		end;
 	end;
 	
 	array<int> bla[5] = {2,1,3,4,1};
 	make_block(bla,3);
 	present_trials();
+	term.print_line(added_iti_array);
+	term.print_line(added_fix_array);
+	term.print_line(start_time_array);
+	term.print_line(block_with_circles);
 	loop int bolo = 1 
 	until bolo > stimulus_manager.stimulus_count()
 	begin
@@ -293,7 +367,8 @@ sub randomizeTiming
 		re.stimulus_type() + " " +
 		string(re.type()) + " " +
 		string(re.button()) + " " +
+		re.event_code() + " " +
+		string(re.time()) + " " +
 		string(bolo));
 		bolo = bolo + 1;
 	end;
-	

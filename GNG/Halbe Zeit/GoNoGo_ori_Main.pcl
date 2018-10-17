@@ -236,7 +236,7 @@
 				end;
 			end;
 			
-			#fixationCross.present();
+			fixationCross.present();
 			if actualStimulus == 1 then
 				playSound1.present();
 				stim1count = stim1count + 1;
