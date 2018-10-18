@@ -106,7 +106,7 @@ array{
 					
 					box box_feedback_inner;
 					x=0;y=0;
-				};
+				} picture_feedback;
 			response_active = true;
 			code = "feedback";
 			} se_feedback_box;
@@ -311,16 +311,18 @@ sub randomizeTiming
 			elseif block_with_circles[i] == 3
 			then
 				se_sound.set_stimulus(sound3);
-				target = false;
+				target = true;
 			elseif block_with_circles[i] == 4
 			then
 				se_sound.set_stimulus(sound4);
-				target = false;
+				target = true;
 			end;
 			if block_with_circles[i] != 5
 			then
 				trial_sound.set_start_time(start_time_array[i]);
 				trial_sound.present();
+				box_feedback.set_color(0,0,0);
+				
 			elseif block_with_circles[i] == 5
 			then
 				trial_circle.set_start_time(start_time_array[i]);
@@ -339,12 +341,36 @@ sub randomizeTiming
 						trial_feedback.present();
 					end;
 				end;
-				if i == size_with_circles
+				
+				int last_response = response_manager.last_response();
+				bool correct;
+				if clock.time() > (start_time_array[i] + 2000)
 				then
-					time_for_next_stimuli = true;
-				elseif clock_time > start_time_array[i+1]
+					if target
+					then
+						correct = false;
+					elseif !target
+					then
+						correct = true;
+					end;
+				end;
+				
+				if last_response == 1 && target
 				then
+					correct = true;
 					time_for_next_stimuli = true;
+				elseif last_response == 1 && !target
+				then
+					correct = false;
+					time_for_next_stimuli = true;
+				end;
+				
+				if correct
+				then
+					box_feedback.set_color(0,255,0);
+				elseif !correct
+				then
+					box_feedback.set_color(0,255,0);
 				end;
 			end;
 			i = i + 1;	
@@ -352,8 +378,11 @@ sub randomizeTiming
 	end;
 	
 	array<int> bla[5] = {2,1,3,4,1};
-	make_block(bla,3);
+	term.print_line("flag 1");
+	make_block(bla,0);
+	term.print_line("flag 2");
 	present_trials();
+	term.print_line("flag 3");
 	term.print_line(added_iti_array);
 	term.print_line(added_fix_array);
 	term.print_line(start_time_array);
@@ -372,3 +401,4 @@ sub randomizeTiming
 		string(bolo));
 		bolo = bolo + 1;
 	end;
+	term.print_line("flag 4");
