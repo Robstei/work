@@ -4,7 +4,6 @@
 	default_background_color =242,242,242;
 	default_text_color = 0,0,0;
 	active_buttons = 2;
-	response_logging = log_active;
 	response_matching = simple_matching;
 
 begin;
@@ -47,7 +46,8 @@ array{
 		box {height = 380; width = 580;} box_feedback_inner;
 		
 		trial {
-			trial_type = first_response;
+			trial_type = fixed;
+			trial_duration = stimuli_length;
 			
 			stimulus_event {
 				
@@ -58,13 +58,18 @@ array{
 					x=0;y=0;
 				};
 			response_active = true;
-			code = "sound";
 			
 			} se_sound_box;
 			
 			stimulus_event {
-				sound { wavefile { filename = "sounds/original/Kugelschreiber.wav"; };
-							attenuation = 1;};
+				sound { 
+					wavefile {
+						filename = "sounds/original/Kugelschreiber.wav"; 
+					};
+					attenuation = 1;
+				};
+				target_button = 1;
+				stimulus_time_out = 2000;
 			} se_sound;
 			
 		} trial_sound;
@@ -88,15 +93,12 @@ array{
 					} circle;
 					x=0;y=0;
 				};
-			response_active = true;
-			code = "circle";
 
 			} se_circle;
 		} trial_circle;
 		
 		trial {
-			trial_type = specific_response;
-			terminator_button = 1;
+			trial_type = fixed;
 			trial_duration = 100;
 			
 			stimulus_event {
@@ -107,8 +109,7 @@ array{
 					box box_feedback_inner;
 					x=0;y=0;
 				};
-			response_active = true;
-			code = "feedback";
+			#code = "feedback";
 			} se_feedback_box;
 			
 		} trial_feedback;
@@ -122,6 +123,7 @@ array<int> block_with_circles[0];
 array <int> added_iti_array[20];
 array <int> added_fix_array[20];
 array <int> start_time_array[0];
+response_manager.set_button_active(2, false);
 
 
 sub randomizeTiming
@@ -294,7 +296,6 @@ sub randomizeTiming
 	begin
 		randomizeTiming();
 		make_start_time_array();
-		bool target;
 		
 		loop int i = 1
 		until i > size_with_circles
@@ -303,23 +304,21 @@ sub randomizeTiming
 			if block_with_circles[i] == 1
 			then
 				se_sound.set_stimulus(sound1);
-				target = true;
 			elseif block_with_circles[i] == 2
 			then
 				se_sound.set_stimulus(sound2);
-				target = true;
 			elseif block_with_circles[i] == 3
 			then
 				se_sound.set_stimulus(sound3);
-				target = false;
 			elseif block_with_circles[i] == 4
 			then
 				se_sound.set_stimulus(sound4);
-				target = false;
 			end;
 			if block_with_circles[i] != 5
 			then
 				trial_sound.set_start_time(start_time_array[i]);
+				se_sound.set_target_button(1);
+				term.print(se_sound.response_active());
 				trial_sound.present();
 			elseif block_with_circles[i] == 5
 			then
@@ -351,8 +350,8 @@ sub randomizeTiming
 		end;
 	end;
 	
-	array<int> bla[5] = {2,1,3,4,1};
-	make_block(bla,3);
+	array<int> bla[2] = {1,2};
+	make_block(bla,0);
 	present_trials();
 	term.print_line(added_iti_array);
 	term.print_line(added_fix_array);
@@ -372,3 +371,5 @@ sub randomizeTiming
 		string(bolo));
 		bolo = bolo + 1;
 	end;
+	
+	term.print_line(string(stimulus_manager.stimulus_count()));
