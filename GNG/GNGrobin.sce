@@ -108,8 +108,14 @@ array{
 					
 					box box_feedback_inner;
 					x=0;y=0;
+<<<<<<< HEAD
 				};
 			#code = "feedback";
+=======
+				} picture_feedback;
+			response_active = true;
+			code = "feedback";
+>>>>>>> 8fe9034c1a0b195cdf653c3c77a051063dfe2bcc
 			} se_feedback_box;
 			
 		} trial_feedback;
@@ -310,9 +316,17 @@ sub randomizeTiming
 			elseif block_with_circles[i] == 3
 			then
 				se_sound.set_stimulus(sound3);
+<<<<<<< HEAD
 			elseif block_with_circles[i] == 4
 			then
 				se_sound.set_stimulus(sound4);
+=======
+				target = true;
+			elseif block_with_circles[i] == 4
+			then
+				se_sound.set_stimulus(sound4);
+				target = true;
+>>>>>>> 8fe9034c1a0b195cdf653c3c77a051063dfe2bcc
 			end;
 			if block_with_circles[i] != 5
 			then
@@ -320,6 +334,8 @@ sub randomizeTiming
 				se_sound.set_target_button(1);
 				term.print(se_sound.response_active());
 				trial_sound.present();
+				box_feedback.set_color(0,0,0);
+				
 			elseif block_with_circles[i] == 5
 			then
 				trial_circle.set_start_time(start_time_array[i]);
@@ -338,21 +354,53 @@ sub randomizeTiming
 						trial_feedback.present();
 					end;
 				end;
-				if i == size_with_circles
+				
+				int last_response = response_manager.last_response();
+				bool correct;
+				if clock.time() > (start_time_array[i] + 2000)
 				then
-					time_for_next_stimuli = true;
-				elseif clock_time > start_time_array[i+1]
+					if target
+					then
+						correct = false;
+					elseif !target
+					then
+						correct = true;
+					end;
+				end;
+				
+				if last_response == 1 && target
 				then
+					correct = true;
 					time_for_next_stimuli = true;
+				elseif last_response == 1 && !target
+				then
+					correct = false;
+					time_for_next_stimuli = true;
+				end;
+				
+				if correct
+				then
+					box_feedback.set_color(0,255,0);
+				elseif !correct
+				then
+					box_feedback.set_color(0,255,0);
 				end;
 			end;
 			i = i + 1;	
 		end;
 	end;
 	
+<<<<<<< HEAD
 	array<int> bla[2] = {1,2};
 	make_block(bla,0);
+=======
+	array<int> bla[5] = {2,1,3,4,1};
+	term.print_line("flag 1");
+	make_block(bla,0);
+	term.print_line("flag 2");
+>>>>>>> 8fe9034c1a0b195cdf653c3c77a051063dfe2bcc
 	present_trials();
+	term.print_line("flag 3");
 	term.print_line(added_iti_array);
 	term.print_line(added_fix_array);
 	term.print_line(start_time_array);
@@ -371,5 +419,9 @@ sub randomizeTiming
 		string(bolo));
 		bolo = bolo + 1;
 	end;
+<<<<<<< HEAD
 	
 	term.print_line(string(stimulus_manager.stimulus_count()));
+=======
+	term.print_line("flag 4");
+>>>>>>> 8fe9034c1a0b195cdf653c3c77a051063dfe2bcc
