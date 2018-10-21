@@ -5,6 +5,8 @@
 	default_text_color = 0,0,0;
 	active_buttons = 2;
 	response_matching = simple_matching;
+	default_clear_active_stimuli = false;
+
 
 begin;
 	
@@ -48,6 +50,7 @@ array{
 		trial {
 			trial_type = fixed;
 			trial_duration = stimuli_length;
+			clear_active_stimuli = false;
 			
 			stimulus_event {
 				
@@ -57,7 +60,6 @@ array{
 					box {height = 380; width = 580;};
 					x=0;y=0;
 				};
-			response_active = true;
 			
 			} se_sound_box;
 			
@@ -68,6 +70,7 @@ array{
 					};
 					attenuation = 1;
 				};
+				code = "sound";
 				target_button = 1;
 				stimulus_time_out = 2000;
 			} se_sound;
@@ -76,6 +79,8 @@ array{
 		
 		trial {
 			trial_duration = 300;
+			clear_active_stimuli = false;
+			
 			stimulus_event {
 				picture {
 					box box_feedback;
@@ -100,6 +105,7 @@ array{
 		trial {
 			trial_type = fixed;
 			trial_duration = 100;
+			clear_active_stimuli = false;
 			
 			stimulus_event {
 				picture {
@@ -108,14 +114,8 @@ array{
 					
 					box box_feedback_inner;
 					x=0;y=0;
-<<<<<<< HEAD
-				};
-			#code = "feedback";
-=======
+
 				} picture_feedback;
-			response_active = true;
-			code = "feedback";
->>>>>>> 8fe9034c1a0b195cdf653c3c77a051063dfe2bcc
 			} se_feedback_box;
 			
 		} trial_feedback;
@@ -302,11 +302,11 @@ sub randomizeTiming
 	begin
 		randomizeTiming();
 		make_start_time_array();
+		int last_picture_number = 0;
 		
 		loop int i = 1
 		until i > size_with_circles
 		begin
-		
 			if block_with_circles[i] == 1
 			then
 				se_sound.set_stimulus(sound1);
@@ -316,90 +316,61 @@ sub randomizeTiming
 			elseif block_with_circles[i] == 3
 			then
 				se_sound.set_stimulus(sound3);
-<<<<<<< HEAD
 			elseif block_with_circles[i] == 4
 			then
 				se_sound.set_stimulus(sound4);
-=======
-				target = true;
-			elseif block_with_circles[i] == 4
-			then
-				se_sound.set_stimulus(sound4);
-				target = true;
->>>>>>> 8fe9034c1a0b195cdf653c3c77a051063dfe2bcc
 			end;
+			
 			if block_with_circles[i] != 5
 			then
 				trial_sound.set_start_time(start_time_array[i]);
-				se_sound.set_target_button(1);
-				term.print(se_sound.response_active());
 				trial_sound.present();
-				box_feedback.set_color(0,0,0);
+				last_picture_number = last_picture_number + 1;
 				
 			elseif block_with_circles[i] == 5
 			then
 				trial_circle.set_start_time(start_time_array[i]);
 				trial_circle.present();
 			end;
-			bool time_for_next_stimuli = false;
-			loop 
+			
+			loop bool time_for_next_stimuli;
 			until time_for_next_stimuli
 			begin
-				int clock_time = clock.time();
-				if i < size_with_circles
+				if stimulus_manager.stimulus_count() == last_picture_number
 				then
-					if start_time_array[i+1] - clock_time > 200 
+					stimulus_data last = stimulus_manager.get_stimulus_data(last_picture_number);
+					if last.type() == last.HIT
+					then
+						box_feedback.set_color(0,255,0);
+					elseif last.type() == last.MISS || last.type() == last.FALSE_ALARM
+					then
+						box_feedback.set_color(255,0,0);
+					end;
+				end;
+				if i < start_time_array.count()
+				then
+					if start_time_array[i+1] - clock.time() > 100 
 					then
 						#trial_feedback.set_duration(start_time_array[i+1] - clock_time);
 						trial_feedback.present();
+					else
+						time_for_next_stimuli = true;
 					end;
-				end;
-				
-				int last_response = response_manager.last_response();
-				bool correct;
-				if clock.time() > (start_time_array[i] + 2000)
-				then
-					if target
-					then
-						correct = false;
-					elseif !target
-					then
-						correct = true;
-					end;
-				end;
-				
-				if last_response == 1 && target
-				then
-					correct = true;
+				else
+					trial_feedback.present();
 					time_for_next_stimuli = true;
-				elseif last_response == 1 && !target
-				then
-					correct = false;
-					time_for_next_stimuli = true;
-				end;
-				
-				if correct
-				then
-					box_feedback.set_color(0,255,0);
-				elseif !correct
-				then
-					box_feedback.set_color(0,255,0);
 				end;
 			end;
+			box_feedback.set_color(0,0,0);
 			i = i + 1;	
 		end;
 	end;
 	
-<<<<<<< HEAD
-	array<int> bla[2] = {1,2};
+
+	array<int> bla[4] = {2,1,3,4};
 	make_block(bla,0);
-=======
-	array<int> bla[5] = {2,1,3,4,1};
-	term.print_line("flag 1");
-	make_block(bla,0);
-	term.print_line("flag 2");
->>>>>>> 8fe9034c1a0b195cdf653c3c77a051063dfe2bcc
 	present_trials();
+
 	term.print_line("flag 3");
 	term.print_line(added_iti_array);
 	term.print_line(added_fix_array);
@@ -419,9 +390,6 @@ sub randomizeTiming
 		string(bolo));
 		bolo = bolo + 1;
 	end;
-<<<<<<< HEAD
+
 	
 	term.print_line(string(stimulus_manager.stimulus_count()));
-=======
-	term.print_line("flag 4");
->>>>>>> 8fe9034c1a0b195cdf653c3c77a051063dfe2bcc
