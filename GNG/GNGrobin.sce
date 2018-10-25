@@ -184,43 +184,43 @@ begin;
 ### INSTRUCTIONS ###
 
 #--  PARTICIPANT PAGE  --#
-		trial {
-		stimulus_event {
-			picture {
-				#background_color = 255,255,255;
-				 text {
-					caption = "Bitte tun sie irgendwas!"; 
-					} inputPageText;
-					x = 0;
-					y = 0;     
-				  
-				  text {
-					caption = " "; 
-					font_color = 0,0,0; 
-					background_color = 150,150,150;
-					height = 30;
-					width = 120;
-					} input;
-					x = 0;
-					y = -30;   
-			} exp_eingabe;
-			duration = response;
-			}participantEvent;
-		}inputPage; 
-	#-- /PARTICIPANT PAGE  --#
-	
-		
-#--  SPACE PAGE  --#
 	trial {
-		trial_duration = forever;
-		trial_type = specific_response;    	
-		terminator_button = 2; 
-		stimulus_event {
-			picture {
-				text {caption ="Bitte tun sie irgendwas!";}spacePageText;
-			x = 0; y = 0;};
-		};
-	}spacePage; 
+	stimulus_event {
+		picture {
+			#background_color = 255,255,255;
+			 text {
+				caption = "Bitte tun sie irgendwas!"; 
+				} inputPageText;
+				x = 0;
+				y = 0;     
+			  
+			  text {
+				caption = " "; 
+				font_color = 0,0,0; 
+				background_color = 150,150,150;
+				height = 30;
+				width = 120;
+				} input;
+				x = 0;
+				y = -30;   
+		} exp_eingabe;
+		duration = response;
+		}participantEvent;
+	}inputPage; 
+#-- /PARTICIPANT PAGE  --#
+
+	
+#--  SPACE PAGE  --#
+trial {
+	trial_duration = forever;
+	trial_type = specific_response;    	
+	terminator_button = 2; 
+	stimulus_event {
+		picture {
+			text {caption ="Bitte tun sie irgendwas!";}spacePageText;
+		x = 0; y = 0;};
+	};
+}spacePage; 
 #-- /SPACE PAGE  --#
 
 begin_pcl;
@@ -229,78 +229,86 @@ array <int> itiArray[12];
 array <int> fixArray[12];
 int size_with_circles;
 array<int> block_with_circles[0];
+array<int> blockConditions[4];
 array <int> added_iti_array[12];
 array <int> added_fix_array[12];
 array <int> start_time_array[0];
-array<int> all_orders_without_circles[4][0];
+array<int> all_orders_without_circles[4][12];
 
 string vpCode = "";
 int experimentGroup = 0;
+int last_picture_number = 0;
 
 response_manager.set_button_active(2, false);
 
 #--  SHOW PARTICIPANT PAGE  --#
-		#first page where the experimenteer is supposed to insert the participant number
-		sub showInputPage (int condition)	
-		begin				
-			#response_data feedback; 
-			if condition == 1 then
-				loop
-					bool correctInput = false
-				until
-					correctInput == true
-				begin
-					inputPageText.set_caption("Bitte Versuchspersonencode eingeben:");
-					inputPageText.redraw();
-					vpCode = system_keyboard.get_input( exp_eingabe, input );
-					if vpCode != "" then
-						correctInput = true;
-					else
-						spacePageText.set_caption("ERROR!\n\nBitte geben Sie einen Code an!\nDrücken Sie Leertaste um fortzufahren.");
-						spacePageText.redraw();
-						spacePage.present();
-					end;
+	#first page where the experimenteer is supposed to insert the participant number
+	sub showInputPage (int condition)	
+	begin				
+		#response_data feedback; 
+		if condition == 1 then
+			loop
+				bool correctInput = false
+			until
+				correctInput == true
+			begin
+				inputPageText.set_caption("Bitte Versuchspersonencode eingeben:");
+				inputPageText.redraw();
+				vpCode = system_keyboard.get_input( exp_eingabe, input );
+				if vpCode != "" then
+					correctInput = true;
+				else
+					spacePageText.set_caption("ERROR!\n\nBitte geben Sie einen Code an!\nDrücken Sie Leertaste um fortzufahren.");
+					spacePageText.redraw();
+					spacePage.present();
 				end;
-			elseif condition == 2 then
-				loop
-					bool correctInput = false
-				until
-					correctInput == true
-				begin
-					inputPageText.set_caption("Bitte Gruppe eingeben (1 oder 2):");
-					inputPageText.redraw();
-					string group = system_keyboard.get_input( exp_eingabe, input );
-					
-					if group == "1" || group == "2" then
-						experimentGroup = int(group);
-						correctInput = true;
-					else
-						spacePageText.set_caption("ERROR!\n\nBitte eine zulässige Gruppe eingeben!\nDrücken Sie Leertaste um fortzufahren.");
-						spacePageText.redraw();
-						spacePage.present();
-					end;
+			end;
+		elseif condition == 2 then
+			loop
+				bool correctInput = false
+			until
+				correctInput == true
+			begin
+				inputPageText.set_caption("Bitte Gruppe eingeben (1 oder 2):");
+				inputPageText.redraw();
+				string group = system_keyboard.get_input( exp_eingabe, input );
+				
+				if group == "1" || group == "2" then
+					experimentGroup = int(group);
+					correctInput = true;
+				else
+					spacePageText.set_caption("ERROR!\n\nBitte eine zulässige Gruppe eingeben!\nDrücken Sie Leertaste um fortzufahren.");
+					spacePageText.redraw();
+					spacePage.present();
 				end;
-			end;		
-		end;	
+			end;
+		end;		
+	end;	
 #-- /SHOW PARTICIPANT PAGE  --#
 
 #--  STIMULI RANDOMIZATION  --#
 	sub stimuliRandomization
-	begin						
+	begin			
+
+		if experimentGroup == 1 
+		then
+			blockConditions = {1,2,1,2};
+		else
+			blockConditions = {2,1,2,1};
+		end;	
+			
 		array<int> order1[12] = {1,2,3,1,4,2,3,4,1,3,2,4};
 		array<int> order2[12] = {1,2,3,2,4,1,4,3,1,4,2,3};
 		array<int> order3[12] = {2,1,4,3,1,2,4,3,2,1,3,4};
 		array<int> order4[12] = {4,1,2,3,1,2,4,3,4,2,3,1};
-		
-		all_orders_without_circles.add(order1);
-		all_orders_without_circles.add(order2);
-		all_orders_without_circles.add(order3);
-		all_orders_without_circles.add(order4);
-		
-		all_orders_without_circles.shuffle();
+
+		all_orders_without_circles[1] = order1;
+		all_orders_without_circles[2] = order2;
+		all_orders_without_circles[3] = order3;
+		all_orders_without_circles[4] = order4;
+
 		#shuffle arrays
-		array<int> setOrder[4] = {1,2,3,4};
-		setOrder.shuffle();		
+		all_orders_without_circles.shuffle();	
 		
 		/*
 		loop 
@@ -397,7 +405,7 @@ response_manager.set_button_active(2, false);
 			
 		end;
 	
-	sub make_start_time_array
+	sub make_start_time_array (int block_start_time)
 	begin
 		loop int i = 1
 		until i > itiArray.count()
@@ -427,6 +435,7 @@ response_manager.set_button_active(2, false);
 			i = i + 1;
 		end;
 			
+		start_time_array.resize(0);
 		loop int i = 1; 	int sound_index = 1;
 		until i > size_with_circles
 		begin
@@ -443,6 +452,7 @@ response_manager.set_button_active(2, false);
 				tmp_starttime = random(tmp_trial_before + 300, tmp_trial_after - 300);
 			end;
 		#term.print_line( "st " + string(tmp_starttime) + " " + string(block_with_circles[i]) + " ");
+		tmp_starttime = tmp_starttime + block_start_time;
 		start_time_array.add(tmp_starttime);
 		i = i + 1;
 		end;
@@ -458,13 +468,14 @@ response_manager.set_button_active(2, false);
 		loop int i = 1
 		until i > circles
 		begin
-			int candidate = random(1,size_with_circles);
+			term.print_line("block Flag 2");
+			int candidate = random(2,size_with_circles);
 			bool valid = true;
 			loop int j = 1
-			until j > circle_positions.count()
-			begin
+			until j > circles
+			begin				
+				term.print_line("block Flag 3");
 				if candidate == circle_positions[j] || 
-					candidate == 1 || 
 					candidate == size_with_circles ||
 					candidate == circle_positions[j] + 1 ||
 					candidate == circle_positions[j] - 1
@@ -479,7 +490,7 @@ response_manager.set_button_active(2, false);
 			i = i + 1;
 			end;
 		end;	
-		term.print_line("block Flag 2");
+		
 		loop int i = 1; int sound_item = 1;
 		until i > size_with_circles
 		begin
@@ -502,10 +513,10 @@ response_manager.set_button_active(2, false);
 			end;
 			i = i + 1;
 		end;
-		term.print_line("block Flag 3");
+		term.print_line("block Flag 4");
 	end;
 	
-	sub check_feedback (int last_picture_number)
+	sub check_feedback
 	begin
 		if stimulus_manager.stimulus_count() == last_picture_number
 			then
@@ -523,11 +534,10 @@ response_manager.set_button_active(2, false);
 	sub present_block (array<int,1> block, int condition)
 	begin
 		randomizeTiming();
-		make_start_time_array();
-		int last_picture_number = 0;
+		make_start_time_array(clock.time());
 		
 		loop int i = 1
-		until i > size_with_circles
+		until i > block.count()
 		begin
 			if block_with_circles[i] == 1
 			then
@@ -551,20 +561,20 @@ response_manager.set_button_active(2, false);
 				
 			elseif block_with_circles[i] == 5
 			then
-				check_feedback(last_picture_number);
+				check_feedback();
 				trial_circle.set_start_time(start_time_array[i]);
-				check_feedback(last_picture_number);
+				check_feedback();
 				trial_circle.present();
-				check_feedback(last_picture_number);
+				check_feedback();
 				trial_circle.present();
-				check_feedback(last_picture_number);
+				check_feedback();
 				trial_circle.present();
 			end;
 			
 			loop bool time_for_next_stimuli;
 			until time_for_next_stimuli
 			begin
-				check_feedback(last_picture_number);
+				check_feedback();
 
 				if i < start_time_array.count()
 				then
@@ -576,11 +586,10 @@ response_manager.set_button_active(2, false);
 						time_for_next_stimuli = true;
 					end;
 				else
-					term.print_line(i);
 					loop int feedback_at_end
 					until feedback_at_end == 15
 					begin
-						check_feedback(last_picture_number);
+						check_feedback();
 						trial_feedback.present();
 						feedback_at_end = feedback_at_end + 1;
 					end;
@@ -590,24 +599,26 @@ response_manager.set_button_active(2, false);
 			box_feedback.set_color(0,0,0);
 			i = i + 1;	
 		end;
+		
+		term.print_line(added_iti_array);
+		term.print_line(added_fix_array);
+		term.print_line(start_time_array);
+		term.print_line(block_with_circles);
 	end;
 	
 	#showInputPage(1);
 	#showInputPage(2);
 	
-	term.print_line(all_orders_without_circles);
-	term.print_line("flag 1");
-	array<int> bla[4] = {2,1,3,4};
 	stimuliRandomization();
-	term.print_line("flag 2");
 	make_block(all_orders_without_circles[1],1);
-	#present_block(block_with_circles, 1);
+	present_block(block_with_circles, blockConditions[1]);
+	make_block(all_orders_without_circles[2],1);
+	present_block(block_with_circles, blockConditions[2]);
+	make_block(all_orders_without_circles[3],1);
+	present_block(block_with_circles, blockConditions[3]);
+	make_block(all_orders_without_circles[4],1);
+	present_block(block_with_circles, blockConditions[4]);
 
-	term.print_line("flag 3");
-	term.print_line(added_iti_array);
-	term.print_line(added_fix_array);
-	term.print_line(start_time_array);
-	term.print_line(block_with_circles);
 	loop int bolo = 1 
 	until bolo > stimulus_manager.stimulus_count()
 	begin
@@ -622,6 +633,3 @@ response_manager.set_button_active(2, false);
 		string(bolo));
 		bolo = bolo + 1;
 	end;
-
-	term.print_line(all_orders_without_circles);
-	term.print_line(string(stimulus_manager.stimulus_count()));
