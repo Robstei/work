@@ -449,7 +449,7 @@ response_manager.set_button_active(2, false);
 				int tmp_trial_after = added_iti_array[sound_index] + added_fix_array[sound_index] + (sound_index - 1) * 2500;
 				#term.print_line("before:" + string(tmp_trial_before));
 				#term.print_line("after:" + string(tmp_trial_after));
-				tmp_starttime = random(tmp_trial_before + 300, tmp_trial_after - 300);
+				tmp_starttime = random(tmp_trial_before + 1450, tmp_trial_after - 300);
 			end;
 		#term.print_line( "st " + string(tmp_starttime) + " " + string(block_with_circles[i]) + " ");
 		tmp_starttime = tmp_starttime + block_start_time;
@@ -553,6 +553,23 @@ response_manager.set_button_active(2, false);
 				se_sound.set_stimulus(sound4);
 			end;
 			
+			se_sound.set_target_button(0);
+			se_sound.set_response_active(true);
+
+			if condition == 1
+			then
+				if block_with_circles[i] == 1 || block_with_circles[i] == 2
+				then
+					se_sound.set_target_button(1);
+				end;
+			elseif condition == 2
+			then
+				if block_with_circles[i] == 3 || block_with_circles[i] == 4
+				then
+					se_sound.set_target_button(1);
+				end;
+			end;
+			
 			if block_with_circles[i] != 5
 			then
 				trial_sound.set_start_time(start_time_array[i]);
@@ -606,17 +623,17 @@ response_manager.set_button_active(2, false);
 		term.print_line(block_with_circles);
 	end;
 	
-	#showInputPage(1);
-	#showInputPage(2);
+	showInputPage(1);
+	showInputPage(2);
 	
 	stimuliRandomization();
-	make_block(all_orders_without_circles[1],1);
+	make_block(all_orders_without_circles[1],3);
 	present_block(block_with_circles, blockConditions[1]);
-	make_block(all_orders_without_circles[2],1);
+	make_block(all_orders_without_circles[2],3);
 	present_block(block_with_circles, blockConditions[2]);
-	make_block(all_orders_without_circles[3],1);
+	make_block(all_orders_without_circles[3],3);
 	present_block(block_with_circles, blockConditions[3]);
-	make_block(all_orders_without_circles[4],1);
+	make_block(all_orders_without_circles[4],3);
 	present_block(block_with_circles, blockConditions[4]);
 
 	loop int bolo = 1 

@@ -1,5 +1,5 @@
-<ver>18.3</ver>
-<efn>C:\Users\AllgPsy\Desktop\ALFASY TESTBATTERIE\GoNoGo auditiv Halbzeit\Halbe Zeit\GONOGO_Annika.exp</efn>
+<ver>20.2</ver>
+<efn>C:\work\GNG\Halbe Zeit\GONOGO_Annika.exp</efn>
 <author></author>
 <con>
 <pause>P</pause>
@@ -12,6 +12,11 @@
 <resume_code></resume_code>
 <send_output>0</send_output>
 <start_code></start_code>
+<tqcs>130</tqcs>
+<tqds>2</tqds>
+<tqms>0</tqms>
+<tqt>9</tqt>
+<tqu>0</tqu>
 </con>
 <dbi></dbi>
 <dbs>button</dbs>
@@ -27,6 +32,7 @@
 <dmd>0</dmd>
 <dmh>0</dmh>
 <dmr>1</dmr>
+<dmrf>1</dmrf>
 <dmw>0</dmw>
 <docs>
 <args></args>
@@ -34,15 +40,15 @@
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\Users\AllgPsy\Desktop\ALFASY TESTBATTERIE\GoNoGo auditiv Halbzeit\Halbe Zeit\stimuli</dsd>
+<dsd>C:\work\GNG\Halbe Zeit\stimuli</dsd>
 <dxv>8</dxv>
 <efs>
-<filename>C:\Users\AllgPsy\Desktop\ALFASY TESTBATTERIE\GoNoGo auditiv Halbzeit\Halbe Zeit\GoNoGo_Original.sce</filename>
-<filename>C:\Users\AllgPsy\Desktop\ALFASY TESTBATTERIE\GoNoGo auditiv Halbzeit\Halbe Zeit\GoNoGo_Modifiziert.sce</filename>
-<filename>C:\Users\AllgPsy\Desktop\ALFASY TESTBATTERIE\GoNoGo auditiv Halbzeit\Halbe Zeit\GoNoGo_ori_Main.pcl</filename>
-<filename>C:\Users\AllgPsy\Desktop\ALFASY TESTBATTERIE\GoNoGo auditiv Halbzeit\Halbe Zeit\dataHandling_mod.pcl</filename>
-<filename>C:\Users\AllgPsy\Desktop\ALFASY TESTBATTERIE\GoNoGo auditiv Halbzeit\Halbe Zeit\dataHandling_ori.pcl</filename>
-<filename>C:\Users\AllgPsy\Desktop\ALFASY TESTBATTERIE\GoNoGo auditiv Halbzeit\Halbe Zeit\GoNoGo_mod_Main.pcl</filename>
+<filename>C:\work\GNG\Halbe Zeit\GoNoGo_Original.sce</filename>
+<filename>C:\work\GNG\Halbe Zeit\GoNoGo_Modifiziert.sce</filename>
+<filename>C:\work\GNG\Halbe Zeit\GoNoGo_ori_Main.pcl</filename>
+<filename>C:\work\GNG\Halbe Zeit\dataHandling_mod.pcl</filename>
+<filename>C:\work\GNG\Halbe Zeit\dataHandling_ori.pcl</filename>
+<filename>C:\work\GNG\Halbe Zeit\GoNoGo_mod_Main.pcl</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -50,7 +56,14 @@
 <man>
 <cfg>
 <dcfg>
+<en>0</en>
+<guid>{4D799271-28C2-4C2A-8F3D-F04E41A51755}</guid>
 <name>Default configuration</name>
+<r>
+<plat>2147483647</plat>
+<rd>0</rd>
+<ss>0</ss>
+</r>
 <ss>
 <sd></sd>
 <sid>-1</sid>
@@ -73,9 +86,6 @@
 <pass></pass>
 <ssa>
 <asn>
-<sid>-1</sid>
-</asn>
-<asn>
 <sid>-2</sid>
 </asn>
 </ssa>
@@ -91,7 +101,6 @@
 <ftp>
 <ccc>0</ccc>
 <do_upload>
-<sce>1</sce>
 <sce>1</sce>
 </do_upload>
 <host></host>
@@ -114,7 +123,7 @@
 <idt>0</idt>
 <ilc>0</ilc>
 <ip_chans></ip_chans>
-<lfd>C:\Users\AllgPsy\Desktop\ALFASY TESTBATTERIE\GoNoGo auditiv Halbzeit\Halbe Zeit\logfiles</lfd>
+<lfd>C:\work\GNG\Halbe Zeit\logfiles</lfd>
 <lnb>2</lnb>
 <lno>3</lno>
 <log>
@@ -122,6 +131,7 @@
 <delimiter>9</delimiter>
 <general_list>1</general_list>
 <its>0</its>
+<meta>0</meta>
 <pien>0</pien>
 <set_def_file></set_def_file>
 <stimulus_list>0</stimulus_list>
@@ -132,14 +142,21 @@
 </log>
 <lol>1</lol>
 <lpr></lpr>
-<lsl>0</lsl>
-<maxpv>-1</maxpv>
-<minpv>-1</minpv>
+<lslset>
+<col>0</col>
+<def></def>
+<mod>0</mod>
+<name>Presentation</name>
+<use>0</use>
+</lslset>
+<maxpv></maxpv>
+<minpv></minpv>
 <nam></nam>
 <one_processor>2</one_processor>
 <oports></oports>
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
+<plat>1</plat>
 <port_devices></port_devices>
 <rdl>
 <device>
@@ -192,7 +209,7 @@
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device</name>
+<name>Standard PS/2 Keyboard</name>
 </device>
 <device>
 <abs_axis>
@@ -235,11 +252,6 @@
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
 <name>HID-compliant mouse</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>Standard PS/2 Keyboard</name>
 </device>
 <device>
 <abs_axis>
@@ -286,12 +298,7 @@
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>USB keyboard</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>USB keyboard 1</name>
+<name>Lenovo HID Mini-driver for Hardware Radio Switch</name>
 </device>
 <device>
 <axis>
@@ -323,8 +330,10 @@
 <name>Speech Recognition</name>
 <speech>
 <engine_class></engine_class>
+<lang></lang>
 <mc>0</mc>
 <rw>0</rw>
+<sil>0</sil>
 <uwd>0</uwd>
 <vocab></vocab>
 </speech>
@@ -614,28 +623,13 @@
 <offset>208</offset>
 <offset>57</offset>
 </idv>
+<overrides></overrides>
 <sfn>all_scenarios</sfn>
 </sce>
 <sce>
 <idv>
 <device_type>3</device_type>
 <dx_device_type>19</dx_device_type>
-<ibn>LEER</ibn>
-<ibn>NACH-UNTEN</ibn>
-<idn>Tastatur</idn>
-<index>0</index>
-<index>1</index>
-<label></label>
-<label></label>
-<offset>57</offset>
-<offset>208</offset>
-</idv>
-<sfn>C:\Users\AllgPsy\Desktop\ALFASY TESTBATTERIE\GoNoGo auditiv Halbzeit\Halbe Zeit\GoNoGo_Original.sce</sfn>
-</sce>
-<sce>
-<idv>
-<device_type>3</device_type>
-<dx_device_type>19</dx_device_type>
 <ibn>NACH-UNTEN</ibn>
 <ibn>LEER</ibn>
 <idn>Tastatur</idn>
@@ -646,7 +640,8 @@
 <offset>208</offset>
 <offset>57</offset>
 </idv>
-<sfn>C:\Users\AllgPsy\Desktop\ALFASY TESTBATTERIE\GoNoGo auditiv Halbzeit\Halbe Zeit\GoNoGo_Modifiziert.sce</sfn>
+<overrides></overrides>
+<sfn>C:\work\GNG\Halbe Zeit\GoNoGo_Modifiziert.sce</sfn>
 </sce>
 <sct>
 <capture_device>
@@ -664,7 +659,10 @@
 <resp_dev>
 <combine>0</combine>
 <ignore></ignore>
+<isr>0</isr>
 <max_rec_dur>10</max_rec_dur>
+<md></md>
+<mio></mio>
 <off_inter></off_inter>
 <off_thresh></off_thresh>
 <onset_mode>0</onset_mode>
@@ -722,3 +720,4 @@
 <unc></unc>
 <upb>0</upb>
 <urp>0</urp>
+<wob>0</wob>
