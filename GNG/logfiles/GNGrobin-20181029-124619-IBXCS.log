@@ -1,0 +1,54 @@
+Scenario - 
+Logfile written - 10/29/2018 12:47:29
+
+Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+0	Text Input	1	19067	19067	0
+0	Text Input	1	30554	30554	0
+1	Sound	sound	45641	42	1285			0		hit	4
+1	Response	1	55549	9950	0
+43	Response	1	105682	883	0
+48	Sound	sound	110799	1	3			0		hit	7
+48	Response	1	113129	2331	0
+92	Sound	sound	165599	1	3			0		false_alarm	9
+92	Response	1	168591	2993	0
+130	Sound	sound	213198	1	3			0		false_alarm	11
+130	Response	1	216504	3307	0
+176	Sound	sound	270597	1	3			0		hit	13
+176	Response	1	272517	1921	0
+217	Response	1	321037	242	0
+229	Sound	sound	335596	1	3			0		hit	16
+229	Response	1	338577	2981	0
+275	Sound	sound	393196	1	3			0		false_alarm	18
+275	Response	1	396270	3075	0
+313	Sound	sound	440795	1	3			0		false_alarm	20
+313	Response	1	443714	2920	0
+359	Sound	sound	498194	1	3			0		hit	22
+359	Response	1	499399	1206	0
+393	Response	1	539965	772	0
+396	Response	1	543115	322	0
+398	Sound	sound	545594	1	3			0		hit	26
+398	Response	1	546349	756	0
+400	Response	1	548238	645	0
+433	Response	1	587810	617	0
+440	Sound	sound	595593	1	3			0		false_alarm	30
+440	Response	1	598994	3402	0
+464	Response	1	627685	93	0
+471	Response	1	636513	521	0
+475	Sound	sound	640793	1	3			0		false_alarm	34
+475	Response	1	646107	5315	0
+
+
+{
+   "app": "Presentation Version 20.2 Build 07.25.18",
+   "device": "LENOVO 20DTCTO1WW",
+   "experiment": "{80656493-4243-4645-96CC-529760D03478}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "GNGrobin.sce",
+   "subject": "",
+   "timestamp": "2018/10/29 11:46:19 GMT"
+}
