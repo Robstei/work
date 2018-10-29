@@ -1,5 +1,5 @@
 #--  CALCULATION AND DATA HANDLING --#	
-
+	
 	int minimumRt = 300;
 
 	### COUNTERS ###
@@ -181,6 +181,7 @@
 #--  CALCULATION AND DATA HANDLING --#
 sub correctAndCalculateData
 begin
+	
 	correctedData = rawData;
 	
 	loop

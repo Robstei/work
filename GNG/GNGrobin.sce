@@ -56,8 +56,15 @@ begin;
 				x=0;y=0;
 				box {height = 380; width = 580;};
 				x=0;y=0;
-			};
-		
+				
+				text {
+					caption = "+"; 
+					font_size = 30;
+					};
+					x = 0;
+					y = 0; 
+				};
+				
 		} se_sound_box;
 		
 		stimulus_event {
@@ -109,8 +116,16 @@ begin;
 				
 				box box_feedback_inner;
 				x=0;y=0;
-
+				
+				text {
+				caption = "+"; 
+				font_size = 30;
+				};
+				x = 0;
+				y = 0; 
+				
 			} picture_feedback;
+			
 		} se_feedback_box;
 		
 	} trial_feedback;
@@ -225,21 +240,34 @@ trial {
 
 begin_pcl;
 
-array <int> itiArray[12];
-array <int> fixArray[12];
-int size_with_circles;
-array<int> block_with_circles[0];
-array<int> blockConditions[4];
-array <int> added_iti_array[12];
-array <int> added_fix_array[12];
-array <int> start_time_array[0];
-array<int> all_orders_without_circles[4][12];
+	int blocksInTotal = 4;
+	int stimuliPerBlock = 12;
+	int trialCount = blocksInTotal * stimuliPerBlock + blocksInTotal * 6;
+	int trial_number = 1;
+	bool exportVariableNames = true;
 
-string vpCode = "";
-int experimentGroup = 0;
-int last_picture_number = 0;
+	#store buffered data to storage
+	# 1=stimulus,2=position,3=rt,4=answerGiven,5=answerCorrect,6=goTrial	
+	array <int> rawData[trialCount][6];
+	array <int> correctedData[trialCount][6];
+	
+	array <int> itiArray[12];
+	array <int> fixArray[12];
+	int size_with_circles;
+	array<int> block_with_circles[0];
+	array<int> blockConditions[4];
+	array <int> added_iti_array[12];
+	array <int> added_fix_array[12];
+	array <int> start_time_array[0];
+	array<int> all_orders_without_circles[4][12];
 
-response_manager.set_button_active(2, false);
+	string vpCode = "";
+	int experimentGroup = 0;
+	int last_picture_number = 0;
+
+	#include "GNGrobin_data.pcl";
+
+	response_manager.set_button_active(2, false);
 
 #--  SHOW PARTICIPANT PAGE  --#
 	#first page where the experimenteer is supposed to insert the participant number
@@ -436,6 +464,7 @@ response_manager.set_button_active(2, false);
 		end;
 			
 		start_time_array.resize(0);
+		
 		loop int i = 1; 	int sound_index = 1;
 		until i > size_with_circles
 		begin
@@ -460,7 +489,7 @@ response_manager.set_button_active(2, false);
 	
 	sub make_block(array<int> block[], int circles)
 	begin
-		term.print_line("block Flag 1");
+		#term.print_line("block Flag 1");
 		size_with_circles = block.count() + circles;
 		block_with_circles.resize(0);
 		array<int> circle_positions[circles];
@@ -468,13 +497,13 @@ response_manager.set_button_active(2, false);
 		loop int i = 1
 		until i > circles
 		begin
-			term.print_line("block Flag 2");
+			#term.print_line("block Flag 2");
 			int candidate = random(2,size_with_circles);
 			bool valid = true;
 			loop int j = 1
 			until j > circles
 			begin				
-				term.print_line("block Flag 3");
+				#term.print_line("block Flag 3");
 				if candidate == circle_positions[j] || 
 					candidate == size_with_circles ||
 					candidate == circle_positions[j] + 1 ||
@@ -513,7 +542,7 @@ response_manager.set_button_active(2, false);
 			end;
 			i = i + 1;
 		end;
-		term.print_line("block Flag 4");
+		#term.print_line("block Flag 4");
 	end;
 	
 	sub check_feedback
@@ -521,7 +550,7 @@ response_manager.set_button_active(2, false);
 		if stimulus_manager.stimulus_count() == last_picture_number
 			then
 				stimulus_data last = stimulus_manager.get_stimulus_data(last_picture_number);
-				if last.type() == last.HIT
+				if last.type() == last.HIT || (last.type() == last.OTHER && (clock.time() > last.time() + 2000))
 				then
 					box_feedback.set_color(0,255,0);
 				elseif last.type() == last.MISS || last.type() == last.FALSE_ALARM
@@ -553,20 +582,25 @@ response_manager.set_button_active(2, false);
 				se_sound.set_stimulus(sound4);
 			end;
 			
-			se_sound.set_target_button(0);
-			se_sound.set_response_active(true);
-
 			if condition == 1
 			then
 				if block_with_circles[i] == 1 || block_with_circles[i] == 2
 				then
 					se_sound.set_target_button(1);
+				elseif block_with_circles[i] == 3 || block_with_circles[i] == 4
+				then
+					se_sound.set_target_button(0);
+					se_sound.set_response_active(true);
 				end;
 			elseif condition == 2
 			then
 				if block_with_circles[i] == 3 || block_with_circles[i] == 4
 				then
 					se_sound.set_target_button(1);
+				elseif block_with_circles[i] == 1 || block_with_circles[i] == 2
+				then
+					se_sound.set_target_button(0);
+					se_sound.set_response_active(true);
 				end;
 			end;
 			
@@ -575,9 +609,9 @@ response_manager.set_button_active(2, false);
 				trial_sound.set_start_time(start_time_array[i]);
 				trial_sound.present();
 				last_picture_number = last_picture_number + 1;
-				
 			elseif block_with_circles[i] == 5
 			then
+				se_sound.set_target_button(0);
 				check_feedback();
 				trial_circle.set_start_time(start_time_array[i]);
 				check_feedback();
@@ -604,7 +638,7 @@ response_manager.set_button_active(2, false);
 					end;
 				else
 					loop int feedback_at_end
-					until feedback_at_end == 15
+					until feedback_at_end > 15
 					begin
 						check_feedback();
 						trial_feedback.present();
@@ -614,8 +648,20 @@ response_manager.set_button_active(2, false);
 				end;
 			end;
 			box_feedback.set_color(0,0,0);
+			
+			rawData[trial_number][1] = trial_number;
+			rawData[trial_number][2] = block_with_circles[i];
+			if block_with_circles[i] != 5
+			then
+				stimulus_data sd_last = stimulus_manager.last_stimulus_data();
+				rawData[trial_number][3] = sd_last.reaction_time();
+				rawData[trial_number][4] = sd_last.type();
+			end;
+			rawData[trial_number][5] = condition;
+			trial_number = trial_number + 1;
 			i = i + 1;	
 		end;
+	
 		
 		term.print_line(added_iti_array);
 		term.print_line(added_fix_array);
@@ -623,18 +669,42 @@ response_manager.set_button_active(2, false);
 		term.print_line(block_with_circles);
 	end;
 	
-	showInputPage(1);
-	showInputPage(2);
+	sub export_rawdata
+	begin
+		loop int block_number = 1
+		until block_number > blocksInTotal
+		begin
+			loop int stimulus_number = 1
+			until stimulus_number > stimuliPerBlock
+			begin
+			stimulus_number = stimulus_number + 1;
+			end;
+		block_number = block_number + 1;
+		end;	
+	end;
+	
+	#showInputPage(1);
+	#showInputPage(2);
 	
 	stimuliRandomization();
 	make_block(all_orders_without_circles[1],3);
 	present_block(block_with_circles, blockConditions[1]);
-	make_block(all_orders_without_circles[2],3);
+	/*make_block(all_orders_without_circles[2],3);
 	present_block(block_with_circles, blockConditions[2]);
 	make_block(all_orders_without_circles[3],3);
 	present_block(block_with_circles, blockConditions[3]);
 	make_block(all_orders_without_circles[4],3);
 	present_block(block_with_circles, blockConditions[4]);
+
+	correctAndCalculateData();
+	exportData();
+	*/
+	
+	term.print_line("HIT " + string(stimulus_data::HIT));
+	term.print_line("FALSE_ALARM " + string(stimulus_data::FALSE_ALARM));
+	term.print_line("MISS " + string(stimulus_data::MISS));
+	term.print_line("INCORRECT " + string(stimulus_data::INCORRECT));
+	term.print_line("OTHER " + string(stimulus_data::OTHER));
 
 	loop int bolo = 1 
 	until bolo > stimulus_manager.stimulus_count()
@@ -650,3 +720,21 @@ response_manager.set_button_active(2, false);
 		string(bolo));
 		bolo = bolo + 1;
 	end;
+	
+	term.print_line("HIT " + string(response_data::HIT));
+	term.print_line("INCORRECT " + string(response_data::INCORRECT));
+	term.print_line("FALSE_ALARM " + string(response_data::FALSE_ALARM));
+	term.print_line("OTHER " + string(response_data::OTHER));
+	
+	term.print_line(response_manager.response_count());
+	loop int i = 1
+	until i > response_manager.response_data_count()
+	begin
+	response_data rp = response_manager.get_response_data(i);
+	term.print_line("button " + string(rp.button()) + 
+					" time " + string(rp.time()) + 
+					" type " + string(rp.type()));
+	i = i + 1;
+	end;
+	term.print_line(rawData);
+	
