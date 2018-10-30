@@ -13,29 +13,20 @@ begin;
 	$inwidth = 1280;		
 
 	array{  
-		bitmap {filename = "instructions/modifiziert/instruction1.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
-		bitmap {filename = "instructions/modifiziert/play1.jpg";description = "play1";height=$inheight;width=$inwidth;};
-		bitmap {filename = "instructions/modifiziert/play2.jpg";description = "play2";height=$inheight;width=$inwidth;};
-		bitmap {filename = "instructions/modifiziert/play3.jpg";description = "play3";height=$inheight;width=$inwidth;};
-		bitmap {filename = "instructions/modifiziert/play4.jpg";description = "play4";height=$inheight;width=$inwidth;};
-		bitmap {filename = "instructions/modifiziert/practice1.jpg";description = "practice1";height=$inheight;width=$inwidth;};
-		bitmap {filename = "instructions/modifiziert/practice2.jpg";description = "practice2";height=$inheight;width=$inwidth;};
-		bitmap {filename = "instructions/modifiziert/practice3.jpg";description = "practice3";height=$inheight;width=$inwidth;};
-		bitmap {filename = "instructions/modifiziert/practice4.jpg";description = "practice4";height=$inheight;width=$inwidth;};
-		bitmap {filename = "instructions/modifiziert/practice5.jpg";description = "practice5";height=$inheight;width=$inwidth;};
-		bitmap {filename = "instructions/modifiziert/practice6.jpg";description = "practice6";height=$inheight;width=$inwidth;};
+		bitmap {filename = "instructions/Folie1.jpg";description = "instruction1";height=$inheight;width=$inwidth;}instructions1;
+		bitmap {filename = "instructions/Folie2.jpg";description = "instruction2";height=$inheight;width=$inwidth;}instructions2;
+		bitmap {filename = "instructions/Folie3.jpg";description = "instruction3";height=$inheight;width=$inwidth;}instructions3;
+		bitmap {filename = "instructions/Folie4.jpg";description = "instruction4";height=$inheight;width=$inwidth;}instructions4;
+		bitmap {filename = "instructions/Folie5.jpg";description = "instruction5";height=$inheight;width=$inwidth;}instructions5;
+		bitmap {filename = "instructions/Folie6.jpg";description = "instruction6";height=$inheight;width=$inwidth;}instructions6;
+		bitmap {filename = "instructions/Folie7.jpg";description = "instruction7";height=$inheight;width=$inwidth;}instructions7;
+		bitmap {filename = "instructions/Folie8.jpg";description = "instruction_after";height=$inheight;width=$inwidth;}instructions8;
+		#bitmap {filename = "instructions/Folie9.jpg";description = "practice4";height=$inheight;width=$inwidth;}instructions1;
+		bitmap {filename = "instructions/Folie10.jpg";description = "target";height=$inheight;width=$inwidth;}instructions10;
+		bitmap {filename = "instructions/Folie11.jpg";description = "non_target";height=$inheight;width=$inwidth;}instructions11;
+		bitmap {filename = "instructions/Folie12.jpg";description = "end";height=$inheight;width=$inwidth;}instructions12;
 	}instructions;
-		
-	array{  
-		bitmap {filename = "instructions/modifiziert/block_A_1.jpg";description = "block_A_1";height=$inheight;width=$inwidth;};
-		bitmap {filename = "instructions/modifiziert/block_A_2.jpg";description = "block_A_2";height=$inheight;width=$inwidth;};
-	}blockA;
 	
-	array{  
-		bitmap {filename = "instructions/modifiziert/block_B_1.jpg";description = "block_B_1";height=$inheight;width=$inwidth;};
-		bitmap {filename = "instructions/modifiziert/block_B_2.jpg";description = "block_B_2";height=$inheight;width=$inwidth;};
-	}blockB;
-		
 	array {
 		sound { wavefile { filename = "sounds/modifiziert/SNS1.wav"; };attenuation = 0.05;}sound1;
 		sound { wavefile { filename = "sounds/modifiziert/N1.wav"; };attenuation = 0.05;}sound2;
@@ -45,6 +36,15 @@ begin;
 				
 	box {color = 0,0,0; height = 400; width = 600;} box_feedback;
 	box {height = 380; width = 580;} box_feedback_inner;
+	
+	trial {
+		stimulus_event {
+			picture {
+				bitmap {filename = "instructions/Folie1.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+				x=0;y=0;
+			}picture_instruction;
+		};
+	}trial_instruction;
 	
 	trial {
 		trial_type = first_response;
@@ -129,75 +129,7 @@ begin;
 		} se_feedback_box;
 		
 	} trial_feedback;
-
-		### INSTRUCTIONS ###
-
-	trial {    
-		trial_duration = 2500;
-		picture {  
-			# placeholder - set by PCL
-			bitmap {filename = "instructions/modifiziert/play1.jpg";height=$inheight;width=$inwidth;};
-			x = 0; y = 0;};
-			sound sound1;
-			time = 500;
-	}inPlay1;
 	
-	trial {    
-		trial_duration = 2500;
-		picture {  
-			# placeholder - set by PCL
-			bitmap {filename = "instructions/modifiziert/play2.jpg";height=$inheight;width=$inwidth;};
-			x = 0; y = 0;};
-			sound sound2;
-			time = 500;
-	}inPlay2;
-	
-	trial {    
-		trial_duration = 2500;
-		picture {  
-			# placeholder - set by PCL
-			bitmap {filename = "instructions/modifiziert/play3.jpg";height=$inheight;width=$inwidth;};
-			x = 0; y = 0;};
-			sound sound3;
-			time = 500;
-	}inPlay3;
-	
-	trial {    
-		trial_duration = 2500;
-		picture {  
-			# placeholder - set by PCL
-			bitmap {filename = "instructions/modifiziert/play4.jpg";height=$inheight;width=$inwidth;};
-			x = 0; y = 0;};
-			sound sound4;
-			time = 500;
-	}inPlay4;		
-	
-	trial {    
-		trial_duration = 7000;
-		picture {  
-			# placeholder - set by PCL
-			box { height = 1; width = 1; color = 0,0,0; };
-				x = 0; y = 0;}p_1_2;
-			sound sound1;
-			time = 500;
-			sound sound2;
-			time = 3000;
-	}play1And2;		
-	
-	trial {    
-		trial_duration = 7000;
-		picture {  
-			# placeholder - set by PCL
-			box { height = 1; width = 1; color = 0,0,0; };
-				x = 0; y = 0;}p_3_4;
-			sound sound3;
-			time = 500;
-			sound sound4;
-			time = 3000;
-	}play3And4;		
-
-### INSTRUCTIONS ###
-
 #--  PARTICIPANT PAGE  --#
 	trial {
 	stimulus_event {
@@ -669,7 +601,7 @@ begin_pcl;
 				until response_count > response_manager.response_data_count()
 				begin
 					response_data rd = response_manager.get_response_data(response_count);
-					if rd.button() == 2 && rd.time() > start_time_array[presented_block_counter] && rd.time() - start_time_array[presented_block_counter] < 1750;
+					if rd.button() == 2 && rd.time() > start_time_array[presented_block_counter] && rd.time() - start_time_array[presented_block_counter] < 1750
 					then
 						rawData[trial_number][3] = rd.time() - start_time_array[presented_block_counter];
 						#rawData[trial_number][4] = ;
