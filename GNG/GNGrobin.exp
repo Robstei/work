@@ -1,4 +1,4 @@
-<ver>20.1</ver>
+<ver>20.2</ver>
 <efn>C:\work\GNG\GNGrobin.exp</efn>
 <author></author>
 <con>
@@ -325,8 +325,10 @@
 <name>Speech Recognition</name>
 <speech>
 <engine_class></engine_class>
+<lang></lang>
 <mc>0</mc>
 <rw>0</rw>
+<sil>0</sil>
 <uwd>0</uwd>
 <vocab></vocab>
 </speech>
@@ -597,7 +599,7 @@
 </device>
 </rdl>
 <refchg>1</refchg>
-<rep>1</rep>
+<rep>2</rep>
 <require_name_match>0</require_name_match>
 <reschg>1</reschg>
 <rng>1</rng>

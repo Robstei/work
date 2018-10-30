@@ -59,7 +59,7 @@ begin;
 				
 				text {
 					caption = "+"; 
-					font_size = 30;
+					font_size = 50;
 					};
 					x = 0;
 					y = 0; 
@@ -119,7 +119,7 @@ begin;
 				
 				text {
 				caption = "+"; 
-				font_size = 30;
+				font_size = 50;
 				};
 				x = 0;
 				y = 0; 
@@ -261,9 +261,10 @@ begin_pcl;
 	array <int> start_time_array[0];
 	array<int> all_orders_without_circles[4][12];
 
-	string vpCode = "";
+	string vpCode = "testperson";
 	int experimentGroup = 0;
 	int last_picture_number = 0;
+	int sound_index_logging = 1;
 
 	#include "GNGrobin_data.pcl";
 
@@ -648,21 +649,39 @@ begin_pcl;
 				end;
 			end;
 			box_feedback.set_color(0,0,0);
-			
+			i = i + 1;	
+		end;
+		
+		loop int presented_block_counter = 1
+		until presented_block_counter > block.count()
+		begin
 			rawData[trial_number][1] = trial_number;
-			rawData[trial_number][2] = block_with_circles[i];
-			if block_with_circles[i] != 5
+			rawData[trial_number][2] = block_with_circles[presented_block_counter];
+			if block_with_circles[presented_block_counter] != 5
 			then
-				stimulus_data sd_last = stimulus_manager.last_stimulus_data();
-				rawData[trial_number][3] = sd_last.reaction_time();
-				rawData[trial_number][4] = sd_last.type();
+				stimulus_data sd = stimulus_manager.get_stimulus_data(sound_index_logging);
+				rawData[trial_number][3] = sd.reaction_time();
+				rawData[trial_number][4] = sd.type();
+				sound_index_logging = sound_index_logging + 1;
+			elseif block_with_circles[presented_block_counter] == 5
+			then
+				loop int response_count = 1
+				until response_count > response_manager.response_data_count()
+				begin
+					response_data rd = response_manager.get_response_data(response_count);
+					if rd.button() == 2 && rd.time() > start_time_array[presented_block_counter] && rd.time() - start_time_array[presented_block_counter] < 1750;
+					then
+						rawData[trial_number][3] = rd.time() - start_time_array[presented_block_counter];
+						#rawData[trial_number][4] = ;
+						break;
+					end;
+					response_count = response_count + 1;
+				end;
 			end;
 			rawData[trial_number][5] = condition;
 			trial_number = trial_number + 1;
-			i = i + 1;	
+			presented_block_counter = presented_block_counter + 1;
 		end;
-	
-		
 		term.print_line(added_iti_array);
 		term.print_line(added_fix_array);
 		term.print_line(start_time_array);
@@ -671,16 +690,30 @@ begin_pcl;
 	
 	sub export_rawdata
 	begin
-		loop int block_number = 1
-		until block_number > blocksInTotal
+		output_file single = new output_file();
+		string single_file_name = "singles/GoNoGoRobin" + vpCode + ".txt";
+		single.open_append(single_file_name);
+		
+		string variable_names = "stimulus_number	stimulus_type	response_time	response_type	condition	nothing";
+		single.print_line(variable_names);
+		
+		loop int export_data_counter = 1
+		until export_data_counter > rawData.count()
 		begin
-			loop int stimulus_number = 1
-			until stimulus_number > stimuliPerBlock
+			string stimulus_data_string = "";
+			loop int stimulus_data_counter = 1
+			until stimulus_data_counter > rawData[export_data_counter].count() 
 			begin
-			stimulus_number = stimulus_number + 1;
+				stimulus_data_string = stimulus_data_string + string(rawData[export_data_counter][stimulus_data_counter]);
+				if stimulus_data_counter < rawData[export_data_counter].count()
+				then
+					stimulus_data_string = stimulus_data_string + "	";
+				end;
+				stimulus_data_counter = stimulus_data_counter + 1;
 			end;
-		block_number = block_number + 1;
-		end;	
+			single.print_line(stimulus_data_string);
+			export_data_counter = export_data_counter + 1;
+		end;
 	end;
 	
 	#showInputPage(1);
@@ -689,6 +722,7 @@ begin_pcl;
 	stimuliRandomization();
 	make_block(all_orders_without_circles[1],3);
 	present_block(block_with_circles, blockConditions[1]);
+	export_rawdata();
 	/*make_block(all_orders_without_circles[2],3);
 	present_block(block_with_circles, blockConditions[2]);
 	make_block(all_orders_without_circles[3],3);
