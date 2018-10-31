@@ -3,7 +3,7 @@
 	default_font = "Times new Roman"; 
 	default_background_color =242,242,242;
 	default_text_color = 0,0,0;
-	active_buttons = 2;
+	active_buttons = 3;
 	response_matching = simple_matching;
 	default_clear_active_stimuli = false;
 
@@ -37,20 +37,265 @@ begin;
 	box {color = 0,0,0; height = 400; width = 600;} box_feedback;
 	box {height = 380; width = 580;} box_feedback_inner;
 	
+	picture {
+		#background_color = 255,255,255;
+		 
+			text {
+			caption = "Bitte Versuchspersonencode eingeben:"; 
+			};
+			x = 0;
+			y = 0;     
+		  
+		
+		  text {
+			caption = " "; 
+			font_color = 0,0,0; 
+			background_color = 150,150,150;
+			height = 30;
+			width = 120;
+			} text_vpncode;
+			x = 0;
+			y = -30;   
+	}picture_vpncode;
+	
 	trial {
+		trial_duration = forever;
+		trial_type = first_response;
+		
 		stimulus_event {
 			picture {
 				bitmap {filename = "instructions/Folie1.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
 				x=0;y=0;
 			}picture_instruction;
 		};
-	}trial_instruction;
+	}trial_instruction1;
+	
+	trial {
+		trial_duration = forever;
+		trial_type = first_response;
+		
+		stimulus_event {
+			picture {
+				bitmap {filename = "instructions/Folie2.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+				x=0;y=0;
+			};
+		};
+	}trial_instruction2;
+	
+	trial {
+		trial_duration = forever;
+		trial_type = first_response;
+		
+		stimulus_event {
+			picture {
+				bitmap {filename = "instructions/Folie3.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+				x=0;y=0;
+			};
+		};
+	}trial_instruction3;
+	
+	trial {
+		trial_duration = stimuli_length;
+		trial_type = fixed;
+		
+		picture {
+			bitmap {filename = "instructions/Folie4.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+			x=0;y=0;
+		};
+		
+		sound { wavefile { filename = "sounds/modifiziert/SNS1.wav"; };attenuation = 0.05;};
+		time = 0;
+	
+		
+		sound { wavefile { filename = "sounds/modifiziert/N1.wav"; };attenuation = 0.05;};
+		time = 2000;
+		
+	}trial_instruction4;
+	
+	trial {
+		trial_duration = forever;
+		trial_type = first_response;
+		
+		picture {
+			bitmap {filename = "instructions/Folie4.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+			x=0;y=0;
+		};
+	}trial_instruction4_no_sound;
+	
+	trial {
+		trial_duration = stimuli_length;
+		trial_type = fixed;
+		
+		picture {
+			bitmap {filename = "instructions/Folie5.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+			x=0;y=0;
+		};
+
+		sound { wavefile { filename = "sounds/modifiziert/SNS2.wav"; };attenuation = 0.05;};
+		time = 0;
+		
+		sound { wavefile { filename = "sounds/modifiziert/N2.wav"; };attenuation = 0.05;};
+		time = 2000;
+		
+	}trial_instruction5;
+	
+	trial {
+		trial_duration = forever;
+		trial_type = first_response;
+		
+		picture {
+			bitmap {filename = "instructions/Folie5.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+			x=0;y=0;
+		};
+	}trial_instruction5_no_sound;
+	
+	trial {
+		trial_duration = stimuli_length;
+		trial_type = fixed;
+	
+		picture {
+			bitmap {filename = "instructions/Folie6.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+			x=0;y=0;
+		};
+		
+		sound { wavefile { filename = "sounds/modifiziert/SNS2.wav";};attenuation = 0.05;};
+		time = 0;
+		
+		sound { wavefile { filename = "sounds/modifiziert/N2.wav";};attenuation = 0.05;};
+		time = 2000;
+		
+	}trial_instruction6;
+	
+	trial {
+		trial_duration = forever;
+		trial_type = first_response;
+	
+		picture {
+			bitmap {filename = "instructions/Folie6.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+			x=0;y=0;
+		};
+	}trial_instruction6_no_sound;
+	
+	trial {
+		trial_duration = stimuli_length;
+		trial_type = fixed;
+		
+		picture {
+			bitmap {filename = "instructions/Folie7.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+			x=0;y=0;
+		};
+		
+		sound { wavefile { filename = "sounds/modifiziert/SNS1.wav"; };attenuation = 0.05;};
+		time = 0;
+	
+		
+		sound { wavefile { filename = "sounds/modifiziert/N1.wav"; };attenuation = 0.05;};
+		time = 2000;
+	}trial_instruction7;
+	
+	trial {
+		trial_duration = forever;
+		trial_type = first_response;
+		
+		picture {
+			bitmap {filename = "instructions/Folie7.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+			x=0;y=0;
+		};
+	}trial_instruction7_no_sound;
+	
+	trial {
+		trial_duration = forever;
+		trial_type = first_response;
+		
+		picture {
+			bitmap {filename = "instructions/Folie8.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+			x=0;y=0;
+		};	
+	}trial_instruction8;
+
+	trial {
+		trial_duration = stimuli_length;
+		trial_type = fixed;
+		
+			picture {
+				bitmap {filename = "instructions/Folie10.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+				x=0;y=0;
+			};
+				
+		stimulus_event {
+			sound { wavefile { filename = "sounds/modifiziert/N1.wav"; };attenuation = 1;};
+			time = 0;
+		}stimulus_event_first_target;
+		
+		stimulus_event {
+			sound { wavefile { filename = "sounds/modifiziert/N1.wav"; };attenuation = 1;};
+			time = 2000;
+		}stimulus_event_second_target;
+		
+	}trial_instruction10;
+	
+	trial {
+		trial_duration = forever;
+		trial_type = first_response;
+		
+			picture {
+				bitmap {filename = "instructions/Folie10.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+				x=0;y=0;
+			};
+	} trial_instruction10_no_sound;
+	
+	trial {
+		trial_duration = stimuli_length;
+		trial_type = fixed;
+		
+			picture {
+				bitmap {filename = "instructions/Folie11.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+				x=0;y=0;
+			};
+				
+		stimulus_event {
+			sound { wavefile { filename = "sounds/modifiziert/N1.wav"; };attenuation = 1;};
+			time = 0;
+		}stimulus_event_first_nontarget;
+		
+		stimulus_event {
+			sound { wavefile { filename = "sounds/modifiziert/N1.wav"; };attenuation = 1;};
+			time = 2000;
+		}stimulus_event_second_nontarget;
+		
+	}trial_instruction11;
+	
+	trial {
+		trial_duration = forever;
+		trial_type = first_response;
+		
+			picture {
+				bitmap {filename = "instructions/Folie11.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+				x=0;y=0;
+			};
+	} trial_instruction11_no_sound;
+	
+	trial {
+		trial_duration = forever;
+		trial_type = first_response;
+		
+		stimulus_event {
+			picture {
+				bitmap {filename = "instructions/Folie12.jpg";description = "instruction1";height=$inheight;width=$inwidth;};
+				x=0;y=0;
+			};
+		};
+	}trial_instruction12;
+	
+	trial {
+		trial_type = fixed;
+		trial_duration = 2000;
+	} trial_two_seconds;
 	
 	trial {
 		trial_type = first_response;
 		
 		stimulus_event {
-			
 			picture {
 				box {color = 0,0,0; height = 400; width = 600;};
 				x=0;y=0;
@@ -64,13 +309,12 @@ begin;
 					x = 0;
 					y = 0; 
 				};
-				
 		} se_sound_box;
 		
 		stimulus_event {
 			sound { 
 				wavefile {
-					filename = "sounds/original/Kugelschreiber.wav"; 
+					filename = "sounds/modifiziert/N1.wav"; 
 				};
 				attenuation = 1;
 			};
@@ -129,46 +373,6 @@ begin;
 		} se_feedback_box;
 		
 	} trial_feedback;
-	
-#--  PARTICIPANT PAGE  --#
-	trial {
-	stimulus_event {
-		picture {
-			#background_color = 255,255,255;
-			 text {
-				caption = "Bitte tun sie irgendwas!"; 
-				} inputPageText;
-				x = 0;
-				y = 0;     
-			  
-			  text {
-				caption = " "; 
-				font_color = 0,0,0; 
-				background_color = 150,150,150;
-				height = 30;
-				width = 120;
-				} input;
-				x = 0;
-				y = -30;   
-		} exp_eingabe;
-		duration = response;
-		}participantEvent;
-	}inputPage; 
-#-- /PARTICIPANT PAGE  --#
-
-	
-#--  SPACE PAGE  --#
-trial {
-	trial_duration = forever;
-	trial_type = specific_response;    	
-	terminator_button = 2; 
-	stimulus_event {
-		picture {
-			text {caption ="Bitte tun sie irgendwas!";}spacePageText;
-		x = 0; y = 0;};
-	};
-}spacePage; 
-#-- /SPACE PAGE  --#
 
 begin_pcl;
 
@@ -193,59 +397,14 @@ begin_pcl;
 	array <int> start_time_array[0];
 	array<int> all_orders_without_circles[4][12];
 
-	string vpCode = "testperson";
+	string vpCode = "";
 	int experimentGroup = 0;
 	int last_picture_number = 0;
-	int sound_index_logging = 1;
+	int sound_index_logging = 0;
 
 	#include "GNGrobin_data.pcl";
 
 	response_manager.set_button_active(2, false);
-
-#--  SHOW PARTICIPANT PAGE  --#
-	#first page where the experimenteer is supposed to insert the participant number
-	sub showInputPage (int condition)	
-	begin				
-		#response_data feedback; 
-		if condition == 1 then
-			loop
-				bool correctInput = false
-			until
-				correctInput == true
-			begin
-				inputPageText.set_caption("Bitte Versuchspersonencode eingeben:");
-				inputPageText.redraw();
-				vpCode = system_keyboard.get_input( exp_eingabe, input );
-				if vpCode != "" then
-					correctInput = true;
-				else
-					spacePageText.set_caption("ERROR!\n\nBitte geben Sie einen Code an!\nDrücken Sie Leertaste um fortzufahren.");
-					spacePageText.redraw();
-					spacePage.present();
-				end;
-			end;
-		elseif condition == 2 then
-			loop
-				bool correctInput = false
-			until
-				correctInput == true
-			begin
-				inputPageText.set_caption("Bitte Gruppe eingeben (1 oder 2):");
-				inputPageText.redraw();
-				string group = system_keyboard.get_input( exp_eingabe, input );
-				
-				if group == "1" || group == "2" then
-					experimentGroup = int(group);
-					correctInput = true;
-				else
-					spacePageText.set_caption("ERROR!\n\nBitte eine zulässige Gruppe eingeben!\nDrücken Sie Leertaste um fortzufahren.");
-					spacePageText.redraw();
-					spacePage.present();
-				end;
-			end;
-		end;		
-	end;	
-#-- /SHOW PARTICIPANT PAGE  --#
 
 #--  STIMULI RANDOMIZATION  --#
 	sub stimuliRandomization
@@ -478,6 +637,18 @@ begin_pcl;
 		#term.print_line("block Flag 4");
 	end;
 	
+	sub set_button_mode(bool in_block)
+	begin
+		if in_block
+		then
+			response_manager.set_button_active(1, true);
+			response_manager.set_button_active(3, false);
+		else
+			response_manager.set_button_active(1, false);
+			response_manager.set_button_active(3, true);
+		end;
+	end;
+	
 	sub check_feedback
 	begin
 		if stimulus_manager.stimulus_count() == last_picture_number
@@ -493,10 +664,44 @@ begin_pcl;
 			end;
 	end;
 		
-	sub present_block (array<int,1> block, int condition)
+	sub present_block (array<int,1> block, int condition, bool report_data)
 	begin
+		
+		if condition == 1 && report_data == true
+		then
+			set_button_mode(false);
+			stimulus_event_first_target.set_stimulus(sound1);
+			stimulus_event_second_target.set_stimulus(sound2);
+			trial_instruction10_no_sound.present();
+			trial_instruction10.present();
+			trial_instruction10_no_sound.present();
+			stimulus_event_first_nontarget.set_stimulus(sound3);
+			stimulus_event_second_nontarget.set_stimulus(sound4);
+			trial_instruction11_no_sound.present();
+			trial_instruction11.present();
+			trial_instruction11_no_sound.present();
+		elseif condition == 2 && report_data == true
+		then
+			set_button_mode(false);
+			stimulus_event_first_target.set_stimulus(sound3);
+			stimulus_event_second_target.set_stimulus(sound4);
+			trial_instruction10_no_sound.present();
+			trial_instruction10.present();
+			trial_instruction10_no_sound.present();
+			stimulus_event_first_nontarget.set_stimulus(sound1);
+			stimulus_event_second_nontarget.set_stimulus(sound2);
+			trial_instruction11_no_sound.present();
+			trial_instruction11.present();
+			trial_instruction11_no_sound.present();
+		end;
+		
+		set_button_mode(true);
+		sound_index_logging = stimulus_manager.stimulus_count() + 1;
 		randomizeTiming();
+		trial_two_seconds.present();
+		int clocktime = clock.time();
 		make_start_time_array(clock.time());
+		term.print_line("clocktime: " + string(clocktime));
 		
 		loop int i = 1
 		until i > block.count()
@@ -583,41 +788,91 @@ begin_pcl;
 			box_feedback.set_color(0,0,0);
 			i = i + 1;	
 		end;
-		
-		loop int presented_block_counter = 1
-		until presented_block_counter > block.count()
-		begin
-			rawData[trial_number][1] = trial_number;
-			rawData[trial_number][2] = block_with_circles[presented_block_counter];
-			if block_with_circles[presented_block_counter] != 5
-			then
-				stimulus_data sd = stimulus_manager.get_stimulus_data(sound_index_logging);
-				rawData[trial_number][3] = sd.reaction_time();
-				rawData[trial_number][4] = sd.type();
-				sound_index_logging = sound_index_logging + 1;
-			elseif block_with_circles[presented_block_counter] == 5
-			then
-				loop int response_count = 1
-				until response_count > response_manager.response_data_count()
-				begin
-					response_data rd = response_manager.get_response_data(response_count);
-					if rd.button() == 2 && rd.time() > start_time_array[presented_block_counter] && rd.time() - start_time_array[presented_block_counter] < 1750
+		if report_data
+		then
+			loop int presented_block_counter = 1
+			until presented_block_counter > block.count()
+			begin
+				rawData[trial_number][1] = trial_number;
+				rawData[trial_number][2] = block_with_circles[presented_block_counter];
+				if block_with_circles[presented_block_counter] != 5
+				then
+					term.print("sound_index: " + string(sound_index_logging));
+					stimulus_data sd = stimulus_manager.get_stimulus_data(sound_index_logging);
+					rawData[trial_number][3] = sd.reaction_time();
+					rawData[trial_number][4] = sd.type();
+					if sd.type() == sd.HIT || sd.type() == sd.OTHER
 					then
-						rawData[trial_number][3] = rd.time() - start_time_array[presented_block_counter];
-						#rawData[trial_number][4] = ;
-						break;
+						rawData[trial_number][6] = 1;
 					end;
-					response_count = response_count + 1;
+					sound_index_logging = sound_index_logging + 1;
+				elseif block_with_circles[presented_block_counter] == 5
+				then
+					loop int response_count = 1
+					until response_count > response_manager.response_data_count()
+					begin
+						response_data rd = response_manager.get_response_data(response_count);
+						if rd.button() == 2 && rd.time() > start_time_array[presented_block_counter] &&
+							rd.time() - start_time_array[presented_block_counter] < 1750
+						then
+							rawData[trial_number][3] = rd.time() - start_time_array[presented_block_counter];
+							break;
+						end;
+						response_count = response_count + 1;
+					end;
+					if rawData[trial_number][3] != 0
+					then
+						rawData[trial_number][6] = 1;
+					end;
 				end;
+				rawData[trial_number][5] = condition;
+				trial_number = trial_number + 1;
+				presented_block_counter = presented_block_counter + 1;
 			end;
-			rawData[trial_number][5] = condition;
-			trial_number = trial_number + 1;
-			presented_block_counter = presented_block_counter + 1;
 		end;
 		term.print_line(added_iti_array);
 		term.print_line(added_fix_array);
 		term.print_line(start_time_array);
 		term.print_line(block_with_circles);
+	end;
+	
+	sub present_instruction_and_testblocks
+	begin
+		
+		loop bool correctInput = false
+		until correctInput == true
+		begin
+			vpCode = system_keyboard.get_input(picture_vpncode, text_vpncode );
+			if vpCode != "" then
+				correctInput = true;
+			end;
+		end;	
+		
+		set_button_mode(false);
+		trial_instruction1.present();
+		trial_instruction2.present();
+		trial_instruction3.present();
+		trial_instruction4_no_sound.present();
+		trial_instruction4.present();
+		trial_instruction4_no_sound.present();
+		trial_instruction5_no_sound.present();
+		trial_instruction5.present();
+		trial_instruction5_no_sound.present();
+		set_button_mode(true);
+		make_block({1,2,3,4,3,2,1,4,3,2,4,1},random(4,6));
+		present_block(block_with_circles, 1, false);
+		set_button_mode(false);
+		trial_instruction6_no_sound.present();
+		trial_instruction6.present();
+		trial_instruction6_no_sound.present();
+		trial_instruction7_no_sound.present();
+		trial_instruction7.present();
+		trial_instruction7_no_sound.present();
+		set_button_mode(true);
+		make_block({2,3,4,1,3,2,4,1,3,2,4,2},random(4,6));
+		present_block(block_with_circles, 2, false);
+		set_button_mode(false);
+		trial_instruction8.present();
 	end;
 	
 	sub export_rawdata
@@ -626,7 +881,7 @@ begin_pcl;
 		string single_file_name = "singles/GoNoGoRobin" + vpCode + ".txt";
 		single.open_append(single_file_name);
 		
-		string variable_names = "stimulus_number	stimulus_type	response_time	response_type	condition	nothing";
+		string variable_names = "stimulus_number	stimulus_type	response_time	response_type	condition	correct_reaction";
 		single.print_line(variable_names);
 		
 		loop int export_data_counter = 1
@@ -648,23 +903,19 @@ begin_pcl;
 		end;
 	end;
 	
-	#showInputPage(1);
-	#showInputPage(2);
-	
-	stimuliRandomization();
-	make_block(all_orders_without_circles[1],3);
-	present_block(block_with_circles, blockConditions[1]);
-	export_rawdata();
-	/*make_block(all_orders_without_circles[2],3);
-	present_block(block_with_circles, blockConditions[2]);
-	make_block(all_orders_without_circles[3],3);
-	present_block(block_with_circles, blockConditions[3]);
-	make_block(all_orders_without_circles[4],3);
-	present_block(block_with_circles, blockConditions[4]);
+	present_instruction_and_testblocks();
 
-	correctAndCalculateData();
-	exportData();
-	*/
+	stimuliRandomization();
+	make_block(all_orders_without_circles[1],random(4,6));
+	present_block(block_with_circles, blockConditions[1], true);
+	make_block(all_orders_without_circles[2],random(4,6));
+	present_block(block_with_circles, blockConditions[2], true);
+	make_block(all_orders_without_circles[3],random(4,6));
+	present_block(block_with_circles, blockConditions[3], true);
+	make_block(all_orders_without_circles[4],random(4,6));
+	present_block(block_with_circles, blockConditions[4], true);
+	export_rawdata();
+	trial_instruction12.present();
 	
 	term.print_line("HIT " + string(stimulus_data::HIT));
 	term.print_line("FALSE_ALARM " + string(stimulus_data::FALSE_ALARM));

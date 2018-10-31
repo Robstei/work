@@ -551,7 +551,7 @@
 	#gather data
 	showInputPage(1);
 	showInputPage(2);
-	#run instruction
+	/*#run instruction
 	mode = "practice";
 	runInstruction();
 	#run task
@@ -559,7 +559,7 @@
 	stimuliRandomization();
 	runTask();
 	#write data
-	correctAndCalculateData();
+	correctAndCalculateData();*/
 	exportData();
 	#debriefing
 	debriefing.present();	

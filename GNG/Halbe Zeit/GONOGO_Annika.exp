@@ -43,8 +43,8 @@
 <dsd>C:\work\GNG\Halbe Zeit\stimuli</dsd>
 <dxv>8</dxv>
 <efs>
-<filename>C:\work\GNG\Halbe Zeit\GoNoGo_Original.sce</filename>
 <filename>C:\work\GNG\Halbe Zeit\GoNoGo_Modifiziert.sce</filename>
+<filename>C:\work\GNG\Halbe Zeit\GoNoGo_Original.sce</filename>
 <filename>C:\work\GNG\Halbe Zeit\GoNoGo_ori_Main.pcl</filename>
 <filename>C:\work\GNG\Halbe Zeit\dataHandling_mod.pcl</filename>
 <filename>C:\work\GNG\Halbe Zeit\dataHandling_ori.pcl</filename>
@@ -135,7 +135,7 @@
 <pien>0</pien>
 <set_def_file></set_def_file>
 <stimulus_list>0</stimulus_list>
-<subject_id>492</subject_id>
+<subject_id>1337</subject_id>
 <subject_id_pol>2</subject_id_pol>
 <video_list>0</video_list>
 <warnings>1</warnings>
@@ -207,11 +207,6 @@
 <name>Tastatur</name>
 </device>
 <device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>Standard PS/2 Keyboard</name>
-</device>
-<device>
 <abs_axis>
 <dead_zone>0</dead_zone>
 <max>1000</max>
@@ -252,6 +247,11 @@
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
 <name>HID-compliant mouse</name>
+</device>
+<device>
+<device_type>3</device_type>
+<dx_device_type>0</dx_device_type>
+<name>Standard PS/2 Keyboard</name>
 </device>
 <device>
 <abs_axis>

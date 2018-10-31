@@ -1,4 +1,4 @@
-<ver>20.1</ver>
+<ver>20.2</ver>
 <efn>C:\work\SWaD\Swad.exp</efn>
 <author></author>
 <con>
@@ -328,7 +328,7 @@ Sie hätten drücken müssen.</val>
 <its>0</its>
 <meta>1</meta>
 <pien>0</pien>
-<set_def_file>C:\Praxisprojekt\Praxisprojekt.sdf</set_def_file>
+<set_def_file>C:\work\SWaD\Swad.sdf</set_def_file>
 <stimulus_list>0</stimulus_list>
 <subject_id></subject_id>
 <subject_id_pol>1</subject_id_pol>
@@ -352,25 +352,7 @@ Sie hätten drücken müssen.</val>
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
 <plat>1</plat>
-<port_devices>
-<device>
-<parameters>
-<cts>0</cts>
-<dsrin>0</dsrin>
-<dsrout>0</dsrout>
-<dtr>disable</dtr>
-<rts>disable</rts>
-<set_fifo>1</set_fifo>
-<spd></spd>
-<spp></spp>
-<spr></spr>
-<sps></sps>
-</parameters>
-<piai>COM1</piai>
-<pian>Serial Port</pian>
-<pihpn>COM1</pihpn>
-</device>
-</port_devices>
+<port_devices></port_devices>
 <rdl>
 <device>
 <abs_axis>
@@ -420,11 +402,6 @@ Sie hätten drücken müssen.</val>
 <name>Tastatur</name>
 </device>
 <device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device</name>
-</device>
-<device>
 <abs_axis>
 <dead_zone>0</dead_zone>
 <max>1000</max>
@@ -467,19 +444,56 @@ Sie hätten drücken müssen.</val>
 <name>HID-compliant mouse</name>
 </device>
 <device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>HyperX 7.1 Audio</name>
+<device_type>3</device_type>
+<dx_device_type>0</dx_device_type>
+<name>Standard PS/2 Keyboard</name>
+</device>
+<device>
+<abs_axis>
+<dead_zone>0</dead_zone>
+<max>1000</max>
+<min>-1000</min>
+<name>X-axis</name>
+<saturation>1</saturation>
+</abs_axis>
+<abs_axis>
+<dead_zone>0</dead_zone>
+<max>1000</max>
+<min>-1000</min>
+<name>Y-axis</name>
+<saturation>1</saturation>
+</abs_axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>X-axis</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>Y-axis</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>Wheel</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<device_type>2</device_type>
+<dx_device_type>0</dx_device_type>
+<max_raw_pos>65535</max_raw_pos>
+<min_raw_pos>0</min_raw_pos>
+<name>Synaptics Pointing Device</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte 1</name>
+<name>Lenovo HID Mini-driver for Hardware Radio Switch</name>
 </device>
 <device>
 <axis>
@@ -511,8 +525,10 @@ Sie hätten drücken müssen.</val>
 <name>Speech Recognition</name>
 <speech>
 <engine_class></engine_class>
+<lang></lang>
 <mc>0</mc>
 <rw>0</rw>
+<sil>0</sil>
 <uwd>0</uwd>
 <vocab></vocab>
 </speech>

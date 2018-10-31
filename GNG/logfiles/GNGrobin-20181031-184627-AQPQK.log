@@ -1,0 +1,120 @@
+Scenario - 
+Logfile written - 10/31/2018 18:53:21
+
+Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+0	Text Input		27175	27175	0
+0	Text Input		29414	29414	0
+0	Text Input		31834	31834	0
+0	Text Input		34309	34309	0
+0	Text Input		36799	36799	0
+0	Text Input		38585	38585	0
+0	Text Input	1	99456	99456	0
+1	Response	3	532886	433286	0
+2	Response	3	756897	223898	0
+3	Response	3	925275	168275	0
+4	Response	3	957909	32510	0
+6	Response	3	1154491	165092	0
+8	Sound	sound	1193800	1	3			0		miss	0
+43	Sound	sound	1246400	1	3			0		miss	0
+86	Sound	sound	1308800	1	3			0		false_alarm	17
+86	Response	2	1311604	2805	0
+90	Response	1	1324562	964	0
+106	Response	2	1343617	18	0
+120	Sound	sound	1361200	1	3			0		false_alarm	20
+120	Response	1	1370261	9062	0
+159	Sound	sound	1416200	1	3			0		other	0
+182	Response	2	1455271	672	0
+196	Sound	sound	1471400	1	3			0		miss	0
+205	Response	1	1492285	86	0
+241	Sound	sound	1536200	1	3			0		hit	26
+241	Response	1	1545863	9664	0
+269	Sound	sound	1578800	1	3			0		other	0
+302	Sound	sound	1628799	1	3			0		false_alarm	29
+302	Response	1	1638096	9297	0
+332	Sound	sound	1673799	1	3			0		hit	31
+332	Response	1	1682198	8399	0
+367	Sound	sound	1723799	1	3			0		other	0
+402	Response	2	1777124	326	0
+410	Sound	sound	1786399	1	3			0		hit	35
+413	Response	1	1801196	598	0
+427	Response	3	1912966	95568	0
+429	Response	3	1961341	16542	0
+431	Sound	sound	2007799	1	3			0		false_alarm	39
+432	Response	1	2019068	70	0
+466	Sound	sound	2060199	1	3			0		miss	0
+474	Response	1	2080437	639	0
+484	Response	2	2093254	656	0
+505	Sound	sound	2117799	1	3			0		hit	44
+512	Response	1	2137638	1039	0
+533	Sound	sound	2162799	1	3			0		other	0
+558	Response	2	2205322	1124	0
+577	Sound	sound	2227799	1	3			0		miss	0
+597	Response	1	2262858	1060	0
+606	Sound	sound	2272799	1	3			0		false_alarm	50
+611	Response	1	2289498	700	0
+621	Response	2	2302115	717	0
+641	Sound	sound	2325399	1	3			0		miss	0
+678	Sound	sound	2380199	1	2			0		other	0
+719	Sound	sound	2440199	1	3			0		miss	0
+738	Response	1	2473283	285	0
+750	Sound	sound	2487799	1	3			0		other	0
+781	Sound	sound	2535199	1	3			0		hit	58
+784	Response	1	2549606	408	0
+811	Response	2	2582733	1135	0
+820	Sound	sound	2592799	1	3			0		other	0
+837	Response	3	2686941	63743	0
+838	Response	3	2834187	146989	0
+840	Response	3	2902136	36139	0
+842	Sound	sound	2940999	1	3			0		other	0
+880	Response	2	2998750	952	0
+882	Sound	sound	3000999	1	3			0		false_alarm	67
+884	Response	1	3013724	326	0
+917	Sound	sound	3053599	1	3			0		hit	69
+917	Response	1	3060888	7291	0
+941	Response	2	3089198	600	0
+959	Sound	sound	3110998	1	3			0		other	0
+975	Response	2	3140979	182	0
+996	Sound	sound	3165998	1	3			0		hit	74
+996	Response	1	3174647	8649	0
+1033	Sound	sound	3218598	1	3			0		other	0
+1051	Response	2	3252385	1187	0
+1078	Sound	sound	3283598	1	3			0		hit	78
+1081	Response	1	3297778	180	0
+1113	Sound	sound	3335998	1	3			0		miss	0
+1121	Response	1	3356530	933	0
+1142	Sound	sound	3380998	1	3			0		other	0
+1142	Response	2	3391940	10942	0
+1158	Response	2	3411085	288	0
+1187	Sound	sound	3445998	1	3			0		hit	85
+1187	Response	1	3455383	9386	0
+1219	Sound	sound	3493598	1	3			0		other	0
+1245	Response	2	3536019	1021	0
+1248	Sound	sound	3538598	1	3			0		hit	89
+1254	Response	1	3556315	517	0
+1265	Response	3	3605281	36283	0
+1267	Response	3	3684865	48268	0
+1269	Sound	sound	3724198	1	3			0		miss	0
+1308	Sound	sound	3781598	1	3			0		miss	0
+1353	Sound	sound	3846598	1	3			0		other	0
+1382	Sound	sound	3891798	1	3			0		other	0
+1394	Response	2	3916735	538	0
+1423	Sound	sound	3951598	1	3			0		miss	0
+1462	Sound	sound	4009198	1	3			0		miss	0
+1493	Sound	sound	4056798	1	3			0		other	0
+1523	Quit		4103750	153	NA
+
+
+{
+   "app": "Presentation Version 20.2 Build 07.25.18",
+   "device": "LENOVO 20DTCTO1WW",
+   "experiment": "{80656493-4243-4645-96CC-529760D03478}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "GNGrobin.sce",
+   "subject": "",
+   "timestamp": "2018/10/31 17:46:27 GMT"
+}
