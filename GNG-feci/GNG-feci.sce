@@ -37,15 +37,11 @@ begin;
 	box {color = 0,0,0; height = 400; width = 600;} box_feedback;
 	box {height = 380; width = 580;} box_feedback_inner;
 	
-	picture {
-		#background_color = 255,255,255;
-		 
+	picture {		 
 			text {
 			caption = "Bitte Versuchspersonencode eingeben:"; 
 			};
-			x = 0;
-			y = 0;     
-		  
+			x = 0;y = 0;     
 		
 		  text {
 			caption = " "; 
@@ -290,6 +286,11 @@ begin;
 	trial {
 		trial_type = fixed;
 		trial_duration = 2000;
+		
+		picture {
+			box {color = 242,242,242; height = 400; width = 600;};
+			x=0;y=0;
+		};
 	} trial_two_seconds;
 	
 	trial {
@@ -376,46 +377,33 @@ begin;
 
 begin_pcl;
 
-	int blocksInTotal = 4;
-	int stimuliPerBlock = 12;
-	int trialCount = blocksInTotal * stimuliPerBlock + blocksInTotal * 6;
+	int blocks_in_total = 4;
+	int stimuli_per_block = 12;
+	int max_trial_count = blocks_in_total * stimuli_per_block + blocks_in_total * 6;
 	int trial_number = 1;
 	bool exportVariableNames = true;
 
-	#store buffered data to storage
-	# 1=stimulus,2=position,3=rt,4=answerGiven,5=answerCorrect,6=goTrial	
-	array <int> rawData[trialCount][6];
-	array <int> correctedData[trialCount][6];
+	array <int> raw_data[max_trial_count][7];
+	array <int> correctedData[max_trial_count][6];
 	
-	array <int> itiArray[12];
-	array <int> fixArray[12];
+	array <int> array_iti[12];
+	array <int> array_fix[12];
 	int size_with_circles;
-	array<int> block_with_circles[0];
-	array<int> blockConditions[4];
+	array <int> block_with_circles[0];
 	array <int> added_iti_array[12];
 	array <int> added_fix_array[12];
 	array <int> start_time_array[0];
-	array<int> all_orders_without_circles[4][12];
+	array <int> all_orders_without_circles[4][12];
+	array <int> blockConditions[4] = {1,2,1,2};
 
-	string vpCode = "";
-	int experimentGroup = 0;
+	string vp_code= "";
 	int last_picture_number = 0;
 	int sound_index_logging = 0;
 
-	#include "GNGrobin_data.pcl";
-
 	response_manager.set_button_active(2, false);
 
-#--  STIMULI RANDOMIZATION  --#
 	sub stimuliRandomization
 	begin			
-
-		if experimentGroup == 1 
-		then
-			blockConditions = {1,2,1,2};
-		else
-			blockConditions = {2,1,2,1};
-		end;	
 			
 		array<int> order1[12] = {1,2,3,1,4,2,3,4,1,3,2,4};
 		array<int> order2[12] = {1,2,3,2,4,1,4,3,1,4,2,3};
@@ -427,41 +415,8 @@ begin_pcl;
 		all_orders_without_circles[3] = order3;
 		all_orders_without_circles[4] = order4;
 
-		#shuffle arrays
 		all_orders_without_circles.shuffle();	
-		
-		/*
-		loop 
-			int i = 1 
-		until
-			i > setOrder.count()
-		begin
-			array<int> bufferArray[12];
-			if setOrder[i] == 1 then
-				bufferArray = order1;
-			elseif setOrder[i] == 2 then
-				bufferArray = order2;
-			elseif setOrder[i] == 3 then
-				bufferArray = order3;
-			elseif setOrder[i] == 4 then
-				bufferArray = order4;
-			end;
-			
-			if i == 1 then
-				block1Order = bufferArray;
-			elseif i == 2 then
-				block2Order = bufferArray;
-			elseif i == 3 then
-				block3Order = bufferArray;
-			elseif i == 4 then
-				block4Order = bufferArray;
-			end;
-			
-			i = i + 1;
-		end;
-		*/
 	end;
-#--  STIMULI RANDOMIZATION  --# 
 	
 	sub randomizeTiming
 		begin
@@ -471,70 +426,51 @@ begin_pcl;
 			int value3 = 2000;
 			int value4 = 2500;
 			
-			itiArray[1] = value1;
-			itiArray[2] = value1;
-			itiArray[3] = value1;
-			itiArray[4] = value2;
-			itiArray[5] = value2;			
-			itiArray[6] = value2;
-			itiArray[7] = value3;
-			itiArray[8] = value3;
-			itiArray[9] = value3;
-			itiArray[10] = value4;			
-			itiArray[11] = value4;
-			itiArray[12] = value4;
-			/*itiArray[13] = value3;
-			itiArray[14] = value3;
-			itiArray[15] = value3;			
-			itiArray[16] = value4;
-			itiArray[17] = value4;
-			itiArray[18] = value4;
-			itiArray[19] = value4;
-			itiArray[20] = value4;			
-			*/
+			array_iti[1] = value1;
+			array_iti[2] = value1;
+			array_iti[3] = value1;
+			array_iti[4] = value2;
+			array_iti[5] = value2;			
+			array_iti[6] = value2;
+			array_iti[7] = value3;
+			array_iti[8] = value3;
+			array_iti[9] = value3;
+			array_iti[10] = value4;			
+			array_iti[11] = value4;
+			array_iti[12] = value4;
 			
 			value1 = 750;
 			value2 = 1000;
 			value3 = 1250;
 			value4 = 1500;
 			
-			fixArray[1] = value1;
-			fixArray[2] = value1;
-			fixArray[3] = value1;
-			fixArray[4] = value2;
-			fixArray[5] = value2;			
-			fixArray[6] = value2;
-			fixArray[7] = value3;
-			fixArray[8] = value3;
-			fixArray[9] = value3;
-			fixArray[10] = value4;			
-			fixArray[11] = value4;
-			fixArray[12] = value4;
-			/*fixArray[13] = value3;
-			fixArray[14] = value3;
-			fixArray[15] = value3;			
-			fixArray[16] = value4;
-			fixArray[17] = value4;
-			fixArray[18] = value4;
-			fixArray[19] = value4;
-			fixArray[20] = value4;			
-			*/			
+			array_fix[1] = value1;
+			array_fix[2] = value1;
+			array_fix[3] = value1;
+			array_fix[4] = value2;
+			array_fix[5] = value2;			
+			array_fix[6] = value2;
+			array_fix[7] = value3;
+			array_fix[8] = value3;
+			array_fix[9] = value3;
+			array_fix[10] = value4;			
+			array_fix[11] = value4;
+			array_fix[12] = value4;		
 			
-			itiArray.shuffle();
-			fixArray.shuffle();
-			
+			array_iti.shuffle();
+			array_fix.shuffle();
 		end;
 	
 	sub make_start_time_array (int block_start_time)
 	begin
 		loop int i = 1
-		until i > itiArray.count()
+		until i > array_iti.count()
 		begin
 			int added_iti = 0;
 			loop int j = 1
 			until j == i 
 			begin
-				added_iti = added_iti + itiArray[j];
+				added_iti = added_iti + array_iti[j];
 				j = j + 1;
 			end;
 			added_iti_array[i] = added_iti;
@@ -542,13 +478,13 @@ begin_pcl;
 		end;
 		
 		loop int i = 1
-		until i > fixArray.count()
+		until i > array_fix.count()
 		begin
 			int added_fix = 0;
 			loop int j = 1
 			until j > i 
 			begin
-				added_fix = added_fix + fixArray[j];
+				added_fix = added_fix + array_fix[j];
 				j = j + 1;
 			end;
 			added_fix_array[i] = added_fix;
@@ -664,7 +600,7 @@ begin_pcl;
 			end;
 	end;
 		
-	sub present_block (array<int,1> block, int condition, bool report_data)
+	sub present_block (array<int,1> block, int condition, int block_index, bool report_data)
 	begin
 		
 		if condition == 1 && report_data == true
@@ -785,25 +721,28 @@ begin_pcl;
 					time_for_next_stimuli = true;
 				end;
 			end;
+			
 			box_feedback.set_color(0,0,0);
 			i = i + 1;	
 		end;
+		
 		if report_data
 		then
 			loop int presented_block_counter = 1
 			until presented_block_counter > block.count()
 			begin
-				rawData[trial_number][1] = trial_number;
-				rawData[trial_number][2] = block_with_circles[presented_block_counter];
+				raw_data[trial_number][1] = trial_number;
+				raw_data[trial_number][2] = block_with_circles[presented_block_counter];
+				raw_data[trial_number][7] = block_index;
 				if block_with_circles[presented_block_counter] != 5
 				then
 					term.print("sound_index: " + string(sound_index_logging));
 					stimulus_data sd = stimulus_manager.get_stimulus_data(sound_index_logging);
-					rawData[trial_number][3] = sd.reaction_time();
-					rawData[trial_number][4] = sd.type();
+					raw_data[trial_number][3] = sd.reaction_time();
+					raw_data[trial_number][4] = sd.type();
 					if sd.type() == sd.HIT || sd.type() == sd.OTHER
 					then
-						rawData[trial_number][6] = 1;
+						raw_data[trial_number][6] = 1;
 					end;
 					sound_index_logging = sound_index_logging + 1;
 				elseif block_with_circles[presented_block_counter] == 5
@@ -815,17 +754,17 @@ begin_pcl;
 						if rd.button() == 2 && rd.time() > start_time_array[presented_block_counter] &&
 							rd.time() - start_time_array[presented_block_counter] < 1750
 						then
-							rawData[trial_number][3] = rd.time() - start_time_array[presented_block_counter];
+							raw_data[trial_number][3] = rd.time() - start_time_array[presented_block_counter];
 							break;
 						end;
 						response_count = response_count + 1;
 					end;
-					if rawData[trial_number][3] != 0
+					if raw_data[trial_number][3] != -1
 					then
-						rawData[trial_number][6] = 1;
+						raw_data[trial_number][6] = 1;
 					end;
 				end;
-				rawData[trial_number][5] = condition;
+				raw_data[trial_number][5] = condition;
 				trial_number = trial_number + 1;
 				presented_block_counter = presented_block_counter + 1;
 			end;
@@ -842,8 +781,8 @@ begin_pcl;
 		loop bool correctInput = false
 		until correctInput == true
 		begin
-			vpCode = system_keyboard.get_input(picture_vpncode, text_vpncode );
-			if vpCode != "" then
+			vp_code= system_keyboard.get_input(picture_vpncode, text_vpncode );
+			if vp_code != "" then
 				correctInput = true;
 			end;
 		end;	
@@ -860,7 +799,7 @@ begin_pcl;
 		trial_instruction5_no_sound.present();
 		set_button_mode(true);
 		make_block({1,2,3,4,3,2,1,4,3,2,4,1},random(4,6));
-		present_block(block_with_circles, 1, false);
+		present_block(block_with_circles, 1, 0, false);
 		set_button_mode(false);
 		trial_instruction6_no_sound.present();
 		trial_instruction6.present();
@@ -870,7 +809,7 @@ begin_pcl;
 		trial_instruction7_no_sound.present();
 		set_button_mode(true);
 		make_block({2,3,4,1,3,2,4,1,3,2,4,2},random(4,6));
-		present_block(block_with_circles, 2, false);
+		present_block(block_with_circles, 2, 0, false);
 		set_button_mode(false);
 		trial_instruction8.present();
 	end;
@@ -878,21 +817,31 @@ begin_pcl;
 	sub export_rawdata
 	begin
 		output_file single = new output_file();
-		string single_file_name = "singles/GoNoGoRobin" + vpCode + ".txt";
+		string single_file_name = "singles/GoNoGo-feci" + vp_code+ ".txt";
 		single.open_append(single_file_name);
 		
-		string variable_names = "stimulus_number	stimulus_type	response_time	response_type	condition	correct_reaction";
+		string variable_names = "stimulus_number	stimulus_type	response_time	response_type	condition	correct_reaction	block";
 		single.print_line(variable_names);
 		
 		loop int export_data_counter = 1
-		until export_data_counter > rawData.count()
+		until export_data_counter > raw_data.count()
 		begin
 			string stimulus_data_string = "";
 			loop int stimulus_data_counter = 1
-			until stimulus_data_counter > rawData[export_data_counter].count() 
+			until stimulus_data_counter > raw_data[export_data_counter].count() 
 			begin
-				stimulus_data_string = stimulus_data_string + string(rawData[export_data_counter][stimulus_data_counter]);
-				if stimulus_data_counter < rawData[export_data_counter].count()
+				if stimulus_data_counter == 1 && raw_data[export_data_counter][stimulus_data_counter] == 0
+				then
+					break;
+				end;
+				if stimulus_data_counter == 3 && raw_data[export_data_counter][stimulus_data_counter] == 0
+				then
+					stimulus_data_string = stimulus_data_string + "-1";
+				else
+				stimulus_data_string = stimulus_data_string + string(raw_data[export_data_counter][stimulus_data_counter]);
+				end;
+			
+				if stimulus_data_counter < raw_data[export_data_counter].count()
 				then
 					stimulus_data_string = stimulus_data_string + "	";
 				end;
@@ -904,16 +853,15 @@ begin_pcl;
 	end;
 	
 	present_instruction_and_testblocks();
-
 	stimuliRandomization();
 	make_block(all_orders_without_circles[1],random(4,6));
-	present_block(block_with_circles, blockConditions[1], true);
+	present_block(block_with_circles, blockConditions[1], 1, true);
 	make_block(all_orders_without_circles[2],random(4,6));
-	present_block(block_with_circles, blockConditions[2], true);
+	present_block(block_with_circles, blockConditions[2], 2, true);
 	make_block(all_orders_without_circles[3],random(4,6));
-	present_block(block_with_circles, blockConditions[3], true);
+	present_block(block_with_circles, blockConditions[3], 3, true);
 	make_block(all_orders_without_circles[4],random(4,6));
-	present_block(block_with_circles, blockConditions[4], true);
+	present_block(block_with_circles, blockConditions[4], 4, true);
 	export_rawdata();
 	trial_instruction12.present();
 	
@@ -953,5 +901,5 @@ begin_pcl;
 					" type " + string(rp.type()));
 	i = i + 1;
 	end;
-	term.print_line(rawData);
+	term.print_line(raw_data);
 	
