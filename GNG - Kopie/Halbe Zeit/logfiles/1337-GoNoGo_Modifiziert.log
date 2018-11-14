@@ -1,8 +1,0 @@
-Scenario - GoNoGo_Modifiziert
-Logfile written - 10/31/2018 17:52:56
-
-Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
-
-1337	0	Text Input	999	16216	16216	0
-1337	0	Text Input	1	23736	23736	0
-1337	1	Response	2	36687	12688	0

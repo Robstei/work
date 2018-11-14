@@ -1,0 +1,17 @@
+# --------------DefinitionHeader-------------
+# PID:     ProbandenID
+# Date:     Uhrzeit im Format YYYY-MM-DD/HH:MM
+# Dann kommen 20 Paare, die in der richtigen Reihenfolge dargestellt werden.
+# Um ein Target zu erkennen, muss der Trial-Typ also 1 oder 2 sein (s.u.)
+# Tn_RT:    Die Reaktionszeit des Probanden. -1, wenn der Proband nicht reagiert hat.
+# Tn_Typ:   Der Trial-Typ (s.u.)
+# --
+# TrialTypen:
+# 1: Proband hat gedrückt       - musste drücken
+# 2: Proband hat nicht gedrückt - musste drücken
+# 3: Proband hat gedrückt       - durfte nicht drücken
+# 4: Proband hat nicht gedrückt - durfte nicht drücken
+# --------------DefinitionBottom-------------
+
+PID	Date	T1_RT	T1_Typ	T2_RT	T2_Typ	T3_RT	T3_Typ	T4_RT	T4_Typ	T5_RT	T5_Typ	T6_RT	T6_Typ	T7_RT	T7_Typ	T8_RT	T8_Typ	T9_RT	T9_Typ	T10_RT	T10_Typ	T11_RT	T11_Typ	T12_RT	T12_Typ	T13_RT	T13_Typ	T14_RT	T14_Typ	T15_RT	T15_Typ	T16_RT	T16_Typ	T17_RT	T17_Typ	T18_RT	T18_Typ	T19_RT	T19_Typ	T20_RT	T20_Typ
+1	2018-11-13/12:41	-1	4	-1	4	-1	2	-1	4	-1	4	-1	4	-1	4	-1	4	-1	4	-1	2	-1	4	-1	2	-1	2	-1	4	-1	4	-1	4	-1	2	-1	4	-1	4	-1	4

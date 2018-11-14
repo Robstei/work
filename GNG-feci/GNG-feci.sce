@@ -285,13 +285,13 @@ begin;
 	
 	trial {
 		trial_type = fixed;
-		trial_duration = 2000;
+		trial_duration = EXPARAM("white screen before block" : 1);
 		
 		picture {
 			box {color = 242,242,242; height = 400; width = 600;};
 			x=0;y=0;
 		};
-	} trial_two_seconds;
+	} trial_gap_before_block;
 	
 	trial {
 		trial_type = first_response;
@@ -504,11 +504,8 @@ begin_pcl;
 			else
 				int tmp_trial_before = added_iti_array[sound_index - 1] + added_fix_array[sound_index - 1] + (sound_index - 2) * 2500;
 				int tmp_trial_after = added_iti_array[sound_index] + added_fix_array[sound_index] + (sound_index - 1) * 2500;
-				#term.print_line("before:" + string(tmp_trial_before));
-				#term.print_line("after:" + string(tmp_trial_after));
 				tmp_starttime = random(tmp_trial_before + 1450, tmp_trial_after - 300);
 			end;
-		#term.print_line( "st " + string(tmp_starttime) + " " + string(block_with_circles[i]) + " ");
 		tmp_starttime = tmp_starttime + block_start_time;
 		start_time_array.add(tmp_starttime);
 		i = i + 1;
@@ -517,7 +514,6 @@ begin_pcl;
 	
 	sub make_block(array<int> block[], int circles)
 	begin
-		#term.print_line("block Flag 1");
 		size_with_circles = block.count() + circles;
 		block_with_circles.resize(0);
 		array<int> circle_positions[circles];
@@ -525,13 +521,11 @@ begin_pcl;
 		loop int i = 1
 		until i > circles
 		begin
-			#term.print_line("block Flag 2");
 			int candidate = random(2,size_with_circles);
 			bool valid = true;
 			loop int j = 1
 			until j > circles
 			begin				
-				#term.print_line("block Flag 3");
 				if candidate == circle_positions[j] || 
 					candidate == size_with_circles ||
 					candidate == circle_positions[j] + 1 ||
@@ -570,7 +564,6 @@ begin_pcl;
 			end;
 			i = i + 1;
 		end;
-		#term.print_line("block Flag 4");
 	end;
 	
 	sub set_button_mode(bool in_block)
@@ -634,10 +627,10 @@ begin_pcl;
 		set_button_mode(true);
 		sound_index_logging = stimulus_manager.stimulus_count() + 1;
 		randomizeTiming();
-		trial_two_seconds.present();
+		trial_gap_before_block.present();
+		trial_feedback.present();
 		int clocktime = clock.time();
 		make_start_time_array(clock.time());
-		term.print_line("clocktime: " + string(clocktime));
 		
 		loop int i = 1
 		until i > block.count()
@@ -736,7 +729,6 @@ begin_pcl;
 				raw_data[trial_number][7] = block_index;
 				if block_with_circles[presented_block_counter] != 5
 				then
-					term.print("sound_index: " + string(sound_index_logging));
 					stimulus_data sd = stimulus_manager.get_stimulus_data(sound_index_logging);
 					raw_data[trial_number][3] = sd.reaction_time();
 					raw_data[trial_number][4] = sd.type();
@@ -769,10 +761,6 @@ begin_pcl;
 				presented_block_counter = presented_block_counter + 1;
 			end;
 		end;
-		term.print_line(added_iti_array);
-		term.print_line(added_fix_array);
-		term.print_line(start_time_array);
-		term.print_line(block_with_circles);
 	end;
 	
 	sub present_instruction_and_testblocks
@@ -864,42 +852,3 @@ begin_pcl;
 	present_block(block_with_circles, blockConditions[4], 4, true);
 	export_rawdata();
 	trial_instruction12.present();
-	
-	term.print_line("HIT " + string(stimulus_data::HIT));
-	term.print_line("FALSE_ALARM " + string(stimulus_data::FALSE_ALARM));
-	term.print_line("MISS " + string(stimulus_data::MISS));
-	term.print_line("INCORRECT " + string(stimulus_data::INCORRECT));
-	term.print_line("OTHER " + string(stimulus_data::OTHER));
-
-	loop int bolo = 1 
-	until bolo > stimulus_manager.stimulus_count()
-	begin
-		stimulus_data re = stimulus_manager.get_stimulus_data(bolo);
-		term.print_line(
-		string(re.reaction_time()) + " " +
-		re.stimulus_type() + " " +
-		string(re.type()) + " " +
-		string(re.button()) + " " +
-		re.event_code() + " " +
-		string(re.time()) + " " +
-		string(bolo));
-		bolo = bolo + 1;
-	end;
-	
-	term.print_line("HIT " + string(response_data::HIT));
-	term.print_line("INCORRECT " + string(response_data::INCORRECT));
-	term.print_line("FALSE_ALARM " + string(response_data::FALSE_ALARM));
-	term.print_line("OTHER " + string(response_data::OTHER));
-	
-	term.print_line(response_manager.response_count());
-	loop int i = 1
-	until i > response_manager.response_data_count()
-	begin
-	response_data rp = response_manager.get_response_data(i);
-	term.print_line("button " + string(rp.button()) + 
-					" time " + string(rp.time()) + 
-					" type " + string(rp.type()));
-	i = i + 1;
-	end;
-	term.print_line(raw_data);
-	

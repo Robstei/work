@@ -685,7 +685,7 @@ begin_pcl;
 											 form_target_index, block_presentet, show_feedback, run_id, block_id)
 	end;
 	
-#	Parameters for make_and_present_block
+#	Parametefrs for make_and_present_block
 #	1. Value: selective_attention: 1 = only a char is a target
 #											 2 = only a form is a target
 #											 3 = a char and a form is a target

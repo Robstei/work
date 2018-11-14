@@ -1,4 +1,4 @@
-<ver>20.1</ver>
+<ver>20.2</ver>
 <efn>C:\work\GNG-feci\GNG-feci.exp</efn>
 <author></author>
 <con>
@@ -60,7 +60,14 @@
 <ss>0</ss>
 </r>
 <ss>
-<sd></sd>
+<sd>
+<val>
+<dat>
+<val>1</val>
+</dat>
+<id>0</id>
+</val>
+</sd>
 <sid>-1</sid>
 </ss>
 </dcfg>
@@ -69,13 +76,30 @@
 <dl>
 <grps>
 <grp>
-<gn></gn>
-<pl></pl>
+<gn>default</gn>
+<pl>
+<pid>0</pid>
+</pl>
 </grp>
 </grps>
 </dl>
 <parms>
-<parms></parms>
+<parms>
+<parm>
+<id>0</id>
+<set>
+<desc>Time of white screen before each block in ms.</desc>
+<edit>1</edit>
+<name>white screen before block</name>
+<set>
+<rest>[1,)</rest>
+</set>
+<temp>0</temp>
+<type>int</type>
+<vis>1</vis>
+</set>
+</parm>
+</parms>
 <ssl></ssl>
 </parms>
 <pass></pass>
@@ -152,25 +176,7 @@
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
 <plat>1</plat>
-<port_devices>
-<device>
-<parameters>
-<cts>0</cts>
-<dsrin>0</dsrin>
-<dsrout>0</dsrout>
-<dtr>disable</dtr>
-<rts>disable</rts>
-<set_fifo>1</set_fifo>
-<spd></spd>
-<spp></spp>
-<spr></spr>
-<sps></sps>
-</parameters>
-<piai>COM1</piai>
-<pian>Serial Port</pian>
-<pihpn>COM1</pihpn>
-</device>
-</port_devices>
+<port_devices></port_devices>
 <rdl>
 <device>
 <abs_axis>
@@ -220,6 +226,11 @@
 <name>Tastatur</name>
 </device>
 <device>
+<device_type>3</device_type>
+<dx_device_type>0</dx_device_type>
+<name>Standard PS/2 Keyboard</name>
+</device>
+<device>
 <abs_axis>
 <dead_zone>0</dead_zone>
 <max>1000</max>
@@ -259,27 +270,12 @@
 <dx_device_type>0</dx_device_type>
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
-<name>HID-compliant mouse</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device</name>
+<name>Synaptics Pointing Device</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>HyperX 7.1 Audio</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte 1</name>
+<name>Lenovo HID Mini-driver for Hardware Radio Switch</name>
 </device>
 <device>
 <axis>
@@ -311,8 +307,10 @@
 <name>Speech Recognition</name>
 <speech>
 <engine_class></engine_class>
+<lang></lang>
 <mc>0</mc>
 <rw>0</rw>
+<sil>0</sil>
 <uwd>0</uwd>
 <vocab></vocab>
 </speech>
