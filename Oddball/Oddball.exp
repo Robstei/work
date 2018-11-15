@@ -97,6 +97,12 @@
 </dat>
 <id>5</id>
 </val>
+<val>
+<dat>
+<val>1</val>
+</dat>
+<id>6</id>
+</val>
 </sd>
 <sid>-1</sid>
 </ss>
@@ -114,6 +120,7 @@
 <pid>3</pid>
 <pid>4</pid>
 <pid>5</pid>
+<pid>6</pid>
 </pl>
 </grp>
 </grps>
@@ -201,6 +208,20 @@
 </set>
 <temp>0</temp>
 <type>int</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>6</id>
+<set>
+<desc>True means that a Video will be presented instead of a fixation cross</desc>
+<edit>1</edit>
+<name>VIDEO_MODE</name>
+<set>
+<rest></rest>
+</set>
+<temp>0</temp>
+<type>bool</type>
 <vis>1</vis>
 </set>
 </parm>
@@ -331,16 +352,6 @@
 <name>Tastatur</name>
 </device>
 <device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>Standard PS/2 Keyboard</name>
-</device>
-<device>
 <abs_axis>
 <dead_zone>0</dead_zone>
 <max>1000</max>
@@ -381,6 +392,16 @@
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
 <name>HID-compliant mouse</name>
+</device>
+<device>
+<device_type>3</device_type>
+<dx_device_type>0</dx_device_type>
+<name>HID Keyboard Device</name>
+</device>
+<device>
+<device_type>3</device_type>
+<dx_device_type>0</dx_device_type>
+<name>Standard PS/2 Keyboard</name>
 </device>
 <device>
 <abs_axis>
@@ -842,4 +863,4 @@
 <unc></unc>
 <upb>0</upb>
 <urp>0</urp>
-<wob>1</wob>
+<wob>0</wob>
