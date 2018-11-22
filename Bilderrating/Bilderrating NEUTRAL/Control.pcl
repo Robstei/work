@@ -1,0 +1,242 @@
+/*
+*
+* Bilderrating
+*
+* Version:		Presentation 17.0
+*
+* Author: 		Jan Henry van der Vegte 18.01.2017
+* Institute: 	University of Duisburg-Essen
+* Department: 	General Psychology: Cognition
+*/
+
+	#vp code
+	string vpCode = "";
+	#date variable
+	string today = date();
+	
+	#data outputs	
+	array<bitmap> stimulusFilenames[stimuliToRate];	
+	array<bitmap> rateableStimuli[stimuliToRate];
+	
+	int dimensions = 0;
+	dimensions = ratingsAll.count();
+	
+	#stimuli rating
+	array<int> stimuliRating[stimuliToRate][dimensions];
+	#picture viewing times
+	array<int> stimuliVT[stimuliToRate][dimensions];
+	#picture viewing times
+	array<int> presentationOrder[stimuliToRate];
+
+
+#--  WRITE OUTPUT  --#
+	include "DataHandling.pcl";	
+#-- /WRITE OUTPUT  --#
+
+#--  GENERATE FILENAME ARRAY  --#
+	sub generateFilenameArray
+	begin			
+		loop
+			int i = 1
+		until
+			i > stimuliToRate
+		begin
+			rateableStimuli[i] = stimuli[i];
+			stimulusFilenames[i] = stimuli[i];
+			i = i + 1;
+		end;		
+	end;
+#-- /GENERATE FILENAME ARRAY  --#
+
+#--  GET INDEX  --#
+	sub int getIndex(string filename)
+	begin				
+		int index = 0;		
+		loop
+			int i = 1
+		until
+			i > stimulusFilenames.count()
+		begin			
+			if stimulusFilenames[i].filename() == filename then
+				index = i;
+			end;
+			i = i + 1;
+		end;	
+		return index;
+	end;
+#-- /GET INDEX  --#
+
+#--  ANIMATE RATING PAGE  --#
+	sub animateRatingPage(int rating)
+	begin
+		#set trial type to fixed to avoid complications in case another button is pressed
+		ratingPage.set_type(fixed);
+	
+			
+		#load animation picture for correct dot
+		ratingPicture.set_part(rating, dotfilled);
+
+		ratingPage.set_duration(animationTime);
+		ratingPage.present();
+		#restore default
+		loop 
+			int i = 1
+		until
+			i > scaleLevels
+		begin
+			ratingPicture.set_part(rating, dotblank);
+			i = i + 1;
+		end;	
+		#restore original duration time and trial type
+		ratingPage.set_type(specific_response);
+		
+		ratingPage.set_duration(forever);			
+	end;
+#--  ANIMATE RATING PAGE  --#
+
+
+#--  RUN RATING  --#
+	sub runRating 
+	begin
+		#define variables
+		int pictureCount = 0;
+		int startTime = 0;
+		int stopTime = 0;	
+		int rating = 0;
+		int reaction = 0;
+		int vidID = 0;
+				
+		# randomize videos
+		if randomOrder == true then
+			rateableStimuli.shuffle();
+		end;
+	
+		loop 
+			int i = 1 
+		until 
+			i > stimuliToRate
+		begin				
+			#set picture
+			ratingStimulus.set_filename(rateableStimuli[i].filename());
+			ratingStimulus.load();
+			
+			#get picture Index		
+			int index = getIndex(rateableStimuli[i].filename());
+							
+			loop 
+				int k = 1 
+			until 
+				k > ratingsAll.count() 
+			begin	
+				rating = 0;
+				reaction = 0;
+				
+				ratingPageText.set_caption(ratingsAll[k][1]);
+				leftText.set_caption(ratingsAll[k][2]);
+				rightText.set_caption(ratingsAll[k][3]);
+				
+				ratingPageText.redraw();
+				leftText.redraw();
+				rightText.redraw();
+				
+				#start timer
+				startTime = clock.time();
+				#present rating
+				ratingPage.present();
+				#stop timer
+				stopTime = clock.time();
+				#calculate reaction
+				reaction = stopTime - startTime;
+				#collect data
+				rating = response_manager.last_response();			
+				#save data
+				stimuliRating[index][k] = rating;
+				stimuliVT[index][k] = reaction;
+				
+				
+				presentationOrder[index] = i;			
+				#animate page
+				ratingPageText.set_caption(" ");
+				ratingPageText.redraw();
+				ratingStimulus.set_filename(stimDefault);
+				
+				ratingStimulus.load();
+				animateRatingPage(rating);
+				ratingStimulus.set_filename(rateableStimuli[i].filename());
+				ratingStimulus.load();
+				k = k + 1;
+			end;
+
+			iti.present();
+			i = i + 1;		
+		end;		
+	end;
+#-- /RUN RATING  --#
+
+	sub positionDots
+	begin
+		array<int> dotPositions [scaleLevels];
+		int midPos = int(((  double(scaleLevels) - 1.0) / 2.0) * double(dotDistance));
+		loop 
+			int i = 0
+		until
+			i >= scaleLevels
+		begin
+			dotPositions[i+1] = (i * dotDistance) - midPos;
+			ratingPicture.set_part_x(i+1, dotPositions[i+1]);
+			i = i + 1;
+		end;
+		
+		#set rating texts
+		ratingPicture.set_part_x(11, -midPos - (dotDistance*2));
+		ratingPicture.set_part_x(12, midPos + (dotDistance*2));
+		
+		loop 
+			int i = scaleLevels
+		until
+			i >= 10
+		begin
+			ratingPicture.remove_part(scaleLevels+1);
+			i = i + 1;
+		end;
+		
+		
+		array<int> buttons [0];
+		loop 
+			int i = 1
+		until
+			i > scaleLevels
+		begin
+			buttons.add(i);
+			i = i + 1;
+		end;	
+		ratingPage.set_terminator_buttons( buttons );
+
+	end;
+	
+
+	sub runExperiment
+	begin
+		#--  EXPERIMENT CONTROL  --#
+	#get vpCode 
+	vpCode = logfile.subject();
+	#start application
+	generateFilenameArray();
+	positionDots();
+	#run instruction
+	instruction1.present();
+	instruction2.present();
+	instruction3.present();
+	#run rating
+	runRating();
+	#Calculate mean values
+	calculateMeanValues();
+	#write output
+	writeOutput();
+	#debriefing
+	debriefing.present();
+#--  EXPERIMENT CONTROL  --#
+	end;
+
+
+

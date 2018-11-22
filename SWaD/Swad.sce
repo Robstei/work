@@ -686,7 +686,7 @@ begin_pcl;
 	end;
 	
 #	Parametefrs for make_and_present_block
-#	1. Value: selective_attention: 1 = only a char is a target
+#	1. Value: sepreate_attention: 1 = only a char is a target
 #											 2 = only a form is a target
 #											 3 = a char and a form is a target
 #	2. Value: index of char target. Use -1 if no char targets will be presentet
