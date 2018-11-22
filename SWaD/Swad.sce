@@ -43,7 +43,7 @@ begin;
 				};
 			x = 0; y = 0;
 				
-			text{caption = ""; font_size= 50;};
+			text{caption = " "; font_size= 50;};
 			x = 0;y = 0;
 		} main_picture_diamand;
 		
@@ -53,7 +53,7 @@ begin;
 			x=0;y=0;
 			box {width= 570; height=570; color = 0,0,0;};
 			x=0;y=0;
-			text{caption = ""; font_size= 50;};
+			text{caption = " "; font_size= 50;};
 			x=0;y=0;
 			} main_picture_box;
 		
@@ -77,7 +77,7 @@ begin;
 			};
 			x=0;y=0;
 			
-			text{caption = ""; font_size= 50;};
+			text{caption = " "; font_size= 50;};
 			x=0;y=0;
 			} main_picture_circle;
 		
@@ -101,7 +101,7 @@ begin;
 			};
 			x = 0; y = 0;
 			
-			text{caption = ""; font_size= 50;};
+			text{caption = " "; font_size= 50;};
 			x=0;y=0;
 		} main_picture_triangle;
 		
@@ -123,7 +123,7 @@ begin;
 			};
 			x = 0; y = 0;
 			
-			text{caption = ""; font_size= 50;};
+			text{caption = " "; font_size= 50;};
 			x=0;y=0;
 		} main_picture_star;
 		
@@ -148,7 +148,7 @@ begin;
 				};
 			x = 0; y = 0;
 				
-			text{caption = ""; font_size= 50;};
+			text{caption = " "; font_size= 50;};
 			x = 0;y = 0;
 		} main_picture_octagon;
 	} form_array;
@@ -176,7 +176,7 @@ begin;
 	trial {
 		trial_duration = EXPARAM("Time Feedback" : 2000);
 		picture {
-			text { caption = ""; font_size = 24; max_text_width = 600;} text_feedback; 
+			text { caption = " "; font_size = 24; max_text_width = 600;} text_feedback; 
 			x=0; y=0;
 		} feedback_pic;
 	} trial_feedback;
@@ -187,7 +187,7 @@ begin;
 		all_responses = false;
 
 		picture {
-			text { caption = ""; font_size = 25; max_text_width = 1200;} text_introduction;
+			text { caption = " "; font_size = 25; max_text_width = 1200;} text_introduction;
 			x=0;y=0;
 		} picture_information;
 		stimulus_time_in = 1000;
@@ -200,7 +200,7 @@ begin;
 		all_responses = false;
 		
 		picture {
-			text { caption = ""; font_size = 30;} text_instruction;
+			text { caption = " "; font_size = 30;} text_instruction;
 			x=0; y=0;
 		} instruction_pic;
 		stimulus_time_in = 1500;
@@ -685,8 +685,8 @@ begin_pcl;
 											 form_target_index, block_presentet, show_feedback, run_id, block_id)
 	end;
 	
-#	Parametefrs for make_and_present_block
-#	1. Value: sepreate_attention: 1 = only a char is a target
+#	Parameters for make_and_present_block
+#	1. Value: seperate_attention: 1 = only a char is a target
 #											 2 = only a form is a target
 #											 3 = a char and a form is a target
 #	2. Value: index of char target. Use -1 if no char targets will be presentet
@@ -713,33 +713,33 @@ begin_pcl;
 
 			pause_seconds(30);
 			present_information(information_first_run, 30);
-			make_and_present_block(2, -1, numbers, 2, 6, 20, false, "selective", "block_1");
-			make_and_present_block(1, 3, numbers, -1, 6, 20, false, "selective", "block_2");
+			make_and_present_block(2, -1, numbers, 2, 7, 19, false, "selective", "block_1");
+			make_and_present_block(1, 3, numbers, -1, 5, 21, false, "selective", "block_2");
 			make_and_present_block(1, 4, numbers, -1, 6, 20, false, "selective", "block_3");
-			make_and_present_block(2, -1, numbers, 3, 6, 20, false, "selective", "block_4");
+			make_and_present_block(2, -1, numbers, 3, 8, 18, false, "selective", "block_4");
 			
 		##########################Run 2########################################
 
 			pause_minutes(2);
 			present_information(information_second_run, 30);
-			make_and_present_block(3, 5, numbers, 4, 6, 20, false, "divided", "block_1");
-			make_and_present_block(3, 6, numbers, 5, 6, 20, false, "divided", "block_2");
-			make_and_present_block(3, 1, numbers, 6, 6, 20, false, "divided", "block_3");
+			make_and_present_block(3, 5, numbers, 4, 8, 18, false, "divided", "block_1");
+			make_and_present_block(3, 6, numbers, 5, 5, 21, false, "divided", "block_2");
+			make_and_present_block(3, 1, numbers, 6, 7, 19, false, "divided", "block_3");
 			make_and_present_block(3, 2, numbers, 1, 6, 20, false, "divided", "block_4");
 			
 		##########################Run 3########################################
 
 			pause_minutes(2);
 			present_information(information_third_run, 30);
-			make_and_present_block(2, -1, numbers, 2, 6, 20, false, "combination", "block_1");
-			make_and_present_block(3, 3, numbers, 3, 6, 20, false, "combination", "block_2");
-			make_and_present_block(1, 4, numbers, -1, 6, 20, false, "combination", "block_3");
+			make_and_present_block(2, -1, numbers, 2, 7, 19, false, "combination", "block_1");
+			make_and_present_block(3, 3, numbers, 3, 8, 18, false, "combination", "block_2");
+			make_and_present_block(1, 4, numbers, -1, 5, 21, false, "combination", "block_3");
 			make_and_present_block(3, 5, numbers, 4, 6, 20, false, "combination", "block_4");
 			
 			make_and_present_block(2, -1, numbers, 5, 6, 20, false, "combination", "block_5");
-			make_and_present_block(3, 6, numbers, 6, 6, 20, false, "combination", "block_6");
-			make_and_present_block(1, 1, numbers, -1, 6, 20, false, "combination", "block_7");
-			make_and_present_block(3, 2, numbers, 1, 6, 20, false, "combination", "block_8");
+			make_and_present_block(3, 6, numbers, 6, 7, 19, false, "combination", "block_6");
+			make_and_present_block(1, 1, numbers, -1, 5, 21, false, "combination", "block_7");
+			make_and_present_block(3, 2, numbers, 1, 8, 18, false, "combination", "block_8");
 			present_information(information_end, 30);
 			
 	elseif configuration == 2
@@ -748,33 +748,33 @@ begin_pcl;
 
 			pause_seconds(30);
 			present_information(information_first_run, 30);
-			make_and_present_block(3, 3, numbers, 2, 6, 20, false, "divided", "block_1");
-			make_and_present_block(3, 4, numbers, 3, 6, 20, false, "divided", "block_2");
-			make_and_present_block(3, 5, numbers, 4, 6, 20, false, "divided", "block_3");
+			make_and_present_block(3, 3, numbers, 2, 8, 18, false, "divided", "block_1");
+			make_and_present_block(3, 4, numbers, 3, 5, 21, false, "divided", "block_2");
+			make_and_present_block(3, 5, numbers, 4, 7, 19, false, "divided", "block_3");
 			make_and_present_block(3, 6, numbers, 5, 6, 20, false, "divided", "block_4");
 			
 		##########################Run 2########################################
 
 			pause_minutes(2);
 			present_information(information_second_run, 30);
-			make_and_present_block(2, -1, numbers, 6, 6, 20, false, "selective", "block_1");
-			make_and_present_block(1, 1, numbers, -1, 6, 20, false, "selective", "block_2");
+			make_and_present_block(2, -1, numbers, 6, 7, 19, false, "selective", "block_1");
+			make_and_present_block(1, 1, numbers, -1, 5, 21, false, "selective", "block_2");
 			make_and_present_block(1, 2, numbers, -1, 6, 20, false, "selective", "block_3");
-			make_and_present_block(2, -1, numbers, 1, 6, 20, false, "selective", "block_4");
+			make_and_present_block(2, -1, numbers, 1, 8, 18, false, "selective", "block_4");
 			
 		##########################Run 3########################################
 
 			pause_minutes(2);
 			present_information(information_third_run, 30);
-			make_and_present_block(2, -1, numbers, 2, 6, 20, false, "combination", "block_1");
-			make_and_present_block(3, 3, numbers, 3, 6, 20, false, "combination", "block_2");
-			make_and_present_block(1, 4, numbers, -1, 6, 20, false, "combination", "block_3");
+			make_and_present_block(2, -1, numbers, 2, 7, 19, false, "combination", "block_1");
+			make_and_present_block(3, 3, numbers, 3, 8, 18, false, "combination", "block_2");
+			make_and_present_block(1, 4, numbers, -1, 5, 21, false, "combination", "block_3");
 			make_and_present_block(3, 5, numbers, 4, 6, 20, false, "combination", "block_4");
 			
 			make_and_present_block(2, -1, numbers, 5, 6, 20, false, "combination", "block_5");
-			make_and_present_block(3, 6, numbers, 6, 6, 20, false, "combination", "block_6");
-			make_and_present_block(1, 1, numbers, -1, 6, 20, false, "combination", "block_7");
-			make_and_present_block(3, 2, numbers, 1, 6, 20, false, "combination", "block_8");
+			make_and_present_block(3, 6, numbers, 6, 7, 19, false, "combination", "block_6");
+			make_and_present_block(1, 1, numbers, -1, 5, 21, false, "combination", "block_7");
+			make_and_present_block(3, 2, numbers, 1, 8, 18, false, "combination", "block_8");
 			present_information(information_end, 30);
 			
 	elseif configuration == 3
@@ -783,33 +783,33 @@ begin_pcl;
 
 			pause_seconds(30);
 			present_information(information_first_run, 30);
-			make_and_present_block(2, -1, numbers, 2, 6, 20, false, "combination", "block_1");
-			make_and_present_block(3, 3, numbers, 3, 6, 20, false, "combination", "block_2");
-			make_and_present_block(1, 4, numbers, -1, 6, 20, false, "combination", "block_3");
+			make_and_present_block(2, -1, numbers, 2, 7, 19, false, "combination", "block_1");
+			make_and_present_block(3, 3, numbers, 3, 8, 18, false, "combination", "block_2");
+			make_and_present_block(1, 4, numbers, -1, 5, 21, false, "combination", "block_3");
 			make_and_present_block(3, 5, numbers, 4, 6, 20, false, "combination", "block_4");
 			
 			make_and_present_block(2, -1, numbers, 5, 6, 20, false, "combination", "block_5");
-			make_and_present_block(3, 6, numbers, 6, 6, 20, false, "combination", "block_6");
-			make_and_present_block(1, 1, numbers, -1, 6, 20, false, "combination", "block_7");
-			make_and_present_block(3, 2, numbers, 1, 6, 20, false, "combination", "block_8");
+			make_and_present_block(3, 6, numbers, 6, 7, 19, false, "combination", "block_6");
+			make_and_present_block(1, 1, numbers, -1, 5, 21, false, "combination", "block_7");
+			make_and_present_block(3, 2, numbers, 1, 8, 18, false, "combination", "block_8");
 			
 		##########################Run 2########################################
 
 			pause_minutes(2);
 			present_information(information_second_run, 30);
-			make_and_present_block(2, -1, numbers, 2, 6, 20, false, "divided", "block_1");
-			make_and_present_block(1, 3, numbers, -1, 6, 20, false, "divided", "block_2");
-			make_and_present_block(1, 4, numbers, -1, 6, 20, false, "divided", "block_3");
-			make_and_present_block(2, -1, numbers, 3, 6, 20, false, "divided", "block_4");
+			make_and_present_block(2, -1, numbers, 2, 8, 18, false, "selective", "block_1");
+			make_and_present_block(1, 3, numbers, -1, 5, 21, false, "selective", "block_2");
+			make_and_present_block(1, 4, numbers, -1, 7, 19, false, "selective", "block_3");
+			make_and_present_block(2, -1, numbers, 3, 6, 20, false, "selective", "block_4");
 			
 		##########################Run 3########################################
 
 			pause_minutes(2);
 			present_information(information_third_run, 30);
-			make_and_present_block(3, 5, numbers, 4, 6, 20, false, "selective", "block_1");
-			make_and_present_block(3, 6, numbers, 5, 6, 20, false, "selective", "block_2");
-			make_and_present_block(3, 1, numbers, 6, 6, 20, false, "selective", "block_3");
-			make_and_present_block(3, 2, numbers, 1, 6, 20, false, "selective", "block_4");
+			make_and_present_block(3, 5, numbers, 4, 7, 19, false, "divided", "block_1");
+			make_and_present_block(3, 6, numbers, 5, 5, 21, false, "divided", "block_2");
+			make_and_present_block(3, 1, numbers, 6, 6, 20, false, "divided", "block_3");
+			make_and_present_block(3, 2, numbers, 1, 8, 18, false, "divided", "block_4");
 			present_information(information_end, 30);
 			
 	elseif configuration == 4
@@ -818,33 +818,33 @@ begin_pcl;
 
 			pause_seconds(30);
 			present_information(information_first_run, 30);
-			make_and_present_block(2, -1, numbers, 2, 6, 20, false, "combination", "block_1");
-			make_and_present_block(3, 3, numbers, 3, 6, 20, false, "combination", "block_2");
-			make_and_present_block(1, 4, numbers, -1, 6, 20, false, "combination", "block_3");
+			make_and_present_block(2, -1, numbers, 2, 7, 19, false, "combination", "block_1");
+			make_and_present_block(3, 3, numbers, 3, 8, 18, false, "combination", "block_2");
+			make_and_present_block(1, 4, numbers, -1, 5, 21, false, "combination", "block_3");
 			make_and_present_block(3, 5, numbers, 4, 6, 20, false, "combination", "block_4");
 			
 			make_and_present_block(2, -1, numbers, 5, 6, 20, false, "combination", "block_5");
-			make_and_present_block(3, 6, numbers, 6, 6, 20, false, "combination", "block_6");
-			make_and_present_block(1, 1, numbers, -1, 6, 20, false, "combination", "block_7");
-			make_and_present_block(3, 2, numbers, 1, 6, 20, false, "combination", "block_8");
+			make_and_present_block(3, 6, numbers, 6, 7, 19, false, "combination", "block_6");
+			make_and_present_block(1, 1, numbers, -1, 5, 21, false, "combination", "block_7");
+			make_and_present_block(3, 2, numbers, 1, 8, 18, false, "combination", "block_8");
 			
 		##########################Run 2########################################
 
 			pause_minutes(2);
 			present_information(information_second_run, 30);
-			make_and_present_block(3, 3, numbers, 2, 6, 20, false, "selective", "block_1");
-			make_and_present_block(3, 4, numbers, 3, 6, 20, false, "selective", "block_2");
-			make_and_present_block(3, 5, numbers, 4, 6, 20, false, "selective", "block_3");
-			make_and_present_block(3, 6, numbers, 5, 6, 20, false, "selective", "block_4");
+			make_and_present_block(3, 3, numbers, 2, 7, 19, false, "divided", "block_1");
+			make_and_present_block(3, 4, numbers, 3, 5, 21, false, "divided", "block_2");
+			make_and_present_block(3, 5, numbers, 4, 6, 20, false, "divided", "block_3");
+			make_and_present_block(3, 6, numbers, 5, 8, 18, false, "divided", "block_4");
 			
 		##########################Run 3########################################
 
 			pause_minutes(2);
 			present_information(information_third_run, 30);
-			make_and_present_block(2, -1, numbers, 6, 6, 20, false, "divided", "block_1");
-			make_and_present_block(1, 1, numbers, -1, 6, 20, false, "divided", "block_2");
-			make_and_present_block(1, 2, numbers, -1, 6, 20, false, "divided", "block_3");
-			make_and_present_block(2, -1, numbers, 1, 6, 20, false, "divided", "block_4");
+			make_and_present_block(2, -1, numbers, 6, 8, 18, false, "selective", "block_1");
+			make_and_present_block(1, 1, numbers, -1, 5, 21, false, "selective", "block_2");
+			make_and_present_block(1, 2, numbers, -1, 7, 19, false, "selective", "block_3");
+			make_and_present_block(2, -1, numbers, 1, 6, 20, false, "selective", "block_4");
 			present_information(information_end, 30);
 			
 	elseif configuration == 5
@@ -853,33 +853,33 @@ begin_pcl;
 
 			pause_seconds(30);
 			present_information(information_first_run, 30);
-			make_and_present_block(2, -1, numbers, 2, 6, 20, false, "divided", "block_1");
-			make_and_present_block(1, 3, numbers, -1, 6, 20, false, "divided", "block_2");
-			make_and_present_block(1, 4, numbers, -1, 6, 20, false, "divided", "block_3");
-			make_and_present_block(2, -1, numbers, 3, 6, 20, false, "divided", "block_4");
+			make_and_present_block(2, -1, numbers, 2, 8, 18, false, "selective", "block_1");
+			make_and_present_block(1, 3, numbers, -1, 5, 21, false, "selective", "block_2");
+			make_and_present_block(1, 4, numbers, -1, 7, 19, false, "selective", "block_3");
+			make_and_present_block(2, -1, numbers, 3, 6, 20, false, "selective", "block_4");
 			
 		##########################Run 2########################################
 
 			pause_minutes(2);
 			present_information(information_second_run, 30);
-			make_and_present_block(2, -1, numbers, 4, 6, 20, false, "combination", "block_1");
-			make_and_present_block(3, 5, numbers, 5, 6, 20, false, "combination", "block_2");
-			make_and_present_block(1, 6, numbers, -1, 6, 20, false, "combination", "block_3");
+			make_and_present_block(2, -1, numbers, 4, 7, 19, false, "combination", "block_1");
+			make_and_present_block(3, 5, numbers, 5, 8, 18, false, "combination", "block_2");
+			make_and_present_block(1, 6, numbers, -1, 5, 21, false, "combination", "block_3");
 			make_and_present_block(3, 1, numbers, 6, 6, 20, false, "combination", "block_4");
 			
 			make_and_present_block(2, -1, numbers, 1, 6, 20, false, "combination", "block_5");
-			make_and_present_block(3, 2, numbers, 2, 6, 20, false, "combination", "block_6");
-			make_and_present_block(1, 3, numbers, -1, 6, 20, false, "combination", "block_7");
-			make_and_present_block(3, 4, numbers, 3, 6, 20, false, "combination", "block_8");
+			make_and_present_block(3, 2, numbers, 2, 7, 19, false, "combination", "block_6");
+			make_and_present_block(1, 3, numbers, -1, 5, 21, false, "combination", "block_7");
+			make_and_present_block(3, 4, numbers, 3, 8, 18, false, "combination", "block_8");
 			
 		##########################Run 3########################################
 
 			pause_minutes(2);
 			present_information(information_third_run, 30);
-			make_and_present_block(3, 5, numbers, 4, 6, 20, false, "selective", "block_1");
-			make_and_present_block(3, 6, numbers, 5, 6, 20, false, "selective", "block_2");
-			make_and_present_block(3, 1, numbers, 6, 6, 20, false, "selective", "block_3");
-			make_and_present_block(3, 2, numbers, 1, 6, 20, false, "selective", "block_4");
+			make_and_present_block(3, 5, numbers, 4, 7, 19, false, "divided", "block_1");
+			make_and_present_block(3, 6, numbers, 5, 5, 21, false, "divided", "block_2");
+			make_and_present_block(3, 1, numbers, 6, 6, 20, false, "divided", "block_3");
+			make_and_present_block(3, 2, numbers, 1, 8, 18, false, "divided", "block_4");
 			present_information(information_end, 30);
 			
 	elseif configuration == 6
@@ -888,32 +888,32 @@ begin_pcl;
 
 			pause_seconds(30);
 			present_information(information_first_run, 30);
-			make_and_present_block(3, 3, numbers, 2, 6, 20, false, "selective", "block_1");
-			make_and_present_block(3, 4, numbers, 3, 6, 20, false, "selective", "block_2");
-			make_and_present_block(3, 5, numbers, 4, 6, 20, false, "selective", "block_3");
-			make_and_present_block(3, 6, numbers, 5, 6, 20, false, "selective", "block_4");
+			make_and_present_block(3, 3, numbers, 2, 7, 19, false, "divided", "block_1");
+			make_and_present_block(3, 4, numbers, 3, 5, 21, false, "divided", "block_2");
+			make_and_present_block(3, 5, numbers, 4, 6, 20, false, "divided", "block_3");
+			make_and_present_block(3, 6, numbers, 5, 8, 18, false, "divided", "block_4");
 			
 		##########################Run 2########################################
 
 			pause_minutes(2);
 			present_information(information_second_run, 30);
-			make_and_present_block(2, -1, numbers, 6, 6, 20, false, "combination", "block_1");
-			make_and_present_block(3, 1, numbers, 1, 6, 20, false, "combination", "block_2");
-			make_and_present_block(1, 2, numbers, -1, 6, 20, false, "combination", "block_3");
+			make_and_present_block(2, -1, numbers, 6, 7, 19, false, "combination", "block_1");
+			make_and_present_block(3, 1, numbers, 1, 8, 18, false, "combination", "block_2");
+			make_and_present_block(1, 2, numbers, -1, 5, 21, false, "combination", "block_3");
 			make_and_present_block(3, 3, numbers, 2, 6, 20, false, "combination", "block_4");
 			
 			make_and_present_block(2, -1, numbers, 3, 6, 20, false, "combination", "block_5");
-			make_and_present_block(3, 4, numbers, 4, 6, 20, false, "combination", "block_6");
-			make_and_present_block(1, 5, numbers, -1, 6, 20, false, "combination", "block_7");
-			make_and_present_block(3, 6, numbers, 5, 6, 20, false, "combination", "block_8");
+			make_and_present_block(3, 4, numbers, 4, 7, 19, false, "combination", "block_6");
+			make_and_present_block(1, 5, numbers, -1, 5, 21, false, "combination", "block_7");
+			make_and_present_block(3, 6, numbers, 5, 8, 18, false, "combination", "block_8");
 			
 		##########################Run 3########################################
 
 			pause_minutes(2);
 			present_information(information_third_run, 30);
-			make_and_present_block(2, -1, numbers, 6, 6, 20, false, "divided", "block_1");
-			make_and_present_block(1, 1, numbers, -1, 6, 20, false, "divided", "block_2");
-			make_and_present_block(1, 2, numbers, -1, 6, 20, false, "divided", "block_3");
-			make_and_present_block(2, -1, numbers, 1, 6, 20, false, "divided", "block_4");
+			make_and_present_block(2, -1, numbers, 6, 8, 18, false, "selective", "block_1");
+			make_and_present_block(1, 1, numbers, -1, 5, 21, false, "selective", "block_2");
+			make_and_present_block(1, 2, numbers, -1, 7, 19, false, "selective", "block_3");
+			make_and_present_block(2, -1, numbers, 1, 6, 20, false, "selective", "block_4");
 			present_information(information_end, 30);
 	end;
