@@ -1,0 +1,267 @@
+/*
+*
+* Cue Reactivity
+*
+* Version:		Presentation 17.0
+*
+* Author: 		Jan Henry van der Vegte 18.01.2017
+* Institute: 	University of Duisburg-Essen
+* Department: 	General Psychology: Cognition
+*/
+
+string delimiterString = ",";
+
+#--  MEAN VALUES  --# 
+
+	#Overall mean values
+	int overall_VT = 0;
+	array<int> dimMean_VT[dimensions];
+	
+	int overall_RA = 0;
+	array<int> dimMean_RA[dimensions];
+
+#-- /MEAN VALUES  --# 
+
+
+#--  CALCULATE MEAN VALUES  --# 
+	sub calculateMeanValues
+	begin
+		loop
+			int i = 1
+		until
+			i > stimulusFilenames.count()
+		begin
+			
+			loop 
+				int j = 1
+			until 
+				j > dimensions
+			begin
+				#Overall Viewing Times:
+				overall_VT = overall_VT + (stimuliVT[i][j]);
+				dimMean_VT[j] = dimMean_VT[j] + (stimuliVT[i][j]);
+				#Overall rating:
+				overall_RA = overall_RA + stimuliRating[i][j];
+				dimMean_RA[j] = dimMean_RA[j] + (stimuliRating[i][j]);
+				j = j + 1;
+			end;
+			
+			i = i + 1;
+		end;
+			
+		#finish scores		
+		overall_VT = overall_VT / (stimuliToRate * dimensions);
+		overall_RA = overall_RA  / (stimuliToRate * dimensions);
+			
+		loop 
+			int i = 1
+		until 
+			i > dimensions
+		begin
+			dimMean_VT[i] = dimMean_VT[i] / stimuliToRate;
+			dimMean_RA[i] = dimMean_RA[i] / stimuliToRate;
+			i = i + 1;
+		end;		
+	end;
+
+#-- /CALCULATE MEAN VALUES  --# 
+
+
+#--  GET VARIABLE NAMES  --# 
+	sub string getVariableNames
+	begin
+		string variableNames = "";
+		
+		variableNames = variableNames + "Code";
+		variableNames = variableNames + delimiterString;
+		variableNames = variableNames + "Date";
+		variableNames = variableNames + delimiterString;
+		###
+		variableNames = variableNames + "Paradigm_Name";
+		variableNames = variableNames + delimiterString;
+		
+		#Overall mean values
+		variableNames = variableNames + "Overall_VT";
+		variableNames = variableNames + delimiterString;
+		
+		loop 
+			int i = 1
+		until 
+			i > dimensions
+		begin
+			variableNames = variableNames + ratingsAll[i][1].replace(" ","") + "_meanVT";
+			variableNames = variableNames + delimiterString;
+			i = i + 1;
+		end;	
+		
+		variableNames = variableNames + "Overall_RA";
+		variableNames = variableNames + delimiterString;
+		
+		loop 
+			int i = 1
+		until 
+			i > dimensions
+		begin
+			variableNames = variableNames + ratingsAll[i][1].replace(" ","") + "_meanRA";
+			variableNames = variableNames + delimiterString;
+			i = i + 1;
+		end;	
+
+		
+		loop
+			int i = 1
+		until
+			i > stimulusFilenames.count()
+		begin
+
+			#get filename
+			array<string> part1[3];
+			stimulusFilenames[i].filename().split("\\", part1);
+			string filename = part1[part1.count()];
+			#delete file ending
+			array<string> part2[2];
+			filename.split(".", part2);
+			string stimulusName = part2[1];
+			
+			#position of presentation
+			variableNames = variableNames + stimulusName + "_Pos";
+			variableNames = variableNames + delimiterString;
+			
+			loop 
+				int j = 1
+			until 
+				j > dimensions
+			begin
+				variableNames = variableNames + stimulusName + ratingsAll[j][1].replace(" ","") + "_VT";
+				variableNames = variableNames + delimiterString;
+				j = j + 1;
+			end;	
+			
+			loop 
+				int j = 1
+			until 
+				j > dimensions
+			begin
+				variableNames = variableNames + stimulusName + ratingsAll[j][1].replace(" ","") + "_RA";
+				variableNames = variableNames + delimiterString;
+				j = j + 1;
+			end;	
+			
+			i = i + 1;
+		end;
+			
+		variableNames = variableNames + "\n";
+		
+		return variableNames;
+	end;
+	
+	
+
+#-- /GET VARIABLE NAMES  --#
+
+
+#--  WRITE OUTPUT  --# 
+	sub writeOutput
+	begin
+		#prepare output file
+		if vpCode == "" then
+			vpCode = "nobody";
+		end;		
+			
+		#single Output
+		string singleFile = "singles\\" + vpCode + "_BRG.txt";
+		output_file singleOutput = new output_file;
+		singleOutput.open_append(singleFile);
+		
+		if exportVariableNames == true then
+			singleOutput.print(getVariableNames());
+		end;
+
+		#general output
+		string generalFile = "BRG_ALL.txt";	
+		output_file generalOutput = new output_file;
+		generalOutput.open_append(generalFile);
+		
+		### GENERATE DATA OUTPUT ###
+		
+			string dataOutput = "";
+			dataOutput = dataOutput + vpCode;
+			dataOutput = dataOutput + delimiterString;
+			dataOutput = dataOutput + today;
+			dataOutput = dataOutput + delimiterString;
+			###
+			dataOutput = dataOutput + paradigmName.caption();
+			dataOutput = dataOutput + delimiterString;
+			
+			#Overall mean values
+			dataOutput = dataOutput + string(overall_VT);
+			dataOutput = dataOutput + delimiterString;
+			
+			loop 
+				int i = 1
+			until 
+				i > dimensions
+			begin
+				dataOutput = dataOutput + string(dimMean_VT[i]);
+				dataOutput = dataOutput + delimiterString;
+				i = i + 1;
+			end;	
+			
+			dataOutput = dataOutput + string(overall_RA);
+			dataOutput = dataOutput + delimiterString;
+				
+			loop 
+				int i = 1
+			until 
+				i > dimensions
+			begin
+				dataOutput = dataOutput + string(dimMean_RA[i]);
+				dataOutput = dataOutput + delimiterString;
+				i = i + 1;
+			end;	
+
+			
+			loop
+				int i = 1
+			until
+				i > stimulusFilenames.count()
+			begin
+				#position of presentation
+				dataOutput = dataOutput + string(presentationOrder[i]);
+				dataOutput = dataOutput + delimiterString;
+				
+				#Viewing times:
+				loop 
+					int j = 1
+				until 
+					j > dimensions
+				begin
+					dataOutput = dataOutput + string(stimuliVT[i][j]);
+					dataOutput = dataOutput + delimiterString;
+					j = j + 1;
+				end;	
+					
+				loop 
+					int j = 1
+				until 
+					j > dimensions
+				begin
+					dataOutput = dataOutput + string(stimuliRating[i][j]);
+					dataOutput = dataOutput + delimiterString;
+					j = j + 1;
+				end;	
+			
+				
+				i = i + 1;				
+			end;
+		### GENERATE DATA OUTPUT ###
+		
+		#write and close single
+		singleOutput.print(dataOutput);				
+		singleOutput.close();
+		
+		#write and close general
+		generalOutput.print(dataOutput);				
+		generalOutput.close();
+	end;
+#-- /WRITE OUTPUT  --# 
