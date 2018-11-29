@@ -85,21 +85,32 @@ begin;
 	trial{
 		video video_stimulus;
 	}trial_ITI_video;
+	
+	trial{
+		trial_duration = stimuli_length;
+		trial_type = fixed;
+		
+		video video_stimulus;
+		code = "video";
+		
+	}trial_testing;
 
 begin_pcl;
 
 	int ISI_MIN = parameter_manager.get_int("ISI_MIN", 500); 
 	int ISI_MAX = parameter_manager.get_int("ISI_MAX", 1000); 
 	int ISI_INTERVAL = parameter_manager.get_int("ISI_INTERVAL", 100); 
-	int TRIAL_COUNT = parameter_manager.get_int("TRIAL_COUNT", 50);
+	int STIMULI_COUNT = parameter_manager.get_int("STIMULI_COUNT", 50);
 	int TARGET_COUNT = parameter_manager.get_int("TARGET_COUNT", 15);
 	bool FIRST_CAN_BE_TARGET = parameter_manager.get_bool("FIRST_CAN_BE_TARGET", false);
 	bool VIDEO_MODE = parameter_manager.get_bool("VIDEO_MODE", true);
-	array<int> array_trials[0];
+	array<int> array_stimuli[0];
 	array<int> array_ISIs[0];
-	array<int> array_accumulated_ISIs[TRIAL_COUNT];
+	array<int> array_accumulated_ISIs[STIMULI_COUNT];
+	array<video> array_videos[0];
 	video_stimulus.prepare();
 	int video_stimulus_duration = int(video_stimulus.duration());
+	
 	
 	sub make_ISIs
 	begin
@@ -118,14 +129,14 @@ begin_pcl;
 		end;
 		
 		loop int i = 1
-		until i > TRIAL_COUNT
+		until i > STIMULI_COUNT
 		begin
 			int ISI_tmp = array_potential_ISIs[random(1,array_potential_ISIs.count())];
 			array_ISIs.add(ISI_tmp);
 			i = i + 1;
 			
 			loop int j = i
-			until j > TRIAL_COUNT
+			until j > STIMULI_COUNT
 			begin
 				array_accumulated_ISIs[j] = array_accumulated_ISIs[j] + ISI_tmp;
 				j = j + 1;
@@ -135,11 +146,11 @@ begin_pcl;
 	
 	sub bool validate
 	begin
-		array_trials.shuffle();
+		array_stimuli.shuffle();
 		
 		if !FIRST_CAN_BE_TARGET
 		then
-			if array_trials[1] == 1
+			if array_stimuli[1] == 1
 			then
 				return false;
 			end;
@@ -153,20 +164,58 @@ begin_pcl;
 		loop int i = 1
 		until i > TARGET_COUNT
 		begin
-			array_trials.add(1);
+			array_stimuli.add(1);
 			i = i + 1;
 		end;
 		
 		loop
-		until array_trials.count() == TRIAL_COUNT
+		until array_stimuli.count() == STIMULI_COUNT
 		begin
-			array_trials.add(2);
+			array_stimuli.add(2);
 		end;
 		
 		loop
 		until validate()
 		begin
 		end;
+		
+		int repeats_necessary = 0;
+		loop int time_overall = 2000 * STIMULI_COUNT + array_accumulated_ISIs[array_accumulated_ISIs.count()]; 
+		until false
+		begin	
+			if time_overall > video_stimulus.duration()
+			then
+				time_overall = int(time_overall - video_stimulus.duration());
+				repeats_necessary = repeats_necessary + 1;
+				video tmp_video = new video();
+				tmp_video.set_filename("video.avi");
+				array_videos.add(tmp_video);
+			else
+				break;
+			end;
+		end;
+		
+		
+		loop int tmp_stimuli = 1; int repeat_count = 1
+		until tmp_stimuli > STIMULI_COUNT
+		begin
+		
+		int starttime = (tmp_stimuli-1) * 2000 + array_accumulated_ISIs[tmp_stimuli];
+		if starttime > repeat_count * video_stimulus.duration()
+		then
+			stimulus_event stimulus_event_tmp = trial_testing.add_stimulus_event(array_videos[repeat_count]);
+			stimulus_event_tmp.set_event_code("video");
+
+			stimulus_event_tmp.set_time(int(video_stimulus.duration() * repeat_count + 100));
+			repeat_count = repeat_count + 1;
+			continue;
+		end;
+		stimulus_event stimulus_event_tmp = trial_testing.add_stimulus_event(array_sounds[array_stimuli[tmp_stimuli]]);
+		stimulus_event_tmp.set_time(starttime);
+		stimulus_event_tmp.set_event_code("sound");
+		tmp_stimuli = tmp_stimuli + 1;
+		end;
+
 	end;
 
 	sub present_trials
@@ -174,9 +223,9 @@ begin_pcl;
 		if !VIDEO_MODE
 		then
 			loop int i = 1
-			until i > array_trials.count()
+			until i > array_stimuli.count()
 			begin
-				int next_sound = array_trials[i];
+				int next_sound = array_stimuli[i];
 				stimulus_event_novideo.set_stimulus(array_sounds[next_sound]);
 				if next_sound == 1
 				then
@@ -194,9 +243,10 @@ begin_pcl;
 		elseif VIDEO_MODE
 		then
 			loop int i = 1
-			until i > array_trials.count()
+			until i > array_stimuli.count()
 			begin
-				int next_sound = array_trials[i];
+					trial_testing.present();
+				/*int next_sound = array_stimuli[i];
 				stimulus_event_video.set_stimulus(array_sounds[next_sound]);
 				if next_sound == 1
 				then
@@ -212,6 +262,7 @@ begin_pcl;
 				trial_main_video.set_start_time( (i-1) * 2000 + array_accumulated_ISIs[i]);
 				trial_main_video.present();
 				i = i + 1;
+				*/
 			end;
 		end;
 	end;

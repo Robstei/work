@@ -44,6 +44,7 @@
 <dxv>8</dxv>
 <efs>
 <filename>C:\work\Oddball\Oddball.sce</filename>
+<filename>C:\work\Oddball\test.sce</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -160,7 +161,7 @@
 <set>
 <desc></desc>
 <edit>1</edit>
-<name>TRIAL_COUNT</name>
+<name>STIMULI_COUNT</name>
 <set>
 <rest>[0,1000]</rest>
 </set>
@@ -233,6 +234,9 @@
 <asn>
 <sid>-1</sid>
 </asn>
+<asn>
+<sid>-2</sid>
+</asn>
 </ssa>
 </man>
 </exparam>
@@ -246,6 +250,7 @@
 <ftp>
 <ccc>0</ccc>
 <do_upload>
+<sce>1</sce>
 <sce>1</sce>
 </do_upload>
 <host></host>
@@ -352,6 +357,11 @@
 <name>Tastatur</name>
 </device>
 <device>
+<device_type>3</device_type>
+<dx_device_type>0</dx_device_type>
+<name>Standard PS/2 Keyboard</name>
+</device>
+<device>
 <abs_axis>
 <dead_zone>0</dead_zone>
 <max>1000</max>
@@ -392,16 +402,6 @@
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
 <name>HID-compliant mouse</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>Standard PS/2 Keyboard</name>
 </device>
 <device>
 <abs_axis>
@@ -449,16 +449,6 @@
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
 <name>Lenovo HID Mini-driver for Hardware Radio Switch</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>USB NETVISTA FULL WIDTH KEYBOARD</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>USB NETVISTA FULL WIDTH KEYBOARD 1</name>
 </device>
 <device>
 <axis>
@@ -785,6 +775,10 @@
 </idv>
 <overrides></overrides>
 <sfn>C:\work\Oddball\Oddball.sce</sfn>
+</sce>
+<sce>
+<overrides></overrides>
+<sfn>C:\work\Oddball\test.sce</sfn>
 </sce>
 <sct>
 <capture_device>
