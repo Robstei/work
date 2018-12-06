@@ -1,0 +1,372 @@
+/*
+*
+* Cue Reactivity
+*
+* Version:		Presentation 17.0
+*
+* Author: 		Jan Henry van der Vegte 02.05.2016
+* Institute: 	University of Duisburg-Essen
+* Department: 	General Psychology: Cognition
+*/
+
+
+#--  PREFERENCES  --#		
+
+	#vp code
+	string vpCode = "";
+	#date variable
+	string today = date();
+	
+	#animation times
+	int animationTime = 500;
+	int timeAfterAnimation = 0;
+	
+	#pictures to rate
+	int stimuliToRate = 40;
+	int dimensions = 3;
+	
+	bool randomOrder = true;
+
+	#data outputs	
+	#video filenames
+	array<bitmap> stimulusFilenames[stimuliToRate];	
+	
+	#stimuli rating
+	array<int> stimuliRating[stimuliToRate][dimensions];
+	#picture viewing times
+	array<int> stimuliVT[stimuliToRate][dimensions];
+	#picture viewing times
+	array<int> presentationOrder[stimuliToRate];
+	 
+	
+	#if set true every export has variable names in the first line of the output
+	bool exportVariableNames = true;
+		
+	#rating texts
+	string ratingText1 = "Anregung";
+	string rating1Left = "gar nicht anregend";
+	string rating1Right = "sehr anregend";
+	string ratingText2 = "Kaufverlangen";
+	string rating2Left = "gar kein Verlangen";
+	string rating2Right = "                     sehr starkes Verlangen";		
+	string ratingText3 = "Emotionalität";
+	string rating3Left = "negativ";
+	string rating3Right = "positiv";
+	
+	#dot filenames
+	string dot_blank = "rating/dot_blank.png";
+	string dot_filled = "rating/dot_filled.png";
+
+	string stimDefault = "default-pic.jpg";
+	
+#-- /PREFERENCES  --#
+
+
+#--  WRITE OUTPUT  --#
+	include "CR_DataHandling.pcl";	
+#-- /WRITE OUTPUT  --#
+
+#--  GENERATE FILENAME ARRAY  --#
+	sub generateFilenameArray
+	begin		
+		loop
+			int i = 1
+		until
+			i > stimuli.count()
+		begin
+			stimulusFilenames[i] = stimuli[i];
+			i = i + 1;
+		end;		
+	end;
+#-- /GENERATE FILENAME ARRAY  --#
+
+#--  GET INDEX  --#
+	sub int getIndex(string filename)
+	begin				
+		int index = 0;		
+		loop
+			int i = 1
+		until
+			i > stimulusFilenames.count()
+		begin			
+			if stimulusFilenames[i].filename() == filename then
+				index = i;
+			end;
+			i = i + 1;
+		end;	
+		return index;
+	end;
+#-- /GET INDEX  --#
+
+#--  ANIMATE RATING PAGE  --#
+	sub animateRatingPage(int rating)
+	begin
+		#set trial type to fixed to avoid complications in case another button is pressed
+		#ratingPage.set_type(fixed);
+
+			
+		#load animation picture for correct dot
+		if rating == 1 then
+			dot1.set_filename(dot_filled);
+			dot1.load();
+		elseif rating == 2 then
+			dot2.set_filename(dot_filled);
+			dot2.load();
+		elseif rating == 3 then
+			dot3.set_filename(dot_filled);
+			dot3.load();
+		elseif rating == 4 then
+			dot4.set_filename(dot_filled);
+			dot4.load();
+		elseif rating == 5 then
+			dot5.set_filename(dot_filled);
+			dot5.load();
+		end;
+		
+		ratingPage.set_duration(animationTime);
+		ratingPage.present();
+		#restore default
+		dot1.set_filename(dot_blank);
+		dot1.load();
+		dot2.set_filename(dot_blank);
+		dot2.load();
+		dot3.set_filename(dot_blank);
+		dot3.load();
+		dot4.set_filename(dot_blank);
+		dot4.load();
+		dot5.set_filename(dot_blank);
+		dot5.load();		
+		#restore original duration time and trial type
+		ratingPage.set_duration(forever);			
+	end;
+#--  ANIMATE RATING PAGE  --#
+
+
+#--  RUN TEST  --#
+	sub runTest
+	begin
+		int rating = 0;
+		loop 
+			int i = 1 
+		until 
+			i > testStimuli.count()
+		begin
+			ratingStimulus.set_filename(testStimuli[i].filename());
+			ratingStimulus.load();
+			
+			#rating Anregung
+			ratingPageText.set_caption(ratingText1);
+			leftText.set_caption(rating1Left);
+			rightText.set_caption(rating1Right);
+			ratingPageText.redraw();
+			leftText.redraw();
+			rightText.redraw();
+			#present rating
+			ratingPage.present();
+			#collect data
+			rating = response_manager.last_response();		
+			#animate page
+			ratingPageText.set_caption(" ");
+			ratingPageText.redraw();
+			ratingStimulus.set_filename(stimDefault);
+			ratingStimulus.load();
+			animateRatingPage(rating);
+			ratingStimulus.set_filename(testStimuli[i].filename());
+			ratingStimulus.load();
+
+			#rating Kaufverlangen
+			ratingPageText.set_caption(ratingText2);
+			leftText.set_caption(rating2Left);
+			rightText.set_caption(rating2Right);
+			ratingPageText.redraw();
+			leftText.redraw();
+			rightText.redraw();
+			#present rating
+			ratingPage.present();
+			#collect data
+			rating = response_manager.last_response();
+			#animate page
+			ratingPageText.set_caption(" ");
+			ratingPageText.redraw();
+			ratingStimulus.set_filename(stimDefault);
+			ratingStimulus.load();
+			animateRatingPage(rating);
+			ratingStimulus.set_filename(testStimuli[i].filename());
+			ratingStimulus.load();
+
+			#rating Emotionalität
+			ratingPageText.set_caption(ratingText3);
+			leftText.set_caption(rating3Left);
+			rightText.set_caption(rating3Right);
+			ratingPageText.redraw();
+			leftText.redraw();
+			rightText.redraw();
+			#present rating
+			ratingPage.present();
+			#collect data
+			rating = response_manager.last_response();	
+			#animate page
+			ratingPageText.set_caption(" ");
+			ratingPageText.redraw();
+			ratingStimulus.set_filename(stimDefault);
+			ratingStimulus.load();
+			animateRatingPage(rating);	
+			iti.present();
+			i = i + 1;
+		end;
+	end;
+#--  RUN TEST  --#
+
+
+#--  RUN RATING  --#
+	sub runRating 
+	begin
+		#define variables
+		int pictureCount = 0;
+		int startTime = 0;
+		int stopTime = 0;	
+		int rating = 0;
+		int reaction = 0;
+		int vidID = 0;
+				
+		# randomize videos
+		if randomOrder == true then
+			stimuli.shuffle();
+		end;
+	
+		loop 
+			int i = 1 
+		until 
+			i > stimuli.count() 
+		begin				
+			#set picture
+			ratingStimulus.set_filename(stimuli[i].filename());
+			ratingStimulus.load();
+			
+			#get picture Index		
+			int index = getIndex(stimuli[i].filename());
+							
+			#rating Anregung
+			rating = 0;
+			reaction = 0;
+			ratingPageText.set_caption(ratingText1);
+			leftText.set_caption(rating1Left);
+			rightText.set_caption(rating1Right);
+			ratingPageText.redraw();
+			leftText.redraw();
+			rightText.redraw();
+			#start timer
+			startTime = clock.time();
+			#present rating
+			ratingPage.present();
+			#stop timer
+			stopTime = clock.time();
+			#calculate reaction
+			reaction = stopTime - startTime;
+			#collect data
+			rating = response_manager.last_response();			
+			#save data
+			stimuliRating[index][1] = rating;
+			stimuliVT[index][1] = reaction;
+			presentationOrder[index] = i;			
+			#animate page
+			ratingPageText.set_caption(" ");
+			ratingPageText.redraw();
+			ratingStimulus.set_filename(stimDefault);
+			ratingStimulus.load();
+			animateRatingPage(rating);
+			ratingStimulus.set_filename(stimuli[i].filename());
+			ratingStimulus.load();
+
+			#rating Kaufverlangen
+			rating = 0;
+			reaction = 0;
+			ratingPageText.set_caption(ratingText2);
+			leftText.set_caption(rating2Left);
+			rightText.set_caption(rating2Right);
+			ratingPageText.redraw();
+			leftText.redraw();
+			rightText.redraw();
+			#start timer
+			startTime = clock.time();
+			#present rating
+			ratingPage.present();
+			#stop timer
+			stopTime = clock.time();
+			#calculate reaction
+			reaction = stopTime - startTime;
+			#collect data
+			rating = response_manager.last_response();			
+			#save data
+			stimuliRating[index][2] = rating;
+			stimuliVT[index][2] = reaction;	
+			#animate page
+			ratingPageText.set_caption(" ");
+			ratingPageText.redraw();
+			ratingStimulus.set_filename(stimDefault);
+			ratingStimulus.load();
+			animateRatingPage(rating);
+			ratingStimulus.set_filename(stimuli[i].filename());
+			ratingStimulus.load();
+
+			#rating Emotionalität
+			rating = 0;
+			reaction = 0;
+			ratingPageText.set_caption(ratingText3);
+			leftText.set_caption(rating3Left);
+			rightText.set_caption(rating3Right);
+			ratingPageText.redraw();
+			leftText.redraw();
+			rightText.redraw();
+			#start timer
+			startTime = clock.time();
+			#present rating
+			ratingPage.present();
+			#stop timer
+			stopTime = clock.time();
+			#calculate reaction
+			reaction = stopTime - startTime;
+			#collect data
+			rating = response_manager.last_response();			
+			#save data
+			stimuliRating[index][3] = rating;
+			stimuliVT[index][3] = reaction;	
+			#animate page
+			ratingPageText.set_caption(" ");
+			ratingPageText.redraw();
+			ratingStimulus.set_filename(stimDefault);
+			ratingStimulus.load();
+			animateRatingPage(rating);	
+			iti.present();
+		i = i + 1;		
+	end;		
+end;
+#-- /RUN RATING  --#
+
+
+#--  EXPERIMENT CONTROL  --#
+	#get vpCode 
+	vpCode = logfile.subject();
+	#start application
+	generateFilenameArray();
+	#run instruction
+	instruction1.present();
+	instruction2.present();
+	instruction3.present();
+	instruction4.present();
+	instruction5.present();
+	instruction6.present();
+	#run test
+	runTest();
+	#run instruction
+	instruction7.present();
+	#run rating
+	runRating();
+	#Calculate mean values
+	calculateMeanValues();
+	#write output
+	writeOutput();
+	#debriefing
+	debriefing.present();
+#--  EXPERIMENT CONTROL  --#
+

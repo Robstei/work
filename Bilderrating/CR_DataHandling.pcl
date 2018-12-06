@@ -1,0 +1,246 @@
+/*
+*
+* Cue Reactivity
+*
+* Version:		Presentation 17.0
+*
+* Author: 		Jan Henry van der Vegte 02.05.2016
+* Institute: 	University of Duisburg-Essen
+* Department: 	General Psychology: Cognition
+*/
+
+
+string delimiterString = ",";
+
+#--  MEAN VALUES  --# 
+
+	#Overall mean values
+	int Overall_VT = 0;
+	int Anr_VT = 0;
+	int Kvl_VT = 0;
+	int Emo_VT = 0;
+	
+	int Overall_RA = 0;
+	int Anr_RA = 0;
+	int Kvl_RA = 0;
+	int Emo_RA = 0;
+
+#-- /MEAN VALUES  --# 
+
+
+#--  CALCULATE MEAN VALUES  --# 
+	sub calculateMeanValues
+	begin
+		#Viewing Times
+		
+		# no counts needed
+		# ///
+		
+		loop
+			int i = 1
+		until
+			i > stimulusFilenames.count()
+		begin
+			
+			string description = stimulusFilenames[i].description();
+			
+			#Overall values
+			Overall_VT = Overall_VT + (stimuliVT[i][1] + stimuliVT[i][2] + stimuliVT[i][3]);
+			Anr_VT = Anr_VT + stimuliVT[i][1];
+			Kvl_VT = Kvl_VT + stimuliVT[i][2];
+			Emo_VT = Emo_VT + stimuliVT[i][3];
+	
+			Overall_RA = Overall_RA + (stimuliRating[i][1] + stimuliRating[i][2] + stimuliRating[i][3]);
+			Anr_RA = Anr_RA + stimuliRating[i][1];
+			Kvl_RA = Kvl_RA + stimuliRating[i][2];
+			Emo_RA = Emo_RA + stimuliRating[i][3];
+			
+			# no categories needed
+			# ///
+			
+			i = i + 1;
+		end;
+			
+		#finish scores		
+		Overall_VT = Overall_VT / (stimuliToRate * dimensions);
+		Anr_VT = Anr_VT / stimuliToRate;
+		Kvl_VT = Kvl_VT / stimuliToRate;
+		Emo_VT = Emo_VT / stimuliToRate;
+
+		Overall_RA = Overall_RA  / (stimuliToRate * dimensions);
+		Anr_RA = Anr_RA / stimuliToRate;
+		Kvl_RA = Kvl_RA / stimuliToRate;
+		Emo_RA = Emo_RA / stimuliToRate;			
+				
+	end;
+
+#-- /CALCULATE MEAN VALUES  --# 
+
+
+#--  GET VARIABLE NAMES  --# 
+	sub string getVariableNames
+	begin
+		string variableNames = "";
+		
+		variableNames = variableNames + "Code";
+		variableNames = variableNames + delimiterString;
+		variableNames = variableNames + "Date";
+		variableNames = variableNames + delimiterString;
+		###
+		variableNames = variableNames + "Paradigm_Name";
+		variableNames = variableNames + delimiterString;
+		
+		#Overall mean values
+		variableNames = variableNames + "Overall_VT";
+		variableNames = variableNames + delimiterString;
+		variableNames = variableNames + "Anr_VT";
+		variableNames = variableNames + delimiterString;
+		variableNames = variableNames + "Kvl_VT";
+		variableNames = variableNames + delimiterString;
+		variableNames = variableNames + "Emo_VT";
+		variableNames = variableNames + delimiterString;
+		
+		variableNames = variableNames + "Overall_RA";
+		variableNames = variableNames + delimiterString;
+		variableNames = variableNames + "Anr_RA";
+		variableNames = variableNames + delimiterString;
+		variableNames = variableNames + "Kvl_RA";
+		variableNames = variableNames + delimiterString;
+		variableNames = variableNames + "Emo_RA";
+
+		
+		loop
+			int i = 1
+		until
+			i > stimulusFilenames.count()
+		begin
+
+			#get filename
+			array<string> part1[3];
+			stimulusFilenames[i].filename().split("\\", part1);
+			string filename = part1[part1.count()];
+			#delete file ending
+			array<string> part2[2];
+			filename.split(".", part2);
+			string stimulusName = part2[1];
+			
+			#position of presentation
+			variableNames = variableNames + delimiterString;
+			variableNames = variableNames + stimulusName + "_Pos";
+			#viewing times
+			variableNames = variableNames + delimiterString;
+			variableNames = variableNames + stimulusName + "_Anr_VT";
+			variableNames = variableNames + delimiterString;
+			variableNames = variableNames + stimulusName + "_Kvl_VT";
+			variableNames = variableNames + delimiterString;
+			variableNames = variableNames + stimulusName + "_Emo_VT";
+			#RAs
+			variableNames = variableNames + delimiterString;
+			variableNames = variableNames + stimulusName + "_Anr_RA";
+			variableNames = variableNames + delimiterString;
+			variableNames = variableNames + stimulusName + "_Kvl_RA";
+			variableNames = variableNames + delimiterString;
+			variableNames = variableNames + stimulusName + "_Emo_RA";
+			
+			i = i + 1;
+		end;
+			
+		variableNames = variableNames + "\n";
+		
+		return variableNames;
+	end;
+	
+	
+
+#-- /GET VARIABLE NAMES  --#
+
+
+#--  WRITE OUTPUT  --# 
+	sub writeOutput
+	begin
+		#prepare output file
+		if vpCode == "" then
+			vpCode = "nobody";
+		end;		
+			
+		#single Output
+		string singleFile = "singles\\" + vpCode + "_CR.txt";
+		output_file singleOutput = new output_file;
+		singleOutput.open_append(singleFile);
+		
+		if exportVariableNames == true then
+			singleOutput.print(getVariableNames());
+		end;
+
+		#general output
+		string generalFile = "CR_ALL.txt";	
+		output_file generalOutput = new output_file;
+		generalOutput.open_append(generalFile);
+		
+		### GENERATE DATA OUTPUT ###
+		
+			string dataOutput = "";
+			dataOutput = dataOutput + vpCode;
+			dataOutput = dataOutput + delimiterString;
+			dataOutput = dataOutput + today;
+			dataOutput = dataOutput + delimiterString;
+			###
+			dataOutput = dataOutput + paradigmName.caption();
+			dataOutput = dataOutput + delimiterString;
+			
+			#Overall mean values
+			dataOutput = dataOutput + string(Overall_VT);
+			dataOutput = dataOutput + delimiterString;
+			dataOutput = dataOutput + string(Anr_VT);
+			dataOutput = dataOutput + delimiterString;
+			dataOutput = dataOutput + string(Kvl_VT);
+			dataOutput = dataOutput + delimiterString;
+			dataOutput = dataOutput + string(Emo_VT);
+			dataOutput = dataOutput + delimiterString;
+			
+			dataOutput = dataOutput + string(Overall_RA);
+			dataOutput = dataOutput + delimiterString;
+			dataOutput = dataOutput + string(Anr_RA);
+			dataOutput = dataOutput + delimiterString;
+			dataOutput = dataOutput + string(Kvl_RA);
+			dataOutput = dataOutput + delimiterString;
+			dataOutput = dataOutput + string(Emo_RA);
+
+			
+			loop
+				int i = 1
+			until
+				i > stimulusFilenames.count()
+			begin
+				
+				#position of presentation
+				dataOutput = dataOutput + delimiterString;
+				dataOutput = dataOutput + string(presentationOrder[i]);
+				#viewing times
+				dataOutput = dataOutput + delimiterString;
+				dataOutput = dataOutput + string(stimuliVT[i][1]);
+				dataOutput = dataOutput + delimiterString;
+				dataOutput = dataOutput + string(stimuliVT[i][2]);
+				dataOutput = dataOutput + delimiterString;
+				dataOutput = dataOutput + string(stimuliVT[i][3]);
+				#RAs
+				dataOutput = dataOutput + delimiterString;
+				dataOutput = dataOutput + string(stimuliRating[i][1]);
+				dataOutput = dataOutput + delimiterString;
+				dataOutput = dataOutput + string(stimuliRating[i][2]);
+				dataOutput = dataOutput + delimiterString;
+				dataOutput = dataOutput + string(stimuliRating[i][3]);
+				
+				i = i + 1;				
+			end;
+		### GENERATE DATA OUTPUT ###
+		
+		#write and close single
+		singleOutput.print(dataOutput);				
+		singleOutput.close();
+		
+		#write and close general
+		generalOutput.print(dataOutput);				
+		generalOutput.close();
+	end;
+#-- /WRITE OUTPUT  --# 
