@@ -1,0 +1,11 @@
+#
+#Thu Dec 06 20:22:43 CET 2018
+reactionTime=2000
+offsetForInterval=100
+totalNumberTargets=3
+totalNumberTrials=10
+firstAllowance=false
+interValMin=500
+interValMax=1000
+video=true
+testRun=true

@@ -49,7 +49,7 @@ begin;
 		}stimulus_event_video;
 			
 	}trial_main_video;
-	
+
 	trial {
 		trial_duration = 2000;
 		trial_type = fixed;
@@ -90,9 +90,7 @@ begin;
 		trial_duration = stimuli_length;
 		trial_type = fixed;
 		
-		video video_stimulus;
-		code = "video";
-		
+		video video_stimulus;		
 	}trial_testing;
 
 begin_pcl;
@@ -110,6 +108,8 @@ begin_pcl;
 	array<video> array_videos[0];
 	video_stimulus.prepare();
 	int video_stimulus_duration = int(video_stimulus.duration());
+	#1 = index 2 = target/nontarget 3 = reaction time
+	array<int> array_raw_data[STIMULI_COUNT][3];
 	
 	
 	sub make_ISIs
@@ -133,7 +133,6 @@ begin_pcl;
 		begin
 			int ISI_tmp = array_potential_ISIs[random(1,array_potential_ISIs.count())];
 			array_ISIs.add(ISI_tmp);
-			i = i + 1;
 			
 			loop int j = i
 			until j > STIMULI_COUNT
@@ -141,6 +140,8 @@ begin_pcl;
 				array_accumulated_ISIs[j] = array_accumulated_ISIs[j] + ISI_tmp;
 				j = j + 1;
 			end;
+			
+			i = i + 1;
 		end;
 	end;
 	
@@ -180,7 +181,9 @@ begin_pcl;
 		end;
 		
 		int repeats_necessary = 0;
-		loop int time_overall = 2000 * STIMULI_COUNT + array_accumulated_ISIs[array_accumulated_ISIs.count()]; 
+		int time_overall = 2000 * STIMULI_COUNT + array_accumulated_ISIs[array_accumulated_ISIs.count()];
+		
+		loop  
 		until false
 		begin	
 			if time_overall > video_stimulus.duration()
@@ -203,19 +206,33 @@ begin_pcl;
 		int starttime = (tmp_stimuli-1) * 2000 + array_accumulated_ISIs[tmp_stimuli];
 		if starttime > repeat_count * video_stimulus.duration()
 		then
-			stimulus_event stimulus_event_tmp = trial_testing.add_stimulus_event(array_videos[repeat_count]);
-			stimulus_event_tmp.set_event_code("video");
+			video video_tmp = array_videos[repeat_count];
+			
+			if repeat_count == repeats_necessary
+			then 
+				video_tmp.set_end_time(mod(time_overall, int(video_stimulus.duration())));
+			end;
+			stimulus_event stimulus_event_tmp = trial_testing.add_stimulus_event(video_tmp);
 
 			stimulus_event_tmp.set_time(int(video_stimulus.duration() * repeat_count + 100));
+	
 			repeat_count = repeat_count + 1;
 			continue;
 		end;
-		stimulus_event stimulus_event_tmp = trial_testing.add_stimulus_event(array_sounds[array_stimuli[tmp_stimuli]]);
+		#1=target 2=nontarget
+		int tmp_sound = array_stimuli[tmp_stimuli];
+		stimulus_event stimulus_event_tmp = trial_testing.add_stimulus_event(array_sounds[tmp_sound]);
 		stimulus_event_tmp.set_time(starttime);
 		stimulus_event_tmp.set_event_code("sound");
+		stimulus_event_tmp.set_duration(2000);
+		if tmp_sound == 1
+		then
+			stimulus_event_tmp.set_target_button(1);
+		else
+			stimulus_event_tmp.set_response_active(true);
+		end;
 		tmp_stimuli = tmp_stimuli + 1;
 		end;
-
 	end;
 
 	sub present_trials
@@ -242,10 +259,7 @@ begin_pcl;
 			end;
 		elseif VIDEO_MODE
 		then
-			loop int i = 1
-			until i > array_stimuli.count()
-			begin
-					trial_testing.present();
+			trial_testing.present();
 				/*int next_sound = array_stimuli[i];
 				stimulus_event_video.set_stimulus(array_sounds[next_sound]);
 				if next_sound == 1
@@ -263,11 +277,50 @@ begin_pcl;
 				trial_main_video.present();
 				i = i + 1;
 				*/
-			end;
 		end;
+	end;
+	
+	sub report_data
+	begin
+		output_file all_subjects = new output_file();
+		bool new_file_created = all_subjects.open("all_subjects.txt", 0, false);
+		if new_file_created
+		then
+			string variable_names = "ID	Date";
+			loop int i = 1
+			until i > STIMULI_COUNT
+			begin
+				variable_names = variable_names + "	T" + string(i) + "_RT";
+				variable_names = variable_names + "	T" + string(i) + "_Typ";
+				i = i + 1;
+			end;
+			all_subjects.print_line(variable_names);
+		else
+			all_subjects.open_append("all_subjects.txt");
+		end;
+		
+		string subject_data = logfile.subject() + "	" + date_time();
+		
+		loop int i = 1
+		until i > STIMULI_COUNT
+		begin
+			stimulus_data stimulus_data_tmp = stimulus_manager.get_stimulus_data(i);
+			subject_data = subject_data + "	" + string(stimulus_data_tmp.reaction_time()) + "	" +
+			string(stimulus_data_tmp.type());
+			i = i + 1;
+		end;
+		all_subjects.print_line(subject_data);
+	end;
+	
+	sub present_instruction
+	begin
+		
 	end;
 	
 	make_ISIs();
 	make_trials();
 	present_trials();
+	report_data();
+
+	
 

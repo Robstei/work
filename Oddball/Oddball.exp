@@ -234,9 +234,6 @@
 <asn>
 <sid>-1</sid>
 </asn>
-<asn>
-<sid>-2</sid>
-</asn>
 </ssa>
 </man>
 </exparam>
@@ -250,7 +247,6 @@
 <ftp>
 <ccc>0</ccc>
 <do_upload>
-<sce>1</sce>
 <sce>1</sce>
 </do_upload>
 <host></host>
@@ -286,7 +282,7 @@
 <set_def_file>C:\work\Oddball\Oddball.sdf</set_def_file>
 <stimulus_list>0</stimulus_list>
 <subject_id></subject_id>
-<subject_id_pol>0</subject_id_pol>
+<subject_id_pol>1</subject_id_pol>
 <video_list>0</video_list>
 <warnings>1</warnings>
 </log>
@@ -307,7 +303,25 @@
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
 <plat>1</plat>
-<port_devices></port_devices>
+<port_devices>
+<device>
+<parameters>
+<cts>0</cts>
+<dsrin>0</dsrin>
+<dsrout>0</dsrout>
+<dtr>disable</dtr>
+<rts>disable</rts>
+<set_fifo>1</set_fifo>
+<spd></spd>
+<spp></spp>
+<spr></spr>
+<sps></sps>
+</parameters>
+<piai>COM1</piai>
+<pian>Serial Port</pian>
+<pihpn>COM1</pihpn>
+</device>
+</port_devices>
 <rdl>
 <device>
 <abs_axis>
@@ -359,7 +373,7 @@
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
-<name>Standard PS/2 Keyboard</name>
+<name>HID Keyboard Device</name>
 </device>
 <device>
 <abs_axis>
@@ -404,51 +418,19 @@
 <name>HID-compliant mouse</name>
 </device>
 <device>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Wheel</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<device_type>2</device_type>
-<dx_device_type>0</dx_device_type>
-<max_raw_pos>65535</max_raw_pos>
-<min_raw_pos>0</min_raw_pos>
-<name>Synaptics Pointing Device</name>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>HyperX 7.1 Audio</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>Lenovo HID Mini-driver for Hardware Radio Switch</name>
+<name>ndPoint1 Inte</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>ndPoint1 Inte 1</name>
 </device>
 <device>
 <axis>
@@ -754,7 +736,7 @@
 </device>
 </rdl>
 <refchg>1</refchg>
-<rep>1</rep>
+<rep>2</rep>
 <require_name_match>0</require_name_match>
 <reschg>1</reschg>
 <rng>1</rng>
@@ -775,10 +757,6 @@
 </idv>
 <overrides></overrides>
 <sfn>C:\work\Oddball\Oddball.sce</sfn>
-</sce>
-<sce>
-<overrides></overrides>
-<sfn>C:\work\Oddball\test.sce</sfn>
 </sce>
 <sct>
 <capture_device>
