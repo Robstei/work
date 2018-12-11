@@ -1,0 +1,24 @@
+Scenario - Messung von Wechselkosten zwischen geteilter und selektiver Aufmerksamkeit
+Logfile written - 12/11/2018 11:49:31
+
+Subject	Trial	Event Type	Code	configuration(num)	runid(str)	blockid(str)	form(str)	character(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+	1	Response	3								24327	23927	0
+	2	Response	3								51890	27290	0
+	3	Response	3								103026	50827	0
+	4	Quit									113062	9863	NA
+
+
+{
+   "app": "Presentation Version 20.2 Build 07.25.18",
+   "device": "LENOVO 20DTCTO1WW",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad.sce",
+   "subject": "",
+   "timestamp": "2018/12/11 10:49:03 GMT"
+}

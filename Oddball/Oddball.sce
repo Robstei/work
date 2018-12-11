@@ -1,8 +1,9 @@
 scenario = "PCL program_pulse_manager example";
 #scenario_type = fMRI_emulation;
 #scan_period = 2000;
-active_buttons = 1;
+active_buttons = 3;
 response_matching = simple_matching;
+default_font_size = 30;
 
 begin;
 
@@ -12,8 +13,16 @@ begin;
 	}array_sounds;
 	
 	video {
-		filename = "video.avi";
-	} video_stimulus;
+		filename = "video_main.avi";
+	} video_main_stimulus;
+	
+	video {
+		filename = "video_test.avi";
+	} video_test_stimulus;
+	
+	text{
+		caption="BLABLABLA";
+	}text_instruction;
 
 	stimulus_event{
 		sound{
@@ -33,23 +42,6 @@ begin;
 		code = "sound";
 	}stimulus_event_notarget;
 		
-	trial {
-		trial_duration = 2000;
-		trial_type = fixed;
-		
-		video video_stimulus;
-
-		stimulus_event{
-			sound{
-				wavefile{ 
-					filename = "target.wav";
-				};
-			};
-			code = "sound";
-		}stimulus_event_video;
-			
-	}trial_main_video;
-
 	trial {
 		trial_duration = 2000;
 		trial_type = fixed;
@@ -81,17 +73,51 @@ begin;
 			x=0;y=0;
 		};
 	}trial_ITI;
+	
+	trial{
+		trial_type = first_response;
+		trial_duration = forever;
+		picture{
+			text text_instruction;
+			x=0;y=0;
+		};
+	}trial_instruction_nosound;
+	
+	trial{
+		picture{
+			text text_instruction;
+			x=0;y=0;
+		};
+		
+		sound sound_target;
+	}trial_instruction_target;
+	
+	trial{
+		picture{
+			text text_instruction;
+			x=0;y=0;
+		};
+		
+		sound sound_nontarget;
+	}trial_instruction_nontarget;
+	
+	trial{
+		trial_type = first_response;
+		trial_duration = forever;
+		picture{
+			text {caption = "Testdurchlauf beendet. \n\n Mit Leertaste wird der Versuch gestartet";};
+			x=0;y=0;
+		};
+	}trial_instruction_after_test;
 
 	trial{
-		video video_stimulus;
+		video video_main_stimulus;
 	}trial_ITI_video;
 	
 	trial{
-		trial_duration = stimuli_length;
 		trial_type = fixed;
 		
-		video video_stimulus;		
-	}trial_testing;
+	}trial_main_video;
 
 begin_pcl;
 
@@ -106,10 +132,28 @@ begin_pcl;
 	array<int> array_ISIs[0];
 	array<int> array_accumulated_ISIs[STIMULI_COUNT];
 	array<video> array_videos[0];
-	video_stimulus.prepare();
-	int video_stimulus_duration = int(video_stimulus.duration());
+	video_main_stimulus.prepare();
+	video_test_stimulus.prepare();
+	int video_main_stimulus_duration = int(video_main_stimulus.duration());
 	#1 = index 2 = target/nontarget 3 = reaction time
 	array<int> array_raw_data[STIMULI_COUNT][3];
+	
+	sub reset_arrays
+	begin
+		array_stimuli.resize(0);
+		array_ISIs.resize(0);
+		array_accumulated_ISIs.resize(0);
+		array_accumulated_ISIs.resize(STIMULI_COUNT);
+		array_videos.resize(0);
+		video_main_stimulus.prepare();
+		video_test_stimulus.prepare();
+		video_main_stimulus_duration = int(video_main_stimulus.duration());
+		loop
+		until trial_main_video.stimulus_event_count() == 0
+		begin
+			trial_main_video.remove_stimulus_event(1);
+		end;
+	end;
 	
 	
 	sub make_ISIs
@@ -160,7 +204,7 @@ begin_pcl;
 		return true;
 	end;
 	
-	sub make_trials
+	sub make_trials (bool test_run)
 	begin
 		loop int i = 1
 		until i > TARGET_COUNT
@@ -181,60 +225,132 @@ begin_pcl;
 		end;
 		
 		int repeats_necessary = 0;
-		int time_overall = 2000 * STIMULI_COUNT + array_accumulated_ISIs[array_accumulated_ISIs.count()];
+		int time_overall = 0;
 		
-		loop  
-		until false
-		begin	
-			if time_overall > video_stimulus.duration()
-			then
-				time_overall = int(time_overall - video_stimulus.duration());
-				repeats_necessary = repeats_necessary + 1;
-				video tmp_video = new video();
-				tmp_video.set_filename("video.avi");
-				array_videos.add(tmp_video);
-			else
-				break;
-			end;
-		end;
-		
-		
-		loop int tmp_stimuli = 1; int repeat_count = 1
-		until tmp_stimuli > STIMULI_COUNT
-		begin
-		
-		int starttime = (tmp_stimuli-1) * 2000 + array_accumulated_ISIs[tmp_stimuli];
-		if starttime > repeat_count * video_stimulus.duration()
+		if test_run
 		then
-			video video_tmp = array_videos[repeat_count];
+			time_overall = 2000 * STIMULI_COUNT + array_accumulated_ISIs[array_accumulated_ISIs.count()];
 			
-			if repeat_count == repeats_necessary
-			then 
-				video_tmp.set_end_time(mod(time_overall, int(video_stimulus.duration())));
+			loop int time_rest = time_overall
+			until false
+			begin	
+				if time_rest > 0
+				then
+					time_rest = int(time_rest - video_test_stimulus.duration());
+					repeats_necessary = repeats_necessary + 1;
+					video tmp_video = new video();
+					tmp_video.set_filename("video_test.avi");
+					array_videos.add(tmp_video);
+				else
+					break;
+				end;
 			end;
-			stimulus_event stimulus_event_tmp = trial_testing.add_stimulus_event(video_tmp);
-
-			stimulus_event_tmp.set_time(int(video_stimulus.duration() * repeat_count + 100));
-	
-			repeat_count = repeat_count + 1;
-			continue;
-		end;
-		#1=target 2=nontarget
-		int tmp_sound = array_stimuli[tmp_stimuli];
-		stimulus_event stimulus_event_tmp = trial_testing.add_stimulus_event(array_sounds[tmp_sound]);
-		stimulus_event_tmp.set_time(starttime);
-		stimulus_event_tmp.set_event_code("sound");
-		stimulus_event_tmp.set_duration(2000);
-		if tmp_sound == 1
+		elseif !test_run
 		then
-			stimulus_event_tmp.set_target_button(1);
-		else
-			stimulus_event_tmp.set_response_active(true);
+			time_overall = 2000 * STIMULI_COUNT + array_accumulated_ISIs[array_accumulated_ISIs.count()];
+	
+			loop  int time_rest = time_overall
+			until false
+			begin	
+				if time_rest > 0
+				then
+					time_rest = int(time_rest - video_main_stimulus.duration());
+					repeats_necessary = repeats_necessary + 1;
+					video tmp_video = new video();
+					tmp_video.set_filename("video_main.avi");
+					array_videos.add(tmp_video);
+				else
+					break;
+				end;
+			end;
 		end;
-		tmp_stimuli = tmp_stimuli + 1;
+	
+		trial_main_video.set_duration(time_overall);
+		
+		if test_run
+		then
+			loop int tmp_stimuli = 1; int repeat_count = 0
+			until tmp_stimuli > STIMULI_COUNT
+			begin
+			
+			int starttime = (tmp_stimuli-1) * 2000 + array_accumulated_ISIs[tmp_stimuli];
+			if starttime > repeat_count * video_test_stimulus.duration()
+			then
+				video video_tmp = array_videos[repeat_count + 1];
+				repeat_count = repeat_count + 1;
+				term.print_line("to " + string(time_overall));
+				term.print_line("du " + string(video_test_stimulus.duration()));
+				term.print_line("rc " + string(repeat_count));
+				term.print_line("rn " + string(repeats_necessary));
+				if repeat_count == repeats_necessary
+				then 
+					term.print_line("test12");
+					term.print_line(string(mod(time_overall, int(video_test_stimulus.duration()))));
+
+					video_tmp.set_end_time(mod(time_overall, int(video_test_stimulus.duration())));
+				end;
+				stimulus_event stimulus_event_tmp = trial_main_video.add_stimulus_event(video_tmp);
+
+				stimulus_event_tmp.set_time(int(video_test_stimulus.duration() * (repeat_count - 1)));
+		
+				continue;
+			end;
+			#1=target 2=nontarget
+			int tmp_sound = array_stimuli[tmp_stimuli];
+			stimulus_event stimulus_event_tmp = trial_main_video.add_stimulus_event(array_sounds[tmp_sound]);
+			stimulus_event_tmp.set_time(starttime);
+			stimulus_event_tmp.set_duration(2000);
+			if tmp_sound == 1
+			then
+				stimulus_event_tmp.set_target_button(1);
+			else
+				stimulus_event_tmp.set_response_active(true);
+			end;
+				tmp_stimuli = tmp_stimuli + 1;
+			end;
+		elseif !test_run
+		then
+			loop int tmp_stimuli = 1; int repeat_count = 0
+			until tmp_stimuli > STIMULI_COUNT
+			begin
+			
+			int starttime = (tmp_stimuli-1) * 2000 + array_accumulated_ISIs[tmp_stimuli];
+			if starttime > repeat_count * video_main_stimulus.duration()
+			then
+				video video_tmp = array_videos[repeat_count + 1];
+				repeat_count = repeat_count + 1;
+				
+				#term.print_line(repeat_count);
+				#term.print_line(repeats_necessary);
+				if repeat_count == repeats_necessary
+				then 
+					#term.print_line("test");
+					#term.print_line(string(mod(time_overall, int(video_main_stimulus.duration()))));
+					video_tmp.set_end_time(mod(time_overall, int(video_main_stimulus.duration())));
+				end;
+				stimulus_event stimulus_event_tmp = trial_main_video.add_stimulus_event(video_tmp);
+
+				stimulus_event_tmp.set_time(int(video_main_stimulus.duration() * (repeat_count - 1)));
+				continue;
+			end;
+			#1=target 2=nontarget
+			int tmp_sound = array_stimuli[tmp_stimuli];
+			stimulus_event stimulus_event_tmp = trial_main_video.add_stimulus_event(array_sounds[tmp_sound]);
+			stimulus_event_tmp.set_time(starttime);
+			stimulus_event_tmp.set_event_code("sound");
+			stimulus_event_tmp.set_duration(2000);
+			if tmp_sound == 1
+			then
+				stimulus_event_tmp.set_target_button(1);
+			else
+				stimulus_event_tmp.set_response_active(true);
+			end;
+			tmp_stimuli = tmp_stimuli + 1;
+			end;
 		end;
 	end;
-
+		
+		
 	sub present_trials
 	begin
 		if !VIDEO_MODE
@@ -259,7 +375,7 @@ begin_pcl;
 			end;
 		elseif VIDEO_MODE
 		then
-			trial_testing.present();
+			trial_main_video.present();
 				/*int next_sound = array_stimuli[i];
 				stimulus_event_video.set_stimulus(array_sounds[next_sound]);
 				if next_sound == 1
@@ -270,9 +386,9 @@ begin_pcl;
 					stimulus_event_video.set_response_active(true);
 				end;
 				
-				video_stimulus.prepare();
-				term.print_line(mod( (i-1) * 2000 + array_accumulated_ISIs[i],video_stimulus_duration));
-				video_stimulus.set_position(mod( (i-1) * 2000 + array_accumulated_ISIs[i],video_stimulus_duration));
+				video_main_stimulus.prepare();
+				term.print_line(mod( (i-1) * 2000 + array_accumulated_ISIs[i],video_main_stimulus_duration));
+				video_main_stimulus.set_position(mod( (i-1) * 2000 + array_accumulated_ISIs[i],video_main_stimulus_duration));
 				trial_main_video.set_start_time( (i-1) * 2000 + array_accumulated_ISIs[i]);
 				trial_main_video.present();
 				i = i + 1;
@@ -314,12 +430,57 @@ begin_pcl;
 	
 	sub present_instruction
 	begin
+		loop 	bool target_heard; bool nontarget_heard
+		until target_heard && nontarget_heard
+		begin
+			trial_instruction_nosound.present();
 		
+			int last_response = response_manager.last_response();
+			if last_response == 2
+			then
+				trial_instruction_target.present();
+				target_heard = true;
+			elseif last_response == 3
+			then
+				trial_instruction_nontarget.present();
+				nontarget_heard = true;
+			end;
+		end;	
+
+		text_instruction.set_caption("Mit Leertaste weiter", true);
+
+		loop
+		until false
+		begin
+			trial_instruction_nosound.present();
+		
+			int last_response = response_manager.last_response();
+			if last_response == 2
+			then
+				trial_instruction_target.present();
+			elseif last_response == 3
+			then
+				trial_instruction_nontarget.present();
+			elseif last_response == 1
+			then
+				break;
+			end;
+		end;
 	end;
 	
-	make_ISIs();
-	make_trials();
-	present_trials();
+	sub make_and_present_trials (bool test_run)
+	begin
+		make_ISIs();
+		make_trials(test_run);
+		present_trials();
+		reset_arrays();
+	end;
+	
+	
+	present_instruction();
+	make_and_present_trials(true);
+	trial_instruction_after_test.present();
+	make_and_present_trials(false);
 	report_data();
 
 	
