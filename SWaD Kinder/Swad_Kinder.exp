@@ -89,7 +89,7 @@
 <val>
 <dat>
 <val>Falsch.
-Sie hätten nicht drücken müssen.</val>
+Du hätten nicht drücken müssen.</val>
 </dat>
 <id>4</id>
 </val>
@@ -102,7 +102,7 @@ Sie hätten nicht drücken müssen.</val>
 <val>
 <dat>
 <val>Falsch.
-Sie hätten drücken müssen.</val>
+Du hätten drücken müssen.</val>
 </dat>
 <id>6</id>
 </val>
@@ -400,48 +400,6 @@ Sie hätten drücken müssen.</val>
 <device_type>3</device_type>
 <dx_device_type>19</dx_device_type>
 <name>Tastatur</name>
-</device>
-<device>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Wheel</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<device_type>2</device_type>
-<dx_device_type>0</dx_device_type>
-<max_raw_pos>65535</max_raw_pos>
-<min_raw_pos>0</min_raw_pos>
-<name>HID-compliant mouse</name>
 </device>
 <device>
 <device_type>3</device_type>
@@ -831,13 +789,17 @@ Sie hätten drücken müssen.</val>
 <dx_device_type>19</dx_device_type>
 <ibn>L</ibn>
 <ibn>S</ibn>
+<ibn>LEER</ibn>
 <idn>Tastatur</idn>
 <index>0</index>
 <index>1</index>
+<index>2</index>
+<label></label>
 <label></label>
 <label></label>
 <offset>38</offset>
 <offset>31</offset>
+<offset>57</offset>
 </idv>
 <overrides></overrides>
 <sfn>C:\work\SWaD Kinder\Swad_Kinder.sce</sfn>
@@ -886,9 +848,9 @@ Sie hätten drücken müssen.</val>
 <use_rewind_distance>0</use_rewind_distance>
 </sde>
 <sdv>Primärer Soundtreiber</sdv>
-<show_dis>1</show_dis>
-<show_parm>1</show_parm>
-<show_term>1</show_term>
+<show_dis>0</show_dis>
+<show_parm>0</show_parm>
+<show_term>0</show_term>
 <smc>2</smc>
 <smd>16</smd>
 <smr>44100</smr>
