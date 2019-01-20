@@ -1,0 +1,56 @@
+Scenario - DOTPROBE.sce
+Logfile written - 01/08/2019 14:47:18
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+trst5	0	Pulse	99	0	0	NA
+trst5	1	Picture	Instruktion	10166	0	1	20558	1	0	next	other	0
+trst5	1	Pulse	99	22200	12034	NA
+trst5	1	Response	1	23033	12867	1
+trst5	1	Response	4	30673	20507	1
+trst5	2	Picture	uebung	30724	0	1	4145	1	0	next	other	0
+trst5	2	Response	4	34713	3989	1
+trst5	3	Pulse	99	44400	9531	NA
+trst5	4	Picture	pics	50121	0	1	5140	1	0	next	other	0
+trst5	5	Picture	dotprobe	55261	0	1	4476	1	0	next	other	0
+trst5	5	Response	1	59633	4372	1
+trst5	6	Picture	correct	59903	0	1	10109	7	0	next	other	0
+trst5	6	Pulse	99	66600	6697	NA
+trst5	7	Picture	uebung2	70012	0	7	1497	7	0	next	other	0
+trst5	7	Response	3	71433	1421	1
+trst5	8	Picture	uebungende	71509	0	1	2984	1	0	next	other	0
+trst5	8	Response	3	74313	2804	1
+trst5	9	Picture	Hauptdurchgang	74493	0	1	2487	1	0	next	other	0
+trst5	9	Response	3	76873	2380	1
+trst5	10	Pulse	99	88800	11820	NA
+trst5	11	Picture	pics	92233	0	1	5140	1	0	next	other	0
+trst5	12	Picture	dotprobe	97372	0	1	4145	1	0	next	other	0
+trst5	12	Response	2	101473	4101	1
+trst5	13	Pulse	99	111000	9317	NA
+trst5	14	Picture	pics	116936	0	1	5140	1	0	next	other	0
+trst5	15	Picture	dotprobe	122075	0	1	4476	1	0	next	other	0
+trst5	15	Response	2	126393	4318	1
+trst5	16	Pulse	99	133200	6483	NA
+trst5	17	Picture	pics	141804	0	1	5140	1	0	next	other	0
+trst5	18	Picture	dotprobe	146944	0	1	3813	1	0	next	other	0
+trst5	18	Response	2	150713	3769	1
+trst5	19	Pulse	99	155400	4477	NA
+trst5	20	Picture	pics	166010	0	1	5140	1	0	next	other	0
+trst5	21	Picture	dotprobe	171150	0	1	4642	1	0	next	other	0
+trst5	21	Response	1	175673	4524	1
+trst5	22	Pulse	99	177600	1642	NA
+trst5	23	Picture	pics	191210	0	1	5140	1	0	next	other	0
+trst5	24	Picture	dotprobe	196350	0	1	3813	1	0	next	other	0
+trst5	24	Pulse	99	199800	3450	NA
+trst5	24	Response	2	199993	3643	1
+trst5	26	Picture	pics	215582	0	1	5140	1	0	next	other	0
+trst5	27	Picture	dotprobe	220721	0	1	5305	1	0	next	other	0
+trst5	27	Pulse	99	222000	1279	NA
+trst5	27	Response	1	225913	5192	1
+trst5	29	Picture	pics	241445	0	1	5140	1	0	next	other	0
+trst5	29	Pulse	99	244200	2755	NA
+trst5	30	Picture	dotprobe	246585	0	1	3316	1	0	next	other	0
+trst5	30	Response	2	249753	3168	1
+trst5	32	Picture	pics	265319	0	1	11341	1	0	next	other	0
+trst5	32	Pulse	99	266400	1081	NA
+trst5	32	Quit		268993	3674	NA

@@ -1,0 +1,27 @@
+Scenario - DOTPROBE.sce
+Logfile written - 01/08/2019 15:38:52
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+testtest	0	Pulse	99	0	0	NA
+testtest	1	Picture	Instruktion	10166	0	1	11108	1	0	next	other	0
+testtest	1	Response	4	21132	10966	1
+testtest	2	Picture	uebung	21274	0	1	17740	1	0	next	other	0
+testtest	2	Pulse	99	22200	926	NA
+testtest	2	Response	4	38931	17658	1
+testtest	3	Pulse	99	44400	5387	NA
+testtest	4	Picture	pics	54266	0	1	5140	1	0	next	other	0
+testtest	5	Picture	dotprobe	59406	0	1	4311	1	0	next	other	0
+testtest	5	Response	1	63532	4126	1
+testtest	6	Picture	correct	63882	0	1	10113	1	0	next	other	0
+testtest	6	Pulse	99	66600	2718	NA
+testtest	7	Picture	uebung2	73996	0	1	6466	1	0	next	other	0
+testtest	7	Response	4	80411	6416	1
+testtest	8	Pulse	99	88800	8339	NA
+testtest	9	Picture	pics	95714	0	1	5140	1	0	next	other	0
+testtest	10	Picture	dotprobe	100854	0	1	2984	1	0	next	other	0
+testtest	10	Response	2	103652	2798	1
+testtest	11	Picture	correct	104004	0	1	10113	1	0	next	other	0
+testtest	11	Pulse	99	111000	6996	NA
+testtest	12	Picture	uebung2	114117	0	1	22692	1	0	next	other	0
+testtest	12	Quit		127811	13694	NA

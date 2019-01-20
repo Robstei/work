@@ -1,0 +1,333 @@
+# 19.4.2007
+# Sabine Klein
+# DOT PROBE Task   
+# n = 160 Trials
+
+##################################################################################################################################
+# logfile "DOTPROBE"
+##################################################################################################################################
+output_file DOTPROBE = new output_file;   
+#DOTPROBE.open(logfile.subject() + "_DOTPROBE.txt", false);# false - prevents that the output files are overwritten   
+DOTPROBE.open(logfile.subject() + "_DOTPROBE.txt", true);
+DOTPROBE.print("trial\tcategory\torder\tindex\tdotside\tdotchoice\tstimonset\tresponse\trt\n");
+
+####################################################################################################################################
+# global variables
+####################################################################################################################################
+int i; 
+int j;                          
+  
+array<int>idx1[80]; # Index for food pics
+array<int>idx2[80]; # Index for neutral pics
+    
+# Categories:
+
+# 1: food (food/neutral pair)
+# 2: neutral (neutral/neutral pair)
+
+# practice trials:
+array<int>cat_pract[20] = {1,2,2,2,1,1,1,2,2,2,2,1,2,2,2,2,2,1,1,2};
+
+# main trials:
+array<int>cat_main[160] = {1,2,1,1,1,1,2,2,1,1,2,1,2,1,2,1,1,1,2,1,1,1,1,1,1,2,1,1,1,2,2,1,1,2,1,1,2,1,2,1,1,2,1,2,1,1,1,2,1,2,1,2,2,2,2,1,2,2,1,2,2,1,2,1,2,1,1,1,1,1,1,1,1,1,2,2,1,2,2,2,2,2,1,2,2,2,2,1,1,2,2,2,1,2,2,2,1,2,2,1,1,2,2,2,2,1,2,1,1,1,2,2,1,2,2,2,1,2,1,1,2,2,1,2,2,2,2,2,2,1,2,1,1,2,2,1,2,1,1,1,1,1,2,1,1,1,2,1,2,2,2,1,2,2,2,1,2,2,1,2};
+
+array<int>cat[160];
+
+# Order:
+
+# 1: LR - R (Pic1 left, pic2 right, dot right)
+# 2: RL - R (Pic1 right, pic2 left, dot right)
+# 3: LR - L (Pic1 left, pic2 right, dot left)
+# 4: RL - L (Pic1 right, pic2 left, dot left)
+
+array<int>ntrorder_pract[20] = {3,1,2,4,2,3,4,1,1,2,3,4,2,3,1,4,1,2,4,3};
+array<int>ntridx_pract[20] = {1,2,1,2,5,3,4,1,3,2,2,3,4,5,5,5,4,3,1,4};
+
+array<int>alcorder_tmp[80];
+array<int>alcidx_tmp[80];
+array<int>alcorder[80];
+array<int>alcidx[80];
+
+array<int>ntrorder_tmp[80];
+array<int>ntridx_tmp[80];
+array<int>ntrorder[80];
+array<int>ntridx[80];
+
+int dotside; #1: left, 2:right
+int dotresp; #1: left, 2:right
+
+int food_count = 0;      
+int neutral_count = 0;
+
+loop
+	i = 1
+until
+	i > 4
+begin  
+	loop
+		j = 1
+	until
+		j > 20
+	begin 
+		alcorder_tmp[(i-1)*20+j]=i;
+		alcidx_tmp[(i-1)*20+j]=j;
+		idx1[(i-1)*20+j] = (i-1)*20+j;
+		ntrorder_tmp[(i-1)*20+j]=i;
+		ntridx_tmp[(i-1)*20+j]=j;
+		idx2[(i-1)*20+j] = (i-1)*20+j;
+		j = j +1;
+	end;
+	i = i + 1;
+end;
+
+# MR pulses and durations
+int n = 160; # number of blocks
+
+# variables
+int rt;
+int stim_onset_ms;   
+int stim_offset_ms;  
+
+# sub routine to get local filename (without path)
+sub
+   string get_local_name( string name )
+begin 
+   int m = name.count();
+   loop until
+      m == 0
+   begin
+      if (name[m] == '\\' || name[m] == '/') then break end; 
+      m = m - 1
+   end;
+   int sub_size = name.count() - m;
+   if (sub_size != 0) then
+      return name.substring( m + 1, name.count() - m )
+   end;
+   return ""
+end;
+
+# sub routine for trial presentation
+
+sub presentblock (int main, int ix) # main == 1: Hauptdurchgang, main == 0: Übungsdurchgang
+begin
+	if (main==1) then
+		DOTPROBE.print(ix);
+		DOTPROBE.print("\t");
+		DOTPROBE.print(cat[ix]);
+	end;
+	
+	if (main==1) then # Hauptdurchgang
+		if (cat[ix] == 1) then # food
+			food_count = food_count + 1;
+			foodpics1[alcidx[food_count]].load();
+			foodpics2[alcidx[food_count]].load();
+			if (main==1) then
+				DOTPROBE.print("\t");
+				DOTPROBE.print(alcorder[food_count]);
+			end;
+			if (alcorder[food_count] == 1)||(alcorder[food_count] == 3) then
+			# pic1 left, pic2 right
+				dummy2.set_part( 1, foodpics1[alcidx[food_count]]);
+				dummy2.set_part( 2, foodpics2[alcidx[food_count]]);
+			else
+			# pic1 right, pic2 left
+				dummy2.set_part( 1, foodpics2[alcidx[food_count]]);
+				dummy2.set_part( 2, foodpics1[alcidx[food_count]]);
+			end;
+			pictrial.present();  
+			display_device.screenshot("screenshot1.bmp");
+			foodpics1[alcidx[food_count]].unload();
+			foodpics2[alcidx[food_count]].unload();
+			
+			if (alcorder[food_count] == 1) || (alcorder[food_count] == 2) then
+			# dot right
+				dotprobepic.set_part_x(2,200); # "."   
+				dotside = 2;
+			else
+			# dot left
+				dotprobepic.set_part_x(2,-200); # "."  
+				dotside = 1; 
+			end;
+			if (main==1) then
+				DOTPROBE.print("\t");
+				DOTPROBE.print(alcidx[food_count]);
+			end;
+		elseif (cat[ix] == 2) then # neutral pics
+			neutral_count = neutral_count + 1;
+			neutralpics1[ntridx[neutral_count]].load();
+			neutralpics2[ntridx[neutral_count]].load();
+			if (main==1) then
+				DOTPROBE.print("\t");
+				DOTPROBE.print(ntrorder[neutral_count]);
+			end;
+			if (ntrorder[neutral_count] == 1)||(ntrorder[neutral_count] == 3) then
+			# pic1 left, pic2 right
+				dummy2.set_part( 1, neutralpics1[ntridx[neutral_count]]);
+				dummy2.set_part( 2, neutralpics2[ntridx[neutral_count]]);
+			else
+			# pic1 right, pic2 left
+				dummy2.set_part( 1, neutralpics2[ntridx[neutral_count]]);
+				dummy2.set_part( 2, neutralpics1[ntridx[neutral_count]]);
+			end;
+			pictrial.present();
+			display_device.screenshot("screenshot2.bmp");
+			neutralpics1[ntridx[neutral_count]].unload();
+			neutralpics2[ntridx[neutral_count]].unload();
+			
+			if (ntrorder[neutral_count] == 1) || (ntrorder[neutral_count] == 2) then
+			# dot right
+				dotprobepic.set_part_x(2,200); # "."   
+				dotside = 2;
+			else
+			# dot left
+				dotprobepic.set_part_x(2,-200); # "."  
+				dotside = 1; 
+			end;
+			
+			if (main==1) then
+				DOTPROBE.print("\t");
+				DOTPROBE.print(ntridx[neutral_count]);
+			end;
+		end;    
+	else # Uebungsdurchgang
+		testpics1[i].load();
+		testpics2[i].load();
+		if (ntrorder[i] == 1)||(ntrorder[i] == 3) then
+		# pic1 left, pic2 right
+			dummy2.set_part( 1, testpics1[i]);
+			dummy2.set_part( 2, testpics2[i]);
+		else
+		# pic1 right, pic2 left
+			dummy2.set_part( 1, testpics2[i]);
+			dummy2.set_part( 2, testpics1[i]);
+		end;
+		pictrial.present();  
+		display_device.screenshot("screenshot3.bmp");
+		testpics1[i].unload();
+		testpics2[i].unload();
+		if (ntrorder[i] == 1) || (ntrorder[i] == 2) then
+		# dot right
+			dotprobepic.set_part_x(2,200); # "."   
+			dotside = 2;
+		else
+		# dot left
+			dotprobepic.set_part_x(2,-200); # "."  
+			dotside = 1; 
+		end;
+	end;
+	
+	if (main==1) then   
+		DOTPROBE.print("\t");
+		DOTPROBE.print(dotside);
+	end;
+	stim_onset_ms = clock.time();
+  
+	text1.redraw(); 
+	dotprobetrial.present();
+	display_device.screenshot("screenshot4.bmp");
+	dotresp = response_manager.last_response();
+	dummy.present();
+	display_device.screenshot("screenshot5.bmp");
+	
+	if (main==1) then 
+		DOTPROBE.print("\t");
+		DOTPROBE.print(dotresp);
+	else
+		if (dotresp == dotside) then
+			correcttrial.present();
+			display_device.screenshot("screenshot6.bmp");
+		else
+			errortrial.present();
+			display_device.screenshot("screenshot7.bmp");
+		end;
+	end;
+	stim_offset_ms = clock.time();
+	rt=stim_offset_ms-stim_onset_ms;
+	if (main==1) then
+		DOTPROBE.print("\t");
+		DOTPROBE.print(stim_onset_ms);
+		DOTPROBE.print("\t");
+		DOTPROBE.print(stim_offset_ms);
+		DOTPROBE.print("\t");
+		DOTPROBE.print(rt);
+		DOTPROBE.print("\n");
+	end;
+	
+end;  # sub presentblock
+                 
+
+####################################################################################################################################
+# practice session
+####################################################################################################################################
+instructiontrial.present();
+display_device.screenshot("screenshot8.bmp");
+
+uebungtrial.present(); 
+display_device.screenshot("screenshot9.bmp");
+
+cat = cat_pract;
+
+ntrorder = ntrorder_pract;
+ntridx = ntridx_pract;
+
+food_count = 0;      
+neutral_count = 0;  
+# stimulus presentation
+loop
+   i = 1
+until
+   (response_manager.last_response() == 3)||(i>10)
+begin
+	showtrial.present();
+	display_device.screenshot("screenshot10.bmp"; 
+   presentblock(0,i);
+   textueb.redraw();
+   uebungtrial2.present();
+	display_device.screenshot("screenshot11.bmp";
+   i = i + 1;
+end;                                                                                            # end of practice trials
+
+uebungendetrial.present ();
+
+################################################################################################################################
+# main session    
+################################################################################################################################ 
+
+mainsessiontrial.present();
+display_device.screenshot("screenshot12.bmp";
+
+cat = cat_main;
+# pairs shuffle     	
+idx1.shuffle();
+idx2.shuffle();
+loop
+	i = 1
+until
+	i > 80
+begin  
+	alcorder[i] = alcorder_tmp[idx1[i]];
+	alcidx[i] = alcidx_tmp[idx1[i]];
+	ntrorder[i] = ntrorder_tmp[idx2[i]];
+	ntridx[i] = ntridx_tmp[idx2[i]];
+	i = i + 1;
+end;
+
+food_count = 0;      
+neutral_count = 0;              
+loop
+   i = 1
+until
+   i > n
+begin
+	showtrial.present();  
+   display_device.screenshot("screenshot13.bmp";
+	presentblock(1,i);
+    
+   i = i + 1;       
+end;  # loop until i > n begin... 
+
+                
+DOTPROBE.close();
+
+endetrial.present ();  
+display_device.screenshot("screenshot14.bmp";

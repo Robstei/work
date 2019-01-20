@@ -1,0 +1,77 @@
+Scenario - DOTPROBE.sce
+Logfile written - 01/08/2019 15:24:08
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+test3	0	Pulse	99	0	0	NA
+test3	1	Picture	Instruktion	10166	0	1	11274	1	0	next	other	0
+test3	1	Response	4	21366	11200	1
+test3	2	Picture	uebung	21439	0	1	7626	1	0	next	other	0
+test3	2	Pulse	99	22200	761	NA
+test3	2	Response	4	28846	7406	1
+test3	4	Picture	pics	44319	0	1	5140	1	0	next	other	0
+test3	4	Pulse	99	44400	81	NA
+test3	5	Picture	dotprobe	49458	0	1	4311	1	0	next	other	0
+test3	5	Response	1	53646	4188	1
+test3	6	Picture	correct	53935	0	1	10113	1	0	next	other	0
+test3	7	Picture	uebung2	64048	0	1	13595	1	0	next	other	0
+test3	7	Pulse	99	66600	2552	NA
+test3	7	Response	4	77605	13557	1
+test3	8	Pulse	99	88800	11157	NA
+test3	9	Picture	pics	92896	0	1	5140	1	0	next	other	0
+test3	10	Picture	dotprobe	98035	0	1	4974	1	0	next	other	0
+test3	10	Response	2	102926	4891	1
+test3	11	Picture	correct	103175	0	1	10113	1	0	next	other	0
+test3	11	Pulse	99	111000	7825	NA
+test3	12	Picture	uebung2	113288	0	1	11440	1	0	next	other	0
+test3	12	Response	3	124566	11277	1
+test3	13	Picture	uebungende	124728	0	1	4808	1	0	next	other	0
+test3	13	Response	3	129405	4678	1
+test3	14	Picture	Hauptdurchgang	129536	0	1	4476	1	0	next	other	0
+test3	14	Pulse	99	133200	3664	NA
+test3	14	Response	3	133966	4430	1
+test3	16	Picture	pics	149265	0	1	5140	1	0	next	other	0
+test3	17	Picture	dotprobe	154405	0	1	4476	1	0	next	other	0
+test3	17	Pulse	99	155400	995	NA
+test3	17	Response	2	158766	4361	1
+test3	19	Picture	pics	174300	0	1	5140	1	0	next	other	0
+test3	19	Pulse	99	177600	3300	NA
+test3	20	Picture	dotprobe	179439	0	1	4311	1	0	next	other	0
+test3	20	Response	1	183566	4126	1
+test3	22	Picture	pics	199168	0	1	5140	1	0	next	other	0
+test3	22	Pulse	99	199800	632	NA
+test3	23	Picture	dotprobe	204308	0	1	3647	1	0	next	other	0
+test3	23	Response	2	207886	3578	1
+test3	24	Pulse	99	222000	13879	NA
+test3	25	Picture	pics	223374	0	1	5140	1	0	next	other	0
+test3	26	Picture	dotprobe	228514	0	1	5803	1	0	next	other	0
+test3	26	Response	1	234210	5696	1
+test3	27	Pulse	99	244200	9718	NA
+test3	28	Picture	pics	249735	0	1	5140	1	0	next	other	0
+test3	29	Picture	dotprobe	254874	0	1	4476	1	0	next	other	0
+test3	29	Response	2	259326	4451	1
+test3	30	Pulse	99	266400	6883	NA
+test3	31	Picture	pics	274770	0	1	5140	1	0	next	other	0
+test3	32	Picture	dotprobe	279909	0	1	3979	1	0	next	other	0
+test3	32	Response	2	283766	3857	1
+test3	33	Pulse	99	288600	4546	NA
+test3	34	Picture	pics	299307	0	1	5140	1	0	next	other	0
+test3	35	Picture	dotprobe	304446	0	1	4808	1	0	next	other	0
+test3	35	Response	2	309206	4759	1
+test3	36	Pulse	99	310800	1380	NA
+test3	37	Picture	pics	324673	0	1	5140	1	0	next	other	0
+test3	38	Picture	dotprobe	329812	0	1	3979	1	0	next	other	0
+test3	38	Pulse	99	333000	3188	NA
+test3	38	Response	2	333766	3953	1
+test3	40	Picture	pics	349210	0	1	5140	1	0	next	other	0
+test3	41	Picture	dotprobe	354350	0	1	4476	1	0	next	other	0
+test3	41	Pulse	99	355200	850	NA
+test3	41	Response	1	358765	4416	1
+test3	43	Picture	pics	374245	0	1	5140	1	0	next	other	0
+test3	43	Pulse	99	377400	3155	NA
+test3	44	Picture	dotprobe	379384	0	1	4311	1	0	next	other	0
+test3	44	Response	2	383606	4222	1
+test3	46	Picture	pics	399113	0	1	5140	1	0	next	other	0
+test3	46	Pulse	99	399600	487	NA
+test3	47	Picture	dotprobe	404253	0	1	11133	1	0	next	other	0
+test3	47	Quit		405086	833	NA
