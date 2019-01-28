@@ -1,5 +1,5 @@
 <ver>20.2</ver>
-<efn>C:\work\SWaD Kinder\Swad_Kinder.exp</efn>
+<efn>C:\work\SWaD Kinder\Swad_kids.exp</efn>
 <author></author>
 <con>
 <pause>P</pause>
@@ -118,6 +118,12 @@ Du hätten drücken müssen.</val>
 </dat>
 <id>8</id>
 </val>
+<val>
+<dat>
+<val>Deutsch</val>
+</dat>
+<id>9</id>
+</val>
 </sd>
 <sid>-1</sid>
 </ss>
@@ -133,6 +139,7 @@ Du hätten drücken müssen.</val>
 <pid>1</pid>
 <pid>7</pid>
 <pid>8</pid>
+<pid>9</pid>
 </pl>
 </grp>
 <grp>
@@ -275,6 +282,20 @@ Du hätten drücken müssen.</val>
 <vis>1</vis>
 </set>
 </parm>
+<parm>
+<id>9</id>
+<set>
+<desc></desc>
+<edit>1</edit>
+<name>Language</name>
+<set>
+<rest>Deutsch, English</rest>
+</set>
+<temp>0</temp>
+<type>string</type>
+<vis>1</vis>
+</set>
+</parm>
 </parms>
 <ssl></ssl>
 </parms>
@@ -328,7 +349,7 @@ Du hätten drücken müssen.</val>
 <its>0</its>
 <meta>1</meta>
 <pien>0</pien>
-<set_def_file>C:\work\SWaD Kinder\Swad_Kinder.sdf</set_def_file>
+<set_def_file>C:\work\SWaD Kinder\Swad_kids.sdf</set_def_file>
 <stimulus_list>0</stimulus_list>
 <subject_id></subject_id>
 <subject_id_pol>1</subject_id_pol>
@@ -352,7 +373,25 @@ Du hätten drücken müssen.</val>
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
 <plat>1</plat>
-<port_devices></port_devices>
+<port_devices>
+<device>
+<parameters>
+<cts>0</cts>
+<dsrin>0</dsrin>
+<dsrout>0</dsrout>
+<dtr>disable</dtr>
+<rts>disable</rts>
+<set_fifo>1</set_fifo>
+<spd></spd>
+<spp></spp>
+<spr></spr>
+<sps></sps>
+</parameters>
+<piai>COM1</piai>
+<pian>Serial Port</pian>
+<pihpn>COM1</pihpn>
+</device>
+</port_devices>
 <rdl>
 <device>
 <abs_axis>
@@ -404,7 +443,7 @@ Du hätten drücken müssen.</val>
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
-<name>Standard PS/2 Keyboard</name>
+<name>HID Keyboard Device</name>
 </device>
 <device>
 <abs_axis>
@@ -446,12 +485,17 @@ Du hätten drücken müssen.</val>
 <dx_device_type>0</dx_device_type>
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
-<name>Synaptics Pointing Device</name>
+<name>HID-compliant mouse</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>Lenovo HID Mini-driver for Hardware Radio Switch</name>
+<name>ndPoint1 Inte</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>ndPoint1 Inte 1</name>
 </device>
 <device>
 <axis>

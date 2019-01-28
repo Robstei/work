@@ -3,40 +3,61 @@ scenario = "Messung von Wechselkosten zwischen geteilter und selektiver Aufmerks
 default_font = "Apercu Mono";
 active_buttons = 3;
 event_code_delimiter = ";";
-stimulus_properties = configuration, number, runid, string, blockid, string, form, string, character, string, seperateAttention, number, target, number;
+stimulus_properties = configuration, number, runid, string, blockid, string, form, string, color, string, seperateAttention, number, target, number;
 response_logging = log_active;
+default_background_color = 255,255,255;
+default_text_color = 0,0,0;
+
 
 begin;
 
 	ellipse_graphic {
-		ellipse_width = 180;
-		ellipse_height= 180;
-		width = 200;
-		height = 200;
+		color=255,0,0,255;
+		ellipse_width = 120;
+		ellipse_height= 120;
+		width = 130;
+		height = 130;
 	}ellipse;
+	
+	ellipse_graphic {
+		color=255,0,0,255;
+		ellipse_width = 60;
+		ellipse_height= 60;
+		width = 70;
+		height = 70;
+	}ellipse_instruction;
 	
 	array {
 		picture {
-			description = "Blume";
-			bitmap {filename = "Blume.png";};
+			description = "flower";
+			bitmap {filename = "Blume.png"; width=692; height=786;};
 			x = 0; y = 0;
 			
 			ellipse_graphic ellipse;
 			x = 0;y = 0;
-		} main_picture_diamand;
+		} main_picture_flower;
 		
 		picture {
-			description = "Glocke";
-			bitmap {filename = "glocke2.jpg";};
+			description = "bell";
+			bitmap {filename = "glocke2.jpg"; width=774; height=825;};
 			x = 0; y = 0;
 			
 			ellipse_graphic ellipse;
 			x = 0;y = 0;
-		} main_picture_box;
+		} main_picture_bell;
 		
 		picture {
-			description = "Herz";
-			bitmap {filename = "Herz.png";};
+			description = "heart";
+			bitmap {filename = "Herz.png"; width=1366; height=768;};
+			x = 0; y = 0;
+			
+			ellipse_graphic ellipse;
+			x = 0;y = 0;
+		} main_picture_heart;
+		
+		picture {
+			description = "circle";
+			bitmap {filename = "Kreis.png"; width=1366; height=768;};
 			x = 0; y = 0;
 			
 			ellipse_graphic ellipse;
@@ -44,31 +65,22 @@ begin;
 		} main_picture_circle;
 		
 		picture {
-			description = "Kreis";
-			bitmap {filename = "Kreis.png";};
+			description = "moon";
+			bitmap {filename = "Mond.png"; width=1366; height=768;};
 			x = 0; y = 0;
 			
 			ellipse_graphic ellipse;
 			x = 0;y = 0;
-		} main_picture_triangle;
+		} main_picture_moon;
 		
 		picture {
-			description = "Mond";
-			bitmap {filename = "Mond.png";};
+			description = "star";
+			bitmap {filename = "Stern.png"; width=1366; height=768;};
 			x = 0; y = 0;
 			
 			ellipse_graphic ellipse;
 			x = 0;y = 0;
 		} main_picture_star;
-		
-		picture {
-			description = "Stern";
-			bitmap {filename = "Stern.png";};
-			x = 0; y = 0;
-			
-			ellipse_graphic ellipse;
-			x = 0;y = 0;
-		} main_picture_octagon;
 	} form_array;
 
 	trial {
@@ -125,6 +137,43 @@ begin;
 		stimulus_time_in = 1500;
 		response_active= true;
 		} trial_instruction;
+		
+		trial {
+		trial_duration = forever;
+		trial_type = first_response;
+		all_responses = false;
+		picture {
+			
+			text { caption = "aaaaa  aaaaa"; font_size = 30; background_color = 255,0,0;} text1;
+			x=0; y=100;
+			
+			ellipse_graphic ellipse_instruction;
+			x=0; y=100;
+			
+			bitmap {filename = "Herz.png"; width=136; height=76;}bm1;
+			x=0; y=-400;
+			
+			text { caption = "üüüüü üüüüüüüüü üüüüüüüüüü üüüüü"; font_size = 30;} text2;
+			x=0; y=-400;
+			
+			text { caption = "Bittte bla drücken fwfwfwg gge"; font_size = 30;} text3;
+			x=-500; y=0;
+			
+			
+			
+			text { caption = "üüüüü üüüüüüüüü üüüüüüüüüü üüüüü"; font_size = 30;} text4;
+			x= 200; y=0;
+			
+			text { caption = "üüüüü üüüüüüüüü üüüüüüüüüü üüüüü iowjriowji  jwiojrtwio tjwerio \n\n hwohruiw fwhjfwi huiw hniw."; font_size = 30;} text5;
+			x=0; y= -200;
+			
+		
+		} instruction_pic2;
+		
+		
+		
+		
+		} trial_instruction2;
 	
 	trial {
 		trial_duration = 100;
@@ -144,6 +193,16 @@ begin_pcl;
 	array <int> array_color_indexes [] = {1,2,3,4,5,6};
 	int configuration = parameter_manager.get_int("Configuration Parameter");
 	int non_targets = parameter_manager.get_int("Non Targets at Start of each Block");
+	
+	
+	sub make_block_instruction
+	begin
+		double x = instruction_pic2.get_part_x(1) + instruction_pic2.get_part(1).width();
+		term.print_line(instruction_pic2.get_part(1).width());
+		instruction_pic2.set_part_x(2, 242, picture::LEFT_COORDINATE);
+		#instruction_pic2.set_part_x(2, 559);
+		
+	end;
 	
 	sub pause_seconds (int time_in_seconds)
 	begin
@@ -223,23 +282,23 @@ begin_pcl;
 			eg.redraw();
 		elseif color_index == 2
 		then
-			eg.set_color(0,255,0,255);
+			eg.set_color(0,0,0,255);
 			eg.redraw();
 		elseif color_index == 3
 		then
-			eg.set_color(0,0,255,255);
+			eg.set_color(255,204,0,255);
 			eg.redraw();
 		elseif color_index == 4
 		then
-			eg.set_color(255,255,0,255);
+			eg.set_color(0,102,255,255);
 			eg.redraw();
 		elseif color_index == 5
 		then
-			eg.set_color(255,0,255,255);
+			eg.set_color(0,204,0,255);
 			eg.redraw();
 		elseif color_index == 6
 		then
-			eg.set_color(0,255,255,255);
+			eg.set_color(153,0,153,255);
 			eg.redraw();
 		end;
 	end;
@@ -323,7 +382,7 @@ begin_pcl;
 	begin
 		array<int> list[0][2];
 		array<int> tmp_possible_targets[0][2];
-		array<int> tmp_possible_char_targets[0][2];
+		array<int> tmp_possible_color_targets[0][2];
 		array<int> tmp_possible_form_targets[0][2];
 		array<int> tmp_possible_non_targets[0][2];
 		
@@ -351,20 +410,20 @@ begin_pcl;
 				i = i + 1;
 			end;
 			
-			loop int char_count = 1 until char_count > color_indexes.count()
+			loop int color_count = 1 until color_count > color_indexes.count()
 			begin
 				loop int form_count = 1 until form_count > form_array.count()
 				begin
-					if char_count != color_target_index
+					if color_count != color_target_index
 					then
 						array<int> tmp[2];
-						tmp[COLOR] = char_count;
+						tmp[COLOR] = color_count;
 						tmp[FORM] = form_count;
 						tmp_possible_non_targets.add(tmp);
 					end;
 					form_count = form_count + 1;
 				end;
-				char_count = char_count + 1;
+				color_count = color_count + 1;
 			end;
 			tmp_possible_non_targets.shuffle();		
 			
@@ -405,20 +464,20 @@ begin_pcl;
 				i = i + 1;
 			end;
 			
-			loop int char_count = 1 until char_count > color_indexes.count()
+			loop int color_count = 1 until color_count > color_indexes.count()
 			begin
 				loop int form_count = 1 until form_count > form_array.count()
 				begin
 					if form_count != form_target_index
 					then
 						array<int> tmp[2];
-						tmp[COLOR] = char_count;
+						tmp[COLOR] = color_count;
 						tmp[FORM] = form_count;
 						tmp_possible_non_targets.add(tmp);
 					end;
 					form_count = form_count + 1;
 				end;
-				char_count = char_count + 1;
+				color_count = color_count + 1;
 			end;
 			tmp_possible_non_targets.shuffle();		
 			
@@ -443,11 +502,11 @@ begin_pcl;
 					array<int> tmp[2];
 					tmp[COLOR] = color_target_index;
 					tmp[FORM] = i;
-					tmp_possible_char_targets.add(tmp);
+					tmp_possible_color_targets.add(tmp);
 				end;
 				i = i + 1;
 			end;
-			tmp_possible_char_targets.shuffle();
+			tmp_possible_color_targets.shuffle();
 			
 			loop int i = 1 until i > color_indexes.count()
 			begin
@@ -464,12 +523,12 @@ begin_pcl;
 			
 			loop int i = 1 until i > number_of_targets/2
 			begin
-				int color_index = i % tmp_possible_char_targets.count();
+				int color_index = i % tmp_possible_color_targets.count();
 				if color_index == 0
 				then
-					list.add(tmp_possible_char_targets[tmp_possible_char_targets.count()]);
+					list.add(tmp_possible_color_targets[tmp_possible_color_targets.count()]);
 				else
-					list.add(tmp_possible_char_targets[color_index]);
+					list.add(tmp_possible_color_targets[color_index]);
 				end;
 				
 				int form_index = i % tmp_possible_form_targets.count();
@@ -482,20 +541,20 @@ begin_pcl;
 				i = i + 1;
 			end;
 			
-			loop int char_count = 1 until char_count > color_indexes.count()
+			loop int color_count = 1 until color_count > color_indexes.count()
 			begin
 				loop int form_count = 1 until form_count > form_array.count()
 				begin
-					if char_count != color_target_index && form_count!= form_target_index
+					if color_count != color_target_index && form_count!= form_target_index
 					then
 						array<int> tmp[2];
-						tmp[COLOR] = char_count;
+						tmp[COLOR] = color_count;
 						tmp[FORM] = form_count;
 						tmp_possible_non_targets.add(tmp);
 					end;
 					form_count = form_count + 1;
 				end;
-				char_count = char_count + 1;
+				color_count = color_count + 1;
 			end;
 			tmp_possible_non_targets.shuffle();		
 			
@@ -540,8 +599,8 @@ begin_pcl;
 			instruction_string = "Drücke die Taste \"L\", wenn \"" + string(color_indexes[color_target_index]) + "\" erscheint." +
 										"\nDrücke die Taste \"S\", wenn \"" + form_array[form_target_index].description() + "\" erscheint."
 		end;
-		instruction_string = instruction_string + "\n\nAntworten so schnell und richtig wie möglich." +
-																"\nDrücken die Leertaste, um fortzufahren.";
+		instruction_string = instruction_string + "\n\nAntworte so schnell und richtig wie möglich." +
+																"\nDrücke die Leertaste, um fortzufahren.";
 		text_instruction.set_caption(instruction_string, true);
 		trial_instruction.present();
 		
@@ -655,6 +714,8 @@ begin_pcl;
 
 ##########################Test Run########################################
 	set_response_mode(1);
+	make_block_instruction();
+	trial_instruction2.present();
 	present_information(information_start, 25);
    present_information(information_test, 30);
 
