@@ -43,8 +43,8 @@
 <dsd>C:\work\SWaD Kinder\stimuli</dsd>
 <dxv>8</dxv>
 <efs>
-<filename>C:\work\SWaD Kinder\Swad_Kinder.sce</filename>
-<filename>C:\work\SWaD Kinder\Swad_Kinder.sdf</filename>
+<filename>C:\work\SWaD Kinder\Swad_kids.sdf</filename>
+<filename>C:\work\SWaD Kinder\Swad_kids.sce</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -490,6 +490,11 @@ Du hätten drücken müssen.</val>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
+<name>HyperX 7.1 Audio</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
 <name>ndPoint1 Inte</name>
 </device>
 <device>
@@ -801,7 +806,7 @@ Du hätten drücken müssen.</val>
 </device>
 </rdl>
 <refchg>1</refchg>
-<rep>1</rep>
+<rep>2</rep>
 <require_name_match>0</require_name_match>
 <reschg>1</reschg>
 <rng>1</rng>
@@ -846,7 +851,7 @@ Du hätten drücken müssen.</val>
 <offset>57</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\work\SWaD Kinder\Swad_Kinder.sce</sfn>
+<sfn>C:\work\SWaD Kinder\Swad_kids.sce</sfn>
 </sce>
 <sct>
 <capture_device>
@@ -894,7 +899,7 @@ Du hätten drücken müssen.</val>
 <sdv>Primärer Soundtreiber</sdv>
 <show_dis>0</show_dis>
 <show_parm>0</show_parm>
-<show_term>0</show_term>
+<show_term>1</show_term>
 <smc>2</smc>
 <smd>16</smd>
 <smr>44100</smr>
