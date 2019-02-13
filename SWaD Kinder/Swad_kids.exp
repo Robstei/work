@@ -43,8 +43,8 @@
 <dsd>C:\work\SWaD Kinder\stimuli</dsd>
 <dxv>8</dxv>
 <efs>
-<filename>C:\work\SWaD Kinder\Swad_kids.sdf</filename>
 <filename>C:\work\SWaD Kinder\Swad_kids.sce</filename>
+<filename>C:\work\SWaD Kinder\Swad_kids.sdf</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -89,7 +89,7 @@
 <val>
 <dat>
 <val>Falsch.
-Du hätten nicht drücken müssen.</val>
+Du hättest nicht drücken müssen.</val>
 </dat>
 <id>4</id>
 </val>
@@ -102,7 +102,7 @@ Du hätten nicht drücken müssen.</val>
 <val>
 <dat>
 <val>Falsch.
-Du hätten drücken müssen.</val>
+Du hättest drücken müssen.</val>
 </dat>
 <id>6</id>
 </val>
@@ -387,9 +387,9 @@ Du hätten drücken müssen.</val>
 <spr></spr>
 <sps></sps>
 </parameters>
-<piai>COM1</piai>
+<piai>COM4</piai>
 <pian>Serial Port</pian>
-<pihpn>COM1</pihpn>
+<pihpn>COM4</pihpn>
 </device>
 </port_devices>
 <rdl>
@@ -443,7 +443,7 @@ Du hätten drücken müssen.</val>
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device</name>
+<name>Standard PS/2 Keyboard</name>
 </device>
 <device>
 <abs_axis>
@@ -485,22 +485,12 @@ Du hätten drücken müssen.</val>
 <dx_device_type>0</dx_device_type>
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
-<name>HID-compliant mouse</name>
+<name>Synaptics Pointing Device</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>HyperX 7.1 Audio</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte 1</name>
+<name>Lenovo HID Mini-driver for Hardware Radio Switch</name>
 </device>
 <device>
 <axis>

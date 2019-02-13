@@ -1,0 +1,12 @@
+Mit welcher Taste musste auf die Zieltöne reagiert werden?
+Auf Zieltöne muss mit der Pfeiltasteunten reagiert werden.
+Auf Kreise übrigens mit der linken STRG-Taste.
+
+Interstimulus Intervall zwischen XX und XX ms sowohl für die Töne als auch die schwarzen Punkte?
+Das ISI für Töne ist etwas komplizierter, weil ihr es ja genmau so haben wollten, wie es vorher war.
+Es setzt sich aus zwei werten zusammen, ich nenne sie mal a und b.
+a ist dabei einer der folgenden werte
+
+
+Anzahl schwarzer Punkte und die Größe
+Zeitfenster um zu Antworten…sowohl akustische als auch visuelle Aufgabe.

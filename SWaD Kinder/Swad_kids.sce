@@ -144,7 +144,7 @@ begin;
 		all_responses = false;
 		picture {
 			
-			text { caption = "aaaaa  aaaaa"; font_size = 30; background_color = 255,0,0;} text1;
+			text { caption = "aaaaaaaaaa"; font_size = 30; background_color = 255,0,0;} text1;
 			x=0; y=100;
 			
 			ellipse_graphic ellipse_instruction;
@@ -199,7 +199,7 @@ begin_pcl;
 	begin
 		double x = instruction_pic2.get_part_x(1) + instruction_pic2.get_part(1).width();
 		term.print_line(instruction_pic2.get_part(1).width());
-		instruction_pic2.set_part_x(2, 242, picture::LEFT_COORDINATE);
+		instruction_pic2.set_part_x(2, x, picture::LEFT_COORDINATE);
 		#instruction_pic2.set_part_x(2, 559);
 		
 	end;
@@ -715,7 +715,7 @@ begin_pcl;
 ##########################Test Run########################################
 	set_response_mode(1);
 	make_block_instruction();
-	trial_instruction2.present();
+	#trial_instruction2.present();
 	present_information(information_start, 25);
    present_information(information_test, 30);
 

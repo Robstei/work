@@ -21,7 +21,7 @@ begin;
 	} video_test_stimulus;
 	
 	text{
-		caption="BLABLABLA";
+		caption="Instruction";
 	}text_instruction;
 
 	stimulus_event{
@@ -475,7 +475,6 @@ begin_pcl;
 		present_trials();
 		reset_arrays();
 	end;
-	
 	
 	present_instruction();
 	make_and_present_trials(true);
