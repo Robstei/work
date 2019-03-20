@@ -840,11 +840,11 @@ begin_pcl;
 		end;
 	end;
 	
-	term.print_line("HIT: " + string(stimulus_data::HIT));
-	term.print_line("INCORRECT " + string(stimulus_data::INCORRECT));
-	term.print_line("OTHER " + string(stimulus_data::OTHER));
-	term.print_line("MISS " + string(stimulus_data::MISS));
-	term.print_line("FALSE_ALARM " + string(stimulus_data::FALSE_ALARM));
+	#term.print_line("HIT: " + string(stimulus_data::HIT));
+	#term.print_line("INCORRECT " + string(stimulus_data::INCORRECT));
+	#term.print_line("OTHER " + string(stimulus_data::OTHER));
+	#term.print_line("MISS " + string(stimulus_data::MISS));
+	#term.print_line("FALSE_ALARM " + string(stimulus_data::FALSE_ALARM));
 	
 	present_instruction_and_testblocks();
 	stimuliRandomization();

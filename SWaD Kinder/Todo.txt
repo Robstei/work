@@ -1,6 +1,0 @@
-- Instruktion mit der Form und Farbe
-	- form eigene Zeile
-	- Farbe als "roter Kreis"
-- Instruktionen auf Englisch
-- Mond anpassen
-- Blume anpassen

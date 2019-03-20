@@ -1,0 +1,52 @@
+Scenario - 
+Logfile written - 02/13/2019 12:05:19
+
+Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+0	Text Input		1162	1162	0
+0	Text Input		2603	2603	0
+0	Text Input	1	8362	8362	0
+1	Response	3	14841	6439	0
+2	Response	3	17721	2791	0
+3	Response	3	20041	2195	0
+4	Response	3	21721	1652	0
+5	Response	3	23561	1756	0
+5	Response	3	27641	5836	0
+5	Response	3	31962	10157	0
+5	Response	3	34201	12396	0
+5	Response	3	35961	14156	0
+5	Response	3	38441	16636	0
+5	Response	3	40681	18876	0
+5	Response	3	43161	21356	0
+5	Response	3	44921	23116	0
+5	Response	3	49161	27356	0
+5	Response	3	51241	29436	0
+6	Response	3	54921	1936	0
+7	Response	3	57401	2402	0
+8	Response	3	59241	1812	0
+8	Response	3	62281	4852	0
+8	Response	3	64201	6772	0
+8	Response	3	67242	9812	0
+8	Response	3	71561	14132	0
+8	Response	3	74361	16932	0
+8	Response	3	76441	19012	0
+8	Response	3	80041	22612	0
+8	Response	3	82201	24772	0
+9	Response	3	107404	18447	0
+12	Sound	sound	171039	1	1			0		miss	0
+19	Quit		189481	596	NA
+
+
+{
+   "app": "Presentation Version 20.2 Build 07.25.18",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{80656493-4243-4645-96CC-529760D03478}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "GNG-feci.sce",
+   "subject": "",
+   "timestamp": "2019/02/13 11:04:58 GMT"
+}

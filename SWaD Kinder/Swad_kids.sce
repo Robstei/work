@@ -1,9 +1,8 @@
 response_matching = simple_matching;
-scenario = "Messung von Wechselkosten zwischen geteilter und selektiver Aufmerksamkeit";
 default_font = "Apercu Mono";
 active_buttons = 3;
 event_code_delimiter = ";";
-stimulus_properties = configuration, number, runid, string, blockid, string, form, string, color, string, seperateAttention, number, target, number;
+stimulus_properties = configuration, number, conditionid, string, trialid, string, form, string, color, string, seperateAttention, number, target, number;
 response_logging = log_active;
 default_background_color = 255,255,255;
 default_text_color = 0,0,0;
@@ -13,16 +12,16 @@ begin;
 
 	ellipse_graphic {
 		color=255,0,0,255;
-		ellipse_width = 120;
-		ellipse_height= 120;
-		width = 130;
-		height = 130;
+		ellipse_width = EXPARAM("Circle Diameter" : 100);
+		ellipse_height= EXPARAM("Circle Diameter" : 100);
+		width = EXPARAM("Circle Diameter" : 100);
+		height = EXPARAM("Circle Diameter" : 100);
 	}ellipse;
 	
 	ellipse_graphic {
 		color=255,0,0,255;
 		ellipse_width = 60;
-		ellipse_height= 60;
+		ellipse_height = 60;
 		width = 70;
 		height = 70;
 	}ellipse_instruction;
@@ -30,7 +29,7 @@ begin;
 	array {
 		picture {
 			description = "flower";
-			bitmap {filename = "Blume.png"; width=692; height=786;};
+			bitmap {filename = "flower.png"; width = EXPARAM("Form Width" : 1093); height = EXPARAM("Form Heigth" : 614);};
 			x = 0; y = 0;
 			
 			ellipse_graphic ellipse;
@@ -39,7 +38,7 @@ begin;
 		
 		picture {
 			description = "bell";
-			bitmap {filename = "glocke2.jpg"; width=774; height=825;};
+			bitmap {filename = "bell.png"; width = EXPARAM("Form Width" : 1093); height = EXPARAM("Form Heigth" : 614);};
 			x = 0; y = 0;
 			
 			ellipse_graphic ellipse;
@@ -48,7 +47,7 @@ begin;
 		
 		picture {
 			description = "heart";
-			bitmap {filename = "Herz.png"; width=1366; height=768;};
+			bitmap {filename = "heart.png"; width = EXPARAM("Form Width" : 1093); height = EXPARAM("Form Heigth" : 614);};
 			x = 0; y = 0;
 			
 			ellipse_graphic ellipse;
@@ -57,7 +56,7 @@ begin;
 		
 		picture {
 			description = "circle";
-			bitmap {filename = "Kreis.png"; width=1366; height=768;};
+			bitmap {filename = "circle.png"; width = EXPARAM("Form Width" : 1093); height = EXPARAM("Form Heigth" : 614);};
 			x = 0; y = 0;
 			
 			ellipse_graphic ellipse;
@@ -66,7 +65,7 @@ begin;
 		
 		picture {
 			description = "moon";
-			bitmap {filename = "Mond.png"; width=1366; height=768;};
+			bitmap {filename = "moon.png"; width = EXPARAM("Form Width" : 1093); height = EXPARAM("Form Heigth" : 614);};
 			x = 0; y = 0;
 			
 			ellipse_graphic ellipse;
@@ -75,7 +74,7 @@ begin;
 		
 		picture {
 			description = "star";
-			bitmap {filename = "Stern.png"; width=1366; height=768;};
+			bitmap {filename = "star.png"; width = EXPARAM("Form Width" : 1093); height = EXPARAM("Form Heigth" : 614);};
 			x = 0; y = 0;
 			
 			ellipse_graphic ellipse;
@@ -84,13 +83,12 @@ begin;
 	} form_array;
 
 	trial {
-		trial_duration = forever;
-		#trial_duration = EXPARAM("Time Response Active" : 1800);
+		trial_duration = EXPARAM("Time Response Active" : 1800);
 		trial_type = first_response;
 		
 		stimulus_event{
 		picture {} main_picture;
-		#duration = EXPARAM("Time Stimulus" : 250);
+		duration = EXPARAM("Time Stimulus" : 250);
 		}stim_event;
 	} trial_main;
 
@@ -130,51 +128,92 @@ begin;
 		trial_type = first_response;
 		all_responses = false;
 		
-		picture {
-			text { caption = " "; font_size = 30;} text_instruction;
-			x=0; y=0;
-		} instruction_pic;
-		stimulus_time_in = 1500;
-		response_active= true;
-		} trial_instruction;
+			picture {
+				text { caption = ""; font_size = 30;}text_instruction_color1;
+				x=0; y=200;
+				
+				ellipse_graphic ellipse_instruction;
+				x=-100; y=100;
+				
+				text { caption = ""; font_size = 30;}text_instruction_color2;
+				x=50; y=100;
+				
+				text { caption = ""; font_size = 30;}text_instruction_color5;
+				x=0; y=-200;
+				
+				text { caption = ""; font_size = 30;}text_instruction_color6;
+				x=0; y=-300;
+				
+			} picture_instruction_color;
+			stimulus_time_in = 1500;
+			response_active= true;
+	
+		} trial_instruction_color;
 		
 		trial {
 		trial_duration = forever;
 		trial_type = first_response;
 		all_responses = false;
+		
 		picture {
+			text { caption = ""; font_size = 30;}text_instruction_form3;
+			x=0; y=200;
 			
-			text { caption = "aaaaaaaaaa"; font_size = 30; background_color = 255,0,0;} text1;
-			x=0; y=100;
+			bitmap {filename = "heart.png"; width=266; height=150;}bitmap_target_form;
+			x=-100; y=100;
+
+			text { caption = ""; font_size = 30;}text_instruction_form4;
+			x=100; y=100;
+			
+			text { caption = ""; font_size = 30;}text_instruction_form5;
+			x=0; y=-200;
+			
+			text { caption = ""; font_size = 30;}text_instruction_form6;
+			x=0; y=-300;
+		} picture_instruction_form;
+		
+		stimulus_time_in = 1500;
+		response_active= true;
+		} trial_instruction_form;
+		
+	trial {
+		trial_duration = forever;
+		trial_type = first_response;
+		all_responses = false;
+		
+		picture {
+		
+			text { caption = ""; font_size = 30;}text_instruction_divided1;
+			x=0; y=350;
 			
 			ellipse_graphic ellipse_instruction;
-			x=0; y=100;
+			x=-100; y=250;
 			
-			bitmap {filename = "Herz.png"; width=136; height=76;}bm1;
-			x=0; y=-400;
+			text { caption = ""; font_size = 30;}text_instruction_divided2;
+			x=50; y=250;
 			
-			text { caption = "üüüüü üüüüüüüüü üüüüüüüüüü üüüüü"; font_size = 30;} text2;
-			x=0; y=-400;
+			text { caption = ""; font_size = 30;}text_instruction_divided3;
+			x=0; y=50;
 			
-			text { caption = "Bittte bla drücken fwfwfwg gge"; font_size = 30;} text3;
-			x=-500; y=0;
+			bitmap {filename = "heart.png"; width=266; height=150;}bitmap_target_divided;
+			x=-100; y=-50;
+
+			text { caption = ""; font_size = 30;}text_instruction_divided4;
+			x=100; y=-50;
 			
 			
 			
-			text { caption = "üüüüü üüüüüüüüü üüüüüüüüüü üüüüü"; font_size = 30;} text4;
-			x= 200; y=0;
+			text { caption = ""; font_size = 30;}text_instruction_divided5;
+			x=0; y=-200;
 			
-			text { caption = "üüüüü üüüüüüüüü üüüüüüüüüü üüüüü iowjriowji  jwiojrtwio tjwerio \n\n hwohruiw fwhjfwi huiw hniw."; font_size = 30;} text5;
-			x=0; y= -200;
-			
+			text { caption = ""; font_size = 30;}text_instruction_divided6;
+			x=0; y=-300;
+		} picture_instruction_divided;
 		
-		} instruction_pic2;
+		stimulus_time_in = 1500;
+		response_active= true;
+		} trial_instruction_divided;
 		
-		
-		
-		
-		} trial_instruction2;
-	
 	trial {
 		trial_duration = 100;
 		
@@ -186,31 +225,94 @@ begin;
 
 ################################PCL##############################################	
 begin_pcl;
-
+	
 	int COLOR = 1;
 	int FORM = 2;
 	array <int> ISI_values [] = {500, 700, 900, 1100, 1300, 1500, 1700, 1900, 2100, 2300};
 	array <int> array_color_indexes [] = {1,2,3,4,5,6};
+	
+	
+	array <string> array_instructions [][] = {
+		{ 
+			"Drücke die Taste \"L\" wenn",
+			"erscheint.",
+			"Drücke die Taste \"S\" wenn",
+			"erscheint.",
+			"Antworte so schnell und richtig wie möglich.",
+			"Drücke die Leertaste um weiter zu kommen."
+		},
+		{
+			"Press the key \"L\" if",
+			"appears.",
+			"Press the key \"S\" if",
+			"appears.",
+			"React as fast and as correct as possible.",
+			"Press space bar to continue."
+		}
+	};
+	
+	array<string> array_feedback [2][4]; 
+	array_feedback[1][1] = parameter_manager.get_string("Feedback HIT GER", "Richtig.");
+	array_feedback[1][2] = parameter_manager.get_string("Feedback INCORRECT GER", "Falsche Taste.");
+	array_feedback[1][3] = parameter_manager.get_string("Feedback MISS GER", "Falsch.\nDu hättest drücken müssen.");
+	array_feedback[1][4] = parameter_manager.get_string("Feedback FALSE ALARM GER", "Falsch.\nDu hättest nicht drücken müssen.");
+		
+	array_feedback[2][1] = parameter_manager.get_string("Feedback HIT ENG", "Right.");
+	array_feedback[2][2] = parameter_manager.get_string("Feedback INCORRECT ENG", "Wrong key.");
+	array_feedback[2][3] = parameter_manager.get_string("Feedback MISS ENG", "You should have reacted.");
+	array_feedback[2][4] = parameter_manager.get_string("Feedback FALSE ALARM ENG", "You should not have reacted.");
+	
+	array<string> array_information[2][6];
+	array_information[1][1] =
+		"Im Folgenden werden dir auf dem Bildschirm unterschiedliche Farben und Formen präsentiert. " +
+		"Vor jedem Durchlauf erhältst du eine kurze Instruktion, auf welche Farben und/oder Formen du reagieren sollst. " + 
+		"Die Reaktion erfolgt mit den Tasten \"L\" und \"S\". Reagiere so schnell und so richtig wie möglich.\n\n" +
+		"Zunächst folgt ein Testdurchlauf.\n\n" +
+		"Drücke die Leertaste, um fortzufahren.";
+	array_information[1][2] = 
+		"Dies ist ein Testdurchlauf. \n\n Weiter mit Leertaste.";
+	array_information[1][3] =
+		"Der Testdurchlauf ist vorbei.\n\n" +
+		"Im Folgenden wird dir kein Feedback mehr präsentiert.\n\n" +
+		"Der erste Durchgang beginnt.\n" + 
+		"Weiter mit Leertaste.";
+	array_information[1][4] =
+		"Der zweite Durchgang beginnt.\n" + 
+		"Weiter mit Leertaste.";
+	array_information[1][5] =
+		"Der dritte Durchgang beginnt.\n" + 
+		"Weiter mit Leertaste.";
+	array_information[1][6] =
+		"Bitte wende dich sich an den Versuchsleiter.";
+		
+	array_information[2][1] = 
+		"In the following, you will see different numbers and shapes on the screen. Before each run, you will receive a brief instruction on " +
+		"which numbers and/or shapes you should react to. Please use the keys \"L\" and \"S\". React as fast and as correct as possible." +
+		"\n\nFirst, a test run follows.\n\nPress space bar to continue.";
+	array_information[2][2] = "This is a test run.\n\nSpace bar to continue.";
+	array_information[2][3] = "Test run is over.\n\n In the following, no feedback will be given.\n\n" + "The first run begins.\n Space bar to continue.";
+	array_information[2][4] = "The second run begins.\n Space bar to continue.";
+	array_information[2][5] = "The third run begins.\n Space bar to continue.";
+	array_information[2][6] = "Please contact the experimenter.";
+	
 	int configuration = parameter_manager.get_int("Configuration Parameter");
 	int non_targets = parameter_manager.get_int("Non Targets at Start of each Block");
-	
-	
-	sub make_block_instruction
-	begin
-		double x = instruction_pic2.get_part_x(1) + instruction_pic2.get_part(1).width();
-		term.print_line(instruction_pic2.get_part(1).width());
-		instruction_pic2.set_part_x(2, x, picture::LEFT_COORDINATE);
-		#instruction_pic2.set_part_x(2, 559);
-		
-	end;
+	int language = parameter_manager.get_int("Language");
 	
 	sub pause_seconds (int time_in_seconds)
 	begin
 		loop int start_time = clock.time()
-		until clock.time()  > start_time + time_in_seconds * 1000
+		until clock.time() > start_time + time_in_seconds * 1000
 		begin
-			pause_text.set_caption("Pause \nIn " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " Sekunden geht es weiter", true);
-			trial_pause.present();
+			if language == 1
+			then
+				pause_text.set_caption("Pause \nIn " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " Sekunden geht es weiter", true);
+				trial_pause.present();
+			elseif language == 2
+			then
+				pause_text.set_caption("Break \nIt continues in " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " seconds", true);
+				trial_pause.present();
+			end;
 		end;
 	end;
 	
@@ -218,11 +320,23 @@ begin_pcl;
 	begin
 		int time_in_seconds = time_in_minutes * 60;
 		loop int start_time = clock.time()
-		until clock.time()  > start_time + time_in_seconds * 1000
+		until clock.time() > start_time + time_in_seconds * 1000
 		begin
-			pause_text.set_caption("Pause \nIn " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " Sekunden geht es weiter", true);
-			trial_pause.present();
+			if language == 1
+			then
+				pause_text.set_caption("Pause \nIn " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " Sekunden geht es weiter", true);
+				trial_pause.present();
+			elseif language == 2
+			then
+				pause_text.set_caption("Break \nIt continues in " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " seconds", true);
+				trial_pause.present();
+			end;
 		end;
+	end;
+	
+	sub set_logfile_name
+	begin
+			logfile.set_filename(logfile.subject() + "_" + "swad_kids_" + date_time("mm_dd_yyyy") + ".log");
 	end;
 	
 	sub present_information (string information, int font_size)
@@ -231,28 +345,6 @@ begin_pcl;
 		text_introduction.set_caption(information, true);
 		trial_information.present();
 	end;
-	
-	string information_start = 
-		"Im Folgenden werden dir auf dem Bildschirm unterschiedliche Farben und Formen präsentiert. " +
-		"Vor jedem Durchlauf erhältst du eine kurze Instruktion, auf welche Farben und/oder Formen du reagieren sollst. " + 
-		"Die Reaktion erfolgt mit den Tasten \"L\" und \"S\". Reagiere so schnell und so richtig wie möglich.\n\n" +
-		"Zunächst folgt ein Testdurchlauf.\n\n" +
-		"Drücke die Leertaste, um fortzufahren.";
-	string information_test = 
-		"Dies ist ein Testdurchlauf. \n\n Weiter mit Leertaste.";
-	string information_first_run = 
-		"Der Testdurchlauf ist vorbei.\n\n" +
-		"Im Folgenden wird dir kein Feedback mehr präsentiert.\n\n" +
-		"Der erste Durchgang beginnt.\n" + 
-		"Weiter mit Leertaste.";
-	string information_second_run =
-		"Der zweite Durchgang beginnt.\n" + 
-		"Weiter mit Leertaste.";
-	string information_third_run =
-		"Der dritte Durchgang beginnt.\n" + 
-		"Weiter mit Leertaste.";
-	string information_end =
-		"Bitte wende dich sich an den Versuchsleiter.";
 		
 	sub set_response_mode (int mode)
 	begin
@@ -305,9 +397,7 @@ begin_pcl;
 	
 	sub bool validade (array<int,2> list_to_test, int seperate_attention, int form_target_index, 
 							int color_target_index, array<int,1> color_indexes)
-	begin 
-		
-	
+	begin
 		loop int i = 1 until i == list_to_test.count()
 		begin
 			if list_to_test[i] == list_to_test[i+1]
@@ -580,30 +670,57 @@ begin_pcl;
 	end;
 
 	# presents a block with given paramters.
-	# that means showing instroction, fixation cross and possibly feedback.
+	# that means showing instructions, fixation cross and possibly feedback.
 	# The block is normally created by make_block() but could be created manually aswell
 	# see make_and_present_block for parameter explanation
 	
 	sub present_block( int seperate_attention, int color_target_index, array<int,1> color_indexes, 
 								int form_target_index, array<int> block[][], bool show_feedback, string run_id, string block_id)
 	begin
-		string instruction_string = "";
+		
 		if seperate_attention == 1
 		then
-			instruction_string = ("Drücke die Taste \"L\", wenn  \"" + string(color_indexes[color_target_index]) + "\" erscheint.");
+			text_instruction_color1.set_caption(array_instructions[language][1], true);
+			
+			change_color(ellipse_instruction, color_target_index);
+			
+			text_instruction_color2.set_caption(array_instructions[language][2], true);
+			text_instruction_color5.set_caption(array_instructions[language][5], true);
+			text_instruction_color6.set_caption(array_instructions[language][6], true);
+			trial_instruction_color.present();
 		elseif seperate_attention == 2
 		then
-			instruction_string = ("Drücke die Taste \"S\", wenn  \"" + form_array[form_target_index].description() + "\" erscheint.");
+			text_instruction_form3.set_caption(array_instructions[language][3], true);
+			
+			bitmap_target_form.set_filename(bitmap(form_array[form_target_index].get_part(1)).filename());
+			bitmap_target_form.load();
+			
+			text_instruction_form4.set_caption(array_instructions[language][4], true);
+			text_instruction_form5.set_caption(array_instructions[language][5], true);
+			text_instruction_form6.set_caption(array_instructions[language][6], true);
+			trial_instruction_form.present();
 		elseif seperate_attention == 3
 		then
-			instruction_string = "Drücke die Taste \"L\", wenn \"" + string(color_indexes[color_target_index]) + "\" erscheint." +
-										"\nDrücke die Taste \"S\", wenn \"" + form_array[form_target_index].description() + "\" erscheint."
+			text_instruction_divided1.set_caption(array_instructions[language][1], true);
+			
+			bitmap_target_divided.set_filename(bitmap(form_array[form_target_index].get_part(1)).filename());
+			bitmap_target_divided.load();
+			
+			text_instruction_divided2.set_caption(array_instructions[language][2], true);
+			text_instruction_divided3.set_caption(array_instructions[language][3], true);
+			
+			change_color(ellipse_instruction, color_target_index);
+			
+			text_instruction_divided4.set_caption(array_instructions[language][4], true);
+			text_instruction_divided5.set_caption(array_instructions[language][5], true);
+			text_instruction_divided6.set_caption(array_instructions[language][6], true);
+			trial_instruction_divided.present();
 		end;
-		instruction_string = instruction_string + "\n\nAntworte so schnell und richtig wie möglich." +
-																"\nDrücke die Leertaste, um fortzufahren.";
-		text_instruction.set_caption(instruction_string, true);
-		trial_instruction.present();
 		
+			
+	
+	
+	
 		loop int i = 1 until i > block.count()
 		begin
 			int color_index = block[i][COLOR];
@@ -649,8 +766,7 @@ begin_pcl;
 				else
 					stim_event.set_event_code(tmp_event_code + ";" + "0");
 				end;
-			else
-				
+			else	
 			end;
 			
 			#ISI
@@ -670,14 +786,18 @@ begin_pcl;
 			then
 				string feedback = "";
 				stimulus_data last = stimulus_manager.last_stimulus_data();
-				if (last.type() == last.HIT) then
-					feedback = parameter_manager.get_string("Feedback HIT", "Richtig");
-				elseif (last.type() == last.INCORRECT) then
-					feedback = parameter_manager.get_string("Feedback INCORRECT", "Falsche Taste");
-				elseif (last.type() == last.MISS) then
-					feedback = parameter_manager.get_string("Feedback MISS", "Falsch.\nDu hättest drücken müssen.");
-				elseif (last.type() == last.FALSE_ALARM) then
-					feedback = parameter_manager.get_string("Feedback FALSE ALARM", "Falsch.\nDu hättest nicht drücken müssen.");
+				if (last.type() == last.HIT)
+				then
+					feedback = array_feedback[language][1];
+				elseif (last.type() == last.INCORRECT)
+				then
+					feedback = array_feedback[language][2];
+				elseif (last.type() == last.MISS)
+				then
+					feedback = array_feedback[language][3];
+				elseif (last.type() == last.FALSE_ALARM)
+				then
+					feedback = array_feedback[language][4];
 				end;
 				
 				if feedback != ""
@@ -689,6 +809,19 @@ begin_pcl;
 		end;
 	end;
 	
+	#	Parameters for make_and_present_block
+	#	1. Value: seperate_attention: 1 = only a color is a target
+	#											 2 = only a form is a target
+	#											 3 = a color and a form is a target
+	#	2. Value: index of color target. Use -1 if no color targets will be presentet
+	#	3. Value: color array to be used
+	#	4. Value: index of form target in form_array. Use -1 if no form targets will be presentet
+	#	5. Value: number of targets in returned trial
+	#	6. Value: number of non targets in returned trial
+	#	7. Value: bool to determin if feedback will be given. true = feedback
+	#	8. Value: condition_id for event_code
+	#	9. Value: trial_id for event_code
+	
 	sub make_and_present_block (int seperate_attention, int color_target_index, array<int,1> color_indexes,
 											int form_target_index, int number_of_targets, int number_of_non_targets,  
 											bool show_feedback, string run_id, string block_id)
@@ -699,236 +832,223 @@ begin_pcl;
 											 form_target_index, block_presentet, show_feedback, run_id, block_id)
 	end;
 	
-#	Parameters for make_and_present_block
-#	1. Value: seperate_attention: 1 = only a char is a target
-#											 2 = only a form is a target
-#											 3 = a char and a form is a target
-#	2. Value: index of char target. Use -1 if no char targets will be presentet
-#	3. Value: char array to be used
-#	4. Value: index of form target in form_array. Use -1 if no form targets will be presentet
-#	5. Value: number of targets in returned trial
-#	6. Value: number of non targets in returned trial
-#	7. Value: bool to determin if feedback will be given. true = feedback
-#	8. Value: run_id for event_code
-#	9. Value: block_id for event_code
 
-##########################Test Run########################################
+##########################Test Condition########################################
 	set_response_mode(1);
-	make_block_instruction();
-	#trial_instruction2.present();
-	present_information(information_start, 25);
-   present_information(information_test, 30);
+	set_logfile_name();
+	present_information(array_information[language][1], 25);
+   present_information(array_information[language][2], 30);
 
-	make_and_present_block(1, 1, array_color_indexes, -1, 4, 6, true, "test", "block_1");
-	make_and_present_block(3, 2, array_color_indexes, 1, 4, 6, true, "test", "block_2");
+	make_and_present_block(1, 1, array_color_indexes, -1, 4, 6, true, "test", "1");
+	make_and_present_block(3, 2, array_color_indexes, 1, 4, 6, true, "test", "2");
 	
 	if configuration == 1
 	then
-		##########################Run 1########################################
+		##########################Condition 1########################################
 
 			pause_seconds(30);
-			present_information(information_first_run, 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "selective", "block_1");
-			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "block_2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 6, 20, false, "selective", "block_3");
-			make_and_present_block(2, -1, array_color_indexes, 3, 8, 18, false, "selective", "block_4");
+			present_information(array_information[language][3], 30);
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "selective", "1");
+			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2");
+			make_and_present_block(1, 4, array_color_indexes, -1, 6, 20, false, "selective", "3");
+			make_and_present_block(2, -1, array_color_indexes, 3, 8, 18, false, "selective", "4");
 			
-		##########################Run 2########################################
+		##########################Condition 2########################################
 
 			pause_minutes(2);
-			present_information(information_second_run, 30);
-			make_and_present_block(3, 5, array_color_indexes, 4, 8, 18, false, "divided", "block_1");
-			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "block_2");
-			make_and_present_block(3, 1, array_color_indexes, 6, 7, 19, false, "divided", "block_3");
-			make_and_present_block(3, 2, array_color_indexes, 1, 6, 20, false, "divided", "block_4");
+			present_information(array_information[language][4], 30);
+			make_and_present_block(3, 5, array_color_indexes, 4, 8, 18, false, "divided", "1");
+			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
+			make_and_present_block(3, 1, array_color_indexes, 6, 7, 19, false, "divided", "3");
+			make_and_present_block(3, 2, array_color_indexes, 1, 6, 20, false, "divided", "4");
 			
-		##########################Run 3########################################
+		##########################Condition 3########################################
 
 			pause_minutes(2);
-			present_information(information_third_run, 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "combination", "block_1");
-			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "combination", "block_2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "combination", "block_3");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "combination", "block_4");
+			present_information(array_information[language][5], 30);
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");
+			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
+			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
 			
-			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "combination", "block_5");
-			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "combination", "block_6");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "combination", "block_7");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "combination", "block_8");
-			present_information(information_end, 30);
+			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
+			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
+			present_information(array_information[language][5], 30);
 			
 	elseif configuration == 2
 	then
-		##########################Run 1########################################
+		##########################Condition 1########################################
 
 			pause_seconds(30);
-			present_information(information_first_run, 30);
-			make_and_present_block(3, 3, array_color_indexes, 2, 8, 18, false, "divided", "block_1");
-			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "block_2");
-			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "block_3");
-			make_and_present_block(3, 6, array_color_indexes, 5, 6, 20, false, "divided", "block_4");
+			present_information(array_information[language][3], 30);
+			make_and_present_block(3, 3, array_color_indexes, 2, 8, 18, false, "divided", "1");
+			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "2");
+			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "3");
+			make_and_present_block(3, 6, array_color_indexes, 5, 6, 20, false, "divided", "4");
 			
-		##########################Run 2########################################
+		##########################Condition 2########################################
 
 			pause_minutes(2);
-			present_information(information_second_run, 30);
-			make_and_present_block(2, -1, array_color_indexes, 6, 7, 19, false, "selective", "block_1");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "block_2");
-			make_and_present_block(1, 2, array_color_indexes, -1, 6, 20, false, "selective", "block_3");
-			make_and_present_block(2, -1, array_color_indexes, 1, 8, 18, false, "selective", "block_4");
+			present_information(array_information[language][4], 30);
+			make_and_present_block(2, -1, array_color_indexes, 6, 7, 19, false, "selective", "1");
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2");
+			make_and_present_block(1, 2, array_color_indexes, -1, 6, 20, false, "selective", "3");
+			make_and_present_block(2, -1, array_color_indexes, 1, 8, 18, false, "selective", "4");
 			
-		##########################Run 3########################################
+		##########################Condition 3########################################
 
 			pause_minutes(2);
-			present_information(information_third_run, 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "combination", "block_1");
-			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "combination", "block_2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "combination", "block_3");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "combination", "block_4");
+			present_information(array_information[language][5], 30);
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");
+			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
+			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
 			
-			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "combination", "block_5");
-			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "combination", "block_6");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "combination", "block_7");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "combination", "block_8");
-			present_information(information_end, 30);
+			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
+			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
+			present_information(array_information[language][5], 30);
 			
 	elseif configuration == 3
 	then
-		##########################Run 1########################################
+		##########################Condition 1########################################
 
 			pause_seconds(30);
-			present_information(information_first_run, 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "combination", "block_1");
-			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "combination", "block_2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "combination", "block_3");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "combination", "block_4");
+			present_information(array_information[language][3], 30);
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");
+			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
+			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
 			
-			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "combination", "block_5");
-			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "combination", "block_6");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "combination", "block_7");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "combination", "block_8");
+			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
+			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
 			
-		##########################Run 2########################################
+		##########################Condition 2########################################
 
 			pause_minutes(2);
-			present_information(information_second_run, 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 8, 18, false, "selective", "block_1");
-			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "block_2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 7, 19, false, "selective", "block_3");
-			make_and_present_block(2, -1, array_color_indexes, 3, 6, 20, false, "selective", "block_4");
+			present_information(array_information[language][4], 30);
+			make_and_present_block(2, -1, array_color_indexes, 2, 8, 18, false, "selective", "1");
+			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2");
+			make_and_present_block(1, 4, array_color_indexes, -1, 7, 19, false, "selective", "3");
+			make_and_present_block(2, -1, array_color_indexes, 3, 6, 20, false, "selective", "4");
 			
-		##########################Run 3########################################
+		##########################Condition 3########################################
 
 			pause_minutes(2);
-			present_information(information_third_run, 30);
-			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "block_1");
-			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "block_2");
-			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "divided", "block_3");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "divided", "block_4");
-			present_information(information_end, 30);
+			present_information(array_information[language][5], 30);
+			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "1");
+			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
+			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "divided", "3");
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "divided", "4");
+			present_information(array_information[language][5], 30);
 			
 	elseif configuration == 4
 	then
-		##########################Run 1########################################
+		##########################Condition 1########################################
 
 			pause_seconds(30);
-			present_information(information_first_run, 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "combination", "block_1");
-			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "combination", "block_2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "combination", "block_3");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "combination", "block_4");
+			present_information(array_information[language][3], 30);
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");
+			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
+			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
 			
-			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "combination", "block_5");
-			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "combination", "block_6");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "combination", "block_7");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "combination", "block_8");
+			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
+			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
 			
-		##########################Run 2########################################
+		##########################Condition 2########################################
 
 			pause_minutes(2);
-			present_information(information_second_run, 30);
-			make_and_present_block(3, 3, array_color_indexes, 2, 7, 19, false, "divided", "block_1");
-			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "block_2");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "divided", "block_3");
-			make_and_present_block(3, 6, array_color_indexes, 5, 8, 18, false, "divided", "block_4");
+			present_information(array_information[language][4], 30);
+			make_and_present_block(3, 3, array_color_indexes, 2, 7, 19, false, "divided", "1");
+			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "2");
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "divided", "3");
+			make_and_present_block(3, 6, array_color_indexes, 5, 8, 18, false, "divided", "4");
 			
-		##########################Run 3########################################
+		##########################Condition 3########################################
 
 			pause_minutes(2);
-			present_information(information_third_run, 30);
-			make_and_present_block(2, -1, array_color_indexes, 6, 8, 18, false, "selective", "block_1");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "block_2");
-			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "block_3");
-			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "block_4");
-			present_information(information_end, 30);
+			present_information(array_information[language][5], 30);
+			make_and_present_block(2, -1, array_color_indexes, 6, 8, 18, false, "selective", "1");
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2");
+			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "3");
+			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "4");
+			present_information(array_information[language][5], 30);
 			
 	elseif configuration == 5
 	then
-		##########################Run 1########################################
+		##########################Condition 1########################################
 
 			pause_seconds(30);
-			present_information(information_first_run, 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 8, 18, false, "selective", "block_1");
-			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "block_2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 7, 19, false, "selective", "block_3");
-			make_and_present_block(2, -1, array_color_indexes, 3, 6, 20, false, "selective", "block_4");
+			present_information(array_information[language][3], 30);
+			make_and_present_block(2, -1, array_color_indexes, 2, 8, 18, false, "selective", "1");
+			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2");
+			make_and_present_block(1, 4, array_color_indexes, -1, 7, 19, false, "selective", "3");
+			make_and_present_block(2, -1, array_color_indexes, 3, 6, 20, false, "selective", "4");
 			
-		##########################Run 2########################################
+		##########################Condition 2########################################
 
 			pause_minutes(2);
-			present_information(information_second_run, 30);
-			make_and_present_block(2, -1, array_color_indexes, 4, 7, 19, false, "combination", "block_1");
-			make_and_present_block(3, 5, array_color_indexes, 5, 8, 18, false, "combination", "block_2");
-			make_and_present_block(1, 6, array_color_indexes, -1, 5, 21, false, "combination", "block_3");
-			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "combination", "block_4");
+			present_information(array_information[language][4], 30);
+			make_and_present_block(2, -1, array_color_indexes, 4, 7, 19, false, "switching", "1");
+			make_and_present_block(3, 5, array_color_indexes, 5, 8, 18, false, "switching", "2");
+			make_and_present_block(1, 6, array_color_indexes, -1, 5, 21, false, "switching", "3");
+			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "switching", "4");
 			
-			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "combination", "block_5");
-			make_and_present_block(3, 2, array_color_indexes, 2, 7, 19, false, "combination", "block_6");
-			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "combination", "block_7");
-			make_and_present_block(3, 4, array_color_indexes, 3, 8, 18, false, "combination", "block_8");
+			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "switching", "5");
+			make_and_present_block(3, 2, array_color_indexes, 2, 7, 19, false, "switching", "6");
+			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "switching", "7");
+			make_and_present_block(3, 4, array_color_indexes, 3, 8, 18, false, "switching", "8");
 			
-		##########################Run 3########################################
+		##########################Condition 3########################################
 
 			pause_minutes(2);
-			present_information(information_third_run, 30);
-			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "block_1");
-			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "block_2");
-			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "divided", "block_3");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "divided", "block_4");
-			present_information(information_end, 30);
+			present_information(array_information[language][5], 30);
+			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "1");
+			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
+			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "divided", "3");
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "divided", "4");
+			present_information(array_information[language][5], 30);
 			
 	elseif configuration == 6
 	then
-		##########################Run 1########################################
+		##########################Condition 1########################################
 
 			pause_seconds(30);
-			present_information(information_first_run, 30);
-			make_and_present_block(3, 3, array_color_indexes, 2, 7, 19, false, "divided", "block_1");
-			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "block_2");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "divided", "block_3");
-			make_and_present_block(3, 6, array_color_indexes, 5, 8, 18, false, "divided", "block_4");
+			present_information(array_information[language][3], 30);
+			make_and_present_block(3, 3, array_color_indexes, 2, 7, 19, false, "divided", "1");
+			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "2");
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "divided", "3");
+			make_and_present_block(3, 6, array_color_indexes, 5, 8, 18, false, "divided", "4");
 			
-		##########################Run 2########################################
+		##########################Condition 2########################################
 
 			pause_minutes(2);
-			present_information(information_second_run, 30);
-			make_and_present_block(2, -1, array_color_indexes, 6, 7, 19, false, "combination", "block_1");
-			make_and_present_block(3, 1, array_color_indexes, 1, 8, 18, false, "combination", "block_2");
-			make_and_present_block(1, 2, array_color_indexes, -1, 5, 21, false, "combination", "block_3");
-			make_and_present_block(3, 3, array_color_indexes, 2, 6, 20, false, "combination", "block_4");
+			present_information(array_information[language][4], 30);
+			make_and_present_block(2, -1, array_color_indexes, 6, 7, 19, false, "switching", "1");
+			make_and_present_block(3, 1, array_color_indexes, 1, 8, 18, false, "switching", "2");
+			make_and_present_block(1, 2, array_color_indexes, -1, 5, 21, false, "switching", "3");
+			make_and_present_block(3, 3, array_color_indexes, 2, 6, 20, false, "switching", "4");
 			
-			make_and_present_block(2, -1, array_color_indexes, 3, 6, 20, false, "combination", "block_5");
-			make_and_present_block(3, 4, array_color_indexes, 4, 7, 19, false, "combination", "block_6");
-			make_and_present_block(1, 5, array_color_indexes, -1, 5, 21, false, "combination", "block_7");
-			make_and_present_block(3, 6, array_color_indexes, 5, 8, 18, false, "combination", "block_8");
+			make_and_present_block(2, -1, array_color_indexes, 3, 6, 20, false, "switching", "5");
+			make_and_present_block(3, 4, array_color_indexes, 4, 7, 19, false, "switching", "6");
+			make_and_present_block(1, 5, array_color_indexes, -1, 5, 21, false, "switching", "7");
+			make_and_present_block(3, 6, array_color_indexes, 5, 8, 18, false, "switching", "8");
 			
-		##########################Run 3########################################
+		##########################Condition 3########################################
 
 			pause_minutes(2);
-			present_information(information_third_run, 30);
-			make_and_present_block(2, -1, array_color_indexes, 6, 8, 18, false, "selective", "block_1");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "block_2");
-			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "block_3");
-			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "block_4");
-			present_information(information_end, 30);
+			present_information(array_information[language][5], 30);
+			make_and_present_block(2, -1, array_color_indexes, 6, 8, 18, false, "selective", "1");
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2");
+			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "3");
+			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "4");
+			present_information(array_information[language][5], 30);
 	end;

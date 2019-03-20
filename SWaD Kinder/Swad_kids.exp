@@ -82,7 +82,7 @@
 </val>
 <val>
 <dat>
-<val>Richtig</val>
+<val>Richtig.</val>
 </dat>
 <id>3</id>
 </val>
@@ -95,7 +95,7 @@ Du hättest nicht drücken müssen.</val>
 </val>
 <val>
 <dat>
-<val>Falsche Taste</val>
+<val>Falsche Taste.</val>
 </dat>
 <id>5</id>
 </val>
@@ -120,9 +120,51 @@ Du hättest drücken müssen.</val>
 </val>
 <val>
 <dat>
-<val>Deutsch</val>
+<val>2</val>
 </dat>
 <id>9</id>
+</val>
+<val>
+<dat>
+<val>Right.</val>
+</dat>
+<id>10</id>
+</val>
+<val>
+<dat>
+<val>Wrong key.</val>
+</dat>
+<id>11</id>
+</val>
+<val>
+<dat>
+<val>You should have reacted.</val>
+</dat>
+<id>12</id>
+</val>
+<val>
+<dat>
+<val>You should not have reacted.</val>
+</dat>
+<id>13</id>
+</val>
+<val>
+<dat>
+<val>1093</val>
+</dat>
+<id>14</id>
+</val>
+<val>
+<dat>
+<val>614</val>
+</dat>
+<id>15</id>
+</val>
+<val>
+<dat>
+<val>100</val>
+</dat>
+<id>16</id>
 </val>
 </sd>
 <sid>-1</sid>
@@ -140,16 +182,28 @@ Du hättest drücken müssen.</val>
 <pid>7</pid>
 <pid>8</pid>
 <pid>9</pid>
+<pid>2</pid>
+<pid>14</pid>
+<pid>15</pid>
+<pid>16</pid>
 </pl>
 </grp>
 <grp>
-<gn>Feedback</gn>
+<gn>Feedback GERMAN</gn>
 <pl>
-<pid>2</pid>
 <pid>3</pid>
 <pid>5</pid>
 <pid>6</pid>
 <pid>4</pid>
+</pl>
+</grp>
+<grp>
+<gn>Feedback ENGLISCH</gn>
+<pl>
+<pid>10</pid>
+<pid>11</pid>
+<pid>12</pid>
+<pid>13</pid>
 </pl>
 </grp>
 </grps>
@@ -201,9 +255,10 @@ Du hättest drücken müssen.</val>
 <parm>
 <id>3</id>
 <set>
-<desc>Feedback for HIT</desc>
+<desc>Feedback for HIT
+German</desc>
 <edit>1</edit>
-<name>Feedback HIT</name>
+<name>Feedback HIT GER</name>
 <set>
 <rest></rest>
 </set>
@@ -215,9 +270,10 @@ Du hättest drücken müssen.</val>
 <parm>
 <id>4</id>
 <set>
-<desc>Feedback for FALSE ALARM</desc>
+<desc>Feedback for FALSE ALARM
+German</desc>
 <edit>1</edit>
-<name>Feedback FALSE ALARM</name>
+<name>Feedback FALSE ALARM GER</name>
 <set>
 <rest></rest>
 </set>
@@ -229,9 +285,10 @@ Du hättest drücken müssen.</val>
 <parm>
 <id>5</id>
 <set>
-<desc>Feedback for INCORRECT</desc>
+<desc>Feedback for INCORRECT
+German</desc>
 <edit>1</edit>
-<name>Feedback INCORRECT</name>
+<name>Feedback INCORRECT GER</name>
 <set>
 <rest></rest>
 </set>
@@ -243,9 +300,10 @@ Du hättest drücken müssen.</val>
 <parm>
 <id>6</id>
 <set>
-<desc>Feedback for MISS</desc>
+<desc>Feedback for MISS
+German</desc>
 <edit>1</edit>
-<name>Feedback MISS</name>
+<name>Feedback MISS GER</name>
 <set>
 <rest></rest>
 </set>
@@ -285,14 +343,119 @@ Du hättest drücken müssen.</val>
 <parm>
 <id>9</id>
 <set>
-<desc></desc>
+<desc>Sets the Language
+
+1= German
+2 = English</desc>
 <edit>1</edit>
 <name>Language</name>
 <set>
-<rest>Deutsch, English</rest>
+<rest>[1,2]</rest>
+</set>
+<temp>0</temp>
+<type>int</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>10</id>
+<set>
+<desc>Feedback for HIT
+English</desc>
+<edit>1</edit>
+<name>Feedback HIT ENG</name>
+<set>
+<rest></rest>
 </set>
 <temp>0</temp>
 <type>string</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>11</id>
+<set>
+<desc>Feedback for INCORRECT
+English</desc>
+<edit>1</edit>
+<name>Feedback INCORRECT ENG</name>
+<set>
+<rest></rest>
+</set>
+<temp>0</temp>
+<type>string</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>12</id>
+<set>
+<desc>Feedback for MISS
+English</desc>
+<edit>1</edit>
+<name>Feedback MISS ENG</name>
+<set>
+<rest></rest>
+</set>
+<temp>0</temp>
+<type>string</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>13</id>
+<set>
+<desc>Feedback for FALSE ALARM
+English</desc>
+<edit>1</edit>
+<name>Feedback FALSE ALARM ENG</name>
+<set>
+<rest></rest>
+</set>
+<temp>0</temp>
+<type>string</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>14</id>
+<set>
+<desc>Width of all Form Pictures in px</desc>
+<edit>1</edit>
+<name>Form Width</name>
+<set>
+<rest>[1,)</rest>
+</set>
+<temp>0</temp>
+<type>int</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>15</id>
+<set>
+<desc>Height of all Form Pictures in px</desc>
+<edit>1</edit>
+<name>Form Height</name>
+<set>
+<rest>[1,)</rest>
+</set>
+<temp>0</temp>
+<type>int</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>16</id>
+<set>
+<desc>Diameter of the Circle in px</desc>
+<edit>1</edit>
+<name>Circle Diameter</name>
+<set>
+<rest>[1,)</rest>
+</set>
+<temp>0</temp>
+<type>int</type>
 <vis>1</vis>
 </set>
 </parm>
@@ -341,7 +504,7 @@ Du hättest drücken müssen.</val>
 <ip_chans></ip_chans>
 <lfd>C:\work\SWaD Kinder\logfiles</lfd>
 <lnb>2</lnb>
-<lno>0</lno>
+<lno>2</lno>
 <log>
 <append_counter>1</append_counter>
 <delimiter>9</delimiter>
@@ -387,9 +550,9 @@ Du hättest drücken müssen.</val>
 <spr></spr>
 <sps></sps>
 </parameters>
-<piai>COM4</piai>
+<piai>COM1</piai>
 <pian>Serial Port</pian>
-<pihpn>COM4</pihpn>
+<pihpn>COM1</pihpn>
 </device>
 </port_devices>
 <rdl>
@@ -443,7 +606,7 @@ Du hättest drücken müssen.</val>
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
-<name>Standard PS/2 Keyboard</name>
+<name>HID Keyboard Device</name>
 </device>
 <device>
 <abs_axis>
@@ -485,12 +648,22 @@ Du hättest drücken müssen.</val>
 <dx_device_type>0</dx_device_type>
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
-<name>Synaptics Pointing Device</name>
+<name>HID-compliant mouse</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>Lenovo HID Mini-driver for Hardware Radio Switch</name>
+<name>HyperX 7.1 Audio</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>ndPoint1 Inte</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>ndPoint1 Inte 1</name>
 </device>
 <device>
 <axis>
@@ -796,7 +969,7 @@ Du hättest drücken müssen.</val>
 </device>
 </rdl>
 <refchg>1</refchg>
-<rep>2</rep>
+<rep>1</rep>
 <require_name_match>0</require_name_match>
 <reschg>1</reschg>
 <rng>1</rng>
@@ -917,6 +1090,7 @@ Du hättest drücken müssen.</val>
 <vt>0</vt>
 </trigger_mode>
 <udt>0</udt>
+<uln>test</uln>
 <unc></unc>
 <upb>0</upb>
 <urp>0</urp>
