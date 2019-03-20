@@ -751,7 +751,8 @@ begin_pcl;
 						end;
 						response_count = response_count + 1;
 					end;
-					if raw_data[trial_number][3] != -1
+					
+					if raw_data[trial_number][3] != -1 # > statt !=
 					then
 						raw_data[trial_number][6] = 1;
 					end;
@@ -786,7 +787,7 @@ begin_pcl;
 		trial_instruction5.present();
 		trial_instruction5_no_sound.present();
 		set_button_mode(true);
-		make_block({1,2,3,4,3,2,1,4,3,2,4,1},random(4,6));
+		make_block({1,2,3,4,3,2,1,4,3,2,4,1},4);
 		present_block(block_with_circles, 1, 0, false);
 		set_button_mode(false);
 		trial_instruction6_no_sound.present();
@@ -794,9 +795,9 @@ begin_pcl;
 		trial_instruction6_no_sound.present();
 		trial_instruction7_no_sound.present();
 		trial_instruction7.present();
-		trial_instruction7_no_sound.present();
+		trial_instruction7_no_sound.present(); 
 		set_button_mode(true);
-		make_block({2,3,4,1,3,2,4,1,3,2,4,2},random(4,6));
+		make_block({2,3,4,1,3,2,4,1,3,2,4,2},6);
 		present_block(block_with_circles, 2, 0, false);
 		set_button_mode(false);
 		trial_instruction8.present();
@@ -805,7 +806,7 @@ begin_pcl;
 	sub export_rawdata
 	begin
 		output_file single = new output_file();
-		string single_file_name = "singles/GoNoGo-feci" + vp_code+ ".txt";
+		string single_file_name = "singles/GoNoGo-feci" + vp_code + ".txt";
 		single.open_append(single_file_name);
 		
 		string variable_names = "stimulus_number	stimulus_type	response_time	response_type	condition	correct_reaction	block";
@@ -826,7 +827,7 @@ begin_pcl;
 				then
 					stimulus_data_string = stimulus_data_string + "-1";
 				else
-				stimulus_data_string = stimulus_data_string + string(raw_data[export_data_counter][stimulus_data_counter]);
+					stimulus_data_string = stimulus_data_string + string(raw_data[export_data_counter][stimulus_data_counter]);
 				end;
 			
 				if stimulus_data_counter < raw_data[export_data_counter].count()
@@ -848,13 +849,13 @@ begin_pcl;
 	
 	present_instruction_and_testblocks();
 	stimuliRandomization();
-	make_block(all_orders_without_circles[1],random(4,6));
+	make_block(all_orders_without_circles[1],5);
 	present_block(block_with_circles, blockConditions[1], 1, true);
-	make_block(all_orders_without_circles[2],random(4,6));
+	make_block(all_orders_without_circles[2],4);
 	present_block(block_with_circles, blockConditions[2], 2, true);
-	make_block(all_orders_without_circles[3],random(4,6));
+	make_block(all_orders_without_circles[3],6);
 	present_block(block_with_circles, blockConditions[3], 3, true);
-	make_block(all_orders_without_circles[4],random(4,6));
+	make_block(all_orders_without_circles[4],5);
 	present_block(block_with_circles, blockConditions[4], 4, true);
 	export_rawdata();
 	trial_instruction12.present();
