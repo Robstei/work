@@ -15,7 +15,29 @@ Bedeutet wenn Kreise direkt am Ende der ersten Lücke und am Anfang der zweiten L
 Der größtmögliche Abstand zweier Kreise ist 11250(siehe Anhang).
 
 Anzahl schwarzer Punkte und die Größe
-Pro Block gibt es randomisiert 4-6 Kreise und 12 Töne.
+Pro Block gibt es randomisiert 4-6 Kreise und 12 Töne.Mit welcher Taste musste auf die Zieltöne reagiert werden?
+Auf Zieltöne muss mit der Pfeiltasteunten reagiert werden.
+Auf Kreise übrigens mit der linken STRG-Taste.
+
+Interstimulus Intervall zwischen XX und XX ms sowohl für die Töne als auch die schwarzen Punkte?
+Das ISI für Töne ist etwas komplizierter, weil ihr es ja genauso haben wollten, wie es vorher war.
+Es setzt sich aus zwei Werten zusammen, ich nenne sie mal a und b, also a + b = ISI.
+Alle Werte sind in ms.
+a ist dabei einer der folgenden Werte: 1000, 1500, 2000, 2500.
+b ist dabei einer der folgenden Werte: 750, 100, 1250, 1500.
+Das kleinstmögliche "reine" ISI ist also 1750 und der größtmögliche Wert ist 4000, das heißt aber nicht, dass diese Werte zwangsläufig in jedem Block vorkommen.
+Bedenke hier auch, dass die Zeit in der der Ton aktiv ist 2500 beträgt(auch wenn der Proband vorher reagiert läuft diese Zeit noch durch). Die Töne selber dauern dabei alle 1150. Deswegen ist der minimale mögliche Abstand zwischen zwei Tönen 1750 + 2500 = 4250 und der maximal mögliche Abstand beträgt 4000 + 2500 = 6500.
+Kreise können zu jedem Zeitpunkt auftreten, außer im Bereich von 300 vor oder nach einem Ton und nur einmal pro Lücke zwischen zwei Tönen.
+Bedeutet wenn Kreise direkt am Ende der ersten Lücke und am Anfang der zweiten Lücke auftauchen beträgt der kleinstmögliche Abstand 1750. 300 Abstand vor dem Ton und 300 Abstand nach dem dem Ton, der Ton selbst dauert 1150. Also 1750 = 300 + 1150 + 300.
+Der größtmögliche Abstand zweier Kreise ist 11250(siehe Anhang).
+
+Anzahl schwarzer Punkte und die Größe?
+Pro Block gibt es randomisiert 4-6 Kreise(das könnt ihr aber noch sehr einfach ändern) und 12 Töne.
+Die Kreise haben einen Durchmesser von 300px.
+
+Zeitfenster um zu Antworten…sowohl akustische als auch visuelle Aufgabe?
+Bei Tönen wie oben beschrieben 2500 und bei Kreisen 1750, da ab diesem Zeitpunkt theoretisch ja schon ein neuer Kreis präsentiert werden kann.
+
 Die Kreise haben einen Durchmesser von 300px.
 
 Zeitfenster um zu Antworten…sowohl akustische als auch visuelle Aufgabe.

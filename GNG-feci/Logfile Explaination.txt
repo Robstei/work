@@ -1,0 +1,37 @@
+Generell Information:
+
+ 	- logfiles will not be overwritten, instead data will be appended in the 
+		case thw subject id was used already
+	- amount of circles vary between blocks:
+		1. Training Block: 4 circles 
+		2. Training Block: 6 circles 
+
+		1. Block: 5 circles 
+		2. Block: 4 circles 
+		3. Block: 6 circles 
+		4. Block: 5 circles 
+	- each row describes one stimulus
+
+logfile columns:
+	stimulus_position: absolute position of stimulus in the paradigm (trial stimuli are not counted)
+	stimulus_type: The numbers 1-4 each represent a sound, while 5 represents circle
+	response_time: response time to the stimuli, "-1" if no responses is given
+	response_type: 	0 -> HIT 		correct response to a target
+			1 -> INCORRECT		wrong response(button) to a target
+			2 -> MISS 		subject did not react to a target
+			3 -> FALSE_ALARM	subject reacted to a non target
+			4 -> OTHER 		subject did not react to a non target
+
+			Due to the nature of the paradigm with the potential of simultaneous response active 
+			stimuli it is only possible to track HITs, MISSes, FALS_ALARMs and OTHERs for sounds and not INCORRECTs.
+			Circles are always targets so they will only be assosiated with HITs and MISSes and never with FALSE_ALARMs, INCORRECTs or OTHERs.
+	condition:Two condition exist
+			1 -> sound 1 and sound 2 are targets
+			2 -> sound 3 and sound 4 are targets
+	block: 	Actual position of the stimulis block.
+		There are 4 preconfigured blocks(order of sound stimuli for one block) which will be used in ramdom order.
+		Circles will be placed ramdomly between sounds, they can neither be first or last stimuli of a presented block.
+		Also there is maximally one circle between 2 sound stimli.
+		Circles can not appear 300 ms or closer to a sound stimlus, both prior and after.
+		Sounds last 1150 ms, hence after a sound startet a circle can appear erliest at  1450 ms (1150 ms + 300 ms = 1450 ms).
+		

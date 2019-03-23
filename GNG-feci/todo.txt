@@ -1,0 +1,7 @@
+erklärung für condition und block sind vertauscht
+
+zu schnelle antworten -> bug
+
+kreise sind immer hit
+
+

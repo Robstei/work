@@ -380,7 +380,7 @@ begin_pcl;
 	int blocks_in_total = 4;
 	int stimuli_per_block = 12;
 	int max_trial_count = blocks_in_total * stimuli_per_block + blocks_in_total * 6;
-	int trial_number = 1;
+	int stimulus_position = 1;
 	bool exportVariableNames = true;
 
 	array <int> raw_data[max_trial_count][7];
@@ -396,9 +396,9 @@ begin_pcl;
 	array <int> all_orders_without_circles[4][12];
 	array <int> blockConditions[4] = {1,2,1,2};
 
-	string vp_code= "";
+	string vp_code= "test";
 	int last_picture_number = 0;
-	int sound_index_logging = 0;
+	int sound_index_logging = 1;
 
 	response_manager.set_button_active(2, false);
 
@@ -719,47 +719,67 @@ begin_pcl;
 			i = i + 1;	
 		end;
 		
+		#raw_data has one trial per entry in first dimension
+		#second dimension: 1 = stimulus position overall
+		#second dimension: 2 = stimulus: 1-4 for sound; 5 for circle
+		#second dimension: 3 = reaction time
+		#second dimension: 4 = reaction type
+		#second dimension: 5 = condition
+		#second dimension: 6 = correct response
+		#second dimension: 7 = block position
 		if report_data
 		then
-			loop int presented_block_counter = 1
-			until presented_block_counter > block.count()
+			loop int stimulus_position_of_block = 1
+			until stimulus_position_of_block > block.count()
 			begin
-				raw_data[trial_number][1] = trial_number;
-				raw_data[trial_number][2] = block_with_circles[presented_block_counter];
-				raw_data[trial_number][7] = block_index;
-				if block_with_circles[presented_block_counter] != 5
+				
+				raw_data[stimulus_position][1] = stimulus_position;
+				raw_data[stimulus_position][2] = block_with_circles[stimulus_position_of_block];
+				raw_data[stimulus_position][5] = condition;
+				raw_data[stimulus_position][7] = block_index;
+				
+				if block_with_circles[stimulus_position_of_block] != 5
 				then
 					stimulus_data sd = stimulus_manager.get_stimulus_data(sound_index_logging);
-					raw_data[trial_number][3] = sd.reaction_time();
-					raw_data[trial_number][4] = sd.type();
-					if sd.type() == sd.HIT || sd.type() == sd.OTHER
+					raw_data[stimulus_position][3] = sd.reaction_time();
+					raw_data[stimulus_position][4] = sd.type();
+					
+					if sd.type() == sd.OTHER || sd.type() == sd.HIT
 					then
-						raw_data[trial_number][6] = 1;
+						raw_data[stimulus_position][6] = 1;
 					end;
+					
 					sound_index_logging = sound_index_logging + 1;
-				elseif block_with_circles[presented_block_counter] == 5
+					
+				elseif block_with_circles[stimulus_position_of_block] == 5
 				then
 					loop int response_count = 1
 					until response_count > response_manager.response_data_count()
 					begin
 						response_data rd = response_manager.get_response_data(response_count);
-						if rd.button() == 2 && rd.time() > start_time_array[presented_block_counter] &&
-							rd.time() - start_time_array[presented_block_counter] < 1750
+						if rd.button() == 2 && rd.time() > start_time_array[stimulus_position_of_block] &&
+							rd.time() - start_time_array[stimulus_position_of_block] < 1750
 						then
-							raw_data[trial_number][3] = rd.time() - start_time_array[presented_block_counter];
+							raw_data[stimulus_position][3] = rd.time() - start_time_array[stimulus_position_of_block];
 							break;
 						end;
 						response_count = response_count + 1;
 					end;
 					
-					if raw_data[trial_number][3] != -1 # > statt !=
+					term.print_line(raw_data[stimulus_position][3]);
+
+					if raw_data[stimulus_position][3] > 0
 					then
-						raw_data[trial_number][6] = 1;
+						raw_data[stimulus_position][4] = 0;
+						raw_data[stimulus_position][6] = 1;
+					else
+						raw_data[stimulus_position][4] = 2;
+						raw_data[stimulus_position][6] = 0;
 					end;
 				end;
-				raw_data[trial_number][5] = condition;
-				trial_number = trial_number + 1;
-				presented_block_counter = presented_block_counter + 1;
+				
+				stimulus_position = stimulus_position + 1;
+				stimulus_position_of_block = stimulus_position_of_block + 1;
 			end;
 		end;
 	end;
@@ -805,11 +825,12 @@ begin_pcl;
 	
 	sub export_rawdata
 	begin
+		term.print(raw_data);
 		output_file single = new output_file();
 		string single_file_name = "singles/GoNoGo-feci" + vp_code + ".txt";
 		single.open_append(single_file_name);
 		
-		string variable_names = "stimulus_number	stimulus_type	response_time	response_type	condition	correct_reaction	block";
+		string variable_names = "stimulus_position	stimulus_type	response_time	response_type	condition	correct_reaction	block";
 		single.print_line(variable_names);
 		
 		loop int export_data_counter = 1
@@ -840,13 +861,6 @@ begin_pcl;
 			export_data_counter = export_data_counter + 1;
 		end;
 	end;
-	
-	#term.print_line("HIT: " + string(stimulus_data::HIT));
-	#term.print_line("INCORRECT " + string(stimulus_data::INCORRECT));
-	#term.print_line("OTHER " + string(stimulus_data::OTHER));
-	#term.print_line("MISS " + string(stimulus_data::MISS));
-	#term.print_line("FALSE_ALARM " + string(stimulus_data::FALSE_ALARM));
-	
 	present_instruction_and_testblocks();
 	stimuliRandomization();
 	make_block(all_orders_without_circles[1],5);
