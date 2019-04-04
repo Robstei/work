@@ -698,7 +698,6 @@ begin_pcl;
 				then
 					if start_time_array[i+1] - clock.time() > 100 
 					then
-						#trial_feedback.set_duration(start_time_array[i+1] - clock_time);
 						trial_feedback.present();
 					else
 						time_for_next_stimuli = true;
@@ -861,6 +860,7 @@ begin_pcl;
 			export_data_counter = export_data_counter + 1;
 		end;
 	end;
+	
 	present_instruction_and_testblocks();
 	stimuliRandomization();
 	make_block(all_orders_without_circles[1],5);
