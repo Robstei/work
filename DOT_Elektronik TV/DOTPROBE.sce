@@ -1,4 +1,4 @@
-# Scenario Header
+ï»¿# Scenario Header
 # 19.4.2007
 # Sabine Klein
 # DOT PROBE Task   
@@ -165,18 +165,18 @@ trial {
 Bitte betrachten Sie diese Fotos aufmerksam,
 auch wenn diese nur kurz zu sehen sind.
 
-Nach jeder Präsentation eines Foto-Paares
+Nach jeder PrÃ¤sentation eines Foto-Paares
 erscheint ein Punkt auf dem Bildschirm.
 
-Wenn der Punkt in der linken Bildschirmhälfte
-erscheint, drücken Sie bitte so schnell
-wie möglich die linke Reaktionstaste (strg links).
+Wenn der Punkt in der linken BildschirmhÃ¤lfte
+erscheint, drÃ¼cken Sie bitte so schnell
+wie mÃ¶glich die linke Reaktionstaste (strg links).
 
-Wenn der Punkt in der rechten Bildschirmhälfte
-erscheint, drücken Sie bitte so schnell
-wie möglich die rechte Reaktionstaste (strg rechts).
+Wenn der Punkt in der rechten BildschirmhÃ¤lfte
+erscheint, drÃ¼cken Sie bitte so schnell
+wie mÃ¶glich die rechte Reaktionstaste (strg rechts).
 
-Drücken Sie zum Starten bitte jetzt die Leertaste.";
+DrÃ¼cken Sie zum Starten bitte jetzt die Leertaste.";
                 
                                     font = "Arial";
                                     font_size = 18;
@@ -199,14 +199,14 @@ trial {
                      picture {   
                              text {
                                   caption = 
-                                  "Üœbungsdurchgang";             
+                                  "ÃœÅ“bungsdurchgang";             
                                   font = "Arial";
                                   font_size = 60;
                               };
                               x=0; y=50;
                
                               text {
-                                   caption = "Drücken Sie zum Starten die Leertaste";
+                                   caption = "DrÃ¼cken Sie zum Starten die Leertaste";
                                    font = "Arial";
                                    font_size = 18;
                               };
@@ -223,8 +223,8 @@ trial {
                      picture {   
                
                               text {
-                                   caption = "Wenn Sie einen weiteren Übungsdurchgang
-starten möchten, drücken Sie bitte die Leertaste";
+                                   caption = "Wenn Sie einen weiteren Ãœbungsdurchgang
+starten mÃ¶chten, drÃ¼cken Sie bitte die Leertaste";
                                    font = "Arial";
                                    font_size = 18;
                               }textueb;
@@ -274,7 +274,7 @@ trial {
                      picture {   
                              text {
                                   caption = 
-                                  "Ende der Üœbung";             
+                                  "Ende der ÃœÅ“bung";             
                                   font = "Arial";
                                   font_size = 60;
                              };
@@ -361,7 +361,7 @@ trial {
                      picture {   
                               text {
                                    caption = 
-                                   "Vielen Dank für Ihre Teilnahme!";             
+                                   "Vielen Dank fÃ¼r Ihre Teilnahme!";             
                                    font = "Arial";
                                    font_size = 38;
                               } ende;

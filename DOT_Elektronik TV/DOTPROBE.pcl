@@ -108,7 +108,7 @@ end;
 
 # sub routine for trial presentation
 
-sub presentblock (int main, int ix) # main == 1: Hauptdurchgang, main == 0: Übungsdurchgang
+sub presentblock (int main, int ix) # main == 1: Hauptdurchgang, main == 0: Ãœbungsdurchgang
 begin
 	if (main==1) then
 		DOTPROBE.print(ix);
