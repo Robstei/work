@@ -1,4 +1,4 @@
-﻿# Scenario Header
+# Scenario Header
 # 19.4.2007
 # Sabine Klein
 # DOT PROBE Task   

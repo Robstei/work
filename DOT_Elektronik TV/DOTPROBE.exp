@@ -1,5 +1,5 @@
-<ver>20</ver>
-<efn>C:\Users\Patrrick Trotzke\Documents\Paradigmen\Experimentalparadigmen\Implizite Kognitionen\Dot Probe\Kaufen\Maenner\DOT_Elektronik TV\DOTPROBE.exp</efn>
+<ver>20.3</ver>
+<efn>C:\work\DOT_Elektronik TV\DOTPROBE.exp</efn>
 <author></author>
 <con>
 <pause>P</pause>
@@ -32,7 +32,7 @@
 <dmd>32</dmd>
 <dmh>600</dmh>
 <dmr>60</dmr>
-<dmrf>60.316541208261</dmrf>
+<dmrf>60</dmrf>
 <dmw>800</dmw>
 <docs>
 <args></args>
@@ -40,11 +40,12 @@
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\Users\Patrrick Trotzke\Documents\Paradigmen\Experimentalparadigmen\Implizite Kognitionen\Dot Probe\Kaufen\Maenner\DOT_Elektronik TV\stimuli</dsd>
+<dsd>C:\work\DOT_Elektronik TV\stimuli</dsd>
+<dwm>0</dwm>
 <dxv>8</dxv>
 <efs>
-<filename>C:\Users\Patrrick Trotzke\Documents\Paradigmen\Experimentalparadigmen\Implizite Kognitionen\Dot Probe\Kaufen\Maenner\DOT_Elektronik TV\DOTPROBE.sce</filename>
-<filename>C:\Users\Patrrick Trotzke\Documents\Paradigmen\Experimentalparadigmen\Implizite Kognitionen\Dot Probe\Kaufen\Maenner\DOT_Elektronik TV\DOTPROBE_pic.pcl</filename>
+<filename>C:\work\DOT_Elektronik TV\DOTPROBE.sce</filename>
+<filename>C:\work\DOT_Elektronik TV\DOTPROBE_pic.pcl</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -124,7 +125,7 @@
 <pindex>4294967295</pindex>
 </chan>
 </ip_chans>
-<lfd>C:\Users\Patrrick Trotzke\Documents\Paradigmen\Experimentalparadigmen\Implizite Kognitionen\Dot Probe\Kaufen\Maenner\DOT_Elektronik TV\logfiles</lfd>
+<lfd>C:\work\DOT_Elektronik TV\logfiles</lfd>
 <lnb>2</lnb>
 <lno>3</lno>
 <log>
@@ -156,30 +157,38 @@
 <one_processor>2</one_processor>
 <oports>
 <p>
-<ama>0</ama>
-<ami>0</ami>
-<at>0</at>
-<dpw>5</dpw>
-<dsdi>0</dsdi>
-<dsi>0</dsi>
-<dsn>Data port</dsn>
-<igm>0</igm>
-<il>0</il>
-<ivm>0</ivm>
-<mtype>dig</mtype>
-<piai>LPT1</piai>
-<pian>Parallel Port</pian>
-<pihpn>LPT1</pihpn>
+<cs></cs>
+<is></is>
+<mtype>serial</mtype>
+<os></os>
+<piai>COM1</piai>
+<pian>Serial Port</pian>
+<pihpn>COM1</pihpn>
 <pindex>0</pindex>
-<rs>1</rs>
-<rt>0</rt>
 </p>
 </oports>
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
 <plat>1</plat>
-<port_devices></port_devices>
-<pversion>2</pversion>
+<port_devices>
+<device>
+<parameters>
+<cts>0</cts>
+<dsrin>0</dsrin>
+<dsrout>0</dsrout>
+<dtr>disable</dtr>
+<rts>disable</rts>
+<set_fifo>1</set_fifo>
+<spd>5</spd>
+<spp>even</spp>
+<spr>2400</spr>
+<sps>1</sps>
+</parameters>
+<piai>COM1</piai>
+<pian>Serial Port</pian>
+<pihpn>COM1</pihpn>
+</device>
+</port_devices>
 <rdl>
 <device>
 <abs_axis>
@@ -229,48 +238,6 @@
 <name>Tastatur</name>
 </device>
 <device>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Wheel</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<device_type>2</device_type>
-<dx_device_type>0</dx_device_type>
-<max_raw_pos>65535</max_raw_pos>
-<min_raw_pos>0</min_raw_pos>
-<name>HID-compliant mouse</name>
-</device>
-<device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
 <name>HID Keyboard Device</name>
@@ -315,193 +282,22 @@
 <dx_device_type>0</dx_device_type>
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
-<name>HID-compliant mouse 1</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device 1</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device 2</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device 3</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>Standard PS/2 Keyboard</name>
-</device>
-<device>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Wheel</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<device_type>2</device_type>
-<dx_device_type>0</dx_device_type>
-<max_raw_pos>65535</max_raw_pos>
-<min_raw_pos>0</min_raw_pos>
-<name>HID-compliant mouse 2</name>
-</device>
-<device>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Wheel</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<device_type>2</device_type>
-<dx_device_type>0</dx_device_type>
-<max_raw_pos>65535</max_raw_pos>
-<min_raw_pos>0</min_raw_pos>
-<name>HID-compliant mouse 3</name>
-</device>
-<device>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Wheel</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<device_type>2</device_type>
-<dx_device_type>0</dx_device_type>
-<max_raw_pos>65535</max_raw_pos>
-<min_raw_pos>0</min_raw_pos>
-<name>HID-compliant mouse 4</name>
+<name>HID-compliant mouse</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter</name>
+<name>HyperX Virtual Surround Sound</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>Dell Universal Receiver</name>
+<name>ndPoint1 Inte</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 1</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>USB Receiver</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>USB Receiver 1</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Konvertiertes PDC (Portable Device Control)-Gerät</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Konvertiertes PDC (Portable Device Control)-Gerät 1</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Dell Universal Receiver 1</name>
+<name>ndPoint1 Inte 1</name>
 </device>
 <device>
 <axis>
@@ -533,8 +329,10 @@
 <name>Speech Recognition</name>
 <speech>
 <engine_class></engine_class>
+<lang></lang>
 <mc>0</mc>
 <rw>0</rw>
+<sil>0</sil>
 <uwd>0</uwd>
 <vocab></vocab>
 </speech>
@@ -698,7 +496,7 @@
 <offset>57</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\Users\Patrrick Trotzke\Documents\Paradigmen\Experimentalparadigmen\Implizite Kognitionen\Dot Probe\Kaufen\Maenner\DOT_Elektronik TV\DOTPROBE.sce</sfn>
+<sfn>C:\work\DOT_Elektronik TV\DOTPROBE.sce</sfn>
 </sce>
 <sct>
 <capture_device>
