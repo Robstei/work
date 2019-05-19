@@ -8,13 +8,7 @@ event_code_delimiter = ";";
 stimulus_properties = configuration, number, conditionid, string, trialid, string, form, string, color, string, seperateAttention, number, target, number;
 response_logging = log_active;
 default_background_color = 255,255,255;
-default_text_color = 0,0,0;
-
-scenario_type = fMRI_emulation;
-pulses_per_scan = 1;  
-scan_period =1000;
-pulse_width = 50;
-pulse_code = 99;
+default_text_color =  0,0,0;
 
 begin;
 

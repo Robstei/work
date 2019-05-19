@@ -20,19 +20,19 @@
 </con>
 <dbi></dbi>
 <dbs>button</dbs>
-<ddi>0</ddi>
+<ddi>1</ddi>
 <dds>
 <icm_profile></icm_profile>
 <use_icm>0</use_icm>
 </dds>
-<ddv>Primary Display Driver</ddv>
+<ddv>Intel(R) HD Graphics 520</ddv>
 <depchg>1</depchg>
 <discard_windows_messages>0</discard_windows_messages>
 <display_status_window>1</display_status_window>
 <dmd>32</dmd>
 <dmh>1080</dmh>
 <dmr>60</dmr>
-<dmrf>60</dmrf>
+<dmrf>59.9400597979798</dmrf>
 <dmw>1920</dmw>
 <docs>
 <args></args>
@@ -153,7 +153,7 @@
 </lslset>
 <maxpv></maxpv>
 <minpv></minpv>
-<nam>DotProbe</nam>
+<nam>DotProbe_et</nam>
 <one_processor>2</one_processor>
 <oports></oports>
 <out_encrypt_key></out_encrypt_key>
@@ -207,11 +207,6 @@
 <device_type>3</device_type>
 <dx_device_type>19</dx_device_type>
 <name>Tastatur</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>Keyboard \\?\Microsoft Keyboard RID\0</name>
 </device>
 <device>
 <device_type>3</device_type>

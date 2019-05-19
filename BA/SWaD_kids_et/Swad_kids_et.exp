@@ -30,10 +30,10 @@
 <discard_windows_messages>0</discard_windows_messages>
 <display_status_window>1</display_status_window>
 <dmd>32</dmd>
-<dmh>600</dmh>
+<dmh>1080</dmh>
 <dmr>60</dmr>
 <dmrf>60</dmrf>
-<dmw>800</dmw>
+<dmw>1920</dmw>
 <docs>
 <args></args>
 <exfl></exfl>
@@ -537,31 +537,13 @@ English</desc>
 </lslset>
 <maxpv></maxpv>
 <minpv></minpv>
-<nam>Swad</nam>
+<nam>Swad_kids_et</nam>
 <one_processor>2</one_processor>
 <oports></oports>
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
 <plat>1</plat>
-<port_devices>
-<device>
-<parameters>
-<cts>0</cts>
-<dsrin>0</dsrin>
-<dsrout>0</dsrout>
-<dtr>disable</dtr>
-<rts>disable</rts>
-<set_fifo>1</set_fifo>
-<spd></spd>
-<spp></spp>
-<spr></spr>
-<sps></sps>
-</parameters>
-<piai>COM1</piai>
-<pian>Serial Port</pian>
-<pihpn>COM1</pihpn>
-</device>
-</port_devices>
+<port_devices></port_devices>
 <rdl>
 <device>
 <abs_axis>
@@ -613,7 +595,7 @@ English</desc>
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device</name>
+<name>Standard PS/2 Keyboard</name>
 </device>
 <device>
 <abs_axis>
@@ -655,22 +637,7 @@ English</desc>
 <dx_device_type>0</dx_device_type>
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
-<name>HID-compliant mouse</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>HyperX Virtual Surround Sound</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte 1</name>
+<name>Synaptics Pointing Device</name>
 </device>
 <device>
 <axis>

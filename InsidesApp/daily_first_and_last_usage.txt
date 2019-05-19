@@ -1,0 +1,96 @@
+<?php
+   
+   //Abfrage nach erstes und letzter Nutzung an Jedem Tag
+    $results = $db_connection->query("SELECT participant_id, DATE(FROM_UNIXTIME(screen_on_event_ts/1000)) as date, 
+                                            TIME(FROM_UNIXTIME(MIN(screen_on_event_ts/1000))) as first_usage, 
+                                            TIME(FROM_UNIXTIME(MAX(screen_on_event_ts/1000)))as last_usage 
+                                            FROM data_user_sessions
+                                            GROUP BY DATE(FROM_UNIXTIME(screen_on_event_ts/1000))
+                                            ORDER BY participant_id");
+    
+	
+	//Funktion um später herauszufinden ob schon eine Zeile für participant_id angelegt wurde
+    function in_array_r($needle, $haystack, $strict = false) {
+        foreach ($haystack as $item) {
+            if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    $dailyFirstAndLastUsage = array();
+    
+    foreach($results as $result){
+		//Wenn noch keine Session des Nutzers bearbeitet wurde soll eine neue Zeile angelegt werden
+        if(!in_array_r($result->participant_id, $dailyFirstAndLastUsage,false)){
+        array_push($dailyFirstAndLastUsage, array($result->participant_id, 0, 0,
+                                                    $result->date, $result->first_usage, $result->last_usage));
+        } else {
+            foreach($dailyFirstAndLastUsage as $key => $singleUserData){
+				// Finde die Zeile des Nutzers und füge diese Session am Ende der Zeile ein
+                if($result->participant_id == $singleUserData[0]){
+                    array_push($dailyFirstAndLastUsage[$key], $result->date, $result->first_usage, $result->last_usage);
+                }
+            }
+        }
+    }
+    
+	//Erstelle Output, analog zu den vorhanden scripts
+    $date_time = new DateTime("now", new DateTimeZone('Europe/Berlin'));
+    $csv_file_name = 'First_And_Last_Usage_Per_Day_Per_Partizipant' . '_' . $date_time->format('Y-m-d_H-i-s') . '_format.csv';
+    $csv_path = $result_files_base_path . '/' . $csv_file_name;
+	
+	//Test
+    //var_dump($dailyFirstAndLastUsage);
+    
+    $maxLength = 0;
+    foreach($dailyFirstAndLastUsage as $singleUserData){
+        
+		//Test
+        echo "<br >";
+        var_dump($singleUserData);
+        if(count($singleUserData) > $maxLength){
+            $maxLength = count($singleUserData); 
+        }
+    }
+    
+	//Vor die eigentlichen Userdaten kommt die participant_id und die Durschnittswerte
+    $csv_header = ["participant_id", "average_first_usage", "average_last_usage"];
+    
+	//Pro durschlauf drei Spalten mit diesen Überschriften anlegen. Solange, bis genug Spalten für die längste Zeile existieren. 
+	//"-3" da die ersten drei Spaltentitel schon angelegt wurden 
+    for($i = ($maxLength - 1 - 3) / 3, $counter = 1; $i > 0; $i--, $counter++){
+        array_push($csv_header,"date" . $counter);
+        array_push($csv_header,"first_usage" . $counter);
+        array_push($csv_header,"last_usage" . $counter);
+    }
+    
+    $file = fopen($csv_path, 'w');
+    fputcsv($file, $csv_header);
+    
+    foreach ($dailyFirstAndLastUsage as $key => $singleUserData) {
+        $firstUsages = array();
+        $lastUsages = array();
+		
+		//An jeder dritten Stelle steht das Datum. Die darauf folgenden Werte für erste und letzte Nutzung werden in den entsprechenden Array gepackt
+        for($j = 3; $j < count($singleUserData); $j+=3){
+        array_push($firstUsages, $singleUserData[$j + 1]);
+        array_push($lastUsages, $singleUserData[$j + 2]);
+    } 
+    
+		//Durchschnitt für erste und letzte Nutzung bilden und in Gesamtarray einfügen einfügen
+        $averageFirstUsage = date('H:i:s', array_sum(array_map('strtotime', $firstUsages)) / count($firstUsages));
+        $averageLastUsage = date('H:i:s', array_sum(array_map('strtotime', $lastUsages)) / count($lastUsages));
+        
+       $dailyFirstAndLastUsage[$key][1] = $averageFirstUsage;
+       $dailyFirstAndLastUsage[$key][2] = $averageLastUsage;
+    }
+    
+	//Daten in die csv Datei schreiben
+    foreach ($dailyFirstAndLastUsage as $csv_row) {
+        fputcsv($file, $csv_row);
+    }
+    fclose($file);
+    echo "Datei wurde erstellt";
+?>

@@ -1,0 +1,8 @@
+[page]
+[block]
+Code?[text][logic-if-value:{abc}][logic-then-true-else-false:{is_legal}]
+Weiter?[radiogroup:{Ja}][logic-show-if-one-true:{is_legal}]
+[info] <script>window.onload = function() { $("#1-1-2").hide(); $("#1-1-1").change(function() { if($("#1-1-1").val() == "abc") { $("#1-1-2").show(); } }); };
+[page]
+[block]
+Wie alt sind sie[integer]
