@@ -169,7 +169,7 @@ end;
 
 # sub routine for trial presentation
 
-sub presentblock (int main, int ix) # main == 1: Hauptdurchgang, main == 0: Übungsdurchgang
+sub presentblock (int main, int ix) # main == 1: Hauptdurchgang, main == 0: Ãœbungsdurchgang
 begin
 	if (main==1) then
 		DOTPROBE.print(ix);
@@ -432,4 +432,4 @@ tracker2.save_data("C:\\Users\\iView\\Documents\\presentation-data\\1812_ExPra_d
 tracker.clear_buffer(dt_position);
 tracker2.disconnect();
 
-endetrial.present (); 
+endetrial.present(); 

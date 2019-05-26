@@ -4,23 +4,66 @@
 	string Local_IP = "192.168.1.1";
 	int Send_Port = 4444;
 	int Recv_Port = 5555;
+	int stimulus_number = 1;
 
-	# create iViewXAPI::eye_tracker2 instance 
-	#iViewXAPI::eye_tracker2 tracker2;
+	#create iViewXAPI::eye_tracker2 instance 
+	iViewXAPI::eye_tracker2 tracker2;
 
 	# create eye_tracker instance 
 	eye_tracker tracker;
 
-	# create extension objects
-	#tracker2 = new iViewXAPI::eye_tracker2( "{B7A4A7F7-7879-4C95-A3BA-6CCB355AECF6}" );
-	#tracker2.disconnect();
-	#tracker2.connect(iViewX_IP, Send_Port, Local_IP, Recv_Port);
+	#create extension objects
+	tracker2 = new iViewXAPI::eye_tracker2( "{B7A4A7F7-7879-4C95-A3BA-6CCB355AECF6}" );
+	tracker2.disconnect();
+	tracker2.connect(iViewX_IP, Send_Port, Local_IP, Recv_Port);
 
-	#tracker = new eye_tracker( "{FDC35980-7480-4761-859F-4DCCFA93BA57}" );
+	tracker = new eye_tracker( "{FDC35980-7480-4761-859F-4DCCFA93BA57}" );
 
-	#tracker.clear_buffer(dt_position);
-	#tracker.start_tracking();
-	#tracker.start_data(dt_position);
+	tracker.clear_buffer(dt_position);
+	tracker.start_tracking();
+	tracker.start_data(dt_position);
+	
+	
+double accuracy_x, accuracy_y;
+	
+##### calibration
+
+######### calibration ##########
+
+# Calibration method 
+#double calibration_method = 1.0;
+#double calibration_method = 2.0;
+double calibration_method = 5.0;
+#double calibration_method = 9.0;
+#double calibration_method = 13.0;
+
+# Calibration auto accept
+#double calibration_auto_accept = 0.0;
+double calibration_auto_accept = 1.0;
+#double calibration_auto_accept = 2.0;
+
+# Calibration speed
+#double calibration_speed = 0.0;
+double calibration_speed = 1.0;
+
+term.print ( "calibration" ); term.print ( "\n" );
+tracker.calibrate(et_calibrate_default, calibration_method, calibration_auto_accept, calibration_speed);
+wait_interval (500);
+
+##### validation 
+		
+term.print ( "validation" ); term.print ( "\n" );	
+tracker.calibrate(2, calibration_method, calibration_auto_accept, calibration_speed);
+
+accuracy_x = tracker2.get_accuracy_x();
+accuracy_y = tracker2.get_accuracy_y();
+		
+term.print ( "x\t" ); term.print ( string(accuracy_x) ); term.print ( "\t" );
+term.print ( "y\t" ); term.print ( string(accuracy_y) ); term.print ( "\n" );
+
+wait_interval (500);
+tracker.set_recording(true);
+
 
 	########END EYE TRACKER############
 
@@ -36,7 +79,7 @@
 			"erscheint.",
 			"Drücke die Taste \"S\" wenn",
 			"erscheint.",
-			"Antworte so schnell und richtig wie müglich.",
+			"Antworte so schnell und richtig wie möglich.",
 			"Drücke die Leertaste um weiter zu kommen."
 		},
 		{
@@ -99,6 +142,7 @@
 	
 	sub pause_seconds (int time_in_seconds)
 	begin
+		tracker.send_message("Pause.jpg");
 		loop int start_time = clock.time()
 		until clock.time() > start_time + time_in_seconds * 1000
 		begin
@@ -116,6 +160,7 @@
 	
 	sub pause_minutes (int time_in_minutes)
 	begin
+		tracker.send_message("Pause.jpg");
 		int time_in_seconds = time_in_minutes * 60;
 		loop int start_time = clock.time()
 		until clock.time() > start_time + time_in_seconds * 1000
@@ -141,6 +186,7 @@
 	begin
 		text_introduction.set_font_size(font_size);
 		text_introduction.set_caption(information, true);
+		tracker.send_message("Information.jpg");
 		trial_information.present();
 	end;
 		
@@ -158,11 +204,6 @@
 			response_manager.set_button_active(3, false);
 		end;
 	end;
-	
-	# returns true if
-	# 1. successive stimuli are never identical
-	# 2. first "Non Targets at Start of each Block" (parameter) are non targets
-	# 3. successive stimuli are never targets
 	
 	sub change_color(ellipse_graphic eg, int color_index)
 	begin
@@ -192,6 +233,37 @@
 			eg.redraw();
 		end;
 	end;
+	
+	#creates 5 categories of stimuli and groups them for analysis regarding the eye tracker
+	# 1. test stimuli
+	# 2. Selective blocks
+	# 3. Divided blocks
+	# 4. Switching blocks with selective attention
+	# 5. Switching blocks with divided attention
+	
+	sub set_eye_tracker_message (int seperate_attention, string run_id)
+	begin
+		
+		string message = "run_" + run_id;
+		
+		if rund_id == "switching" 
+		then
+			rund_id = rund_id + "_block_";
+			
+			if seperate_attention == 1 || seperate_attention == 2
+			then
+				rund_id = rund_id + "selective";
+			elseif seperate_attention == 3
+				rund_id = rund_id + "divided";
+			end;
+			
+		end;
+	end;
+	
+	# returns true if
+	# 1. successive stimuli are never identical
+	# 2. first "Non Targets at Start of each Block" (parameter) are non targets
+	# 3. successive stimuli are never targets
 	
 	sub bool validade (array<int,2> list_to_test, int seperate_attention, int form_target_index, 
 							int color_target_index, array<int,1> color_indexes)
@@ -485,6 +557,7 @@
 			text_instruction_color2.set_caption(array_instructions[language][2], true);
 			text_instruction_color5.set_caption(array_instructions[language][5], true);
 			text_instruction_color6.set_caption(array_instructions[language][6], true);
+			tracker.send_message("Instruction_color.jpg");
 			trial_instruction_color.present();
 		elseif seperate_attention == 2
 		then
@@ -496,6 +569,7 @@
 			text_instruction_form4.set_caption(array_instructions[language][4], true);
 			text_instruction_form5.set_caption(array_instructions[language][5], true);
 			text_instruction_form6.set_caption(array_instructions[language][6], true);
+			tracker.send_message("Instruction_form.jpg");
 			trial_instruction_form.present();
 		elseif seperate_attention == 3
 		then
@@ -512,6 +586,7 @@
 			text_instruction_divided4.set_caption(array_instructions[language][4], true);
 			text_instruction_divided5.set_caption(array_instructions[language][5], true);
 			text_instruction_divided6.set_caption(array_instructions[language][6], true);
+			tracker.send_message("Instruction_divided.jpg");
 			trial_instruction_divided.present();
 		end;
 		
@@ -574,9 +649,15 @@
 			else
 				trial_cross.set_duration(ISI_values[random(1,ISI_values.count())]);
 			end;
+			tracker.send_message("Fixation.jpg");
 			trial_cross.present();
 			set_response_mode(2);
+			
+			###set code of stimulus for eye tracking data
+			
+			set_eye_tracker_message(seperate_attention, run_id);
 			trial_main.present();
+			stimulus_number = stimulus_number +1;
 			set_response_mode(1);
 			i=i+1;
 		
@@ -601,6 +682,7 @@
 				if feedback != ""
 				then
 				text_feedback.set_caption(feedback, true);
+				tracker.send_message("Feedback.jpg");
 				trial_feedback.present();	
 				end;
 			end;
@@ -638,42 +720,42 @@
    present_information(array_information[language][2], 30);
 
 	make_and_present_block(1, 1, array_color_indexes, -1, 4, 6, true, "test", "1");
-	make_and_present_block(3, 2, array_color_indexes, 1, 4, 6, true, "test", "2");
-	
+	#make_and_present_block(3, 2, array_color_indexes, 1, 4, 6, true, "test", "2");
+		
 	if configuration == 1
 	then
 		##########################Condition 1########################################
 
 			pause_seconds(30);
 			present_information(array_information[language][3], 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "selective", "1");
-			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 6, 20, false, "selective", "3");
-			make_and_present_block(2, -1, array_color_indexes, 3, 8, 18, false, "selective", "4");
+			make_and_present_block(2, -1, array_color_indexes, 2, 1, 1, false, "selective", "1");
+			#make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2");
+			#make_and_present_block(1, 4, array_color_indexes, -1, 6, 20, false, "selective", "3");
+			#make_and_present_block(2, -1, array_color_indexes, 3, 8, 18, false, "selective", "4");
 			
 		##########################Condition 2########################################
 
-			pause_minutes(2);
+			#pause_minutes(2);
 			present_information(array_information[language][4], 30);
 			make_and_present_block(3, 5, array_color_indexes, 4, 8, 18, false, "divided", "1");
-			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
-			make_and_present_block(3, 1, array_color_indexes, 6, 7, 19, false, "divided", "3");
-			make_and_present_block(3, 2, array_color_indexes, 1, 6, 20, false, "divided", "4");
+			#make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
+			#make_and_present_block(3, 1, array_color_indexes, 6, 7, 19, false, "divided", "3");
+			#make_and_present_block(3, 2, array_color_indexes, 1, 6, 20, false, "divided", "4");
 			
 		##########################Condition 3########################################
 
-			pause_minutes(2);
+			#pause_minutes(2);
 			present_information(array_information[language][5], 30);
 			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");
 			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
+			#make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
+			#make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
 			
-			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
-			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
-			present_information(array_information[language][5], 30);
+			#make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
+			#make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
+			#make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
+			#make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
+			#present_information(array_information[language][5], 30);
 			
 	elseif configuration == 2
 	then
@@ -850,3 +932,12 @@
 			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "4");
 			present_information(array_information[language][5], 30);
 	end;
+	
+		
+	tracker.stop_data(dt_position);
+	tracker.set_recording (false);
+	tracker.stop_tracking();
+
+	term.print_line(tracker2.save_data("C:\\TEST\\" + logfile.subject() + ".idf", "description", logfile.subject(), 1));
+	tracker.clear_buffer(dt_position);
+	tracker2.disconnect();

@@ -1,0 +1,196 @@
+<?php
+    /*
+    [DESCRIPTION]
+        This script takes input files and combines them to one big complete result file
+        The data of the input files are compared by the first two columns
+        where the first column is expected to be the Participant-ID as number
+        and the second column to be the individual study day in the format "Study_Day_XX"
+        Output: Complete result file
+        If no data is available for an entry, the missing data is named "null"
+    [/DESCRIPTION]
+    */
+?>
+
+<?php
+    $chosen_files_list = array();
+    foreach ($_REQUEST as $requestVariable => $value) {
+        if (substr($requestVariable, 0, 14) == 'selected-file-') {
+            array_push($chosen_files_list, $value);
+        }
+    }
+?>
+
+<!-- Output a list of all files, from which the user selects the files to combine into a complete result file -->
+<?php if (count($chosen_files_list) == 0): ?>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <br>
+                    <h4>Please choose files to combine in a Complete Result File</h4><br>
+                    <form action="" method="post">
+                    <?php
+                        $all_available_files = scandir($result_files_base_path);
+                        for ($i=0; $i<count($all_available_files); $i++) {
+                            if ($all_available_files[$i] == '.' || $all_available_files[$i] == '..') continue;
+                            if (!is_file($result_files_base_path . $all_available_files[$i])) continue;
+                            echo '<input type="checkbox" name="selected-file-' . $i . '" value="' . $all_available_files[$i] . '"><label style="margin-left: 10px;">' . $all_available_files[$i] . '</label><br>';
+                        }
+                        echo '<br><input type="submit" class="btn btn-success"><br><br>';
+                    ?>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<?php exit(); endif; ?>
+
+<!-- Create the complete result file for all selected files -->
+<?php
+    // read csv content from all files
+    $data_file_list = array();
+    $csv_file_contents = array();
+    for ($i=0; $i<count($chosen_files_list); $i++) {
+        $filename = $chosen_files_list[$i];
+        array_push($data_file_list, $filename);
+        $csv_file_content = getCSVFileContent($result_files_base_path, $filename);
+        array_push($csv_file_contents, $csv_file_content);
+    }
+    
+    // create the result file
+    createResultTable($csv_file_contents, $result_files_base_path);
+	
+	function modifyResultName($originalName) {
+		//entferne .php
+		$tmp_result = substr($originalName,0,-4);
+		
+		//entferne Questionnaire_
+		$tmp_result = substr($tmp_result,14);
+		
+		$last_valid_char = strpos($tmp_result, "_", 7);
+		
+		$tmp_result = substr($tmp_result, 0, $last_valid_char);
+		
+		return $tmp_result;
+	}
+	
+	
+    // read csv file content
+    function getCSVFileContent($dirname, $filename) {
+        $data = new StdClass();
+        
+        // create meta information
+        $data->meta_data = new StdClass();
+        $data->meta_data->name = modifyResultName($filename);
+        echo 'Reading: ' . $data->meta_data->name . '<br>';
+        $data->meta_data->has_headline = true;
+        $data->meta_data->row_count = 0;
+        $data->meta_data->max_column_count = 0;
+        $data->lines = array();
+        
+        // load content from file
+        $data->meta_data->row_count = 0;
+        if (($fp = fopen($dirname . '/' . $filename, 'r')) !== false) {
+            while (($cells = fgetcsv($fp, 1000000, ',')) !== false) {
+                // output meta data information on the first loop
+                if ($data->meta_data->row_count == 0) {
+                    echo '<pre>';
+                    var_dump($cells);
+                    echo '</pre>';
+                    echo '<br>';
+                }
+                $data->meta_data->row_count++;
+                array_push($data->lines, $cells);
+                $data->meta_data->max_column_count = max($data->meta_data->max_column_count, count($cells));
+            }
+            fclose($fp);
+        }
+        
+        echo 'row_count: ' . $data->meta_data->row_count . '<br>';
+        echo 'max_column_count: ' . $data->meta_data->max_column_count . '<br>';
+        
+        return $data;
+    }
+    
+    
+    // create the result table
+    function createResultTable($csv_file_contents, $dirname) {
+        $result_table = array();
+        
+        // get the total number of columns in a row
+        $total_column_count = 2;
+			
+        foreach ($csv_file_contents as $csv_file_content) {
+            $total_column_count += $csv_file_content->meta_data->max_column_count - 2;
+        }
+        
+        // build rows of result table and each row with as many cells as columns are supposed to be in the result table
+        foreach ($csv_file_contents as $csv_file_content) {
+            foreach ($csv_file_content->lines as $line) {
+                if (count($line) < 2) continue;
+                $key1 = $line[0];
+                $key2 = $line[1];
+                if ($key1 == '' || $key2 == '') continue;
+                if (!isset($result_table[$key1])) {
+                    $result_table[$key1] = array();
+                }
+                if (!isset($result_table[$key1][$key2])) {
+                    $result_table[$key1][$key2] = array_fill(0, $total_column_count, 'null');
+                    $result_table[$key1][$key2][0] = $key1;
+                    $result_table[$key1][$key2][1] = $key2;
+                }
+            }
+        }
+        
+        // fill the table with data
+        $column_offset = 2;
+		
+        foreach ($csv_file_contents as $csv_file_content) {
+			echo "csv content: ";
+		var_dump($csv_file_content);
+		echo "<br>";
+            foreach ($csv_file_content->lines as $line_index => $line) {
+                if (count($line) < 2) continue;
+                $key1 = $line[0];
+                $key2 = $line[1];
+				
+				echo "key1:" . $key1 . "and key2: " . $key2. "<br>";
+                if ($key1 == '' || $key2 == '') continue;
+                
+                
+                for ($i=2; $i<count($line); $i++) {
+                    $value = $line[$i];
+					
+                    if ($line_index == 0) {
+						$value = $csv_file_content->meta_data->name . '___' . $value;
+					}
+                    $result_table[$key1][$key2][$column_offset + $i - 2] = $value;
+                }
+            }
+            
+            $column_offset += $csv_file_content->meta_data->max_column_count - 2;
+        }
+        
+        
+        
+        // output file
+        $date_time = new DateTime("now", new DateTimeZone('Europe/Berlin'));
+        $csv_file_name = 'Complete_Result_File' . '_' . $date_time->format('Y-m-d_H-i-s') . '.csv';
+        $csv_path = $dirname . '/' . $csv_file_name;
+        $file = fopen($csv_path, 'w');
+        
+        foreach ($result_table as $result_table_subset_1) {
+            foreach ($result_table_subset_1 as $result_table_subset_2) {
+                fputcsv($file, $result_table_subset_2);
+
+            }
+        }
+
+        fclose($file);
+    }
+?>
