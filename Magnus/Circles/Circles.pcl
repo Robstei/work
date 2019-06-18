@@ -1,0 +1,89 @@
+#global variables
+array<int> array_current_block[0];
+
+
+sub pause (int time_in_seconds)
+	begin
+		loop int start_time = clock.time()
+		until clock.time() > start_time + time_in_seconds * 1000
+		begin
+			text_pause.set_caption("Pause \nIn " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " Sekunden geht es weiter", true);
+			trial_pause.present();
+		end;
+		trial_pause_button.present();
+	end;
+
+sub change_color ( int color)
+begin
+	if (color == 1)
+	then
+		eg_stimuli.set_color(255, 0, 0, 255);
+	elseif (color == 2)
+	then
+		eg_stimuli.set_color(0, 255, 0, 255);
+	elseif (color == 3)
+	then
+		eg_stimuli.set_color(0, 0, 255, 255);
+	end;
+	eg_stimuli.redraw();
+end;
+
+sub bool validate (array<int,1> block)
+begin
+	return true;
+end;
+
+#creates an array where 1 are target and 0 are non targets
+sub create_block (int targets, int non_targets)
+begin
+	array_current_block.resize(0);
+	loop int i = 1 until i > targets
+	begin
+		array_current_block.add(1);
+		i = i + 1;
+	end;
+
+	loop int i = 1 until i > non_targets
+	begin
+		array_current_block.add(0);
+		i = i + 1;
+	end;
+	
+		array_current_block.shuffle();
+	loop until validate(array_current_block)
+	begin
+		array_current_block.shuffle();
+	end;
+	
+end;
+
+sub present_block (int target_color, int non_target_color, string block, string block_type)
+begin
+	loop int i = 1 until i >  array_current_block.count()
+	begin
+		string code = block + ";" + string(i) + ";" + block_type;
+		trial_cross.set_duration(random(500,1000));
+		trial_cross.present();
+		
+		se_stimuli.set_target_button(0);
+		
+		if  array_current_block[i] == 1
+		then
+			change_color(target_color);
+			se_stimuli.set_target_button(1);
+			code = code + ";" + string(target_color) + ";" + "target";
+		else
+			change_color(non_target_color);
+			se_stimuli.set_response_active(true);
+			code = code + ";" + string(non_target_color) + ";" + "non_target";
+		end;
+		
+		se_stimuli.set_event_code(code);
+		trial_stimuli.present();
+		i = i + 1;
+	end;
+	
+end;
+
+include "execution.pcl";
+include "data.pcl";
