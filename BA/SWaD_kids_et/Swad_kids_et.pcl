@@ -586,6 +586,7 @@ tracker.set_recording(true);
 			text_instruction_divided4.set_caption(array_instructions[language][4], true);
 			text_instruction_divided5.set_caption(array_instructions[language][5], true);
 			text_instruction_divided6.set_caption(array_instructions[language][6], true);
+			
 			tracker.send_message("Instruction_divided.jpg");
 			trial_instruction_divided.present();
 		end;
@@ -933,7 +934,6 @@ tracker.set_recording(true);
 			present_information(array_information[language][5], 30);
 	end;
 	
-		
 	tracker.stop_data(dt_position);
 	tracker.set_recording (false);
 	tracker.stop_tracking();
