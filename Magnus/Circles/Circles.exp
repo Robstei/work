@@ -1,6 +1,6 @@
 <ver>20.3</ver>
 <efn>C:\work\Magnus\Circles\Circles.exp</efn>
-<author></author>
+<author>Robin Steil</author>
 <con>
 <pause>P</pause>
 <pause_code></pause_code>
@@ -46,6 +46,9 @@
 <efs>
 <filename>C:\work\Magnus\Circles\Circles.sce</filename>
 <filename>C:\work\Magnus\Circles\Circles.pcl</filename>
+<filename>C:\work\Magnus\Circles\Circles.exp</filename>
+<filename>C:\work\Magnus\Circles\data.pcl</filename>
+<filename>C:\work\Magnus\Circles\execution.pcl</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -120,7 +123,7 @@
 <idt>0</idt>
 <ilc>0</ilc>
 <ip_chans></ip_chans>
-<lfd>C:\work\Magnus\Circles</lfd>
+<lfd>C:\work\Magnus\Circles\logfiles</lfd>
 <lnb>2</lnb>
 <lno>4</lno>
 <log>
@@ -133,7 +136,7 @@
 <set_def_file></set_def_file>
 <stimulus_list>0</stimulus_list>
 <subject_id></subject_id>
-<subject_id_pol>0</subject_id_pol>
+<subject_id_pol>1</subject_id_pol>
 <video_list>0</video_list>
 <warnings>1</warnings>
 </log>
@@ -587,7 +590,7 @@
 </device>
 </rdl>
 <refchg>1</refchg>
-<rep>1</rep>
+<rep>2</rep>
 <require_name_match>0</require_name_match>
 <reschg>1</reschg>
 <rng>1</rng>
@@ -597,6 +600,19 @@
 <sfn>all_scenarios</sfn>
 </sce>
 <sce>
+<idv>
+<device_type>3</device_type>
+<dx_device_type>19</dx_device_type>
+<ibn>LEER</ibn>
+<ibn>NACH-OBEN</ibn>
+<idn>Tastatur</idn>
+<index>0</index>
+<index>1</index>
+<label></label>
+<label></label>
+<offset>57</offset>
+<offset>200</offset>
+</idv>
 <overrides></overrides>
 <sfn>C:\work\Magnus\Circles\Circles.sce</sfn>
 </sce>
@@ -646,7 +662,7 @@
 <sdv>Primärer Soundtreiber</sdv>
 <show_dis>0</show_dis>
 <show_parm>0</show_parm>
-<show_term>0</show_term>
+<show_term>1</show_term>
 <smc>2</smc>
 <smd>16</smd>
 <smr>44100</smr>
