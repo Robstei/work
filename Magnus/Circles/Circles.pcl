@@ -3,15 +3,15 @@ array<int> array_current_block[0];
 
 
 sub pause (int time_in_seconds)
+begin
+	loop int start_time = clock.time()
+	until clock.time() > start_time + time_in_seconds * 1000
 	begin
-		loop int start_time = clock.time()
-		until clock.time() > start_time + time_in_seconds * 1000
-		begin
-			text_pause.set_caption("Pause \nIn " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " Sekunden geht es weiter", true);
-			trial_pause.present();
-		end;
-		trial_pause_button.present();
+		text_pause.set_caption("Pause \nIn " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " Sekunden geht es weiter", true);
+		trial_pause.present();
 	end;
+	trial_pause_button.present();
+end;
 
 sub change_color ( int color)
 begin
