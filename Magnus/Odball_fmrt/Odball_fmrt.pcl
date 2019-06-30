@@ -10,7 +10,6 @@ int max_x_coordinate;
 int min_y_coordinate;
 int max_y_coordinate;
 
-	picture_stimuli.set_part_y(1, 500);
 # presentation has (0/0) in the middle of the screen,
 # hence the the boundaries for a screen with width x presentetiona are min = -(x/2) and max x/2
 # same for height. Note that x goes from left to right, but y goes from bottom to top. 
@@ -247,9 +246,6 @@ begin
 		current_trial.present();
 		current_stimulus = current_stimulus + 1;
 	end;
-	
-	
-	
 end;
 
 

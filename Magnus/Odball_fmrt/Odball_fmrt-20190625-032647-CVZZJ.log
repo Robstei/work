@@ -1,0 +1,60 @@
+Scenario - 
+Logfile written - 06/25/2019 03:27:36
+
+Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+1	Response	1	5109	4943	0
+2	Response	1	22514	17182	0
+3	Response	1	32294	9630	0
+4	Response	1	33342	846	0
+5	Response	1	43301	9806	0
+6	Response	1	53312	9817	0
+7	Response	1	65135	11641	0
+8	Response	1	87607	22281	0
+9	Response	1	101276	13453	0
+10	Response	1	118591	17103	0
+11	Response	1	129885	11066	0
+12	Response	1	158137	28152	0
+13	Response	1	185647	27332	0
+14	Response	1	209272	23460	0
+15	Response	1	248478	39002	0
+16	Response	1	275642	27004	0
+17	Response	1	285606	9804	0
+18	Response	1	295676	9875	0
+19	Response	1	323528	27729	0
+20	Response	1	343039	19409	0
+21	Response	1	350113	6985	0
+22	Response	1	360765	10471	0
+23	Response	1	365792	4833	0
+24	Response	1	369848	3890	0
+25	Response	1	373385	3427	0
+26	Response	1	382464	8840	0
+27	Response	1	392721	10098	0
+28	Response	1	399574	6619	0
+29	Response	1	407454	7666	0
+30	Response	1	417620	9999	0
+31	Response	1	422843	5057	0
+32	Response	1	429638	6686	0
+33	Response	1	434070	4286	0
+34	Response	1	438797	4513	0
+35	Response	1	443214	4264	0
+36	Response	1	453369	9920	0
+37	Response	1	459323	5875	0
+38	Response	1	464419	4971	0
+39	Response	1	469902	5288	0
+40	Response	1	474566	4453	0
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "LENOVO 20FMS2L703",
+   "experiment": "{2DC7EC0B-6D14-47F9-A0DA-0D4BA90D3B72}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Odball_fmrt.sce",
+   "subject": "",
+   "timestamp": "2019/06/25 01:26:47 GMT"
+}
