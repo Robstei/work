@@ -22,10 +22,10 @@ create_block(20,20);
 present_block(target_color, non_target_color,"block2","B");
 
 create_block(30,10);
-present_block(target_color, non_target_color,"block2","A");
+present_block(target_color, non_target_color,"block3","A");
 
 create_block(10,30);
-present_block(target_color, non_target_color,"block2","C");
+present_block(target_color, non_target_color,"block4","C");
 
 create_block(30,10);
 present_block(target_color, non_target_color,"block2","A");
