@@ -234,7 +234,7 @@ tracker.set_recording(true);
 		end;
 	end;
 	
-	#creates 5 categories of stimuli and groups them for analysis regarding the eye tracker
+	#creates 5 categories of stimuli and group them for analysis regarding the eye tracker
 	# 1. test stimuli
 	# 2. Selective blocks
 	# 3. Divided blocks

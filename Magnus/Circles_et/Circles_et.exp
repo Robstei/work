@@ -1,5 +1,5 @@
 <ver>20.3</ver>
-<efn>C:\work\Magnus\Circles\Circles.exp</efn>
+<efn>C:\work\Magnus\Circles_et\Circles_et.exp</efn>
 <author>Robin Steil</author>
 <con>
 <pause>P</pause>
@@ -40,14 +40,15 @@
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\work\Magnus\Circles</dsd>
+<dsd>C:\work\Magnus\Circles_et</dsd>
 <dwm>0</dwm>
 <dxv>8</dxv>
 <efs>
-<filename>C:\work\Magnus\Circles\Circles.sce</filename>
-<filename>C:\work\Magnus\Circles\Circles.pcl</filename>
-<filename>C:\work\Magnus\Circles\data.pcl</filename>
-<filename>C:\work\Magnus\Circles\execution.pcl</filename>
+<filename>C:\work\Magnus\Circles_et\Circles_et.sce</filename>
+<filename>C:\work\Magnus\Circles_et\execution.pcl</filename>
+<filename>C:\work\Magnus\Circles_et\Circles_et.pcl</filename>
+<filename>C:\work\Magnus\Circles_et\data.pcl</filename>
+<filename>C:\work\Magnus\Circles_et\eye_tracker_connection.pcl</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -122,7 +123,7 @@
 <idt>0</idt>
 <ilc>0</ilc>
 <ip_chans></ip_chans>
-<lfd>C:\work\Magnus\Circles\logfiles</lfd>
+<lfd>C:\work\Magnus\Circles_et\logfiles</lfd>
 <lnb>2</lnb>
 <lno>4</lno>
 <log>
@@ -150,7 +151,7 @@
 </lslset>
 <maxpv></maxpv>
 <minpv></minpv>
-<nam></nam>
+<nam>Circles_et</nam>
 <one_processor>2</one_processor>
 <oports></oports>
 <out_encrypt_key></out_encrypt_key>
@@ -269,6 +270,11 @@
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
 <name>HID-compliant mouse</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>HyperX Virtual Surround Sound</name>
 </device>
 <device>
 <device_type>4</device_type>
@@ -608,7 +614,7 @@
 <offset>50</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\work\Magnus\Circles\Circles.sce</sfn>
+<sfn>C:\work\Magnus\Circles_et\Circles_et.sce</sfn>
 </sce>
 <sct>
 <capture_device>

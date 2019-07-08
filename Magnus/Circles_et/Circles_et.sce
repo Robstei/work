@@ -1,4 +1,4 @@
-pcl_file = "Circles.pcl";
+pcl_file = "Circles_et.pcl";
 response_matching = simple_matching;
 active_buttons = 2;
 no_logfile = true;

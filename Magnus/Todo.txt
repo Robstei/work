@@ -1,0 +1,11 @@
+
+Circles
+
+- Testen
+- logfiles
+
+Swad kids
+
+- Hintergrundfarbe ändern
+- evtl. eye tracker message änderm um zwischen target/non_target zu unterscheiden
+(- logfiles)

@@ -1,5 +1,7 @@
 int target_color;
 int non_target_color;
+
+tracker.send_message("instruction.jpg");
 trial_instruction.present();
 
 ########Test###############
@@ -9,6 +11,7 @@ trial_instruction.present();
 #create_block(2,4);
 #present_block(target_color, non_target_color,"test","");
 
+tracker.send_message("pause.jpg");
 #pause(30);
 
 ########Section 1###########
@@ -39,6 +42,7 @@ present_block(target_color, non_target_color,"block2","B");
 create_block(40,0);
 present_block(target_color, non_target_color,"block2","E");
 
+tracker.send_message("pause.jpg");
 pause(180);
 
 ########Section 2###########
@@ -69,6 +73,7 @@ present_block(target_color, non_target_color,"block2","C");
 create_block(0,40);
 present_block(target_color, non_target_color,"block1","D");
 
+tracker.send_message("pause.jpg");
 pause(180);
 
 ########Section 3###########
@@ -99,4 +104,5 @@ present_block(target_color, non_target_color,"block2","B");
 create_block(40,0);
 present_block(target_color, non_target_color,"block2","E");
 
+tracker.send_message("instruction_end.jpg");
 trial_instruction_end.present();

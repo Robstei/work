@@ -92,81 +92,119 @@ begin
 	end;
 	
 
-	#if stimulus has a target in will always be the first stimulus part.
-	# -13370 for x and y means no target
-	if (mode == "different_non_stimuli")
+	#if stimulus has a target it will always be the first stimulus part.
+	#if a stimulus in a non target the target circle will still be set here but just not presented by present_block()
+	
+	#only non target circles change posiition
+	if (mode == "different_non_targets")
 	then
 		loop int stimuli = 1 until stimuli > array_current_block_target.count()
 		begin
-			# set target value of stimuli
+			
+			# set target value of stimuli	
+			array_current_block_positions[stimuli][1][1] = 0;
+			array_current_block_positions[stimuli][1][2] = 0;	
+			
+			# set the non_targets
+			loop int circle_count = 1 until circle_count > non_targets_in_stimulus
+			begin
+				int potential_x = random(min_x_coordinate, max_x_coordinate);
+				int potential_y = random(min_y_coordinate, max_y_coordinate);
+				bool valid_point = true;
+				loop int circle_to_compare_index = 1 until circle_to_compare_index > circle_count
+				begin
+					if (!(valid_points(potential_x, potential_y,
+						array_current_block_positions[stimuli][circle_to_compare_index][1],
+						array_current_block_positions[stimuli][circle_to_compare_index][2])))
+					then
+						valid_point = false;
+						break;
+					end;
+					circle_to_compare_index = circle_to_compare_index + 1;
+				end;
+				if (valid_point)
+				then
+					array_current_block_positions[stimuli][circle_count + 1][1] = potential_x;
+					array_current_block_positions[stimuli][circle_count + 1][2] = potential_y;
+					circle_count = circle_count + 1;
+				end;
+			end;
+			stimuli = stimuli + 1;
+		end;
+	elseif (mode == "different_targets")
+	then
+		loop int circle_count = 1 until circle_count > non_targets_in_stimulus
+		begin
+			int potential_x = random(min_x_coordinate, max_x_coordinate);
+			int potential_y = random(min_y_coordinate, max_y_coordinate);
+			bool valid_point = true;
+			loop int circle_to_compare_index = 2 until circle_to_compare_index > circle_count
+			begin
+				if (!(valid_points(potential_x, potential_y,
+					array_current_block_positions[1][circle_to_compare_index][1],
+					array_current_block_positions[1][circle_to_compare_index][2])))
+				then
+					valid_point = false;
+					break;
+				end;
+				circle_to_compare_index = circle_to_compare_index + 1;
+			end;
+			if (valid_point)
+			then
+				array_current_block_positions[1][circle_count + 1][1] = potential_x;
+				array_current_block_positions[1][circle_count + 1][2] = potential_y;
+				circle_count = circle_count + 1;
+			end;
+		end;
 		
-			int tmp_x = random(min_x_coordinate, max_x_coordinate);
-			int tmp_y = random(min_y_coordinate, max_y_coordinate);			
-			array_current_block_positions[stimuli][1][1] = tmp_x;
-			array_current_block_positions[stimuli][1][2] = tmp_y;	
-			
-			# set the non_targets
-			loop int circle_count = 1 until circle_count > non_targets_in_stimulus
+		#copy the non targets in the all the stimuli
+		loop int stimuli = 2 until stimuli > array_current_block_target.count()
+		begin
+			loop int non_target_circle = 1 until non_target_circle > non_targets_in_stimulus
 			begin
-				int potential_x = random(min_x_coordinate, max_x_coordinate);
-				int potential_y = random(min_y_coordinate, max_y_coordinate);
-				bool valid_point = true;
-				loop int circles_to_compare = 1 until circles_to_compare > array_current_block_positions[stimuli].count()
-				begin
-					if (!(valid_points(potential_x, potential_y,
-						array_current_block_positions[stimuli][circles_to_compare][1],
-						array_current_block_positions[stimuli][circles_to_compare][2])))
-					then
-						valid_point = false;
-						break;
-					end;
-					circles_to_compare = circles_to_compare + 1;
-				end;
-				if (valid_point)
-				then
-					array_current_block_positions[stimuli][circle_count + 1][1] = potential_x;
-					array_current_block_positions[stimuli][circle_count + 1][2] = potential_y;
-					circle_count = circle_count + 1;
-				end;
+				array_current_block_positions[stimuli][non_target_circle + 1][1] = array_current_block_positions[1][non_target_circle + 1][1];
+				array_current_block_positions[stimuli][non_target_circle + 1][2] = array_current_block_positions[1][non_target_circle + 1][2];
+				non_target_circle = non_target_circle + 1;
 			end;
 			stimuli = stimuli + 1;
 		end;
-	elseif (mode == "different_stimuli")
-	then
+		
 		loop int stimuli = 1 until stimuli > array_current_block_target.count()
 		begin
 			# set target value of stimuli
 			int tmp_x = random(min_x_coordinate, max_x_coordinate);
 			int tmp_y = random(min_y_coordinate, max_y_coordinate);			
-			array_current_block_positions[stimuli][1][1] = tmp_x;
-			array_current_block_positions[stimuli][1][2] = tmp_y;	
 			
-			# set the non_targets
-			loop int circle_count = 1 until circle_count > non_targets_in_stimulus
+			bool valid_target;
+			loop int circle_to_compare_index = 1 until circle_to_compare_index > non_targets_in_stimulus
 			begin
-				int potential_x = random(min_x_coordinate, max_x_coordinate);
-				int potential_y = random(min_y_coordinate, max_y_coordinate);
-				bool valid_point = true;
-				loop int circles_to_compare = 1 until circles_to_compare > array_current_block_positions[stimuli].count()
-				begin
-					if (!(valid_points(potential_x, potential_y,
-						array_current_block_positions[stimuli][circles_to_compare][1],
-						array_current_block_positions[stimuli][circles_to_compare][2])))
-					then
-						valid_point = false;
-						break;
-					end;
-					circles_to_compare = circles_to_compare + 1;
-				end;
-				if (valid_point)
+				valid_target = true;
+				if (!(valid_points(tmp_x, tmp_y,
+					array_current_block_positions[stimuli][circle_to_compare_index + 1][1],
+					array_current_block_positions[stimuli][circle_to_compare_index + 1][2])))
 				then
-					array_current_block_positions[stimuli][circle_count + 1][1] = potential_x;
-					array_current_block_positions[stimuli][circle_count + 1][2] = potential_y;
-					circle_count = circle_count + 1;
+					valid_target = false;
+					break;
 				end;
+				circle_to_compare_index = circle_to_compare_index + 1;
 			end;
-			stimuli = stimuli + 1;
+			
+			if (valid_target)
+			then
+				array_current_block_positions[stimuli][1][1] = tmp_x;
+				array_current_block_positions[stimuli][1][2] = tmp_y;
+				stimuli = stimuli + 1;
+			end;
 		end;
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	elseif (mode == "different_both")
 	then
 		loop int stimuli = 1 until stimuli > array_current_block_target.count()
@@ -183,16 +221,16 @@ begin
 				int potential_x = random(min_x_coordinate, max_x_coordinate);
 				int potential_y = random(min_y_coordinate, max_y_coordinate);
 				bool valid_point = true;
-				loop int circles_to_compare = 1 until circles_to_compare > array_current_block_positions[stimuli].count()
+				loop int circle_to_compare_index = 1 until circle_to_compare_index > circle_count
 				begin
 					if (!(valid_points(potential_x, potential_y,
-						array_current_block_positions[stimuli][circles_to_compare][1],
-						array_current_block_positions[stimuli][circles_to_compare][2])))
+						array_current_block_positions[stimuli][circle_to_compare_index][1],
+						array_current_block_positions[stimuli][circle_to_compare_index][2])))
 					then
 						valid_point = false;
 						break;
 					end;
-					circles_to_compare = circles_to_compare + 1;
+					circle_to_compare_index = circle_to_compare_index + 1;
 				end;
 				if (valid_point)
 				then

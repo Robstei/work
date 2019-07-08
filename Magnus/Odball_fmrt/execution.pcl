@@ -1,10 +1,8 @@
 
 calculate_screen_boundaries();
-term.print_line(min_x_coordinate);
-term.print_line(min_y_coordinate);
-term.print_line(max_x_coordinate);
-term.print_line(max_y_coordinate);
-create_block ("different_both", 10, 30);
+create_block ("different_targets", 10, 30);
+term.print_line(array_current_block_positions);
 present_block();
 #term.print_line(array_current_block_positions);
 #term.print_line(array_current_block_target);
+

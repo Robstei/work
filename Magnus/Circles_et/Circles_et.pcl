@@ -1,3 +1,5 @@
+include "eye_tracker_connection.pcl";
+
 #global variables
 array<int> array_current_block[0];
 
@@ -131,7 +133,9 @@ begin
 	loop int i = 1 until i >  array_current_block.count()
 	begin
 		string code = block + ";" + string(i) + ";" + block_type;
+		string eye_tracker_message = block_type;
 		trial_cross.set_duration(random(500,1000));
+		tracker.send_message("cross.jpg");
 		trial_cross.present();
 		
 		se_stimuli.set_target_button(0);
@@ -141,17 +145,19 @@ begin
 			change_color(target_color);
 			se_stimuli.set_target_button(1);
 			code = code + ";" + string(target_color) + ";" + "target";
+			eye_tracker_message = eye_tracker_message + "_target";
 		else
 			change_color(non_target_color);
 			se_stimuli.set_response_active(true);
 			code = code + ";" + string(non_target_color) + ";" + "non_target";
+			eye_tracker_message = eye_tracker_message + "_non_target";
 		end;
 		
 		se_stimuli.set_event_code(code);
+		end_message(eye_tracker_message);
 		trial_stimuli.present();
 		i = i + 1;
 	end;
-	
 end;
 
 include "execution.pcl";

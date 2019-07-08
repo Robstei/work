@@ -3,7 +3,7 @@ response_matching = simple_matching;
 active_buttons = 2;
 no_logfile = false;
 
-begin;
+begin; 
 
 trial {
 	trial_type = first_response;
@@ -14,7 +14,7 @@ trial {
 		} eg_stimuli;
 		x=0;y=0;
 	} picture_stimuli;
-} trial_stimuli;
+} trial_stimuli; 
 
 trial {
 	trial_type = fixed;
