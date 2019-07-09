@@ -1,8 +1,0 @@
-
-calculate_screen_boundaries();
-create_block ("different_targets", 10, 30);
-term.print_line(array_current_block_positions);
-present_block();
-#term.print_line(array_current_block_positions);
-#term.print_line(array_current_block_target);
-

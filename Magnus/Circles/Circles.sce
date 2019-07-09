@@ -8,7 +8,7 @@ default_text_color = 255, 255, 255;
 begin;
 
 trial {
-	trial_type = first_response;
+	trial_type = fixed;
 	trial_duration = 700;
 
 	stimulus_event {

@@ -1,6 +1,6 @@
 <ver>20.3</ver>
-<efn>C:\work\Magnus\Odball_fmrt\Odball_fmrt.exp</efn>
-<author></author>
+<efn>C:\work\Magnus\Oddball_fmrt\Oddball_fmrt.exp</efn>
+<author>Robin Steil</author>
 <con>
 <pause>P</pause>
 <pause_code></pause_code>
@@ -40,14 +40,14 @@
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\work\Magnus\Odball_fmrt</dsd>
+<dsd>C:\work\Magnus\Oddball_fmrt</dsd>
 <dwm>0</dwm>
 <dxv>8</dxv>
 <efs>
-<filename>C:\work\Magnus\Odball_fmrt\Odball_fmrt.sce</filename>
-<filename>C:\work\Magnus\Odball_fmrt\Odball_fmrt.pcl</filename>
-<filename>C:\work\Magnus\Odball_fmrt\data.pcl</filename>
-<filename>C:\work\Magnus\Odball_fmrt\execution.pcl</filename>
+<filename>C:\work\Magnus\Oddball_fmrt\data.pcl</filename>
+<filename>C:\work\Magnus\Oddball_fmrt\execution.pcl</filename>
+<filename>C:\work\Magnus\Oddball_fmrt\Oddball_fmrt.pcl</filename>
+<filename>C:\work\Magnus\Oddball_fmrt\Oddball_fmrt.sce</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -209,7 +209,7 @@
 <idt>0</idt>
 <ilc>0</ilc>
 <ip_chans></ip_chans>
-<lfd>C:\work\Magnus\Odball_fmrt</lfd>
+<lfd>C:\work\Magnus\Oddball_fmrt\logfiles</lfd>
 <lnb>2</lnb>
 <lno>4</lno>
 <log>
@@ -237,13 +237,31 @@
 </lslset>
 <maxpv></maxpv>
 <minpv></minpv>
-<nam></nam>
+<nam>Odball_fmrt</nam>
 <one_processor>2</one_processor>
 <oports></oports>
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
 <plat>1</plat>
-<port_devices></port_devices>
+<port_devices>
+<device>
+<parameters>
+<cts>0</cts>
+<dsrin>0</dsrin>
+<dsrout>0</dsrout>
+<dtr>disable</dtr>
+<rts>disable</rts>
+<set_fifo>1</set_fifo>
+<spd></spd>
+<spp></spp>
+<spr></spr>
+<sps></sps>
+</parameters>
+<piai>COM1</piai>
+<pian>Serial Port</pian>
+<pihpn>COM1</pihpn>
+</device>
+</port_devices>
 <rdl>
 <device>
 <abs_axis>
@@ -295,7 +313,7 @@
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
-<name>Standard PS/2 Keyboard</name>
+<name>HID Keyboard Device</name>
 </device>
 <device>
 <abs_axis>
@@ -337,7 +355,22 @@
 <dx_device_type>0</dx_device_type>
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
-<name>Synaptics Pointing Device</name>
+<name>HID-compliant mouse</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>HyperX Virtual Surround Sound</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>ndPoint1 Inte</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>ndPoint1 Inte 1</name>
 </device>
 <device>
 <axis>
@@ -653,21 +686,8 @@
 <sfn>all_scenarios</sfn>
 </sce>
 <sce>
-<idv>
-<device_type>3</device_type>
-<dx_device_type>19</dx_device_type>
-<ibn>LEER</ibn>
-<ibn>NACH-OBEN</ibn>
-<idn>Tastatur</idn>
-<index>0</index>
-<index>1</index>
-<label></label>
-<label></label>
-<offset>57</offset>
-<offset>200</offset>
-</idv>
 <overrides></overrides>
-<sfn>C:\work\Magnus\Odball_fmrt\Odball_fmrt.sce</sfn>
+<sfn>C:\work\Magnus\Oddball_fmrt\Oddball_fmrt.sce</sfn>
 </sce>
 <sct>
 <capture_device>

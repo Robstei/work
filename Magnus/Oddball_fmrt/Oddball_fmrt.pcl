@@ -196,15 +196,6 @@ begin
 				stimuli = stimuli + 1;
 			end;
 		end;
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	elseif (mode == "different_both")
 	then
 		loop int stimuli = 1 until stimuli > array_current_block_target.count()
@@ -236,7 +227,6 @@ begin
 				then
 					array_current_block_positions[stimuli][circle_count + 1][1] = potential_x;
 					array_current_block_positions[stimuli][circle_count + 1][2] = potential_y;
-					term.print_line("Circle Count: " + string(circle_count) + " X: " + string(potential_x) + " Y: " + string(potential_y));
 					circle_count = circle_count + 1;
 				end;
 			end;
@@ -245,10 +235,12 @@ begin
 	end;
 end;
 
-sub present_block
+sub present_block (string code)
 begin
 	loop int current_stimulus = 1 until current_stimulus > array_current_block_target.count()
 	begin
+		trial_cross.set_duration(random(500,100));
+		trial_cross.present();
 		picture picture_main = new picture();
 		trial current_trial = new trial();
 		
@@ -278,21 +270,15 @@ begin
 			cirlces_per_stimulus = cirlces_per_stimulus + 1;
 		end;
 		current_trial.add_stimulus_event(picture_main);
-		current_trial.get_stimulus_event(1).set_duration(10000);
-		current_trial.set_duration(10000);
-		current_trial.set_type(trial::FIRST_RESPONSE);
+		current_trial.get_stimulus_event(1).set_duration(200);
+		string event_code = code +";" + string(current_stimulus);
+		current_trial.get_stimulus_event(1).set_event_code("event_code");
+		current_trial.set_duration(2000);
+		current_trial.set_type(trial::FIXED);
 		current_trial.present();
 		current_stimulus = current_stimulus + 1;
 	end;
 end;
-
-
-
-
-
-
-
-
 
 include "data.pcl"
 include "execution.pcl"
