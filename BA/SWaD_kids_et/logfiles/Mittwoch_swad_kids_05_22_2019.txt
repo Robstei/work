@@ -1,5 +1,0 @@
-subjectid	configuration	conditionid	trialid	form	color	seperateAttention	target	time_stimulus	code	time_reaction	time_diff	rm_type
-
-Mittwoch	1	selective	1	moon	3	2	0	74845.4		-1	-74846.4	rm_other
-Mittwoch	1	selective	1	bell	3	2	2	79048.9		-1	-79049.9	rm_miss
-

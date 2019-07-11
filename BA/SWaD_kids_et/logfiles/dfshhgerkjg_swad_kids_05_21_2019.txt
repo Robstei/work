@@ -1,5 +1,0 @@
-subjectid	configuration	conditionid	trialid	form	color	seperateAttention	target	time_stimulus	code	time_reaction	time_diff	rm_type
-
-dfshhgerkjg	1	selective	1	star	3	2	0	39599.5		-1	-39600.5	rm_other
-dfshhgerkjg	1	selective	1	bell	2	2	2	43569.4		-1	-43570.4	rm_miss
-

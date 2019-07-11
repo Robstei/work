@@ -1,0 +1,36 @@
+Scenario - Swad_kids_et
+Logfile written - 05/21/2019 16:39:00
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+test1	0	Response	3								39087	39087	0
+test1	0	Response	3								144337	144337	0
+test1	1	Response	3								397406	190903	0
+test1	2	Response	3								437461	39633	0
+test1	3	Response	3								738978	301117	0
+test1	5	Picture	1;test;1;heart;5;1;0	1	test	1	heart	5	1	0	749620	0	1	2669	1	0	2500	other	0
+test1	7	Picture	1;test;1;star;1;1;1	1	test	1	star	1	1	1	779311	0	1	2669	1	0	2500	miss	0
+test1	10	Picture	1;test;1;moon;2;1;0	1	test	1	moon	2	1	0	825182	0	1	2669	1	0	2500	other	0
+test1	12	Picture	1;test;1;bell;1;1;1	1	test	1	bell	1	1	1	848869	0	1	2669	1	0	2500	miss	0
+test1	15	Picture	1;test;1;bell;4;1;0	1	test	1	bell	4	1	0	910920	0	1	2669	1	0	2500	other	0
+test1	17	Picture	1;test;1;heart;4;1;0	1	test	1	heart	4	1	0	950787	0	1	2669	1	0	2500	other	0
+test1	19	Picture	1;test;1;moon;1;1;1	1	test	1	moon	1	1	1	982479	0	1	2669	1	0	2500	miss	0
+test1	22	Picture	1;test;1;bell;6;1;0	1	test	1	bell	6	1	0	1034189	0	1	2669	1	0	2500	other	0
+test1	24	Picture	1;test;1;star;6;1;0	1	test	1	star	6	1	0	1075723	0	1	2669	1	0	2500	other	0
+test1	26	Picture	1;test;1;heart;1;1;1	1	test	1	heart	1	1	1	1111420	0	1	2669	1	0	2500	miss	0
+test1	28	Quit									2676199	1525581	NA
+
+
+{
+   "app": "Presentation Version 20.1 Build 12.04.17",
+   "device": "Dell Inc. Latitude 3580",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_et.sce",
+   "subject": "test1",
+   "timestamp": "2019/05/21 14:34:29 GMT"
+}

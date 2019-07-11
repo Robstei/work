@@ -1,0 +1,29 @@
+subjectid	configuration	conditionid	trialid	form	color	seperateAttention	target	time_stimulus	code	time_reaction	time_diff	rm_type
+
+robin187	1	selective	1	flower	6	2	0	31626.1		-1	-31627.1	rm_other
+robin187	1	selective	1	circle	5	2	0	34812.1		-1	-34813.1	rm_other
+robin187	1	selective	1	bell	2	2	2	38982.3		-1	-38983.3	rm_miss
+robin187	1	selective	1	moon	6	2	0	42134.8		-1	-42135.8	rm_other
+robin187	1	selective	1	star	1	2	0	45921.3		-1	-45922.3	rm_other
+robin187	1	selective	1	bell	1	2	2	49908	2	51690.6	1782.6	rm_hit
+robin187	1	selective	1	star	2	2	0	54061.4	2	54298.5	237.1	rm_false_alarm
+robin187	1	selective	1	flower	3	2	0	56680.2	2	56922.3	242.1	rm_false_alarm
+robin187	1	selective	1	moon	1	2	0	57531	2	57930.3	399.3	rm_false_alarm
+robin187	1	selective	1	flower	4	2	0	59515.9	2	59738.4	222.5	rm_false_alarm
+robin187	1	selective	1	bell	5	2	2	62101.4	2	62314.5	213.1	rm_hit
+robin187	1	selective	1	star	6	2	0	64486.7	2	64762.3	275.6	rm_false_alarm
+robin187	1	selective	1	bell	3	2	2	66922.1	2	66954.4	32.3	rm_hit
+robin187	1	selective	1	star	3	2	0	67522.6	2	67706.5	183.9	rm_false_alarm
+robin187	1	selective	1	circle	3	2	0	69674.3	2	69850.4	176.1	rm_false_alarm
+robin187	1	selective	1	bell	2	2	2	71826.1	2	72138.6	312.5	rm_hit
+robin187	1	selective	1	moon	4	2	0	73494.2	2	73786.4	292.2	rm_false_alarm
+robin187	1	selective	1	bell	6	2	2	76146.4	2	76282.6	136.2	rm_hit
+robin187	1	selective	1	moon	3	2	0	78648.4	2	78970.2	321.8	rm_false_alarm
+robin187	1	selective	1	flower	2	2	0	80917	2	80970.3	53.3	rm_false_alarm
+robin187	1	selective	1	flower	1	2	0	81934.5	2	81962.3	27.8	rm_false_alarm
+robin187	1	selective	1	star	4	2	0	83535.8	2	83594.7	58.9	rm_false_alarm
+robin187	1	selective	1	circle	2	2	0	85554.2	2	85802.3	248.1	rm_false_alarm
+robin187	1	selective	1	heart	3	2	0	86571.6	2	86602.2	30.6	rm_false_alarm
+robin187	1	selective	1	heart	2	2	0	87555.8	2	87674.5	118.7	rm_false_alarm
+robin187	1	selective	1	bell	4	2	2	88840.2	2	88986.3	146.1	rm_hit
+

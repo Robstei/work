@@ -1,1 +1,0 @@
-trial	category	order	stim	index	dotside	dotchoice	stimonset	response	rt
