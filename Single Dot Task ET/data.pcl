@@ -1,0 +1,54 @@
+# create indiviual file for subject
+
+array<string> array_data[0][0];
+
+loop int i = 1 until i > stimulus_manager.stimulus_count()
+begin
+	stimulus_data stimulus_data_subject = stimulus_manager.get_stimulus_data(i);
+	string event_code = stimulus_data_subject.event_code();
+	array <string> array_metadata[0];
+	event_code.split(";", array_metadata);
+	if(array_metadata[1] == "test")
+	then
+		continue;
+	end;
+	array<string> array_tmp_stimulus_data[0];
+	
+	array_tmp_stimulus_data.add(logfile.subject());
+	array_tmp_stimulus_data.add(string(stimulus_data_subject.reaction_time()));
+	array_tmp_stimulus_data.add(string(stimulus_data_subject.type()));
+	array_tmp_stimulus_data.add(array_metadata[1]);
+	array_tmp_stimulus_data.add(array_metadata[2]);
+	array_tmp_stimulus_data.add(array_metadata[3]);
+	array_tmp_stimulus_data.add(array_metadata[4]);
+	array_tmp_stimulus_data.add(array_metadata[5]);
+	array_data.add(array_tmp_stimulus_data);
+	i = i + 1;
+end;
+
+output_file single = new output_file();
+if(logfile.subject() != "")
+then
+	single.open_append("singles/" + logfile.subject() + ".txt");
+else
+	single.open_append("singles/no_name.txt");
+end;
+	string col_headings = "ID,reaction_time,reaction_type,block,stimulus,block_type,color,taget/non_target";
+	single.print_line(col_headings);
+	loop int row = 1 until row > array_data.count()
+	begin
+		string string_row;
+		loop int col = 1 until col > array_data[row].count()
+		begin
+			string_row = string_row + array_data[row][col];
+			if (col != array_data[row].count())
+			then
+				string_row = string_row + ","
+			end;
+			col = col + 1;
+		end;
+		single.print_line(string_row);
+		row = row + 1;
+	end;
+	
+single.close();

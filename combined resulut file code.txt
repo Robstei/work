@@ -1,0 +1,24 @@
+output_file combined_results = new output_file();
+
+if (combined_results.open("combined_results.txt", 0, false))
+then
+	combined_results.print_line("ID,average_rt");
+else
+	combined_results.open_append("combined_results.txt");
+end;
+
+####calculate average reaction time
+array<int> array_rt[0];
+loop int i = 1 until i > array_data.count()
+begin
+	if int(array_data[i][2]) > 0
+	then
+		array_rt.add(int(array_data[i][2]));
+	end;
+	i = i + 1;
+end;
+
+double average_rt = arithmetic_mean(array_rt);
+string subject_data = logfile.subject() + "," + string(average_rt);
+combined_results.print_line(subject_data);
+

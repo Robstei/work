@@ -1,0 +1,301 @@
+array<int> array_current_block_positions[0][0][0];
+array<int> array_current_block_target[0];
+
+int offset_from_border = parameter_manager.get_int("Distance from Screen Border",150);
+int non_targets_in_stimulus = parameter_manager.get_int("Non Targets in Stimulus",6);
+int circle_diameter = parameter_manager.get_int("Circle Diameter", 100);
+int circle_buffer = parameter_manager.get_int("Circle Buffer", 20);
+int min_x_coordinate;
+int max_x_coordinate;
+int min_y_coordinate;
+int max_y_coordinate;
+
+# presentation has (0/0) in the middle of the screen,
+# hence the the boundaries for a screen with width x presentetiona are min = -(x/2) and max x/2
+# same for height. Note that x goes from left to right, but y goes from bottom to top. 
+# Border to not have the circles touch the border
+sub calculate_screen_boundaries
+begin
+	int display_width = int(display_device.width());
+	int display_height = int(display_device.height());
+	min_x_coordinate = -(display_width / 2) + offset_from_border;
+	max_x_coordinate = (display_width / 2) - offset_from_border;
+	min_y_coordinate = -(display_height / 2) + offset_from_border;
+	max_y_coordinate = (display_height / 2) - offset_from_border;
+
+end;
+
+
+
+sub pause (int time_in_seconds)
+begin
+	loop int start_time = clock.time()
+	until clock.time() > start_time + time_in_seconds * 1000
+	begin
+		text_pause.set_caption("Pause \nIn " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " Sekunden geht es weiter", true);
+		trial_pause.present();
+	end;
+	trial_pause_button.present();
+end;
+
+sub bool validate
+begin
+	return true;
+end;
+
+sub present_block_instruction (int target_color, int non_target_color)
+begin
+	string string_instruction = "Ihre Aufgabe:\n\nBitte drücken Sie mit Ihrem Zeigefinger, wenn Sie einen ";
+	
+	string_instruction = string_instruction + color_to_string(target_color);
+	
+	string_instruction = string_instruction + " Kreis sehen. Drücken Sie bitte nicht, wenn Sie einen ";
+	
+	string_instruction = string_instruction + color_to_string(non_target_color);
+	
+	string_instruction = string_instruction + " Kreis sehen.\n\nStarten Sie die Aufgabe durch drücken der Taste.";
+	
+	text_instruction_block.set_caption(string_instruction);
+	text_instruction_block.redraw();
+	trial_instruction_block.present();
+end;
+
+# returns true if distance between points is big enough for them to not overplap
+sub bool valid_points (int x_first_point, int y_first_point, int x_second_point, int y_second_point)
+begin
+	if (abs(x_first_point - x_second_point) < (circle_buffer + circle_diameter) && abs(y_first_point - y_second_point) < (circle_buffer + circle_diameter))
+	then
+		return false;
+	end;
+	return true;
+end;
+
+sub create_block (string mode, int targets, int non_targets)
+begin	
+	array_current_block_target.resize(0);
+	loop int i = 1 
+	until i > targets
+	begin
+		array_current_block_target.add(1);
+		i = i + 1;
+	end;
+	
+	loop int i = 1 
+	until i > non_targets
+	begin
+		array_current_block_target.add(0);
+		i = i + 1;
+	end;
+	
+	array_current_block_target.shuffle();
+	loop until validate()
+	begin
+		array_current_block_target.shuffle();
+	end;
+	
+	
+	#reset array
+	array_current_block_positions.resize(0);
+	array_current_block_positions.resize(array_current_block_target.count());
+	loop int i = 1 until i > array_current_block_positions.count()
+	begin
+		array_current_block_positions[i].resize(1 + non_targets_in_stimulus);
+		loop int j = 1 until j > array_current_block_positions[i].count()
+		begin
+			array_current_block_positions[i][j].resize(2);
+			j = j + 1;
+		end;
+		i = i + 1;
+	end;
+	
+
+	#if stimulus has a target it will always be the first stimulus part.
+	#if a stimulus in a non target the target circle will still be set here but just not presented by present_block()
+	
+	#only non target circles change posiition
+	if (mode == "different_non_targets")
+	then
+		loop int stimuli = 1 until stimuli > array_current_block_target.count()
+		begin
+			
+			# set target value of stimuli	
+			array_current_block_positions[stimuli][1][1] = 0;
+			array_current_block_positions[stimuli][1][2] = 0;	
+			
+			# set the non_targets
+			loop int circle_count = 1 until circle_count > non_targets_in_stimulus
+			begin
+				int potential_x = random(min_x_coordinate, max_x_coordinate);
+				int potential_y = random(min_y_coordinate, max_y_coordinate);
+				bool valid_point = true;
+				loop int circle_to_compare_index = 1 until circle_to_compare_index > circle_count
+				begin
+					if (!(valid_points(potential_x, potential_y,
+						array_current_block_positions[stimuli][circle_to_compare_index][1],
+						array_current_block_positions[stimuli][circle_to_compare_index][2])))
+					then
+						valid_point = false;
+						break;
+					end;
+					circle_to_compare_index = circle_to_compare_index + 1;
+				end;
+				if (valid_point)
+				then
+					array_current_block_positions[stimuli][circle_count + 1][1] = potential_x;
+					array_current_block_positions[stimuli][circle_count + 1][2] = potential_y;
+					circle_count = circle_count + 1;
+				end;
+			end;
+			stimuli = stimuli + 1;
+		end;
+	elseif (mode == "different_targets")
+	then
+		loop int circle_count = 1 until circle_count > non_targets_in_stimulus
+		begin
+			int potential_x = random(min_x_coordinate, max_x_coordinate);
+			int potential_y = random(min_y_coordinate, max_y_coordinate);
+			bool valid_point = true;
+			loop int circle_to_compare_index = 2 until circle_to_compare_index > circle_count
+			begin
+				if (!(valid_points(potential_x, potential_y,
+					array_current_block_positions[1][circle_to_compare_index][1],
+					array_current_block_positions[1][circle_to_compare_index][2])))
+				then
+					valid_point = false;
+					break;
+				end;
+				circle_to_compare_index = circle_to_compare_index + 1;
+			end;
+			if (valid_point)
+			then
+				array_current_block_positions[1][circle_count + 1][1] = potential_x;
+				array_current_block_positions[1][circle_count + 1][2] = potential_y;
+				circle_count = circle_count + 1;
+			end;
+		end;
+		
+		#copy the non targets in the all the stimuli
+		loop int stimuli = 2 until stimuli > array_current_block_target.count()
+		begin
+			loop int non_target_circle = 1 until non_target_circle > non_targets_in_stimulus
+			begin
+				array_current_block_positions[stimuli][non_target_circle + 1][1] = array_current_block_positions[1][non_target_circle + 1][1];
+				array_current_block_positions[stimuli][non_target_circle + 1][2] = array_current_block_positions[1][non_target_circle + 1][2];
+				non_target_circle = non_target_circle + 1;
+			end;
+			stimuli = stimuli + 1;
+		end;
+		
+		loop int stimuli = 1 until stimuli > array_current_block_target.count()
+		begin
+			# set target value of stimuli
+			int tmp_x = random(min_x_coordinate, max_x_coordinate);
+			int tmp_y = random(min_y_coordinate, max_y_coordinate);			
+			
+			bool valid_target;
+			loop int circle_to_compare_index = 1 until circle_to_compare_index > non_targets_in_stimulus
+			begin
+				valid_target = true;
+				if (!(valid_points(tmp_x, tmp_y,
+					array_current_block_positions[stimuli][circle_to_compare_index + 1][1],
+					array_current_block_positions[stimuli][circle_to_compare_index + 1][2])))
+				then
+					valid_target = false;
+					break;
+				end;
+				circle_to_compare_index = circle_to_compare_index + 1;
+			end;
+			
+			if (valid_target)
+			then
+				array_current_block_positions[stimuli][1][1] = tmp_x;
+				array_current_block_positions[stimuli][1][2] = tmp_y;
+				stimuli = stimuli + 1;
+			end;
+		end;
+	elseif (mode == "different_both")
+	then
+		loop int stimuli = 1 until stimuli > array_current_block_target.count()
+		begin
+			# set target value of stimuli
+			int tmp_x = random(min_x_coordinate, max_x_coordinate);
+			int tmp_y = random(min_y_coordinate, max_y_coordinate);			
+			array_current_block_positions[stimuli][1][1] = tmp_x;
+			array_current_block_positions[stimuli][1][2] = tmp_y;	
+			
+			# set the non_targets
+			loop int circle_count = 1 until circle_count > non_targets_in_stimulus
+			begin
+				int potential_x = random(min_x_coordinate, max_x_coordinate);
+				int potential_y = random(min_y_coordinate, max_y_coordinate);
+				bool valid_point = true;
+				loop int circle_to_compare_index = 1 until circle_to_compare_index > circle_count
+				begin
+					if (!(valid_points(potential_x, potential_y,
+						array_current_block_positions[stimuli][circle_to_compare_index][1],
+						array_current_block_positions[stimuli][circle_to_compare_index][2])))
+					then
+						valid_point = false;
+						break;
+					end;
+					circle_to_compare_index = circle_to_compare_index + 1;
+				end;
+				if (valid_point)
+				then
+					array_current_block_positions[stimuli][circle_count + 1][1] = potential_x;
+					array_current_block_positions[stimuli][circle_count + 1][2] = potential_y;
+					circle_count = circle_count + 1;
+				end;
+			end;
+			stimuli = stimuli + 1;
+		end;
+	end;
+end;
+
+sub present_block (string code)
+begin
+	loop int current_stimulus = 1 until current_stimulus > array_current_block_target.count()
+	begin
+		trial_cross.set_duration(random(500,100));
+		trial_cross.present();
+		picture picture_main = new picture();
+		trial current_trial = new trial();
+		
+		loop int cirlces_per_stimulus = 1 until cirlces_per_stimulus > non_targets_in_stimulus + 1
+		begin
+			#continue if non_target
+			if (cirlces_per_stimulus == 1 && array_current_block_target[current_stimulus] == 0)
+			then
+				cirlces_per_stimulus = cirlces_per_stimulus + 1;
+				continue;
+			end;
+			
+			ellipse_graphic tmp_eg = new ellipse_graphic();
+			if (cirlces_per_stimulus == 1)
+			then
+				tmp_eg.set_color(255,0,0,255);
+			else
+				tmp_eg.set_color(0,255,0,255);
+			end;
+			tmp_eg.set_dimensions(circle_diameter,circle_diameter);
+			tmp_eg.set_size(circle_diameter,circle_diameter);
+			tmp_eg.redraw();
+			picture_main.add_part(tmp_eg, 
+						array_current_block_positions[current_stimulus][cirlces_per_stimulus][1],
+						array_current_block_positions[current_stimulus][cirlces_per_stimulus][2]);
+			
+			cirlces_per_stimulus = cirlces_per_stimulus + 1;
+		end;
+		current_trial.add_stimulus_event(picture_main);
+		current_trial.get_stimulus_event(1).set_duration(200);
+		string event_code = code +";" + string(current_stimulus);
+		current_trial.get_stimulus_event(1).set_event_code("event_code");
+		current_trial.set_duration(2000);
+		current_trial.set_type(trial::FIXED);
+		current_trial.present();
+		current_stimulus = current_stimulus + 1;
+	end;
+end;
+
+include "data.pcl"
+include "execution.pcl"
