@@ -1045,6 +1045,7 @@ begin_pcl;
 		##########################Condition 3########################################
 
 			pause_minutes(2);
+			
 			present_information(array_information[language][5], 30);
 			make_and_present_block(2, -1, array_color_indexes, 6, 8, 18, false, "selective", "1");
 			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2");

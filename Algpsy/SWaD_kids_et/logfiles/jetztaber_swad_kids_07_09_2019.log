@@ -1,0 +1,125 @@
+Scenario - Swad_kids_et
+Logfile written - 07/09/2019 18:39:32
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+jetztaber	0	Response	3								44732	44732	3767
+jetztaber	0	Response	3								75135	75135	0
+jetztaber	0	Response	3								188103	188103	73
+jetztaber	1	Response	3								261454	11079	0
+jetztaber	2	Response	3								272573	10689	0
+jetztaber	3	Response	3								288734	15674	0
+jetztaber	4	Response	3								290894	1654	0
+jetztaber	5	Picture	1;test;1;circle;6;1;0	1	test	1	circle	6	1	0	299916	0	1	2669	1	0	2500	other	0
+jetztaber	6	Response	3								323293	5029	0
+jetztaber	6	Response	3								326173	7909	0
+jetztaber	6	Response	3								329614	11350	0
+jetztaber	6	Response	3								332813	14549	0
+jetztaber	7	Picture	1;test;1;star;1;1;1	1	test	1	star	1	1	1	335779	0	1	2669	1	0	2500	incorrect	14
+jetztaber	7	Response	2								347293	11515	0
+jetztaber	8	Response	3								361294	13338	0
+jetztaber	8	Response	3								364654	16698	0
+jetztaber	8	Response	3								366894	18938	0
+jetztaber	9	Response	3								368814	508	0
+jetztaber	15	Response	3								375774	462	0
+jetztaber	266	Response	3								682334	13112	0
+jetztaber	267	Response	3								698573	15506	0
+jetztaber	268	Response	3								701133	2053	0
+jetztaber	268	Response	3								703694	4613	0
+jetztaber	268	Response	3								706173	7093	0
+jetztaber	268	Response	3								706333	7252	0
+jetztaber	269	Picture	1;selective;1;flower;1;2;0	1	selective	1	flower	1	2	0	709589	0	1	2669	1	0	2500	other	0
+jetztaber	270	Response	3								728336	231	0
+jetztaber	270	Response	3								730814	2709	0
+jetztaber	270	Response	3								732974	4869	0
+jetztaber	270	Response	3								738574	10469	0
+jetztaber	271	Picture	1;selective;1;bell;4;2;2	1	selective	1	bell	4	2	2	741449	0	1	2669	1	0	2500	miss	0
+jetztaber	272	Response	3								772094	12130	0
+jetztaber	273	Response	3								788814	16005	0
+jetztaber	274	Response	3								789934	778	0
+jetztaber	274	Response	3								792013	2858	0
+jetztaber	274	Response	3								793373	4218	0
+jetztaber	274	Response	3								795934	6779	0
+jetztaber	274	Response	3								796973	7818	0
+jetztaber	274	Response	3								799053	9898	0
+jetztaber	275	Picture	1;divided;1;heart;3;3;0	1	divided	1	heart	3	3	0	799664	0	1	2669	1	0	2500	other	0
+jetztaber	276	Response	3								818335	322	0
+jetztaber	276	Response	3								819666	1653	110
+jetztaber	276	Response	3								821213	3201	1
+jetztaber	276	Response	3								822494	4481	0
+jetztaber	276	Response	3								824333	6320	1
+jetztaber	276	Response	3								825454	7441	0
+jetztaber	276	Response	3								827213	9201	0
+jetztaber	276	Response	3								828734	10721	0
+jetztaber	276	Response	3								830494	12481	0
+jetztaber	276	Response	3								831854	13841	0
+jetztaber	276	Response	3								833854	15841	0
+jetztaber	276	Response	3								835453	17441	0
+jetztaber	277	Picture	1;divided;1;heart;6;3;0	1	divided	1	heart	6	3	0	837362	0	1	2669	1	0	2500	other	0
+jetztaber	278	Response	3								866014	10303	0
+jetztaber	279	Response	3								881854	15134	0
+jetztaber	280	Response	3								883854	1621	1
+jetztaber	280	Response	3								885534	3301	0
+jetztaber	280	Response	3								887214	4981	0
+jetztaber	280	Response	3								888493	6260	0
+jetztaber	280	Response	3								890494	8261	0
+jetztaber	280	Response	3								891854	9621	0
+jetztaber	281	Picture	1;switching;1;heart;3;2;0	1	switching	1	heart	3	2	0	892575	0	1	2669	1	0	2500	other	0
+jetztaber	282	Response	3								912094	1171	0
+jetztaber	282	Response	3								913693	2770	0
+jetztaber	282	Response	3								916014	5091	0
+jetztaber	282	Response	3								917213	6290	0
+jetztaber	282	Response	3								919214	8291	0
+jetztaber	282	Response	3								920573	9650	0
+jetztaber	282	Response	3								922334	11411	0
+jetztaber	282	Response	3								923854	12931	0
+jetztaber	282	Response	3								926014	15091	0
+jetztaber	282	Response	3								927294	16371	0
+jetztaber	282	Response	3								929454	18531	0
+jetztaber	282	Response	3								930896	19973	0
+jetztaber	282	Response	3								932974	22051	0
+jetztaber	283	Picture	1;switching;1;bell;6;2;2	1	switching	1	bell	6	2	2	934610	0	1	2669	1	0	2500	miss	0
+jetztaber	284	Response	3								969054	15429	0
+jetztaber	285	Response	3								971054	1249	0
+jetztaber	285	Response	3								972414	2609	0
+jetztaber	285	Response	3								976254	6449	0
+jetztaber	285	Response	3								978334	8529	0
+jetztaber	286	Picture	1;switching;2;flower;4;3;0	1	switching	2	flower	4	3	0	980648	0	1	2669	1	0	2500	other	0
+jetztaber	287	Response	3								999934	771	0
+jetztaber	287	Response	3								1002494	3331	0
+jetztaber	287	Response	3								1004014	4851	0
+jetztaber	287	Response	3								1006574	7411	0
+jetztaber	287	Response	3								1007774	8611	0
+jetztaber	287	Response	3								1010254	11091	0
+jetztaber	287	Response	3								1012094	12931	0
+jetztaber	287	Response	3								1014094	14931	0
+jetztaber	287	Response	3								1016094	16931	0
+jetztaber	288	Picture	1;switching;2;circle;5;3;0	1	switching	2	circle	5	3	0	1016511	0	1	2669	1	0	2500	other	0
+jetztaber	288	Response	3								1035419	18908	279
+jetztaber	288	Response	3								1035419	18908	2600
+jetztaber	288	Response	3								1035419	18908	4519
+jetztaber	288	Response	3								1035419	18908	6919
+jetztaber	288	Response	3								1035419	18908	8440
+jetztaber	288	Response	3								1035419	18908	11000
+jetztaber	288	Response	3								1035419	18908	12762
+jetztaber	288	Response	3								1035419	18908	14839
+jetztaber	288	Response	3								1035419	18908	17000
+jetztaber	288	Response	3								1035419	18908	19160
+jetztaber	288	Response	3								1035419	18908	20681
+jetztaber	288	Response	3								1035419	18908	22600
+jetztaber	288	Response	3								1035419	18908	24200
+
+
+{
+   "app": "Presentation Version 20.1 Build 12.04.17",
+   "device": "Dell Inc. Latitude 3580",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_et.sce",
+   "subject": "jetztaber",
+   "timestamp": "2019/07/09 16:37:41 GMT"
+}

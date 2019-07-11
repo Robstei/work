@@ -1,5 +1,6 @@
 calculate_screen_boundaries();
 
+
 create_block ("different_both", 0, 40);
 present_block("group1;block1");
 
@@ -49,5 +50,3 @@ pause(30);
 
 create_block ("different_both", 40, 0);
 present_block("group6;block1");
-
-

@@ -1,0 +1,108 @@
+int target_color;
+int non_target_color;
+
+tracker.send_message("instruction.jpg");
+trial_instruction.present();
+
+########Test###############
+#target_color = 1;
+#non_target_color = 2;
+
+#create_block(2,4);
+#present_block(target_color, non_target_color,"test","");
+
+tracker.send_message("pause.jpg");
+#pause(30);
+
+########Section 1###########
+target_color = 1;
+non_target_color = 2;
+
+create_block(0,40);
+present_block(target_color, non_target_color,"block1","D");
+
+create_block(20,20);
+present_block(target_color, non_target_color,"block2","B");
+
+create_block(30,10);
+present_block(target_color, non_target_color,"block3","A");
+
+create_block(10,30);
+present_block(target_color, non_target_color,"block4","C");
+
+create_block(30,10);
+present_block(target_color, non_target_color,"block2","A");
+
+create_block(10,30);
+present_block(target_color, non_target_color,"block2","C");
+
+create_block(20,20);
+present_block(target_color, non_target_color,"block2","B");
+
+create_block(40,0);
+present_block(target_color, non_target_color,"block2","E");
+
+tracker.send_message("pause.jpg");
+pause(180);
+
+########Section 2###########
+target_color = 3;
+non_target_color = 4;
+
+create_block(40,0);
+present_block(target_color, non_target_color,"block2","E");
+
+create_block(30,10);
+present_block(target_color, non_target_color,"block2","A");
+
+create_block(20,20);
+present_block(target_color, non_target_color,"block2","B");
+
+create_block(30,10);
+present_block(target_color, non_target_color,"block2","A");
+
+create_block(10,30);
+present_block(target_color, non_target_color,"block2","C");
+
+create_block(20,20);
+present_block(target_color, non_target_color,"block2","B");
+
+create_block(10,30);
+present_block(target_color, non_target_color,"block2","C");
+
+create_block(0,40);
+present_block(target_color, non_target_color,"block1","D");
+
+tracker.send_message("pause.jpg");
+pause(180);
+
+########Section 3###########
+target_color = 5;
+non_target_color = 6;
+
+create_block(0,40);
+present_block(target_color, non_target_color,"block1","D");
+
+create_block(10,30);
+present_block(target_color, non_target_color,"block2","C");
+
+create_block(20,20);
+present_block(target_color, non_target_color,"block2","B");
+
+create_block(30,10);
+present_block(target_color, non_target_color,"block2","A");
+
+create_block(10,30);
+present_block(target_color, non_target_color,"block2","C");
+
+create_block(30,10);
+present_block(target_color, non_target_color,"block2","A");
+
+create_block(20,20);
+present_block(target_color, non_target_color,"block2","B");
+
+create_block(40,0);
+present_block(target_color, non_target_color,"block2","E");
+
+tracker.send_message("instruction_end.jpg");
+trial_instruction_end.present();

@@ -1,0 +1,26 @@
+Scenario - Swad_kids_et
+Logfile written - 05/21/2019 18:50:39
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+dfshhgerkjg	0	Response	3								73156	73156	0
+dfshhgerkjg	0	Response	3								294116	294116	0
+dfshhgerkjg	1	Response	3								368673	11043	0
+dfshhgerkjg	2	Response	3								385313	16173	0
+dfshhgerkjg	4	Picture	1;selective;1;star;3;2;0	1	selective	1	star	3	2	0	395995	0	1	2669	1	0	2500	other	0
+dfshhgerkjg	6	Picture	1;selective;1;bell;2;2;2	1	selective	1	bell	2	2	2	435694	0	1	2669	1	0	2500	miss	0
+
+
+{
+   "app": "Presentation Version 20.1 Build 12.04.17",
+   "device": "Dell Inc. Latitude 3580",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_et.sce",
+   "subject": "dfshhgerkjg",
+   "timestamp": "2019/05/21 16:49:47 GMT"
+}

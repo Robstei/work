@@ -1,0 +1,66 @@
+Scenario - Swad_kids_et
+Logfile written - 06/05/2019 14:50:38
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+Versuch2	0	Response	3								3	3	10779
+Versuch2	0	Response	3								28701	28701	0
+Versuch2	0	Response	3								32142	32142	79
+Versuch2	0	Response	3								35261	35261	0
+Versuch2	0	Response	3								37464	37464	37
+Versuch2	0	Response	3								41945	41945	38
+Versuch2	0	Response	3								52702	52702	0
+Versuch2	0	Response	3								56701	56701	0
+Versuch2	0	Response	3								59347	59347	77
+Versuch2	0	Response	3								153660	153660	0
+Versuch2	0	Response	3								155901	155901	0
+Versuch2	0	Response	3								157738	157738	405
+Versuch2	0	Response	3								160220	160220	0
+Versuch2	0	Response	3								164988	164988	35
+Versuch2	0	Response	3								168369	168369	13
+Versuch2	0	Response	3								184541	184541	1
+Versuch2	0	Response	3								197021	197021	0
+Versuch2	0	Response	3								202461	202461	0
+Versuch2	0	Response	3								204238	204238	145
+Versuch2	1	Response	3								231579	11063	0
+Versuch2	2	Response	3								278618	46593	0
+Versuch2	3	Response	3								299418	20187	0
+Versuch2	5	Picture	1;test;1;flower;6;1;0	1	test	1	flower	6	1	0	310424	0	1	2669	1	0	2500	other	0
+Versuch2	7	Picture	1;test;1;heart;1;1;1	1	test	1	heart	1	1	1	334444	0	1	2669	1	0	2500	miss	0
+Versuch2	8	Response	3								357018	3892	0
+Versuch2	266	Response	3								686138	11578	0
+Versuch2	267	Response	3								707739	20835	0
+Versuch2	268	Response	3								710619	2197	0
+Versuch2	268	Response	3								713818	5397	0
+Versuch2	268	Response	3								715259	6838	0
+Versuch2	268	Response	3								717979	9557	0
+Versuch2	269	Picture	1;selective;1;moon;2;2;0	1	selective	1	moon	2	2	0	719097	0	1	2669	1	0	2500	other	0
+Versuch2	270	Response	3								738781	1169	0
+Versuch2	271	Picture	1;selective;1;bell;2;2;2	1	selective	1	bell	2	2	2	745286	0	1	2669	1	0	2500	miss	0
+Versuch2	272	Response	3								774459	10658	0
+Versuch2	273	Response	3								793499	18189	0
+Versuch2	274	Response	3								795098	1106	0
+Versuch2	275	Picture	1;divided;1;moon;6;3;0	1	divided	1	moon	6	3	0	804668	0	1	2669	1	0	2500	other	0
+Versuch2	277	Picture	1;divided;1;moon;4;3;0	1	divided	1	moon	4	3	0	844535	0	1	2669	1	0	2500	other	0
+Versuch2	278	Response	3								876379	13496	0
+Versuch2	279	Response	3								908379	31150	0
+Versuch2	281	Picture	1;switching;1;flower;2;2;0	1	switching	1	flower	2	2	0	919430	0	1	2669	1	0	2500	other	0
+Versuch2	283	Picture	1;switching;1;bell;2;2;2	1	switching	1	bell	2	2	2	959464	0	1	2669	1	0	2500	miss	0
+Versuch2	284	Response	3								1007899	29252	0
+Versuch2	286	Picture	1;switching;2;circle;4;3;0	1	switching	2	circle	4	3	0	1019013	0	1	2669	1	0	2500	other	0
+Versuch2	288	Picture	1;switching;2;bell;6;3;0	1	switching	2	bell	6	3	0	1051040	0	1	2669	1	0	2500	other	0
+
+
+{
+   "app": "Presentation Version 20.1 Build 12.04.17",
+   "device": "Dell Inc. Latitude 3580",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_et.sce",
+   "subject": "Versuch2",
+   "timestamp": "2019/06/05 12:48:44 GMT"
+}

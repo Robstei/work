@@ -1,0 +1,47 @@
+Scenario - Swad_kids_et
+Logfile written - 05/22/2019 14:20:13
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+mittwoch1	0	Response	3								29438	29438	0
+mittwoch1	0	Response	3								36691	36691	109
+mittwoch1	0	Response	3								144626	144626	16
+mittwoch1	1	Response	3								219035	10863	1
+mittwoch1	2	Response	3								229915	10400	0
+mittwoch1	3	Response	3								253755	23398	0
+mittwoch1	5	Picture	1;test;1;heart;4;1;0	1	test	1	heart	4	1	0	264886	0	1	2669	1	0	2500	other	0
+mittwoch1	7	Picture	1;test;1;bell;1;1;1	1	test	1	bell	1	1	1	297080	0	1	2669	1	0	2500	miss	0
+mittwoch1	266	Response	3								647514	10820	0
+mittwoch1	267	Response	3								664635	16097	0
+mittwoch1	269	Picture	1;selective;1;heart;6;2;0	1	selective	1	heart	6	2	0	675894	0	1	2836	1	0	2500	other	0
+mittwoch1	271	Picture	1;selective;1;bell;6;2;2	1	selective	1	bell	6	2	2	705752	0	1	3169	1	0	2500	hit	13
+mittwoch1	271	Response	2								708155	2403	0
+mittwoch1	272	Response	3								720634	11713	0
+mittwoch1	273	Response	3								742234	20636	0
+mittwoch1	274	Response	3								746075	3459	0
+mittwoch1	275	Picture	1;divided;1;star;4;3;0	1	divided	1	star	4	3	0	753291	0	1	2669	1	0	2500	other	0
+mittwoch1	277	Picture	1;divided;1;moon;2;3;0	1	divided	1	moon	2	3	0	789154	0	1	2669	1	0	2500	other	0
+mittwoch1	278	Response	3								821915	13912	0
+mittwoch1	279	Response	3								838580	15898	296
+mittwoch1	280	Response	3								841594	1898	0
+mittwoch1	280	Response	3								845594	5898	0
+mittwoch1	281	Picture	1;switching;1;heart;2;2;0	1	switching	1	heart	2	2	0	850205	0	1	2669	1	0	2500	other	0
+mittwoch1	283	Picture	1;switching;1;bell;2;2;2	1	switching	1	bell	2	2	2	884400	0	1	2669	1	0	2500	miss	0
+mittwoch1	284	Response	3								919994	16745	0
+mittwoch1	286	Picture	1;switching;2;circle;1;3;0	1	switching	2	circle	1	3	0	931105	0	1	2669	1	0	2500	other	0
+mittwoch1	288	Picture	1;switching;2;circle;4;3;0	1	switching	2	circle	4	3	0	963465	0	1	2669	1	0	2500	other	0
+
+
+{
+   "app": "Presentation Version 20.1 Build 12.04.17",
+   "device": "Dell Inc. Latitude 3580",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_et.sce",
+   "subject": "mittwoch1",
+   "timestamp": "2019/05/22 12:18:26 GMT"
+}

@@ -1,0 +1,72 @@
+Scenario - Swad_kids_et
+Logfile written - 05/21/2019 17:30:00
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+robin187	0	Response	3								45538	45538	9
+robin187	0	Response	3								193629	193629	81
+robin187	1	Response	3								267623	11911	0
+robin187	2	Response	3								305543	36821	0
+robin187	4	Picture	1;selective;1;flower;6;2;0	1	selective	1	flower	6	2	0	316261	0	1	2669	1	0	2500	other	0
+robin187	6	Picture	1;selective;1;circle;5;2;0	1	selective	1	circle	5	2	0	348121	0	1	2669	1	0	2500	other	0
+robin187	8	Picture	1;selective;1;bell;2;2;2	1	selective	1	bell	2	2	2	389823	0	1	2669	1	0	2500	miss	0
+robin187	10	Picture	1;selective;1;moon;6;2;0	1	selective	1	moon	6	2	0	421348	0	1	2669	1	0	2500	other	0
+robin187	12	Picture	1;selective;1;star;1;2;0	1	selective	1	star	1	2	0	459213	0	1	2669	1	0	2500	other	0
+robin187	14	Picture	1;selective;1;bell;1;2;2	1	selective	1	bell	1	2	2	499080	0	1	2669	1	0	2500	hit	11
+robin187	14	Response	2								516906	17826	0
+robin187	16	Picture	1;selective;1;star;2;2;0	1	selective	1	star	2	2	0	540614	0	1	2502	1	0	2500	false_alarm	13
+robin187	16	Response	2								542985	2371	0
+robin187	18	Picture	1;selective;1;flower;3;2;0	1	selective	1	flower	3	2	0	566802	0	1	2669	1	0	2500	false_alarm	15
+robin187	18	Response	2								569223	2421	0
+robin187	20	Picture	1;selective;1;moon;1;2;0	1	selective	1	moon	1	2	0	575310	0	1	2669	1	0	2500	false_alarm	17
+robin187	20	Response	2								579303	3994	0
+robin187	22	Picture	1;selective;1;flower;4;2;0	1	selective	1	flower	4	2	0	595159	0	1	2335	1	0	2500	false_alarm	19
+robin187	22	Response	2								597384	2224	0
+robin187	24	Picture	1;selective;1;bell;5;2;2	1	selective	1	bell	5	2	2	621014	0	1	2335	1	0	2500	hit	21
+robin187	24	Response	2								623145	2131	0
+robin187	25	Response	2								644351	21001	233
+robin187	26	Picture	1;selective;1;star;6;2;0	1	selective	1	star	6	2	0	644867	0	1	2669	1	0	2500	false_alarm	24
+robin187	26	Response	2								647623	2756	0
+robin187	28	Picture	1;selective;1;bell;3;2;2	1	selective	1	bell	3	2	2	669221	0	1	500	1	0	2500	hit	26
+robin187	28	Response	2								669544	323	0
+robin187	30	Picture	1;selective;1;star;3;2;0	1	selective	1	star	3	2	0	675226	0	1	2002	1	0	2500	false_alarm	28
+robin187	30	Response	2								677065	1839	0
+robin187	32	Picture	1;selective;1;circle;3;2;0	1	selective	1	circle	3	2	0	696743	0	1	2002	1	0	2500	false_alarm	30
+robin187	32	Response	2								698504	1760	0
+robin187	34	Picture	1;selective;1;bell;2;2;2	1	selective	1	bell	2	2	2	718261	0	1	2669	1	0	2500	hit	32
+robin187	34	Response	2								721386	3124	0
+robin187	36	Picture	1;selective;1;moon;4;2;0	1	selective	1	moon	4	2	0	734942	0	1	2669	1	0	2500	false_alarm	34
+robin187	36	Response	2								737864	2922	0
+robin187	38	Picture	1;selective;1;bell;6;2;2	1	selective	1	bell	6	2	2	761464	0	1	1501	1	0	2500	hit	36
+robin187	38	Response	2								762826	1362	0
+robin187	40	Picture	1;selective;1;moon;3;2;0	1	selective	1	moon	3	2	0	786484	0	1	2669	1	0	2500	false_alarm	38
+robin187	40	Response	2								789702	3218	0
+robin187	42	Picture	1;selective;1;flower;2;2;0	1	selective	1	flower	2	2	0	809170	0	1	667	1	0	2500	false_alarm	40
+robin187	42	Response	2								809703	533	0
+robin187	44	Picture	1;selective;1;flower;1;2;0	1	selective	1	flower	1	2	0	819345	0	1	500	1	0	2500	false_alarm	42
+robin187	44	Response	2								819623	278	0
+robin187	46	Picture	1;selective;1;star;4;2;0	1	selective	1	star	4	2	0	835358	0	1	834	1	0	2500	false_alarm	44
+robin187	46	Response	2								835947	589	0
+robin187	48	Picture	1;selective;1;circle;2;2;0	1	selective	1	circle	2	2	0	855542	0	1	2669	1	0	2500	false_alarm	46
+robin187	48	Response	2								858023	2482	0
+robin187	50	Picture	1;selective;1;heart;3;2;0	1	selective	1	heart	3	2	0	865716	0	1	501	1	0	2500	false_alarm	48
+robin187	50	Response	2								866022	306	0
+robin187	52	Picture	1;selective;1;heart;2;2;0	1	selective	1	heart	2	2	0	875558	0	1	1334	1	0	2500	false_alarm	50
+robin187	52	Response	2								876745	1186	0
+robin187	54	Picture	1;selective;1;bell;4;2;2	1	selective	1	bell	4	2	2	888402	0	1	32839	1	0	2500	hit	52
+robin187	54	Response	2								889863	1461	0
+
+
+{
+   "app": "Presentation Version 20.1 Build 12.04.17",
+   "device": "Dell Inc. Latitude 3580",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_et.sce",
+   "subject": "robin187",
+   "timestamp": "2019/05/21 15:28:21 GMT"
+}

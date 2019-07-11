@@ -1,0 +1,73 @@
+Scenario - Swad_kids_et
+Logfile written - 05/22/2019 15:16:52
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+mittwoch4	0	Response	3								40913	40913	0
+mittwoch4	0	Response	3								43473	43473	0
+mittwoch4	0	Response	3								160593	160593	0
+mittwoch4	1	Response	3								234669	11318	0
+mittwoch4	2	Response	3								248910	13715	0
+mittwoch4	3	Response	3								286670	37297	0
+mittwoch4	5	Picture	1;test;1;heart;6;1;0	1	test	1	heart	6	1	0	297914	0	1	2669	1	0	2500	other	0
+mittwoch4	7	Picture	1;test;1;moon;1;1;1	1	test	1	moon	1	1	1	326270	0	1	2669	1	0	2500	miss	0
+mittwoch4	266	Response	3								882989	216437	0
+mittwoch4	267	Response	3								898988	15256	0
+mittwoch4	268	Response	3								901068	1656	0
+mittwoch4	268	Response	3								902669	3256	0
+mittwoch4	269	Picture	1;selective;1;star;1;2;0	1	selective	1	star	1	2	0	909921	0	1	2669	1	0	2500	other	0
+mittwoch4	271	Picture	1;selective;1;bell;5;2;2	1	selective	1	bell	5	2	2	935943	0	1	2669	1	0	2500	miss	0
+mittwoch4	272	Response	3								998029	43571	0
+mittwoch4	273	Response	3								1015628	16800	0
+mittwoch4	274	Response	3								1018989	2813	0
+mittwoch4	274	Response	3								1022189	6013	0
+mittwoch4	274	Response	3								1025389	9213	0
+mittwoch4	275	Picture	1;divided;1;bell;1;3;0	1	divided	1	bell	1	3	0	1026851	0	1	2669	1	0	2500	other	0
+mittwoch4	275	Response	3								1044860	18009	211
+mittwoch4	276	Response	3								1048908	3375	0
+mittwoch4	276	Response	3								1052589	7055	0
+mittwoch4	277	Picture	1;divided;1;flower;2;3;0	1	divided	1	flower	2	3	0	1057210	0	1	2669	1	0	2500	other	0
+mittwoch4	278	Response	3								1086028	10136	0
+mittwoch4	279	Response	3								1103948	17047	0
+mittwoch4	280	Response	3								1106188	1606	0
+mittwoch4	280	Response	3								1110029	5446	0
+mittwoch4	281	Picture	1;switching;1;flower;6;2;0	1	switching	1	flower	6	2	0	1115258	0	1	2669	1	0	2500	other	0
+mittwoch4	282	Response	3								1134030	257	0
+mittwoch4	282	Response	3								1136268	2495	0
+mittwoch4	282	Response	3								1138668	4895	0
+mittwoch4	282	Response	3								1140908	7135	0
+mittwoch4	282	Response	3								1143628	9855	0
+mittwoch4	282	Response	3								1145868	12095	0
+mittwoch4	282	Response	3								1148589	14815	0
+mittwoch4	282	Response	3								1149868	16095	0
+mittwoch4	283	Picture	1;switching;1;bell;6;2;2	1	switching	1	bell	6	2	2	1153123	0	1	2669	1	0	2500	miss	0
+mittwoch4	284	Response	3								1188590	16618	0
+mittwoch4	285	Response	3								1190829	1676	0
+mittwoch4	285	Response	3								1192748	3595	0
+mittwoch4	285	Response	3								1195628	6476	0
+mittwoch4	285	Response	3								1198189	9036	0
+mittwoch4	286	Picture	1;switching;2;circle;5;3;0	1	switching	2	circle	5	3	0	1199828	0	1	2669	1	0	2500	other	0
+mittwoch4	287	Response	3								1218510	167	0
+mittwoch4	287	Response	3								1220748	2405	0
+mittwoch4	287	Response	3								1222668	4324	0
+mittwoch4	287	Response	3								1224749	6405	0
+mittwoch4	287	Response	3								1226828	8484	0
+mittwoch4	287	Response	3								1228588	10245	0
+mittwoch4	287	Response	3								1230508	12165	0
+mittwoch4	287	Response	3								1233708	15365	0
+mittwoch4	288	Picture	1;switching;2;star;4;3;0	1	switching	2	star	4	3	0	1236025	0	1	2669	1	0	2500	other	0
+
+
+{
+   "app": "Presentation Version 20.1 Build 12.04.17",
+   "device": "Dell Inc. Latitude 3580",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_et.sce",
+   "subject": "mittwoch4",
+   "timestamp": "2019/05/22 13:14:37 GMT"
+}

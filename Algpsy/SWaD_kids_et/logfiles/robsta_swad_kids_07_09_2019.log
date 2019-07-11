@@ -1,0 +1,48 @@
+Scenario - Swad_kids_et
+Logfile written - 07/09/2019 17:20:42
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+robsta	0	Response	3								298693	298693	0
+robsta	0	Response	3								325099	325099	75
+robsta	0	Response	3								832085	832085	0
+robsta	0	Response	3								849653	849653	0
+robsta	0	Response	3								938693	938693	0
+robsta	0	Response	3								996666	996666	108
+robsta	1	Response	3								1397493	314912	0
+robsta	2	Response	3								1415093	17195	0
+robsta	3	Response	3								1454133	38551	0
+robsta	5	Picture	1;test;1;flower;4;1;0	1	test	1	flower	4	1	0	1465131	0	1	2669	1	0	2500	other	0
+robsta	7	Picture	1;test;1;circle;1;1;1	1	test	1	circle	1	1	1	1505505	0	1	2669	1	0	2500	hit	12
+robsta	7	Response	1								1509136	3631	118
+robsta	266	Response	3								1864293	32796	0
+robsta	267	Response	3								1923973	58942	0
+robsta	269	Picture	1;selective;1;star;2;2;0	1	selective	1	star	2	2	0	1934767	0	1	2669	1	0	2500	other	0
+robsta	271	Picture	1;selective;1;bell;1;2;2	1	selective	1	bell	1	2	2	1966465	0	1	2669	1	0	2500	hit	17
+robsta	271	Response	2								1970933	4467	0
+robsta	272	Response	3								2007493	36190	1
+robsta	273	Response	3								2467733	459560	0
+robsta	275	Picture	1;divided;1;bell;6;3;0	1	divided	1	bell	6	3	0	2478477	0	1	2669	1	0	2500	other	0
+robsta	277	Picture	1;divided;1;bell;1;3;0	1	divided	1	bell	1	3	0	2504170	0	1	2669	1	0	2500	other	0
+robsta	278	Response	3								2534213	11692	0
+robsta	279	Response	3								2551493	16460	0
+robsta	281	Picture	1;switching;1;flower;4;2;0	1	switching	1	flower	4	2	0	2562394	0	1	2669	1	0	2500	other	0
+robsta	283	Picture	1;switching;1;bell;3;2;2	1	switching	1	bell	3	2	2	2588420	0	1	2669	1	0	2500	miss	0
+robsta	284	Response	3								2634373	26934	0
+robsta	286	Picture	1;switching;2;circle;4;3;0	1	switching	2	circle	4	3	0	2645644	0	1	2669	1	0	2500	other	0
+robsta	288	Picture	1;switching;2;moon;6;3;0	1	switching	2	moon	6	3	0	2687686	0	1	2669	1	0	2500	other	0
+
+
+{
+   "app": "Presentation Version 20.1 Build 12.04.17",
+   "device": "Dell Inc. Latitude 3580",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_et.sce",
+   "subject": "robsta",
+   "timestamp": "2019/07/09 15:15:49 GMT"
+}

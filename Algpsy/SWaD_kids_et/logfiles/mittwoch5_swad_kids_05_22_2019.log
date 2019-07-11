@@ -1,0 +1,57 @@
+Scenario - Swad_kids_et
+Logfile written - 05/22/2019 15:24:36
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+ mittwoch5	0	Response	3								47964	47964	122
+ mittwoch5	0	Response	3								80243	80243	0
+ mittwoch5	0	Response	3								87604	87604	0
+ mittwoch5	0	Response	3								168724	168724	2
+ mittwoch5	0	Response	3								171285	171285	0
+ mittwoch5	0	Response	3								173684	173684	0
+ mittwoch5	1	Response	3								247121	12427	0
+ mittwoch5	2	Response	3								257841	10136	0
+ mittwoch5	3	Response	3								277841	19461	0
+ mittwoch5	4	Response	3								282161	3764	0
+ mittwoch5	5	Picture	1;test;1;flower;5;1;0	1	test	1	flower	5	1	0	288906	0	1	2669	1	0	2500	other	0
+ mittwoch5	7	Picture	1;test;1;circle;1;1;1	1	test	1	circle	1	1	1	312926	0	1	2669	1	0	2500	miss	0
+ mittwoch5	11	Response	3								355281	654	0
+ mittwoch5	20	Response	3								365681	545	0
+ mittwoch5	22	Response	3								367922	451	0
+ mittwoch5	266	Response	3								667281	14073	0
+ mittwoch5	267	Response	3								684240	16020	0
+ mittwoch5	268	Response	3								686640	1906	0
+ mittwoch5	269	Picture	1;selective;1;circle;4;2;0	1	selective	1	circle	4	2	0	695076	0	1	2669	1	0	2500	other	0
+ mittwoch5	271	Picture	1;selective;1;bell;3;2;2	1	selective	1	bell	3	2	2	735109	0	1	2669	1	0	2500	miss	0
+ mittwoch5	272	Response	3								770321	16696	0
+ mittwoch5	273	Response	3								786961	15488	0
+ mittwoch5	275	Picture	1;divided;1;heart;4;3;0	1	divided	1	heart	4	3	0	797828	0	1	2669	1	0	2500	other	0
+ mittwoch5	277	Picture	1;divided;1;moon;1;3;0	1	divided	1	moon	1	3	0	838028	0	1	2669	1	0	2500	other	0
+ mittwoch5	278	Response	3								866801	10257	0
+ mittwoch5	279	Response	3								884081	16529	0
+ mittwoch5	280	Response	3								886320	1920	0
+ mittwoch5	280	Response	3								888400	4000	0
+ mittwoch5	281	Picture	1;switching;1;moon;5;2;0	1	switching	1	moon	5	2	0	894742	0	1	2669	1	0	2500	other	0
+ mittwoch5	283	Picture	1;switching;1;bell;5;2;2	1	switching	1	bell	5	2	2	928937	0	1	2669	1	0	2500	miss	0
+ mittwoch5	284	Response	3								963440	15488	0
+ mittwoch5	285	Response	3								968880	4914	0
+ mittwoch5	285	Response	3								970800	6834	0
+ mittwoch5	285	Response	3								972400	8434	0
+ mittwoch5	285	Response	3								973680	9714	0
+ mittwoch5	286	Picture	1;switching;2;circle;5;3;0	1	switching	2	circle	5	3	0	974475	0	1	2669	1	0	2500	other	0
+ mittwoch5	288	Picture	1;switching;2;star;5;3;0	1	switching	2	star	5	3	0	1002831	0	1	2669	1	0	2500	other	0
+
+
+{
+   "app": "Presentation Version 20.1 Build 12.04.17",
+   "device": "Dell Inc. Latitude 3580",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_et.sce",
+   "subject": " mittwoch5",
+   "timestamp": "2019/05/22 13:22:44 GMT"
+}

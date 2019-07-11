@@ -1,0 +1,44 @@
+Scenario - 
+Logfile written - 07/10/2019 11:38:20
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+1	1	Response	3								110346	110180	0
+1	2	Response	3								129484	18997	0
+1	3	Response	3								162890	33238	0
+1	5	Picture	1;test;1;bell;3;1;0	1	test	1	bell	3	1	0	173147	0	1	2666	1	0	2500	other	0
+1	7	Picture	1;test;1;star;1;1;1	1	test	1	star	1	1	1	208476	0	1	2666	1	0	2500	miss	0
+1	10	Picture	1;test;1;circle;3;1;0	1	test	1	circle	3	1	0	253971	0	1	2666	1	0	2500	other	0
+1	12	Picture	1;test;1;circle;1;1;1	1	test	1	circle	1	1	1	277301	0	1	2666	1	0	2500	hit	8
+1	12	Response	1								292904	15603	0
+1	15	Picture	1;test;1;star;2;1;0	1	test	1	star	2	1	0	326296	0	1	2666	1	0	2500	false_alarm	10
+1	15	Response	2								329887	3591	0
+1	18	Picture	1;test;1;moon;1;1;1	1	test	1	moon	1	1	1	361292	0	1	833	1	0	2500	incorrect	12
+1	18	Response	2								361960	668	0
+1	21	Picture	1;test;1;flower;4;1;0	1	test	1	flower	4	1	0	391455	0	1	2666	1	0	2500	other	0
+1	22	Response	3								413205	3585	0
+1	23	Picture	1;test;1;star;3;1;0	1	test	1	star	3	1	0	414786	0	1	2666	1	0	2500	other	0
+1	25	Picture	1;test;1;heart;5;1;0	1	test	1	heart	5	1	0	440116	0	1	2666	1	0	2500	other	0
+1	27	Picture	1;test;1;flower;1;1;1	1	test	1	flower	1	1	1	477445	0	1	2666	1	0	2500	miss	0
+1	29	Response	3								650451	134343	0
+1	31	Picture	1;test;2;star;6;3;0	1	test	2	star	6	3	0	660758	0	1	2666	1	0	2500	other	0
+1	33	Picture	1;test;2;bell;1;3;0	1	test	2	bell	1	3	0	686088	0	1	2666	1	0	2500	other	0
+1	35	Picture	1;test;2;star;2;3;1	1	test	2	star	2	3	1	711419	0	1	2666	1	0	2500	miss	0
+1	38	Picture	1;test;2;bell;4;3;0	1	test	2	bell	4	3	0	766912	0	1	2666	1	0	2500	other	0
+1	40	Picture	1;test;2;flower;3;3;2	1	test	2	flower	3	3	2	804241	0	1	2666	1	0	2500	miss	0
+1	40	Quit									813452	9211	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "LENOVO 20FMS2L703",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids.sce",
+   "subject": "1",
+   "timestamp": "2019/07/10 09:36:57 GMT"
+}

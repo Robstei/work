@@ -246,15 +246,15 @@ tracker.set_recording(true);
 		
 		string message = "run_" + run_id;
 		
-		if rund_id == "switching" 
+		if run_id == "switching" 
 		then
-			rund_id = rund_id + "_block_";
+			run_id = run_id + "_block_";
 			
 			if seperate_attention == 1 || seperate_attention == 2
 			then
-				rund_id = rund_id + "selective";
+				run_id = run_id + "selective";
 			elseif seperate_attention == 3
-				rund_id = rund_id + "divided";
+				run_id = run_id + "divided";
 			end;
 			
 		end;

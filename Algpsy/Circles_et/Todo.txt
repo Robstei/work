@@ -1,0 +1,5 @@
+- Farben einfügen
+- Hintergrund ändern
+- Instruktionen erstellen
+- pause erstellen
+- et code einfügen

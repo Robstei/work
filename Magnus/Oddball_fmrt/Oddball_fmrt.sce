@@ -1,4 +1,4 @@
-pcl_file = "Odball_fmrt.pcl";
+pcl_file = "Oddball_fmrt.pcl";
 response_matching = simple_matching;
 active_buttons = 2;
 no_logfile = false;
