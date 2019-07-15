@@ -1,4 +1,4 @@
-# create indiviual file for each subject
+# create indiviual file for subject
 
 array<string> array_data[0][0];
 
@@ -11,6 +11,7 @@ begin
 	string event_code = stimulus_data_subject.event_code();
 	array <string> array_metadata[0];
 	event_code.split(";", array_metadata);
+	
 	array<string> array_tmp_stimulus_data[0];
 
 	if(array_metadata[1] == "test")
@@ -52,15 +53,14 @@ begin
 	i = i + 1;
 end;
 
-
 output_file single = new output_file();
 if(logfile.subject() != "")
 then
-	single.open_append("singles/MultiDT_" + logfile.subject() + ".txt");
+	single.open_append("singles/SingleDT_" + logfile.subject() + ".txt");
 else
 	single.open_append("singles/no_name.txt");
 end;
-	string col_headings = "ID,presentation_time_fmrt,presentation_time_start,reaction_time,reaction_type,group,block,stimulus,target_color,non_target_color,target_non_target,cross_time_fmrt,cross_time_start";
+	string col_headings = "ID,presentation_time_fmrt,presentation_time_start,reaction_time,reaction_type,group,block,stimulus,block_type,color,target_non_target,cross_time_fmrt,cross_time_start";
 	single.print_line(col_headings);
 	loop int row = 1 until row > array_data.count()
 	begin

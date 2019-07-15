@@ -1,11 +1,8 @@
 calculate_screen_boundaries();
-
 trial_instruction.present();
 
-create_block ("different_both", 0, 40);
-present_block("group1;block1");
-
-pause(30);
+create_block("different_both", 0, 40, "none");
+present_block("group1;block1", 3, 5, true, 3);
 
 array<string> array_attention_block_group[6] = 
 	{"different_both", "different_both",
@@ -13,25 +10,20 @@ array<string> array_attention_block_group[6] =
 	"different_non_targets", "different_non_targets"};
 
 array_attention_block_group.shuffle();
-
 loop int i = 1 until i > array_attention_block_group.count()
 begin
-	create_block(array_attention_block_group[i], 30, 10);
-	present_block("group2;block"+ string(i));
+	create_block(array_attention_block_group[i], 30, 10, "attention");
+	present_block("group2;block"+ string(i), 3, 5, false, 0);
 	i = i + 1;
 end;
 
-pause(30);
-
-create_block ("different_both", 40, 0);
-present_block("group3;block1");
+create_block ("different_both", 40, 0, "none");
+present_block("group3;block1", 3, 5, false, 0);
 
 pause(180);
 
-create_block ("different_both", 0, 40);
-present_block("group4;block1");
-
-pause(30);
+create_block ("different_both", 0, 40, "none");
+present_block("group4;block1", 2, 6, true, 1);
 
 array<string> array_inhibition_block_group[6] = 
 	{"different_both", "different_both",
@@ -42,12 +34,11 @@ array_inhibition_block_group.shuffle();
 
 loop int i = 1 until i > array_inhibition_block_group.count()
 begin
-	create_block(array_inhibition_block_group[i], 10, 30);
-	present_block("group5;block"+ string(i));
+	create_block(array_inhibition_block_group[i], 10, 30, "ihibition");
+	present_block("group5;block"+ string(i), 2, 6, false, 0);
 	i = i + 1;
 end;
 
-pause(30);
-
-create_block ("different_both", 40, 0);
-present_block("group6;block1");
+create_block ("different_both", 40, 0, "none");
+present_block("group6;block1", 2, 6, false, 0);
+trial_instruction_end.present();

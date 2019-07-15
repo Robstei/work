@@ -699,7 +699,6 @@ begin_pcl;
 #	9. Value: block_id for event_code
 
 ##########################Test Run########################################
-	
 	set_response_mode(1);
 	present_information(information_start, 25);
    present_information(information_test, 30);

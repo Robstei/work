@@ -1,0 +1,5 @@
+ID,presentation_time_fmrt,presentation_time_start,reaction_time,reaction_type,group,block,stimulus,target_color,non_target_color,target_non_target,cross_time_fmrt,cross_time_start
+je,250,8256,0,4,group1,block1,1,3,5,non_target,0,8006
+je,2459,10465,0,4,group1,block1,2,3,5,non_target,2257,10263
+je,4965,12971,0,4,group1,block1,3,3,5,target,4465,12471
+je,7361,15367,0,4,group1,block1,4,3,5,target,6979,14985

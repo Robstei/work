@@ -1,0 +1,47 @@
+Scenario - 
+Logfile written - 07/15/2019 23:23:04
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+je	0	Pulse	0	0	0	NA
+je	1	Picture	instruction	69	0	1	11875	1	0	next	other	0
+je	1	Response	2	11906	11837	0
+je	2	Picture	instruction_block	11944	0	1	7014	1	0	next	other	0
+je	2	Response	1	11986	42	0
+je	2	Response	2	18946	7002	0
+je	3	Pulse	0	20000	1043	NA
+je	3	Pulse	0	40000	21043	NA
+je	3	Pulse	0	60000	41043	NA
+je	3	Pulse	0	80000	61043	NA
+je	4	Picture	cross	80067	0	1	2500	1	0	next	other	0
+je	5	Picture	group1;block1;1;3;5;non_target	82567	0	1	2014	1	0	2000	other	0
+je	5	Pulse	0	100000	17433	NA
+je	6	Picture	cross	102636	0	1	2014	1	0	next	other	0
+je	7	Picture	group1;block1;2;3;5;non_target	104650	0	1	2014	1	0	2000	other	0
+je	7	Pulse	0	120000	15350	NA
+je	8	Picture	cross	124719	0	1	5000	1	0	next	other	0
+je	9	Picture	group1;block1;3;3;5;target	129719	0	1	2014	1	0	2000	other	0
+je	9	Pulse	0	140000	10281	NA
+je	10	Picture	cross	149858	0	1	3819	1	0	next	other	0
+je	11	Picture	group1;block1;4;3;5;target	153677	0	1	2014	1	0	2000	other	0
+je	11	Pulse	0	160000	6323	NA
+je	101	Pulse	0	180000	4	NA
+je	380	Pulse	0	200000	4	NA
+je	658	Pulse	0	220000	5	NA
+je	712	Pulse	0	240000	16185	NA
+je	712	Response	2	245426	21611	0
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{2DC7EC0B-6D14-47F9-A0DA-0D4BA90D3B72}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Mutli_Dot_Task.sce",
+   "subject": "je",
+   "timestamp": "2019/07/15 21:22:38 GMT"
+}

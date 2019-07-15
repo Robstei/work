@@ -1,6 +1,8 @@
 array<int> array_current_block_positions[0][0][0];
 array<int> array_current_block_target[0];
 
+bool fmri_running = false;
+int fmrt_start_time;
 int offset_from_border = parameter_manager.get_int("Distance from Screen Border",150);
 int non_targets_in_stimulus = parameter_manager.get_int("Non Targets in Stimulus",6);
 int circle_diameter = parameter_manager.get_int("Circle Diameter", 100);
@@ -26,34 +28,108 @@ begin
 end;
 
 
-
 sub pause (int time_in_seconds)
 begin
 	loop int start_time = clock.time()
 	until clock.time() > start_time + time_in_seconds * 1000
 	begin
-		text_pause.set_caption("Pause \nIn " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " Sekunden geht es weiter", true);
+		text_pause.set_caption("In " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " Sekunden geht es weiter", true);
 		trial_pause.present();
 	end;
 	trial_pause_button.present();
+	term.print_line("Versuchsleiter muss Pause beenden");
 end;
 
-sub bool validate
+sub wait_pulses (trial trial_to_set, int pulses)
 begin
+	int current_pulse = pulse_manager.main_pulse_count();
+	trial_to_set.set_mri_pulse(current_pulse + pulses + 1);
+end;
+
+sub bool validate(string validation_mode)
+begin
+	#first stimuli is not supposed to be a target if the block tests attention
+	if(validation_mode == "attention" && array_current_block_target[1] == 1)
+	then
+		return false;
+	#first stimuli is not supposed to be a non_target if the block tests inhibtion
+	elseif(validation_mode == "inhibition" && array_current_block_target[1] == 0)
+	then
+		return false;
+	end;
 	return true;
+end;
+
+
+sub string color_to_string (int color)
+begin
+	#red
+	if (color == 1)
+	then
+		return + "roten";
+	#yellow
+	elseif (color == 2)
+	then
+		return + "gelben";
+	#violet
+	elseif (color == 3)
+	then
+		return + "violetten";
+	#green
+	elseif (color == 4)
+	then
+		return + "grünen";
+	#orange
+	elseif (color == 5)
+	then
+		return + "orangenen";
+	#blue
+	elseif (color == 6)
+	then
+		return + "blauen";
+	end;
+	return "";
+end;
+
+sub change_color (ellipse_graphic eg, int color)
+begin
+	#red
+	if (color == 1)
+	then
+		eg.set_color(255, 0, 0, 255);
+	#yellow
+	elseif (color == 2)
+	then
+		eg.set_color(255, 255, 0, 255);
+	#violet
+	elseif (color == 3)
+	then
+		eg.set_color(180, 30, 180, 255);
+	#green
+	elseif (color == 4)
+	then
+		eg.set_color(40, 200, 40, 255);
+	#orange
+	elseif (color == 5)
+	then
+		eg.set_color(255, 140, 0, 255);
+	#blue
+	elseif (color == 6)
+	then
+		eg.set_color(60, 170, 220, 255);
+	end;
+	eg.redraw();
 end;
 
 sub present_block_instruction (int target_color, int non_target_color)
 begin
-	string string_instruction = "Ihre Aufgabe:\n\nBitte drücken Sie mit Ihrem Zeigefinger, wenn Sie einen ";
+	string string_instruction = "Ihre Aufgabe:\n\nBitte reagieren Sie mit dem Zeigefinger, wenn Sie einen ";
 	
 	string_instruction = string_instruction + color_to_string(target_color);
 	
-	string_instruction = string_instruction + " Kreis sehen. Drücken Sie bitte nicht, wenn Sie einen ";
-	
-	string_instruction = string_instruction + color_to_string(non_target_color);
-	
-	string_instruction = string_instruction + " Kreis sehen.\n\nStarten Sie die Aufgabe durch drücken der Taste.";
+	string_instruction = string_instruction + " Kreis sehen.";
+		
+	string_instruction = string_instruction + "\n\nStarten Sie die Aufgabe durch einen Druck mit dem Zeigefinger.";
 	
 	text_instruction_block.set_caption(string_instruction);
 	text_instruction_block.redraw();
@@ -70,7 +146,7 @@ begin
 	return true;
 end;
 
-sub create_block (string mode, int targets, int non_targets)
+sub create_block (string mode, int targets, int non_targets, string validation_mode)
 begin	
 	array_current_block_target.resize(0);
 	loop int i = 1 
@@ -88,7 +164,7 @@ begin
 	end;
 	
 	array_current_block_target.shuffle();
-	loop until validate()
+	loop until validate(validation_mode)
 	begin
 		array_current_block_target.shuffle();
 	end;
@@ -252,14 +328,34 @@ begin
 	end;
 end;
 
-sub present_block (string code)
+sub present_block (string code, int target_color, int non_target_color, bool show_instruction, int pulses_to_wait)
 begin
+	if(show_instruction)
+	then
+	present_block_instruction(target_color, non_target_color);
+	end;
+
 	loop int current_stimulus = 1 until current_stimulus > array_current_block_target.count()
 	begin
+		if (pulses_to_wait > 0 && current_stimulus == 1)
+		then
+			wait_pulses(trial_cross, pulses_to_wait);
+			term.print_line("Synchronisation mit " + string(pulses_to_wait) + " Pulsen");
+			trial_sync.present();
+		end;
+		
 		trial_cross.set_duration(random(500,100));
 		trial_cross.present();
+		
+		if (!fmri_running)
+		then
+		fmrt_start_time = stimulus_manager.last_stimulus_data().time();
+		fmri_running = true;
+		end;
+	
 		picture picture_main = new picture();
 		trial current_trial = new trial();
+		string event_code = code + ";" + string(current_stimulus) + ";" + string(target_color) + ";" + string(non_target_color);
 		
 		loop int cirlces_per_stimulus = 1 until cirlces_per_stimulus > non_targets_in_stimulus + 1
 		begin
@@ -273,9 +369,9 @@ begin
 			ellipse_graphic tmp_eg = new ellipse_graphic();
 			if (cirlces_per_stimulus == 1)
 			then
-				tmp_eg.set_color(255,0,0,255);
+				change_color(tmp_eg, target_color);
 			else
-				tmp_eg.set_color(0,255,0,255);
+				change_color(tmp_eg, non_target_color);
 			end;
 			tmp_eg.set_dimensions(circle_diameter,circle_diameter);
 			tmp_eg.set_size(circle_diameter,circle_diameter);
@@ -286,10 +382,21 @@ begin
 			
 			cirlces_per_stimulus = cirlces_per_stimulus + 1;
 		end;
+		
 		current_trial.add_stimulus_event(picture_main);
+		current_trial.get_stimulus_event(1).set_target_button(0);
+		
+		if(array_current_block_target[current_stimulus] == 1)
+		then
+			event_code = event_code + ";" + "target";
+			current_trial.get_stimulus_event(1).set_target_button(0);
+		else
+			event_code = event_code + ";" + "non_target";
+			current_trial.get_stimulus_event(1).set_response_active(true);
+		end;
+		
 		current_trial.get_stimulus_event(1).set_duration(200);
-		string event_code = code +";" + string(current_stimulus);
-		current_trial.get_stimulus_event(1).set_event_code("event_code");
+		current_trial.get_stimulus_event(1).set_event_code(event_code);
 		current_trial.set_duration(2000);
 		current_trial.set_type(trial::FIXED);
 		current_trial.present();
@@ -297,5 +404,5 @@ begin
 	end;
 end;
 
-include "data.pcl"
 include "execution.pcl"
+include "data.pcl"

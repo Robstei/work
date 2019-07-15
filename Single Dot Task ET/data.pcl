@@ -33,7 +33,7 @@ then
 else
 	single.open_append("singles/no_name.txt");
 end;
-	string col_headings = "ID,reaction_time,reaction_type,block,stimulus,block_type,color,taget/non_target";
+	string col_headings = "ID,reaction_time,reaction_type,block,stimulus,block_type,color,target_non_target";
 	single.print_line(col_headings);
 	loop int row = 1 until row > array_data.count()
 	begin

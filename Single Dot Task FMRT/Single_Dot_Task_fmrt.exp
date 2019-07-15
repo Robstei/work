@@ -1,5 +1,5 @@
 <ver>20.3</ver>
-<efn>C:\work\Multi Dot Task\Mutli_Dot_Task.exp</efn>
+<efn>C:\work\Single Dot Task FMRT\Single_Dot_Task_fmrt.exp</efn>
 <author>Robin Steil</author>
 <con>
 <pause>P</pause>
@@ -29,25 +29,25 @@
 <depchg>1</depchg>
 <discard_windows_messages>0</discard_windows_messages>
 <display_status_window>1</display_status_window>
-<dmd>0</dmd>
-<dmh>0</dmh>
-<dmr>1</dmr>
-<dmrf>1</dmrf>
-<dmw>0</dmw>
+<dmd>32</dmd>
+<dmh>1080</dmh>
+<dmr>144</dmr>
+<dmrf>144.001</dmrf>
+<dmw>1920</dmw>
 <docs>
 <args></args>
 <exfl></exfl>
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\work\Multi Dot Task</dsd>
+<dsd>C:\work\Single Dot Task FMRT</dsd>
 <dwm>0</dwm>
 <dxv>8</dxv>
 <efs>
-<filename>C:\work\Multi Dot Task\Mutli_Dot_Task.sce</filename>
-<filename>C:\work\Multi Dot Task\data.pcl</filename>
-<filename>C:\work\Multi Dot Task\execution.pcl</filename>
-<filename>C:\work\Multi Dot Task\Mutli_Dot_Task.pcl</filename>
+<filename>C:\work\Single Dot Task FMRT\Single_Dot_Task_fmrt.sce</filename>
+<filename>C:\work\Single Dot Task FMRT\data.pcl</filename>
+<filename>C:\work\Single Dot Task FMRT\execution.pcl</filename>
+<filename>C:\work\Single Dot Task FMRT\Single_Dot_Task_fmrt.pcl</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -56,7 +56,7 @@
 <cfg>
 <dcfg>
 <en>0</en>
-<guid>{89908C74-09AE-489C-B604-44895DF2D2A1}</guid>
+<guid>{0506AEA1-6C62-4B8C-8F22-88C013A77CD7}</guid>
 <name>Default configuration</name>
 <r>
 <plat>2147483647</plat>
@@ -64,32 +64,7 @@
 <ss>0</ss>
 </r>
 <ss>
-<sd>
-<val>
-<dat>
-<val>150</val>
-</dat>
-<id>0</id>
-</val>
-<val>
-<dat>
-<val>6</val>
-</dat>
-<id>1</id>
-</val>
-<val>
-<dat>
-<val>100</val>
-</dat>
-<id>2</id>
-</val>
-<val>
-<dat>
-<val>20</val>
-</dat>
-<id>3</id>
-</val>
-</sd>
+<sd></sd>
 <sid>-1</sid>
 </ss>
 </dcfg>
@@ -99,74 +74,12 @@
 <grps>
 <grp>
 <gn></gn>
-<pl>
-<pid>0</pid>
-<pid>1</pid>
-<pid>2</pid>
-<pid>3</pid>
-</pl>
+<pl></pl>
 </grp>
 </grps>
 </dl>
 <parms>
-<parms>
-<parm>
-<id>0</id>
-<set>
-<desc>Distance to Screen Border for Circles from the middle of it in px </desc>
-<edit>1</edit>
-<name>Distance to Screen Border</name>
-<set>
-<rest></rest>
-</set>
-<temp>0</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>1</id>
-<set>
-<desc>Number of Non Targets in each Stimulus</desc>
-<edit>1</edit>
-<name>Non Targets in Stimulus</name>
-<set>
-<rest></rest>
-</set>
-<temp>0</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>2</id>
-<set>
-<desc>Circle Diamete rfor all Circles</desc>
-<edit>1</edit>
-<name>Circle Diameter</name>
-<set>
-<rest></rest>
-</set>
-<temp>0</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>3</id>
-<set>
-<desc>Circle Buffer. Min Distance between Circles</desc>
-<edit>1</edit>
-<name>Circle Buffer</name>
-<set>
-<rest></rest>
-</set>
-<temp>0</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-</parms>
+<parms></parms>
 <ssl></ssl>
 </parms>
 <pass></pass>
@@ -177,7 +90,7 @@
 </ssa>
 </man>
 </exparam>
-<experiment_id>{2DC7EC0B-6D14-47F9-A0DA-0D4BA90D3B72}</experiment_id>
+<experiment_id>{D641ED79-5C9E-4C22-BD16-86E78985E7F2}</experiment_id>
 <font_settings>
 <dpi>96</dpi>
 <font_smooth>1</font_smooth>
@@ -190,7 +103,7 @@
 <sce>1</sce>
 </do_upload>
 <host></host>
-<id>{A05A4FA7-54BA-4323-87F0-09223FAF8E27}</id>
+<id>{19127B80-EF28-48C4-9B17-8982E674F0F4}</id>
 <idle_timeout>0</idle_timeout>
 <login_timeout>0</login_timeout>
 <mode>0</mode>
@@ -209,7 +122,7 @@
 <idt>0</idt>
 <ilc>0</ilc>
 <ip_chans></ip_chans>
-<lfd>C:\work\Multi Dot Task\logfiles</lfd>
+<lfd>C:\work\Single Dot Task FMRT\logfiles</lfd>
 <lnb>2</lnb>
 <lno>4</lno>
 <log>
@@ -237,7 +150,7 @@
 </lslset>
 <maxpv></maxpv>
 <minpv></minpv>
-<nam>Multi_Dot_Task</nam>
+<nam>Single_Dot_Task_FMRT</nam>
 <one_processor>2</one_processor>
 <oports></oports>
 <out_encrypt_key></out_encrypt_key>
@@ -360,11 +273,6 @@
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>HyperX Virtual Surround Sound</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
 <name>ndPoint1 Inte</name>
 </device>
 <device>
@@ -405,7 +313,7 @@
 <lang></lang>
 <mc>0</mc>
 <rw>0</rw>
-<sil>200</sil>
+<sil>0</sil>
 <uwd>0</uwd>
 <vocab></vocab>
 </speech>
@@ -700,7 +608,7 @@
 <offset>50</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\work\Multi Dot Task\Mutli_Dot_Task.sce</sfn>
+<sfn>C:\work\Single Dot Task FMRT\Single_Dot_Task_fmrt.sce</sfn>
 </sce>
 <sct>
 <capture_device>

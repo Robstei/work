@@ -1,7 +1,6 @@
 pcl_file = "Single_Dot_Task_et.pcl";
 response_matching = simple_matching;
 active_buttons = 2;
-no_logfile = true;
 default_background_color = 60, 60, 60;
 default_text_color = 255, 255, 255;
 
