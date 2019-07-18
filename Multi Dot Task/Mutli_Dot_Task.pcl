@@ -395,10 +395,10 @@ begin
 			current_trial.get_stimulus_event(1).set_response_active(true);
 		end;
 		
-		current_trial.get_stimulus_event(1).set_duration(200);
+		current_trial.get_stimulus_event(1).set_duration(40000);
 		current_trial.get_stimulus_event(1).set_event_code(event_code);
-		current_trial.set_duration(700);
-		current_trial.set_type(trial::FIXED);
+		current_trial.set_duration(40000);
+		current_trial.set_type(trial::FIRST_RESPONSE);
 		current_trial.present();
 		current_stimulus = current_stimulus + 1;
 	end;

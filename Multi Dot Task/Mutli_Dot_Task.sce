@@ -6,6 +6,7 @@ default_text_color = 255, 255, 255;
 
 scenario_type = fMRI_emulation;
 scan_period = 2000;
+pulses_per_scan = 1;
 
 begin; 
 
