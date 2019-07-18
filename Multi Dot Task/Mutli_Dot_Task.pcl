@@ -344,7 +344,7 @@ begin
 			trial_sync.present();
 		end;
 		
-		trial_cross.set_duration(random(500,100));
+		trial_cross.set_duration(random(500,1000));
 		trial_cross.present();
 		
 		if (!fmri_running)
@@ -360,14 +360,14 @@ begin
 		loop int cirlces_per_stimulus = 1 until cirlces_per_stimulus > non_targets_in_stimulus + 1
 		begin
 			#continue if non_target
-			if (cirlces_per_stimulus == 1 && array_current_block_target[current_stimulus] == 0)
-			then
-				cirlces_per_stimulus = cirlces_per_stimulus + 1;
-				continue;
-			end;
+			#if (cirlces_per_stimulus == 1 && array_current_block_target[current_stimulus] == 0)
+			#then
+			#	cirlces_per_stimulus = cirlces_per_stimulus + 1;
+			#	continue;
+			#end;
 			
 			ellipse_graphic tmp_eg = new ellipse_graphic();
-			if (cirlces_per_stimulus == 1)
+			if (cirlces_per_stimulus == 1 && array_current_block_target[current_stimulus] == 1)
 			then
 				change_color(tmp_eg, target_color);
 			else
@@ -389,7 +389,7 @@ begin
 		if(array_current_block_target[current_stimulus] == 1)
 		then
 			event_code = event_code + ";" + "target";
-			current_trial.get_stimulus_event(1).set_target_button(0);
+			current_trial.get_stimulus_event(1).set_target_button(2);
 		else
 			event_code = event_code + ";" + "non_target";
 			current_trial.get_stimulus_event(1).set_response_active(true);
@@ -397,7 +397,7 @@ begin
 		
 		current_trial.get_stimulus_event(1).set_duration(200);
 		current_trial.get_stimulus_event(1).set_event_code(event_code);
-		current_trial.set_duration(2000);
+		current_trial.set_duration(700);
 		current_trial.set_type(trial::FIXED);
 		current_trial.present();
 		current_stimulus = current_stimulus + 1;

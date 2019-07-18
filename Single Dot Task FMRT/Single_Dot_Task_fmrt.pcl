@@ -52,14 +52,14 @@ begin
 	eg_stimuli.redraw();
 end;
 
-sub bool validate (array<int,1> block, int non_targets)
+sub bool validate (array<int,1> block_to_test, string mode)
 begin
-	if (block[1] == 1)
+	if (mode == "attention" && block_to_test[1] == 1)
 	then
-		if (non_targets > 0)
-		then
-		return false
-		end;
+		return false;
+	elseif (mode == "inhibition" && block_to_test[1] == 0)
+	then
+		return false;
 	end;
 	return true;
 end;
@@ -112,7 +112,7 @@ begin
 end;
 
 #creates an array where 1 are target and 0 are non targets
-sub create_block (int targets, int non_targets)
+sub create_block (int targets, int non_targets, string mode)
 begin
 	array_current_block.resize(0);
 	loop int i = 1 until i > targets
@@ -128,7 +128,7 @@ begin
 	end;
 	
 		array_current_block.shuffle();
-	loop until validate(array_current_block, non_targets)
+	loop until validate(array_current_block, mode)
 	begin
 		array_current_block.shuffle();
 	end;
@@ -166,7 +166,7 @@ begin
 		if  array_current_block[current_stimulus] == 1
 		then
 			change_color(target_color);
-			se_stimuli.set_target_button(1);
+			se_stimuli.set_target_button(2);
 			code = code + ";" + string(target_color) + ";" + "target";
 		else
 			change_color(non_target_color);

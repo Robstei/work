@@ -31,7 +31,7 @@ trial {
 trial {
 	picture {
 		text {
-			caption = "Synchronisation";
+			caption = "... Scanner wird gestartet ...";
 			font_size = 40;
 		};
 		x=0;y=0;
@@ -78,7 +78,7 @@ trial {
 trial {
 	trial_type = specific_response;
 	trial_duration = forever;
-	terminator_button = 2;
+	terminator_button = 1;
 	picture {
 		text{
 			caption = "Gleich geht es weiter";

@@ -10,20 +10,9 @@ scan_period = 2000;
 begin; 
 
 trial {
-	trial_type = first_response;
-	trial_duration = forever;
-	
-	picture {
-		ellipse_graphic {
-		} eg_stimuli;
-		x=0;y=0;
-	} picture_stimuli;
-} trial_stimuli; 
-
-trial {
 	picture {
 		text {
-			caption = "Synchronisation";
+			caption = "... Der Scanner wird gestartet ...";
 			font_size = 40;
 		};
 		x=0;y=0;
@@ -70,7 +59,7 @@ trial {
 trial {
 	trial_type = specific_response;
 	trial_duration = forever;
-	terminator_button = 2;
+	terminator_button = 1;
 	picture {
 		text{
 			caption ="Gleich geht es weiter";

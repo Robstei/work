@@ -12,7 +12,7 @@ array<string> array_attention_block_group[6] =
 array_attention_block_group.shuffle();
 loop int i = 1 until i > array_attention_block_group.count()
 begin
-	create_block(array_attention_block_group[i], 30, 10, "attention");
+	create_block(array_attention_block_group[i], 30, 10, "inhibition");
 	present_block("group2;block"+ string(i), 3, 5, false, 0);
 	i = i + 1;
 end;
@@ -34,7 +34,7 @@ array_inhibition_block_group.shuffle();
 
 loop int i = 1 until i > array_inhibition_block_group.count()
 begin
-	create_block(array_inhibition_block_group[i], 10, 30, "ihibition");
+	create_block(array_inhibition_block_group[i], 10, 30, "attention");
 	present_block("group5;block"+ string(i), 2, 6, false, 0);
 	i = i + 1;
 end;
