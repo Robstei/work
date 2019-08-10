@@ -1,0 +1,83 @@
+int target_color;
+int non_target_color;
+
+trial_instruction.present();
+
+########Test###############
+#target_color = 1;
+#non_target_color = 2;
+
+#create_block(2,4);
+#present_block(target_color, non_target_color,"test","");
+
+#tracker.send_message("pause.jpg");
+#pause(30);
+
+########Section 1###########
+target_color = 2;
+non_target_color = 4;
+
+create_block(40, 0, "none");
+present_block(target_color, non_target_color, "group1;block1", "V", true, 3);
+
+pause(30);
+
+target_color = 6;
+non_target_color = 5;
+
+create_block(30, 30, "none");
+present_block(target_color, non_target_color, "group1;block2", "X", true, 1);
+
+pause(30);
+
+target_color = 1;
+non_target_color = 3;
+
+create_block(30, 90, "attention");
+present_block(target_color, non_target_color, "group1;block3", "Y", true, 1);
+
+pause(30);
+
+target_color = 4;
+non_target_color = 5;
+
+create_block(0, 40, "none");
+present_block(target_color, non_target_color, "group1;block4", "W", true, 1);
+
+pause(180);
+trial_instruction.present();
+
+########Section 2###########
+
+target_color = 1;
+non_target_color = 2;
+
+create_block(0, 40, "none");
+present_block(target_color, non_target_color, "group2;block1", "W", true, 1);
+
+pause(30);
+
+target_color = 3;
+non_target_color = 6;
+
+create_block(30, 30, "none");
+present_block(target_color, non_target_color, "group2;block2", "X", true, 1);
+
+pause(30);
+
+target_color = 5;
+non_target_color = 4;
+
+create_block(90, 30, "inhibition");
+present_block(target_color, non_target_color, "group2;block3", "Z", true, 1);
+
+pause(30);
+
+target_color = 6;
+non_target_color = 2;
+
+create_block(40, 0, "none");
+present_block(target_color, non_target_color, "group2;block4", "V", true, 1);
+
+
+trial_instruction_end.present();
