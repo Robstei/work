@@ -1,0 +1,184 @@
+int stimulus_number = 1;
+#global variables
+array<int> array_current_block[0];
+bool fmri_running = false;
+int fmrt_start_time;
+
+sub pause (int time_in_seconds)
+begin
+	loop int start_time = clock.time()
+	until clock.time() > start_time + time_in_seconds * 1000
+	begin
+		text_pause.set_caption("In " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " Sekunden geht es weiter", true);
+		trial_pause.present();
+	end;
+	trial_pause_button.present();
+	term.print_line("Versuchsleiter muss Pause beenden");
+end;
+
+sub wait_pulses (trial trial_to_set, int pulses)
+begin
+	int current_pulse = pulse_manager.main_pulse_count();
+	trial_to_set.set_mri_pulse(current_pulse + pulses + 1);
+end;
+
+sub change_color ( int color)
+begin
+	#red
+	if (color == 1)
+	then
+		eg_stimuli.set_color(255, 0, 0, 255);
+	#yellow
+	elseif (color == 2)
+	then
+		eg_stimuli.set_color(255, 255, 0, 255);
+	#violet
+	elseif (color == 3)
+	then
+		eg_stimuli.set_color(180, 30, 180, 255);
+	#green
+	elseif (color == 4)
+	then
+		eg_stimuli.set_color(40, 200, 40, 255);
+	#orange
+	elseif (color == 5)
+	then
+		eg_stimuli.set_color(255, 140, 0, 255);
+	#blue
+	elseif (color == 6)
+	then
+		eg_stimuli.set_color(60, 170, 220, 255);
+	end;
+	eg_stimuli.redraw();
+end;
+
+sub bool validate (array<int,1> block_to_test, string mode)
+begin
+	if (mode == "attention" && block_to_test[1] == 1)
+	then
+		return false;
+	elseif (mode == "inhibition" && block_to_test[1] == 0)
+	then
+		return false;
+	end;
+	return true;
+end;
+
+sub string color_to_string (int color)
+begin
+	#red
+	if (color == 1)
+	then
+		return + "roten";
+	#yellow
+	elseif (color == 2)
+	then
+		return + "gelben";
+	#violet
+	elseif (color == 3)
+	then
+		return + "violetten";
+	#green
+	elseif (color == 4)
+	then
+		return + "grünen";
+	#orange
+	elseif (color == 5)
+	then
+		return + "orangenen";
+	#blue
+	elseif (color == 6)
+	then
+		return + "blauen";
+	end;
+	return "";
+end;
+
+sub present_block_instruction (int target_color, int non_target_color)
+begin
+	string string_instruction = "Ihre Aufgabe:\n\nBitte reagieren Sie mit dem Zeigefinger, wenn Sie einen ";
+	
+	string_instruction = string_instruction + color_to_string(target_color);
+	
+	string_instruction = string_instruction + " Kreis sehen. Drücken Sie bitte nicht, wenn Sie einen ";
+	
+	string_instruction = string_instruction + color_to_string(non_target_color);
+	
+	string_instruction = string_instruction + " Kreis sehen.\n\nStarten Sie die Aufgabe durch einen Druck mit dem Zeigefinger.";
+	
+	text_instruction_block.set_caption(string_instruction);
+	text_instruction_block.redraw();
+	trial_instruction_block.present();
+end;
+
+#creates an array where 1 are target and 0 are non targets
+sub create_block (int targets, int non_targets, string mode)
+begin
+	array_current_block.resize(0);
+	loop int i = 1 until i > targets
+	begin
+		array_current_block.add(1);
+		i = i + 1;
+	end;
+
+	loop int i = 1 until i > non_targets
+	begin
+		array_current_block.add(0);
+		i = i + 1;
+	end;
+	
+		array_current_block.shuffle();
+	loop until validate(array_current_block, mode)
+	begin
+		array_current_block.shuffle();
+	end;
+end;
+
+sub present_block (int target_color, int non_target_color, string block, string block_type, bool show_instruction, int pulses_to_wait)
+begin
+	if(show_instruction)
+	then
+	present_block_instruction(target_color, non_target_color);
+	end;
+
+	loop int current_stimulus = 1 until current_stimulus >  array_current_block.count()
+	begin
+		string code = block + ";" + string(current_stimulus) + ";" + block_type;
+
+		if (pulses_to_wait > 0 && current_stimulus == 1)
+		then
+			wait_pulses(trial_cross, pulses_to_wait);
+			term.print_line("Synchronisation mit " + string(pulses_to_wait) + " Pulsen");
+			trial_sync.present();
+		end;
+		
+		trial_cross.set_duration(random(500,1000));
+		trial_cross.present();
+		
+		if (!fmri_running)
+		then
+		fmrt_start_time = stimulus_manager.last_stimulus_data().time();
+		fmri_running = true;
+		end;
+	
+		se_stimuli.set_target_button(0);
+		
+		if  array_current_block[current_stimulus] == 1
+		then
+			change_color(target_color);
+			se_stimuli.set_target_button(2);
+			code = code + ";" + string(target_color) + ";" + "target";
+		else
+			change_color(non_target_color);
+			se_stimuli.set_response_active(true);
+			code = code + ";" + string(non_target_color) + ";" + "non_target";
+		end;
+		
+		se_stimuli.set_event_code(code);
+		trial_stimuli.present();
+		current_stimulus = current_stimulus + 1;
+	end;
+end;
+
+include "execution.pcl";
+include "data.pcl";

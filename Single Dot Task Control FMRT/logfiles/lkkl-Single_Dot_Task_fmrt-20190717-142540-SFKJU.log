@@ -1,0 +1,22 @@
+Scenario - 
+Logfile written - 07/17/2019 14:25:44
+
+Subject	Pulse	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+lkkl	1	Pulse	0	0	0	NA
+lkkl	1	Quit		16986	16986	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "LENOVO 20FMS2L703",
+   "experiment": "{D641ED79-5C9E-4C22-BD16-86E78985E7F2}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Single_Dot_Task_fmrt.sce",
+   "subject": "lkkl",
+   "timestamp": "2019/07/17 12:25:40 GMT"
+}
