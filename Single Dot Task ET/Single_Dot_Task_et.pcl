@@ -1,15 +1,6 @@
 include "eye_tracker_connection.pcl";
-int stimulus_number = 1;
 #global variables
 array<int> array_current_block[0];
-
-sub send_eye_tracker_message (string message)
-begin
-	if(mode == "Eye Tracker")
-	then
-		tracker.send_message(message);
-	end;
-end;
 
 sub pause (int time_in_seconds)
 begin
@@ -52,14 +43,14 @@ begin
 	eg_stimuli.redraw();
 end;
 
-sub bool validate (array<int,1> block, int non_targets)
+sub bool validate (array<int,1> block_to_test, string mode)
 begin
-	if (block[1] == 1)
+	if (mode == "attention" && block_to_test[1] == 1)
 	then
-		if (non_targets > 0)
-		then
-		return false
-		end;
+		return false;
+	elseif (mode == "inhibition" && block_to_test[1] == 0)
+	then
+		return false;
 	end;
 	return true;
 end;
@@ -94,7 +85,7 @@ begin
 	return "";
 end;
 
-sub present_block_instruction (int target_color, int non_target_color)
+sub present_block_instruction (int target_color, int non_target_color, bool show_instruction)
 begin
 	string string_instruction = "Ihre Aufgabe:\n\nBitte reagieren Sie mit Druck auf die Leertaste, wenn Sie einen ";
 	
@@ -112,7 +103,7 @@ begin
 end;
 
 #creates an array where 1 are target and 0 are non targets
-sub create_block (int targets, int non_targets)
+sub create_block (int targets, int non_targets, string mode)
 begin
 	array_current_block.resize(0);
 	loop int i = 1 until i > targets
@@ -128,7 +119,7 @@ begin
 	end;
 	
 		array_current_block.shuffle();
-	loop until validate(array_current_block, non_targets)
+	loop until validate(array_current_block, mode)
 	begin
 		array_current_block.shuffle();
 	end;
@@ -136,7 +127,11 @@ end;
 
 sub present_block (int target_color, int non_target_color, string block, string block_type)
 begin
+	if(show_instruction)
+	then
 	present_block_instruction(target_color, non_target_color);
+	end;
+	
 	loop int i = 1 until i >  array_current_block.count()
 	begin
 		string code = block + ";" + string(i) + ";" + block_type;
@@ -160,20 +155,22 @@ begin
 			eye_tracker_message = eye_tracker_message + "_non_target";
 		end;
 		
+		eye_tracker_message = eye_tracker_message + ".jpg";
 		se_stimuli.set_event_code(code);
-		tracker.send_eye_tracker_message(eye_tracker_message);
+		tracker.send_message(eye_tracker_message);
 		trial_stimuli.present();
 		i = i + 1;
 	end;
 end;
 
 include "execution.pcl";
-include "data.pcl";
 
 tracker.stop_data(dt_position);
 tracker.set_recording (false);
 tracker.stop_tracking();
 
-term.print_line(tracker2.save_data("C:\\Algpsy\\Single_dot_task\\" + logfile.subject() + ".idf", "description", logfile.subject(), 1));
+tracker2.save_data("C:\\Algpsy\\Single_dot_task\\SDT_et_" + logfile.subject() + ".idf", "description", logfile.subject(), 1);
 tracker.clear_buffer(dt_position);
 tracker2.disconnect();
+
+include "data.pcl";

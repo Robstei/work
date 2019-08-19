@@ -43,7 +43,7 @@ double calibration_auto_accept = 1.0;
 double calibration_speed = 1.0;
 
 term.print ( "calibration" ); term.print ( "\n" );
-tracker.calibrate(CALIBRATE_DEFAULT, calibration_method, calibration_auto_accept, calibration_speed);
+tracker.calibrate(et_calibrate_default, calibration_method, calibration_auto_accept, calibration_speed);
 wait_interval (500);
 
 ##### validation 

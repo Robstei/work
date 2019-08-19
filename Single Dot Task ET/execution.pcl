@@ -18,29 +18,29 @@ trial_instruction.present();
 target_color = 1;
 non_target_color = 2;
 
-create_block(0,40);
-present_block(target_color, non_target_color, "block1", "D");
+create_block(0, 40, "none");
+present_block(target_color, non_target_color, "group1;block1", "D", true);
 
-create_block(20,20);
-present_block(target_color, non_target_color, "block2", "B");
+create_block(20 ,20, "none");
+present_block(target_color, non_target_color, "group1;block2", "B", false);
 
-create_block(30,10);
-present_block(target_color, non_target_color, "block3", "A");
+create_block(30,10, "inhibition");
+present_block(target_color, non_target_color, "group1;block3", "A", false);
 
-create_block(10,30);
-present_block(target_color, non_target_color, "block4", "C");
+create_block(10, 30, "attention");
+present_block(target_color, non_target_color, "group1;block4", "C", false);
 
-create_block(30,10);
-present_block(target_color, non_target_color, "block5", "A");
+create_block(30, 10, "inhibition");
+present_block(target_color, non_target_color, "group1;block5", "A", false);
 
-create_block(10,30);
-present_block(target_color, non_target_color, "block6", "C");
+create_block(10, 30, "attention");
+present_block(target_color, non_target_color, "group1;block6", "C", false);
 
-create_block(20,20);
-present_block(target_color, non_target_color, "block7", "B");
+create_block(20 ,20, "none");
+present_block(target_color, non_target_color, "group1;block7", "B", false);
 
-create_block(40,0);
-present_block(target_color, non_target_color, "block8", "E");
+create_block(40, 0, "none");
+present_block(target_color, non_target_color, "group1;block8", "E", false);
 
 tracker.send_message("pause.jpg");
 pause(180);
@@ -49,29 +49,29 @@ pause(180);
 target_color = 3;
 non_target_color = 4;
 
-create_block(40,0);
-present_block(target_color, non_target_color, "block9", "E");
+create_block(40,0, "none");
+present_block(target_color, non_target_color, "group2;block1", "E", true);
 
-create_block(30,10);
-present_block(target_color, non_target_color, "block10", "A");
+create_block(30, 10, "inhibition");
+present_block(target_color, non_target_color, "group2;block2", "A", false);
 
-create_block(20,20);
-present_block(target_color, non_target_color, "block11", "B");
+create_block(20, 20, "none");
+present_block(target_color, non_target_color, "group2;block3", "B", false);
 
-create_block(30,10);
-present_block(target_color, non_target_color, "block12", "A");
+create_block(30, 10, "inhibition");
+present_block(target_color, non_target_color, "group2;block4", "A", false);
 
-create_block(10,30);
-present_block(target_color, non_target_color, "block13", "C");
+create_block(10, 30, "attention");
+present_block(target_color, non_target_color, "group2;block5", "C", false);
 
-create_block(20,20);
-present_block(target_color, non_target_color, "block14", "B");
+create_block(20, 20, "none");
+present_block(target_color, non_target_color, "group2;block6", "B", false);
 
-create_block(10,30);
-present_block(target_color, non_target_color, "block15", "C");
+create_block(10, 30, "attention");
+present_block(target_color, non_target_color, "group2;block7", "C", false);
 
-create_block(0,40);
-present_block(target_color, non_target_color, "block16", "D");
+create_block(0, 40, "none");
+present_block(target_color, non_target_color, "group2;block8", "D", false);
 
 tracker.send_message("pause.jpg");
 pause(180);
@@ -80,29 +80,29 @@ pause(180);
 target_color = 5;
 non_target_color = 6;
 
-create_block(0,40);
-present_block(target_color, non_target_color, "block17", "D");
+create_block(0, 40, "none");
+present_block(target_color, non_target_color, "group3;block1", "D", true);
 
-create_block(10,30);
-present_block(target_color, non_target_color, "block18", "C");
+create_block(10, 30, "attention");
+present_block(target_color, non_target_color, "group3;block2", "C", false);
 
-create_block(20,20);
-present_block(target_color, non_target_color, "block19", "B");
+create_block(20, 20, "none");
+present_block(target_color, non_target_color, "group3;block3", "B", false);
 
-create_block(30,10);
-present_block(target_color, non_target_color, "block20", "A");
+create_block(30, 10, "inhibition");
+present_block(target_color, non_target_color, "group3;block4", "A", false);
 
-create_block(10,30);
-present_block(target_color, non_target_color, "block21", "C");
+create_block(10, 30, "attention");
+present_block(target_color, non_target_color, "group3;block5", "C", false);
 
-create_block(30,10);
-present_block(target_color, non_target_color, "block22", "A");
+create_block(30, 10, "inhibition");
+present_block(target_color, non_target_color, "group3;block6", "A", false);
 
-create_block(20,20);
-present_block(target_color, non_target_color, "block23", "B");
+create_block(20, 20, "none");
+present_block(target_color, non_target_color, "group3;block7", "B", false);
 
-create_block(40,0);
-present_block(target_color, non_target_color, "block24", "E");
+create_block(40, 0, "none");
+present_block(target_color, non_target_color, "group3;block8", "E", false);
 
 tracker.send_message("instruction_end.jpg");
 trial_instruction_end.present();

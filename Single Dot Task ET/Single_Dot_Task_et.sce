@@ -53,8 +53,7 @@ trial {
 			caption ="Bitte denken Sie daran:\n
 			- So schnell und richtig wie möglich zu reagieren
 			- Sie bekommen kein Feedback
-			- Richten Sie Ihren Blick während
-			- der Aufgabe auf das Kreuz in der Mitte";
+			- Richten Sie Ihren Blick während der Aufgabe auf das Kreuz in der Mitte";
 			font_size = 30;
 		}text_pause_bottom;
 		x=0;y=-200;

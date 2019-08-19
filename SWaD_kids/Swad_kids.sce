@@ -875,7 +875,7 @@ begin_pcl;
 			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
 			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
 			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
-			present_information(array_information[language][5], 30);
+			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 2
 	then
@@ -910,7 +910,7 @@ begin_pcl;
 			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
 			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
 			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
-			present_information(array_information[language][5], 30);
+			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 3
 	then
@@ -945,7 +945,7 @@ begin_pcl;
 			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
 			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "divided", "3");
 			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "divided", "4");
-			present_information(array_information[language][5], 30);
+			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 4
 	then
@@ -980,7 +980,7 @@ begin_pcl;
 			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2");
 			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "3");
 			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "4");
-			present_information(array_information[language][5], 30);
+			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 5
 	then
@@ -1015,7 +1015,7 @@ begin_pcl;
 			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
 			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "divided", "3");
 			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "divided", "4");
-			present_information(array_information[language][5], 30);
+			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 6
 	then
@@ -1051,5 +1051,5 @@ begin_pcl;
 			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2");
 			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "3");
 			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "4");
-			present_information(array_information[language][5], 30);
+			present_information(array_information[language][6], 30);
 	end;

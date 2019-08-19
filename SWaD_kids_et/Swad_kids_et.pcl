@@ -1,4 +1,4 @@
-#########EYE TRACKER###################
+#########EYE TRACKER##################
 	
 	string iViewX_IP = "192.168.1.2";
 	string Local_IP = "192.168.1.1";
@@ -63,7 +63,28 @@ term.print ( "y\t" ); term.print ( string(accuracy_y) ); term.print ( "\n" );
 wait_interval (500);
 tracker.set_recording(true);
 
-
+	sub print_et_status(string code)
+	begin
+		term.print_line("\n-------------" + code +"------------");
+		int status = tracker.get_status();
+		term.print("Status: ");
+		if (status == tracker.STATUS_STOPPED)
+		then
+			term.print_line("stopped");
+		elseif(status == tracker.STATUS_INITIALIZING)
+		then
+			term.print_line("initializing");
+		elseif(status == tracker.STATUS_TRACKING)
+		then
+			term.print_line("tracking");
+		elseif(status == tracker.STATUS_ERROR)
+		then
+			term.print_line("error");
+		end;
+		
+		term.print_line("\n-------------" + code +"------------");
+	end;
+	
 	########END EYE TRACKER############
 
 	int COLOR = 1;
@@ -155,7 +176,7 @@ tracker.set_recording(true);
 				trial_pause.present();
 			end;
 		end;
-	end;
+     end;
 	
 	sub pause_minutes (int time_in_minutes)
 	begin
@@ -240,31 +261,45 @@ tracker.set_recording(true);
 	# 4. Switching blocks with selective attention
 	# 5. Switching blocks with divided attention
 	
-	sub send_eye_tracker_message (int seperate_attention, string run_id, string target_information)
+	sub send_eye_tracker_message (int seperate_attention, string run_id, bool is_target, string divided_attention_target)
 	begin
+		string message = run_id;
 		
-		string message = "run_";
-		
-		if run_id != "switching"
+		if (run_id == "switching")
 		then 
-			message = message + run_id;
-
-		elseif run_id == "switching" 
-		then
-			#message = message + "_block_";
-			
-			if seperate_attention == 1 || seperate_attention == 2
+			if (seperate_attention == 1 || seperate_attention == 2)
 			then
-				message = message + "s_selective";
-			elseif seperate_attention == 3
+				message = message + "_selective";
+			elseif (seperate_attention == 3)
 			then
-				message = message + "s_divided";
+				message = message + "_divided";
 			end;
 		end;
 		
-		message = message + "_" + target_information;
+		if (seperate_attention == 1)
+		then
+			message = message + "_color";
+		elseif (seperate_attention == 2)
+		then
+			message = message + "_form";
+		end;
 		
+		if (seperate_attention == 3 && divided_attention_target != "")
+		then
+			message = message + "_" + divided_attention_target;
+		end;
 		
+		if (is_target)
+		then
+			message = message + "_target";
+		else
+			message = message + "_non_target";
+		end;
+		
+		if(run_id == "test")
+		then
+			message = "test";
+		end;
 		
 		message = message + ".jpg";
 		tracker.send_message(message);
@@ -348,7 +383,6 @@ tracker.set_recording(true);
 	# see make_and_present_block for parameter explanation
 	
 	sub array<int,2> make_block (int seperate_attention, int color_target_index, array<int,1> color_indexes,
-											int form_target_index, int number_of_targets, int number_of_non_targets)
 											int form_target_index, int number_of_targets, int number_of_non_targets)
 	begin
 		array<int> list[0][2];
@@ -607,6 +641,8 @@ tracker.set_recording(true);
 	
 		loop int i = 1 until i > block.count()
 		begin
+			bool is_target = false;
+			string divided_attention_target = "";
 			int color_index = block[i][COLOR];
 			int form_index = block[i][FORM];
 
@@ -618,16 +654,14 @@ tracker.set_recording(true);
 
 			stim_event.set_target_button(0);
 			stim_event.set_response_active(true);
-			
-			string target_information;
-			
+						
 			if seperate_attention == 1
 			then
 				if color_target_index == color_index
 				then
 					stim_event.set_target_button(1);
 					stim_event.set_event_code(tmp_event_code + ";" + "1");
-					target_information = "target"
+					is_target = true;
 				else
 					stim_event.set_event_code(tmp_event_code + ";" + "0");
 				end;
@@ -637,6 +671,7 @@ tracker.set_recording(true);
 				then 
 					stim_event.set_target_button(2);
 					stim_event.set_event_code(tmp_event_code + ";" + "2");
+					is_target = true;
 				else
 					stim_event.set_event_code(tmp_event_code + ";" + "0");
 				end;
@@ -646,10 +681,14 @@ tracker.set_recording(true);
 				then
 					stim_event.set_target_button(1);
 					stim_event.set_event_code(tmp_event_code + ";" + "1");
+					is_target = true;
+					divided_attention_target = "color";
 				elseif form_target_index == form_index
 				then
 					stim_event.set_target_button(2);
 					stim_event.set_event_code(tmp_event_code + ";" + "2");
+					is_target = true;
+					divided_attention_target = "form";
 				else
 					stim_event.set_event_code(tmp_event_code + ";" + "0");
 				end;
@@ -665,13 +704,14 @@ tracker.set_recording(true);
 			end;
 			tracker.send_message("Fixation.jpg");
 			trial_cross.present();
+			
 			set_response_mode(2);
 			
-			###set corespomdong picture stimulus for eye tracking data
+			send_eye_tracker_message(seperate_attention, run_id, is_target, divided_attention_target);
 			
-			send_eye_tracker_message(seperate_attention, run_id, target_information);
 			trial_main.present();
 			set_response_mode(1);
+			
 			i=i+1;
 		
 			if show_feedback
@@ -732,43 +772,43 @@ tracker.set_recording(true);
 	present_information(array_information[language][1], 25);
    present_information(array_information[language][2], 30);
 
-	make_and_present_block(1, 1, array_color_indexes, -1, 1, 1, true, "test", "1");
-	#make_and_present_block(3, 2, array_color_indexes, 1, 4, 6, true, "test", "2");
-		
+	make_and_present_block(1, 1, array_color_indexes, -1, 4, 6, true, "test", "1");
+	make_and_present_block(3, 2, array_color_indexes, 1, 4, 6, true, "test", "2");
+	
 	if configuration == 1
 	then
 		##########################Condition 1########################################
 
 			pause_seconds(30);
 			present_information(array_information[language][3], 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 1, 1, false, "selective", "1");
-			#make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2");
-			#make_and_present_block(1, 4, array_color_indexes, -1, 6, 20, false, "selective", "3");
-			#make_and_present_block(2, -1, array_color_indexes, 3, 8, 18, false, "selective", "4");
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "selective", "1");
+			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2");
+			make_and_present_block(1, 4, array_color_indexes, -1, 6, 20, false, "selective", "3");
+			make_and_present_block(2, -1, array_color_indexes, 3, 8, 18, false, "selective", "4");
 			
 		##########################Condition 2########################################
 
-			#pause_minutes(2);
+			pause_minutes(2);
 			present_information(array_information[language][4], 30);
-			make_and_present_block(3, 5, array_color_indexes, 4, 1, 1, false, "divided", "1");
-			#make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
-			#make_and_present_block(3, 1, array_color_indexes, 6, 7, 19, false, "divided", "3");
-			#make_and_present_block(3, 2, array_color_indexes, 1, 6, 20, false, "divided", "4");
+			make_and_present_block(3, 5, array_color_indexes, 4, 8, 18, false, "divided", "1");
+			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
+			make_and_present_block(3, 1, array_color_indexes, 6, 7, 19, false, "divided", "3");
+			make_and_present_block(3, 2, array_color_indexes, 1, 6, 20, false, "divided", "4");
 			
 		##########################Condition 3########################################
 
-			#pause_minutes(2);
+			pause_minutes(2);
 			present_information(array_information[language][5], 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 1, 1, false, "switching", "1");
-			make_and_present_block(3, 3, array_color_indexes, 3, 1, 1, false, "switching", "2");
-			#make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
-			#make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");
+			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
+			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
 			
-			#make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
-			#make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
-			#make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
-			#make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
-			#present_information(array_information[language][5], 30);
+			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
+			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
+			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 2
 	then
@@ -803,7 +843,7 @@ tracker.set_recording(true);
 			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
 			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
 			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
-			present_information(array_information[language][5], 30);
+			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 3
 	then
@@ -838,7 +878,7 @@ tracker.set_recording(true);
 			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
 			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "divided", "3");
 			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "divided", "4");
-			present_information(array_information[language][5], 30);
+			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 4
 	then
@@ -873,7 +913,7 @@ tracker.set_recording(true);
 			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2");
 			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "3");
 			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "4");
-			present_information(array_information[language][5], 30);
+			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 5
 	then
@@ -908,7 +948,7 @@ tracker.set_recording(true);
 			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
 			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "divided", "3");
 			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "divided", "4");
-			present_information(array_information[language][5], 30);
+			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 6
 	then
@@ -943,14 +983,29 @@ tracker.set_recording(true);
 			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2");
 			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "3");
 			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "4");
-			present_information(array_information[language][5], 30);
+			present_information(array_information[language][6], 30);
+	
+	elseif configuration == 7
+	then
+		/*present_information(array_information[language][3], 30);
+		make_and_present_block(2, -1, array_color_indexes, 2, 2, 2, false, "selective", "1");
+		pause_seconds(30);
+		make_and_present_block(3, 3, array_color_indexes, 3, 2, 2, false, "switching", "2");
+
+		pause_minutes(2);
+		present_information(array_information[language][4], 30);
+		make_and_present_block(3, 5, array_color_indexes, 4, 8, 18, false, "divided", "1");
+		
+		pause_minutes(2);
+		present_information(array_information[language][5], 30);
+		make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");*/
+		#make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
 	end;
 	
-		
 	tracker.stop_data(dt_position);
-	tracker.set_recording (false);
+	tracker.set_recording(false);
 	tracker.stop_tracking();
-
-	term.print_line(tracker2.save_data("C:\\Algpsy\\Swad_kids\\" + logfile.subject() + ".idf", "description", logfile.subject(), 1));
+	
+	tracker2.save_data("C:\\Algpsy\\Swad_kids\\SwaD_kids_et_" + logfile.subject() + ".idf", "description", logfile.subject(), 1);
 	tracker.clear_buffer(dt_position);
 	tracker2.disconnect();
