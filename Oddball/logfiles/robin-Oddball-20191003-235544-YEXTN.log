@@ -1,0 +1,26 @@
+Scenario - 
+Logfile written - 10/03/2019 23:56:05
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+robin	1	Response	3	133122	132955	0
+robin	3	Picture	circle	144331	10167	1	1667	1	10000	1500	false_alarm	3
+robin	3	Response	2	155682	21517	0
+robin	3	Response	1	162801	28636	0
+robin	3	Picture	circle	173331	39166	1	1667	1	39000	1500	miss	0
+robin	3	Quit		189601	55436	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{DC23946D-9824-436C-AC02-DAA073E16653}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Oddball.sce",
+   "subject": "robin",
+   "timestamp": "2019/10/03 21:55:44 GMT"
+}

@@ -1,0 +1,44 @@
+Scenario - 
+Logfile written - 10/03/2019 18:10:40
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+	1	Response	1	13283	13116	0
+	2	Response	2	16723	3390	0
+	4	Response	3	24083	3083	0
+	6	Response	1	32883	4550	0
+	6	Response	1	37680	9347	324
+	7	Picture	circle	48499	7167	1	20166	1	7000	20000	other	0
+	7	Picture	circle	78499	37166	1	20166	1	37000	20000	other	0
+	7	Picture	circle	106498	65166	1	20166	1	65000	20000	other	0
+	7	Picture	circle	131498	90165	1	20167	1	90000	20000	other	0
+	7	Picture	circle	159498	118165	1	20166	1	118000	20000	other	0
+	7	Picture	circle	185497	144165	1	20166	1	144000	20000	other	0
+	7	Picture	circle	210497	169165	1	20166	1	169000	20000	other	0
+	7	Picture	circle	240497	199164	1	20167	1	199000	20000	other	0
+	7	Picture	circle	270496	229164	1	20166	1	229000	20000	other	0
+	7	Picture	circle	295496	254164	1	20167	1	254000	20000	other	0
+	7	Picture	circle	323496	282163	1	20166	1	282000	20000	other	0
+	7	Picture	circle	352495	311163	1	20166	1	311000	20000	other	0
+	7	Picture	circle	377495	336163	1	20167	1	336000	20000	other	0
+	7	Picture	circle	406495	365162	1	20166	1	365000	20000	other	0
+	7	Picture	circle	434494	393162	1	20166	1	393000	20000	other	0
+	7	Picture	circle	464494	423162	1	20166	1	423000	20000	other	0
+	7	Picture	circle	492494	451161	1	20166	1	451000	20000	other	0
+	7	Picture	circle	521493	480161	1	9898	1	480000	20000	other	0
+	7	Quit		525763	484430	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{DC23946D-9824-436C-AC02-DAA073E16653}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Oddball.sce",
+   "subject": "",
+   "timestamp": "2019/10/03 16:09:45 GMT"
+}

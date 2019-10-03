@@ -1,0 +1,391 @@
+rgb_color color_target = parameter_manager.get_color("TARGET_COLOR_DEFAULT");
+rgb_color color_non_target = parameter_manager.get_color("NON_TARGET_COLOR_DEFAULT");
+
+sub int calculate_trial_duration (int stimulus_active_duration, int stimuli_count, array<int,1> array_accumulated_ISIs)
+begin
+	return stimulus_active_duration * stimuli_count + array_accumulated_ISIs[array_accumulated_ISIs.count()];
+end;
+
+sub video create_video (string video_name)
+begin
+	video tmp_video = new video();
+	
+	tmp_video.set_filename(video_name);
+
+	tmp_video.prepare();
+	return tmp_video;
+end;
+
+sub array<video, 1> create_video_array (int time_overall, string video_name)
+begin
+	array<video> array_videos[0];
+	loop int time_rest = time_overall
+	until time_rest < 0
+	begin
+		video tmp_video =  create_video (video_name);
+		array_videos.add(tmp_video);
+		
+		time_rest = int ( time_rest - tmp_video.duration() );
+	end;
+	return array_videos;
+end;
+
+
+
+sub array<int,1> create_stimuli_timings (int stimuli_count, int stimulus_active_duration, int isi_min, int isi_max, int isi_interval)
+begin
+	array<int> array_potential_ISIs[0];
+	array<int> array_stimuli_timings[0];
+	
+	#writes all potentioal ISI values in an array
+	loop int candidate = isi_min
+	until candidate > isi_max
+	begin
+		array_potential_ISIs.add(candidate);
+		candidate = candidate + isi_interval;
+	end;
+	
+	#chooses the necessary amount of ISI values
+	loop int i = 1
+	until i > stimuli_count
+	begin
+		
+		int next_stimulus_starttime;
+		if i == 1
+		then
+			next_stimulus_starttime = array_potential_ISIs[random(1,array_potential_ISIs.count())];
+		else
+			next_stimulus_starttime = array_stimuli_timings[i-1] + stimulus_active_duration + array_potential_ISIs[random(1,array_potential_ISIs.count())];
+		end;
+		
+		array_stimuli_timings.add(next_stimulus_starttime);
+		
+		i = i + 1;
+	end;
+	return array_stimuli_timings;
+end;
+
+sub bool validate (array<int,1> array_stimuli_sequence, int first_stimulus_option)
+begin
+	if first_stimulus_option == 1
+	then
+		if array_stimuli_sequence[1] == 1
+		then
+		return false;
+		end;
+	elseif first_stimulus_option == 2
+	then
+		if array_stimuli_sequence[1] == 2
+		then
+			return false;
+		end;
+	end;
+	return true;
+end;
+
+sub trial add_video_to_trial (trial trial_main, string video_name, int time_overall)
+begin
+	
+	array<video> array_videos[0];
+	array_videos.assign(create_video_array(time_overall, video_name));
+	double video_duration = array_videos[1].duration();
+	trial_main.set_duration(time_overall);
+	
+		loop int i = 1
+		until i > array_videos.count()
+		begin
+			video video_tmp = array_videos[i];
+			
+			if i == array_videos.count()
+			then
+				video_tmp.set_end_time(mod(time_overall, int(video_duration)));
+			end;
+			
+			stimulus_event stimulus_event_tmp = trial_main.add_stimulus_event(video_tmp);
+			stimulus_event_tmp.set_time(int(video_duration * (i - 1)));
+			
+			
+			i = i + 1;
+		end;
+		
+	return trial_main;
+end;
+
+sub array<int, 1> create_stimuli_sequence (int stimuli_count, int target_count)
+begin
+	array<int> array_stimuli_sequence[0];
+	
+	loop int i = 1
+	until i > target_count
+	begin
+		array_stimuli_sequence.add(1);
+		i = i + 1;
+	end;
+	
+	loop
+	until array_stimuli_sequence.count() == stimuli_count
+	begin
+		array_stimuli_sequence.add(2);
+	end;
+	
+	return array_stimuli_sequence;
+end;
+
+sub trial add_sound_to_trial (trial trial_main, array<int,1> array_stimuli_sequence, array<int,1> array_stimuli_timings, int stimulus_active_duration)
+begin
+
+	loop int i = 1
+	until i > array_stimuli_sequence.count()
+	begin
+		
+		#1=target 0=non_target
+		term.print_line(array_stimuli_sequence);
+		term.print_line(array_stimuli_timings);
+		int tmp_sound = array_stimuli_sequence[i];
+		stimulus_event stimulus_event_tmp = trial_main.add_stimulus_event(array_sounds[tmp_sound]);
+		
+		int start_time = array_stimuli_timings[i];
+		stimulus_event_tmp.set_time(start_time);
+		
+		stimulus_event_tmp.set_event_code("sound");
+		stimulus_event_tmp.set_duration(stimulus_active_duration);
+		
+		if tmp_sound == 1
+		then
+			stimulus_event_tmp.set_target_button(1);
+		else
+			stimulus_event_tmp.set_response_active(true);
+		end;
+		
+		i = i + 1;
+	end;
+	
+	return trial_main;
+end;
+	
+sub trial add_circles_to_trial (trial trial_main, array<int,1> array_stimuli_sequence, array<int,1> array_stimuli_timings, int stimulus_active_duration, int stimulus_visibility_duration)
+begin
+	
+	loop int i = 1
+	until i > array_stimuli_sequence.count()
+	begin
+		
+		#1=target 0=non_target
+		term.print_line(array_stimuli_sequence);
+		term.print_line(array_stimuli_timings);
+		int tmp_circle_index = array_stimuli_sequence[i];
+
+		ellipse_graphic tmp_circle = ellipse_graphic(array_circles[tmp_circle_index].get_part(1));
+		if tmp_circle_index == 1
+		then
+			tmp_circle.set_color(color_target);
+		else
+			tmp_circle.set_color(color_non_target);
+		end;
+		tmp_circle.redraw();
+		
+		stimulus_event stimulus_event_tmp = trial_main.add_stimulus_event(array_circles[tmp_circle_index]);
+		
+		int start_time = array_stimuli_timings[i];
+		stimulus_event_tmp.set_time(start_time);
+		
+		stimulus_event_tmp.set_event_code("circle");
+		stimulus_event_tmp.set_duration(stimulus_visibility_duration);
+		stimulus_event_tmp.set_stimulus_time_out(stimulus_active_duration);
+		
+		if tmp_circle_index == 1
+		then
+			stimulus_event_tmp.set_target_button(1);
+			
+			
+		else
+			stimulus_event_tmp.set_response_active(true);
+		end;
+		
+		i = i + 1;
+	end;
+	
+	return trial_main;
+end;
+
+sub report_data
+begin
+	#1 = index 2 = target/nontarget 3 = reaction time
+	#array<int> array_raw_data[stimuli_count][3];
+	output_file all_subjects = new output_file();
+	bool new_file_created = all_subjects.open("all_subjects.txt", 0, false);
+	if new_file_created
+	then
+		string variable_names = "ID	Date";
+		loop int i = 1
+		until i > stimulus_manager.stimulus_count()
+		begin
+			variable_names = variable_names + "	T" + string(i) + "_RT";
+			variable_names = variable_names + "	T" + string(i) + "_Typ";
+			i = i + 1;
+		end;
+		all_subjects.print_line(variable_names);
+	else
+		all_subjects.open_append("all_subjects.txt");
+	end;
+	
+	string subject_data = logfile.subject() + "	" + date_time();
+	
+	loop int i = 1
+	until i > stimulus_manager.stimulus_count()
+	begin
+		stimulus_data stimulus_data_tmp = stimulus_manager.get_stimulus_data(i);
+		subject_data = subject_data + "	" + string(stimulus_data_tmp.reaction_time()) + "	" +
+		string(stimulus_data_tmp.type());
+		i = i + 1;
+	end;
+	all_subjects.print_line(subject_data);
+end;
+
+sub present_instruction_sound
+begin
+	loop 	bool target_heard; bool non_target_heard
+	until target_heard && non_target_heard
+	begin
+		trial_sound_instructions_no_sound.present();
+	
+		int last_response = response_manager.last_response();
+		if last_response == 2
+		then
+			trial_sound_instructions_target.present();
+			target_heard = true;
+		elseif last_response == 3
+		then
+			trial_sound_instructions_non_target.present();
+			non_target_heard = true;
+		end;
+	end;	
+
+	text_sound_instructions.set_caption("Mit Leertaste kannst du jetzt anfangen", true);
+
+	loop
+	until false
+	begin
+		trial_sound_instructions_no_sound.present();
+	
+		int last_response = response_manager.last_response();
+		if last_response == 2
+		then
+			trial_sound_instructions_target.present();
+		elseif last_response == 3
+		then
+			trial_sound_instructions_non_target.present();
+		elseif last_response == 1
+		then
+			break;
+		end;
+	end;
+end;
+
+sub make_and_present_block (string mode, int stimuli_count, int target_count, int stimulus_active_duration,
+									int stimulus_visibility_duration, int isi_min, int isi_max, int isi_interval,
+									string video_name, int first_stimulus_option, bool test_run, string block)
+begin
+	
+	## Use Default values incase value wasn't specified (-1 or "" in function call)
+	if stimuli_count == -1
+	then
+		stimuli_count = parameter_manager.get_int("STIMULI_COUNT_DEFAULT", 10);
+	end;
+	
+	if target_count == -1
+	then
+		target_count = parameter_manager.get_int("TARGET_COUNT_DEFAULT", 3);
+	end;
+	
+	if stimulus_active_duration == -1
+	then
+		stimulus_active_duration = parameter_manager.get_int("STIMULUS_ACTIVE_DURATION_DEFAULT", 2000); 
+	end;
+	
+	if stimulus_visibility_duration == -1
+	then
+		stimulus_visibility_duration = parameter_manager.get_int("STIMULUS_VISIBILITY_DURATION_DEFAULT");
+	end;
+	
+	if isi_min == -1
+	then
+		isi_min = parameter_manager.get_int("ISI_MIN_DEFAULT", 1000); 
+	end;
+	
+	if isi_max == -1
+	then
+		isi_max = parameter_manager.get_int("ISI_MAX_DEFAULT",1000);
+	end;
+	
+	if isi_interval == -1
+	then
+		isi_interval = parameter_manager.get_int("ISI_INTERVAL_DEFAULT", 100);
+	end;
+	
+	if first_stimulus_option == -1
+	then
+		first_stimulus_option = parameter_manager.get_int("FIRST_STIMULUS_OPTION", 0);
+	end;
+	
+	if mode == ""
+	then
+	mode = parameter_manager.get_string("MODE_DEFAULT");
+	end;
+
+
+	if parameter_manager.parameter_set_name() == "All parameters"
+	then
+		if block == "block 1"
+		then
+			video_name = parameter_manager.get_string("Video 1");
+		elseif block == "block 2"
+		then
+			video_name = parameter_manager.get_string("Video 2");
+		end;
+	end;
+	
+	trial trial_main; 
+	
+	array<int> array_stimuli_sequence[0];
+	array_stimuli_sequence.assign(create_stimuli_sequence(stimuli_count, target_count));
+	
+	array_stimuli_sequence.shuffle();
+	loop 
+	until validate(array_stimuli_sequence, first_stimulus_option)
+	begin
+		array_stimuli_sequence.shuffle();
+	end;
+	
+	array<int> array_stimuli_timings[0];
+	array_stimuli_timings.assign(create_stimuli_timings(stimuli_count, stimulus_active_duration, isi_min, isi_max, isi_interval));
+	
+	int time_overall = array_stimuli_timings[array_stimuli_timings.count()] + stimulus_active_duration;
+	
+	if mode == "video_and_sounds"
+	then
+		present_instruction_sound();
+		trial_main = add_video_to_trial(new trial(), video_name, time_overall);
+		trial_main = add_sound_to_trial(trial_main, array_stimuli_sequence,  array_stimuli_timings, stimulus_active_duration);
+	elseif mode == "video_and_circles"
+	then
+		trial_circle_instructions.present();
+		trial_main = add_video_to_trial(new trial(), video_name, time_overall);
+		trial_main = add_circles_to_trial(trial_main, array_stimuli_sequence, array_stimuli_timings, stimulus_active_duration, stimulus_visibility_duration);
+	elseif mode == "only_sounds"
+	then
+		present_instruction_sound();
+		trial_main = add_sound_to_trial(new trial(), array_stimuli_sequence,  array_stimuli_timings, stimulus_active_duration);
+	end;
+	trial_remove_pictures.present();
+	trial_main.present();
+end;
+
+
+
+	trial_instructions_start.present();
+	make_and_present_block("video_and_circles", -1, -1, -1, -1, -1, -1, -1, "video_1.avi", -1, false, "block 1");
+	make_and_present_block("video_and_sounds", -1, -1, -1, -1, -1, -1, -1, "video_2.avi", -1, false, "block 2");
+	trial_instructions_end.present();
+	report_data();
+	
