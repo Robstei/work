@@ -1,5 +1,5 @@
-<ver>20.2</ver>
-<efn>C:\work\SWaD Kinder\Swad_kids.exp</efn>
+<ver>20.3</ver>
+<efn>C:\work\SWaD_kids\Swad_kids.exp</efn>
 <author></author>
 <con>
 <pause>P</pause>
@@ -40,11 +40,12 @@
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\work\SWaD Kinder\stimuli</dsd>
+<dsd>C:\work\SWaD_kids\stimuli</dsd>
+<dwm>0</dwm>
 <dxv>8</dxv>
 <efs>
-<filename>C:\work\SWaD Kinder\Swad_kids.sce</filename>
-<filename>C:\work\SWaD Kinder\Swad_kids.sdf</filename>
+<filename>C:\work\SWaD_kids\Swad_kids.sce</filename>
+<filename>C:\work\SWaD_kids\Swad_kids.sdf</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -319,7 +320,7 @@ German</desc>
 <edit>1</edit>
 <name>Configuration Parameter</name>
 <set>
-<rest>[1,6]</rest>
+<rest>[1,9]</rest>
 </set>
 <temp>1</temp>
 <type>int</type>
@@ -502,7 +503,7 @@ English</desc>
 <idt>0</idt>
 <ilc>0</ilc>
 <ip_chans></ip_chans>
-<lfd>C:\work\SWaD Kinder\logfiles</lfd>
+<lfd>C:\work\SWaD_kids\logfiles</lfd>
 <lnb>2</lnb>
 <lno>2</lno>
 <log>
@@ -512,7 +513,7 @@ English</desc>
 <its>0</its>
 <meta>1</meta>
 <pien>0</pien>
-<set_def_file>C:\work\SWaD Kinder\Swad_kids.sdf</set_def_file>
+<set_def_file>C:\work\SWaD_kids\Swad_kids.sdf</set_def_file>
 <stimulus_list>0</stimulus_list>
 <subject_id></subject_id>
 <subject_id_pol>1</subject_id_pol>
@@ -609,6 +610,11 @@ English</desc>
 <name>HID Keyboard Device</name>
 </device>
 <device>
+<device_type>3</device_type>
+<dx_device_type>0</dx_device_type>
+<name>HID Keyboard Device 1</name>
+</device>
+<device>
 <abs_axis>
 <dead_zone>0</dead_zone>
 <max>1000</max>
@@ -653,12 +659,12 @@ English</desc>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>HyperX 7.1 Audio</name>
+<name>ndPoint1 Inte</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte</name>
+<name>Wired Gaming Mouse</name>
 </device>
 <device>
 <device_type>4</device_type>
@@ -1014,7 +1020,7 @@ English</desc>
 <offset>57</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\work\SWaD Kinder\Swad_kids.sce</sfn>
+<sfn>C:\work\SWaD_kids\Swad_kids.sce</sfn>
 </sce>
 <sct>
 <capture_device>
