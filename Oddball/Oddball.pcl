@@ -139,8 +139,6 @@ begin
 	begin
 		
 		#1=target 0=non_target
-		term.print_line(array_stimuli_sequence);
-		term.print_line(array_stimuli_timings);
 		int tmp_sound = array_stimuli_sequence[i];
 		stimulus_event stimulus_event_tmp = trial_main.add_stimulus_event(array_sounds[tmp_sound]);
 		
@@ -171,8 +169,6 @@ begin
 	begin
 		
 		#1=target 0=non_target
-		term.print_line(array_stimuli_sequence);
-		term.print_line(array_stimuli_timings);
 		int tmp_circle_index = array_stimuli_sequence[i];
 
 		ellipse_graphic tmp_circle = ellipse_graphic(array_circles[tmp_circle_index].get_part(1));
