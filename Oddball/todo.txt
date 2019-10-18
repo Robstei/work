@@ -1,0 +1,16 @@
+Instruktion aus bisheriger Version übrehnemn
+
+zwei Versionen machen, eine hat erst Kreis, dann Ton und die andere anderserum
+
+2 Logfiles
+
+einmal wie die swad
+
+dann noch aggregiert mit durchscnittswerten und Summe der Fehler und durchschnittsliche reaktionszeit der richtigen reaktionen
+
+
+
+
+Für SWAD
+
+Konfigutation 7 - 9 erstellen, bei denen nur einer der blöcke vorkommt

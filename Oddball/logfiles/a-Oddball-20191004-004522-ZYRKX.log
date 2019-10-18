@@ -1,0 +1,77 @@
+Scenario - 
+Logfile written - 10/04/2019 00:45:52
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+a	1	Response	1	7608	7400	0
+a	2	Response	2	13886	6179	0
+a	4	Response	3	22210	5546	0
+a	4	Picture	circle	24788	8124	1	1667	1	8000	1500	false_alarm	5
+a	4	Response	1	31598	14934	0
+a	4	Response	1	38407	21742	0
+a	4	Response	1	43023	26358	0
+a	4	Response	1	46748	30084	0
+a	4	Response	1	49799	33135	0
+a	4	Picture	circle	51869	35204	1	1666	1	35000	1500	hit	11
+a	4	Response	1	52493	35829	42
+a	4	Response	1	55380	38716	0
+a	4	Response	1	58227	41563	0
+a	4	Response	1	60790	44125	2
+a	4	Response	1	63312	46648	0
+a	4	Response	1	66289	49625	0
+a	4	Response	1	69322	52658	0
+a	4	Response	1	71664	54999	0
+a	4	Response	1	74366	57701	0
+a	4	Response	1	77058	60393	0
+a	4	Picture	circle	78949	62284	1	1667	1	62000	1500	hit	22
+a	4	Response	1	79622	62958	0
+a	4	Response	1	81938	65274	0
+a	4	Response	1	84558	67894	1
+a	4	Response	1	87394	70729	0
+a	4	Response	1	90084	73420	0
+a	4	Response	1	92702	76038	0
+a	4	Response	1	95269	78605	0
+a	4	Response	1	98060	81396	0
+a	4	Response	1	100302	83638	0
+a	4	Picture	circle	105821	89156	1	1667	1	89000	1500	hit	32
+a	4	Response	1	120139	103475	0
+a	4	Response	1	123311	106647	0
+a	4	Response	1	125940	109275	1
+a	4	Picture	circle	133942	117278	1	1666	1	117000	1500	other	0
+a	5	Response	1	169515	15367	0
+a	6	Response	2	184963	15399	0
+a	8	Response	3	194973	1662	0
+a	10	Response	3	199377	26	0
+a	12	Response	1	206421	2695	0
+a	14	Response	1	211286	4019	4
+a	14	Response	1	214483	7216	0
+a	14	Sound	sound	215267	8000	3			8000		false_alarm	44
+a	14	Response	1	217014	9747	0
+a	14	Response	1	219463	12196	0
+a	14	Response	1	222195	14928	0
+a	14	Response	1	225102	17835	10
+a	14	Response	1	227808	20541	14
+a	14	Response	1	231058	23791	0
+a	14	Response	1	235854	28587	0
+a	14	Response	1	238174	30907	0
+a	14	Response	1	240694	33426	0
+a	14	Sound	sound	244267	37000	2			37000		false_alarm	54
+a	14	Response	1	244874	37607	0
+a	14	Response	1	247352	40084	0
+a	14	Response	1	249431	42164	13
+a	14	Quit		254810	47543	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "LENOVO 20FMS2L703",
+   "experiment": "{DC23946D-9824-436C-AC02-DAA073E16653}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Oddball.sce",
+   "subject": "a",
+   "timestamp": "2019/10/03 22:45:22 GMT"
+}
