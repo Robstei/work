@@ -141,6 +141,24 @@
 </dat>
 <id>12</id>
 </val>
+<val>
+<dat>
+<val>_oddball_circles_first.txt</val>
+</dat>
+<id>13</id>
+</val>
+<val>
+<dat>
+<val>100</val>
+</dat>
+<id>14</id>
+</val>
+<val>
+<dat>
+<val>_cf</val>
+</dat>
+<id>15</id>
+</val>
 </sd>
 <sid>-1</sid>
 </ss>
@@ -169,6 +187,9 @@
 <pid>12</pid>
 <pid>5</pid>
 <pid>6</pid>
+<pid>13</pid>
+<pid>14</pid>
+<pid>15</pid>
 </pl>
 </grp>
 </grps>
@@ -252,7 +273,7 @@
 <edit>1</edit>
 <name>Video 1</name>
 <set>
-<rest>video_1.avi,video_2.avi,video_3.avi,video_4.avi,video_5.avi,video_6.avi</rest>
+<rest>video_1.avi,video_2.avi,video_3.avi,video_4.avi,video_5.avi,video_6.avi,video_7.avi,video_8.avi,video_9.avi,video_10.avi</rest>
 </set>
 <temp>1</temp>
 <type>string</type>
@@ -266,7 +287,7 @@
 <edit>1</edit>
 <name>Video 2</name>
 <set>
-<rest>video_1.avi,video_2.avi,video_3.avi,video_4.avi,video_5.avi,video_6.avi</rest>
+<rest>video_1.avi,video_2.avi,video_3.avi,video_4.avi,video_5.avi,video_6.avi,video_7.avi,video_8.avi,video_9.avi,video_10.avi</rest>
 </set>
 <temp>1</temp>
 <type>string</type>
@@ -360,6 +381,50 @@
 <vis>1</vis>
 </set>
 </parm>
+<parm>
+<id>13</id>
+<set>
+<desc>Suffix which will be used after the subject id.
+
+For Example if the suffix is "_oddball_control.txt" and the subject id is 12 then then the logifle will be "12"_oddball_control.txt"</desc>
+<edit>1</edit>
+<name>LOGFILE_SUFFIX</name>
+<set>
+<rest></rest>
+</set>
+<temp>0</temp>
+<type>string</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>14</id>
+<set>
+<desc>Width / Diameter of the cirlces</desc>
+<edit>1</edit>
+<name>CIRCLE WIDTH</name>
+<set>
+<rest></rest>
+</set>
+<temp>0</temp>
+<type>int</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>15</id>
+<set>
+<desc>Suffix for each collumn name incase this paradigm is used multiple times and the logfiles are supposed to be combined afterwards</desc>
+<edit>1</edit>
+<name>Column Suffix</name>
+<set>
+<rest></rest>
+</set>
+<temp>0</temp>
+<type>string</type>
+<vis>1</vis>
+</set>
+</parm>
 </parms>
 <ssl>
 <ss>
@@ -409,6 +474,14 @@
 <parm>
 <ovr>0</ovr>
 <pid>12</pid>
+</parm>
+<parm>
+<ovr>0</ovr>
+<pid>13</pid>
+</parm>
+<parm>
+<ovr>0</ovr>
+<pid>14</pid>
 </parm>
 </ssd>
 </ss>
@@ -616,11 +689,6 @@
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
 <name>Wired Gaming Mouse</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>HyperX Virtual Surround Sound</name>
 </device>
 <device>
 <device_type>4</device_type>

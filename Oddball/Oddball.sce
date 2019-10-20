@@ -8,7 +8,13 @@ default_font_size = 30;
 begin;
 
 	text {
-		caption = "Instruktionen, wenn auf Töne reagiert werden soll.\n Um Target zu hören A drücken für non target L drücken.\n Auf Target mit Leertaste reagieren\n Weiter mit Leertaste";
+		caption = "Mit der Taste \"A\" können Sie den Ton A abspielen.\nMit der Taste \"L\" können Sie den Ton B abspielen\n\n
+						Bitte reagieren Sie mit Druch auf die Leertaste, wenn Sie den Ton A hören. Drücken Sie bitte keine Taste, wenn Sie den Ton B hören.
+						Versuchen Sie dabei so schnell wie möglich zu reagieren, aber auch so wenig Fehler wie möglich zu machen.\n
+						Feedback darüber, ob Sie richtig oder falsch reagiert haben, wird nicht gegeben.\n
+						Während der Aufgabe sollten Sie ihren Blick zudem stets auf den Monitor gerichtet halten.\n
+						Es erfolgt kein Testdurchlauf.";
+		max_text_width = 1200;
 	} text_sound_instructions;
 	
 	array {
@@ -19,10 +25,10 @@ begin;
 	array {
 		picture { 
 			ellipse_graphic { 
-			height = 100;
-			width = 100;
-			ellipse_height = 100;
-			ellipse_width = 100;
+			height = EXPARAM("CIRCLE WIDTH" : 100);
+			width = EXPARAM("CIRCLE WIDTH": 100);
+			ellipse_height = EXPARAM("CIRCLE WIDTH" : 100);
+			ellipse_width = EXPARAM("CIRCLE WIDTH" : 100);
 			color = 255,0,0;
 			};
 		x = 0;
@@ -31,10 +37,10 @@ begin;
 		}circle_target;
 		picture { 
 			ellipse_graphic { 
-			height = 100;
-			width = 100;
-			ellipse_height = 100;
-			ellipse_width = 100;
+			height = EXPARAM("CIRCLE WIDTH" : 100);
+			width = EXPARAM("CIRCLE WIDTH" : 100);
+			ellipse_height = EXPARAM("CIRCLE WIDTH" : 100);
+			ellipse_width = EXPARAM("CIRCLE WIDTH" : 100);
 			};
 		x = 0;
 		y = 0;
@@ -104,7 +110,7 @@ begin;
 		trial_duration = forever;
 		picture{
 			text {
-				caption = " Instruktionen START. Weiter mit Leertaste";
+				caption = "Hallo!\nIm Folgenden werden Ihnen mehrmals unterschiedliche Reize in zufälliger Reihenfolge präsentiert.\nWeiter mit Leertaste";
 			};
 			x=0;y=0;
 		};
@@ -115,7 +121,7 @@ begin;
 		trial_duration = forever;
 		picture{
 			text {
-				caption = " Instruktionen ENDE. Weiter mit Leertaste";
+				caption = "Bitte wenden Sie sich an den Versuchsleiter";
 			};
 			x=0;y=0;
 		};
@@ -126,37 +132,54 @@ begin;
 		trial_duration = forever;
 		picture{
 			text {
-				caption = "Instruktionen wenn auf Kreise reagiert werden soll.\nAuf Target mit Leertaste reagieren \n Weiter mit Leertaste";
+				caption = "Bitte reagieren Sie mit Druch auf die Leertaste, wenn";
 			};
-			x=0;y=-300;
-			
-			text {
-				caption = "Target Farbe";
-			};
-			x=-200;y=0;
+			x=-400;y= 400;
 			
 			ellipse_graphic { 
-				height = 20;
-				width = 20;
-				ellipse_height = 20;
-				ellipse_width = 20;
+				height = 50;
+				width = 50;
+				ellipse_height = 50;
+				ellipse_width = 50;
 				color = 255,0,0;
 			} ellipse_graphic_preview_target;
-			x= 100;y=0;
+			x = 75;y = 400;
 			
 			text {
-				caption = "Non Target Farbe";
+				caption = "erscheint.";
 			};
-			x=-200;y=200;
+			x = 200;y = 400;
+			
+			text {
+				caption = "Bitte reagieren Sie nicht, wenn";
+			};
+			x = -222;y = 300;
 			
 			ellipse_graphic { 
-				height = 20;
-				width = 20;
-				ellipse_height = 20;
-				ellipse_width = 20;
+				height = 50;
+				width = 50;
+				ellipse_height = 50;
+				ellipse_width = 50;
 				color = 255,0,0;
 			} ellipse_graphic_preview_non_target;
-			x= 200;y=200;
+			x = 75;y = 300;
+			
+			text {
+				caption = "erscheint";
+			};
+			x= 200;y= 300;
+			text {
+				caption = "Versuchen Sie dabei so schnell wie möglich zu reagieren, aber auch so wenig Fehler wie möglich zu machen.\n
+						Feedback darüber, ob Sie richtig oder falsch reagiert haben, wird nicht gegeben.\n
+						Während der Aufgabe sollten Sie ihren Blick zudem stets auf den Monitor gerichtet halten.\n
+						Es erfolgt kein Testdurchlauf.\n
+						Dücken Sie nun die Leertaste um zu starten.";
+			};
+			x=0;y= 0;
+			
+		
+			
+			
 			
 		};
 	}trial_circle_instructions;

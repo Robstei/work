@@ -1,0 +1,11 @@
+subjectid	stimuluscf	blockcf	conditioncf	reaction_timecf	targetcf	reaction_typecf
+robin	1	block_1	circles	0	0	4
+robin	2	block_1	circles	0	1	2
+robin	3	block_1	circles	304	0	3
+robin	4	block_1	circles	335	1	0
+robin	5	block_1	circles	296	1	0
+robin	6	block_2	sounds	0	0	4
+robin	7	block_2	sounds	0	1	2
+robin	8	block_2	sounds	414	1	0
+robin	9	block_2	sounds	470	0	3
+robin	10	block_2	sounds	330	1	0
