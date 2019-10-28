@@ -1,0 +1,11 @@
+subjectid	configuration	conditionid	trialid	form	color	seperateAttention	target	time_stimulus	code	time_reaction	time_diff	rm_type
+
+ mittwoch5	1	selective	1	circle	4	2	0	69507.6		-1	-69508.6	rm_other
+ mittwoch5	1	selective	1	bell	3	2	2	73510.9		-1	-73511.9	rm_miss
+ mittwoch5	1	divided	1	heart	4	3	0	79782.8		-1	-79783.8	rm_other
+ mittwoch5	1	divided	1	moon	1	3	0	83802.8		-1	-83803.8	rm_other
+ mittwoch5	1	switching	1	moon	5	2	0	89474.2		-1	-89475.2	rm_other
+ mittwoch5	1	switching	1	bell	5	2	2	92893.7		-1	-92894.7	rm_miss
+ mittwoch5	1	switching	2	circle	5	3	0	97447.5		-1	-97448.5	rm_other
+ mittwoch5	1	switching	2	star	5	3	0	100283.1		-1	-100284.1	rm_other
+

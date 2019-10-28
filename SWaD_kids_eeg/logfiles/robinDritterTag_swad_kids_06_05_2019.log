@@ -1,0 +1,43 @@
+Scenario - Swad_kids_et
+Logfile written - 06/05/2019 14:34:02
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+robinDritterTag	0	Response	3								74114	74114	1
+robinDritterTag	0	Response	3								196032	196032	0
+robinDritterTag	1	Response	3								272669	12286	0
+robinDritterTag	2	Response	3								284509	11116	0
+robinDritterTag	3	Response	3								302268	17199	0
+robinDritterTag	5	Picture	1;test;1;flower;5;1;0	1	test	1	flower	5	1	0	313594	0	1	2669	1	0	2500	other	0
+robinDritterTag	7	Picture	1;test;1;flower;1;1;1	1	test	1	flower	1	1	1	337447	0	1	2669	1	0	2500	miss	0
+robinDritterTag	266	Response	3								691230	13667	0
+robinDritterTag	267	Response	3								708349	16275	0
+robinDritterTag	269	Picture	1;selective;1;moon;3;2;0	1	selective	1	moon	3	2	0	719598	0	1	2669	1	0	2500	other	0
+robinDritterTag	271	Picture	1;selective;1;bell;3;2;2	1	selective	1	bell	3	2	2	761466	0	1	2669	1	0	2500	miss	0
+robinDritterTag	272	Response	3								792029	12048	0
+robinDritterTag	273	Response	3								808030	15038	0
+robinDritterTag	274	Response	3								809788	1450	1
+robinDritterTag	275	Picture	1;divided;1;star;4;3;0	1	divided	1	star	4	3	0	818680	0	1	2669	1	0	2500	other	0
+robinDritterTag	277	Picture	1;divided;1;bell;4;3;0	1	divided	1	bell	4	3	0	856545	0	1	2669	1	0	2500	other	0
+robinDritterTag	278	Response	3								885309	10416	0
+robinDritterTag	279	Response	3								906590	20521	0
+robinDritterTag	281	Picture	1;switching;1;moon;2;2;0	1	switching	1	moon	2	2	0	917596	0	1	2669	1	0	2500	other	0
+robinDritterTag	283	Picture	1;switching;1;bell;4;2;2	1	switching	1	bell	4	2	2	953625	0	1	2669	1	0	2500	miss	0
+robinDritterTag	284	Response	3								1016989	44515	0
+robinDritterTag	286	Picture	1;switching;2;bell;4;3;0	1	switching	2	bell	4	3	0	1027854	0	1	2669	1	0	2500	other	0
+robinDritterTag	288	Picture	1;switching;2;flower;2;3;0	1	switching	2	flower	2	3	0	1054209	0	1	2669	1	0	2500	other	0
+
+
+{
+   "app": "Presentation Version 20.1 Build 12.04.17",
+   "device": "Dell Inc. Latitude 3580",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_et.sce",
+   "subject": "robinDritterTag",
+   "timestamp": "2019/06/05 12:32:01 GMT"
+}

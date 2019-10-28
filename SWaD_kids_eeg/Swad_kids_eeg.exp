@@ -1,5 +1,5 @@
 <ver>20.3</ver>
-<efn>C:\work\Oddball\Oddball.exp</efn>
+<efn>C:\work\SWaD_kids_eeg\Swad_kids_eeg.exp</efn>
 <author></author>
 <con>
 <pause>P</pause>
@@ -29,23 +29,24 @@
 <depchg>1</depchg>
 <discard_windows_messages>0</discard_windows_messages>
 <display_status_window>1</display_status_window>
-<dmd>0</dmd>
-<dmh>0</dmh>
-<dmr>1</dmr>
-<dmrf>1</dmrf>
-<dmw>0</dmw>
+<dmd>32</dmd>
+<dmh>1080</dmh>
+<dmr>60</dmr>
+<dmrf>60</dmrf>
+<dmw>1920</dmw>
 <docs>
 <args></args>
 <exfl></exfl>
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\work\Oddball\stimuli</dsd>
+<dsd>C:\work\SWaD_kids_eeg\stimuli</dsd>
 <dwm>0</dwm>
 <dxv>8</dxv>
 <efs>
-<filename>C:\work\Oddball\Oddball.sce</filename>
-<filename>C:\work\Oddball\Oddball.pcl</filename>
+<filename>C:\work\SWaD_kids_eeg\Swad_kids_eeg.sce</filename>
+<filename>C:\work\SWaD_kids_eeg\Swad_kids_eeg.pcl</filename>
+<filename>C:\work\SWaD_kids_eeg\Swad_kids_eeg.sdf</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -54,7 +55,7 @@
 <cfg>
 <dcfg>
 <en>0</en>
-<guid>{938B371A-38B8-42AD-A497-809DC5485161}</guid>
+<guid>{EE4F75A5-7F6C-45D5-84D7-F8F5D62B578E}</guid>
 <name>Default configuration</name>
 <r>
 <plat>2147483647</plat>
@@ -65,43 +66,45 @@
 <sd>
 <val>
 <dat>
-<val>500</val>
+<val>1800</val>
 </dat>
 <id>0</id>
 </val>
 <val>
 <dat>
-<val>1000</val>
+<val>250</val>
 </dat>
 <id>1</id>
 </val>
 <val>
 <dat>
-<val>5</val>
+<val>2000</val>
 </dat>
 <id>2</id>
 </val>
 <val>
 <dat>
-<val>3</val>
+<val>Richtig.</val>
 </dat>
 <id>3</id>
 </val>
 <val>
 <dat>
-<val>100</val>
+<val>Falsch.
+Du hättest nicht drücken müssen.</val>
 </dat>
 <id>4</id>
 </val>
 <val>
 <dat>
-<val>video_1.avi</val>
+<val>Falsche Taste.</val>
 </dat>
 <id>5</id>
 </val>
 <val>
 <dat>
-<val>video_1.avi</val>
+<val>Falsch.
+Du hättest drücken müssen.</val>
 </dat>
 <id>6</id>
 </val>
@@ -113,40 +116,60 @@
 </val>
 <val>
 <dat>
-<val>150</val>
+<val>1</val>
 </dat>
 <id>8</id>
 </val>
 <val>
 <dat>
-<val>2000</val>
+<val>1</val>
 </dat>
 <id>9</id>
 </val>
 <val>
 <dat>
-<val>video_and_sounds</val>
+<val>Right.</val>
 </dat>
 <id>10</id>
 </val>
 <val>
 <dat>
-<val>( 255, 128, 64 )</val>
+<val>Wrong key.</val>
 </dat>
 <id>11</id>
 </val>
 <val>
 <dat>
-<val>( 128, 255, 0 )</val>
+<val>You should have reacted.</val>
 </dat>
 <id>12</id>
 </val>
+<val>
+<dat>
+<val>You should not have reacted.</val>
+</dat>
+<id>13</id>
+</val>
+<val>
+<dat>
+<val>1093</val>
+</dat>
+<id>14</id>
+</val>
+<val>
+<dat>
+<val>614</val>
+</dat>
+<id>15</id>
+</val>
+<val>
+<dat>
+<val>100</val>
+</dat>
+<id>16</id>
+</val>
 </sd>
 <sid>-1</sid>
-</ss>
-<ss>
-<sd></sd>
-<sid>0</sid>
 </ss>
 </dcfg>
 </cfg>
@@ -154,21 +177,35 @@
 <dl>
 <grps>
 <grp>
-<gn></gn>
+<gn>Main</gn>
 <pl>
-<pid>2</pid>
-<pid>3</pid>
-<pid>9</pid>
-<pid>8</pid>
 <pid>0</pid>
 <pid>1</pid>
-<pid>4</pid>
 <pid>7</pid>
+<pid>8</pid>
+<pid>9</pid>
+<pid>2</pid>
+<pid>14</pid>
+<pid>15</pid>
+<pid>16</pid>
+</pl>
+</grp>
+<grp>
+<gn>Feedback GERMAN</gn>
+<pl>
+<pid>3</pid>
+<pid>5</pid>
+<pid>6</pid>
+<pid>4</pid>
+</pl>
+</grp>
+<grp>
+<gn>Feedback ENGLISCH</gn>
+<pl>
 <pid>10</pid>
 <pid>11</pid>
 <pid>12</pid>
-<pid>5</pid>
-<pid>6</pid>
+<pid>13</pid>
 </pl>
 </grp>
 </grps>
@@ -178,11 +215,11 @@
 <parm>
 <id>0</id>
 <set>
-<desc>Minimal ISI in milliseconds</desc>
+<desc>Sets the time in milliseconds of how long a subject has to react</desc>
 <edit>1</edit>
-<name>ISI_MIN_DEFAULT</name>
+<name>Time Response Active</name>
 <set>
-<rest>[1,10000]</rest>
+<rest>[1,)</rest>
 </set>
 <temp>0</temp>
 <type>int</type>
@@ -192,11 +229,11 @@
 <parm>
 <id>1</id>
 <set>
-<desc>ISI_MAX in milliseconds</desc>
+<desc>Sets the time in milliseconds of how long a stimulus will be presented</desc>
 <edit>1</edit>
-<name>ISI_MAX_DEFAULT</name>
+<name>Time Stimulus</name>
 <set>
-<rest>[1,10000]</rest>
+<rest>[1,)</rest>
 </set>
 <temp>0</temp>
 <type>int</type>
@@ -206,11 +243,11 @@
 <parm>
 <id>2</id>
 <set>
-<desc></desc>
+<desc>Sets Time in milliseconds of how long feedback should be presented</desc>
 <edit>1</edit>
-<name>STIMULI_COUNT_DEFAULT</name>
+<name>Time Feedback</name>
 <set>
-<rest>[1,1000]</rest>
+<rest>[1,)</rest>
 </set>
 <temp>0</temp>
 <type>int</type>
@@ -220,41 +257,44 @@
 <parm>
 <id>3</id>
 <set>
-<desc></desc>
+<desc>Feedback for HIT
+German</desc>
 <edit>1</edit>
-<name>TARGET_COUNT_DEFAULT</name>
+<name>Feedback HIT GER</name>
 <set>
-<rest>[1,1000]</rest>
+<rest></rest>
 </set>
 <temp>0</temp>
-<type>int</type>
+<type>string</type>
 <vis>1</vis>
 </set>
 </parm>
 <parm>
 <id>4</id>
 <set>
-<desc>Interval steps between potential ISIs</desc>
+<desc>Feedback for FALSE ALARM
+German</desc>
 <edit>1</edit>
-<name>ISI_INTERVAL_DEFAULT</name>
+<name>Feedback FALSE ALARM GER</name>
 <set>
-<rest>[1,1000]</rest>
+<rest></rest>
 </set>
 <temp>0</temp>
-<type>int</type>
+<type>string</type>
 <vis>1</vis>
 </set>
 </parm>
 <parm>
 <id>5</id>
 <set>
-<desc>File Name of first Video used</desc>
+<desc>Feedback for INCORRECT
+German</desc>
 <edit>1</edit>
-<name>Video 1</name>
+<name>Feedback INCORRECT GER</name>
 <set>
-<rest>video_1.avi,video_2.avi,video_3.avi,video_4.avi,video_5.avi,video_6.avi</rest>
+<rest></rest>
 </set>
-<temp>1</temp>
+<temp>0</temp>
 <type>string</type>
 <vis>1</vis>
 </set>
@@ -262,13 +302,14 @@
 <parm>
 <id>6</id>
 <set>
-<desc>File Name of second Video used</desc>
+<desc>Feedback for MISS
+German</desc>
 <edit>1</edit>
-<name>Video 2</name>
+<name>Feedback MISS GER</name>
 <set>
-<rest>video_1.avi,video_2.avi,video_3.avi,video_4.avi,video_5.avi,video_6.avi</rest>
+<rest></rest>
 </set>
-<temp>1</temp>
+<temp>0</temp>
 <type>string</type>
 <vis>1</vis>
 </set>
@@ -276,16 +317,13 @@
 <parm>
 <id>7</id>
 <set>
-<desc>Determines possible Values for first Situmuli of each Block.
-0  = first Stimulus can be target or non target
-1 = first Stimulus  must be non target
-2 = first Stimulus must be target</desc>
+<desc>Determines which configuration will be used</desc>
 <edit>1</edit>
-<name>FIRST_STIMULUS_OPTION</name>
+<name>Configuration Parameter</name>
 <set>
-<rest>[0,2]</rest>
+<rest>[1,6]</rest>
 </set>
-<temp>0</temp>
+<temp>1</temp>
 <type>int</type>
 <vis>1</vis>
 </set>
@@ -293,11 +331,11 @@
 <parm>
 <id>8</id>
 <set>
-<desc>Determines how long each stimulus will be visible in ms</desc>
+<desc>Validate() will ensure, that the first X Stimuli will not be targets for each block</desc>
 <edit>1</edit>
-<name>STIMULUS_VISIBILITY_DURATION_DEFAULT</name>
+<name>Non Targets at Start of each Block</name>
 <set>
-<rest></rest>
+<rest>[0,)</rest>
 </set>
 <temp>0</temp>
 <type>int</type>
@@ -307,11 +345,14 @@
 <parm>
 <id>9</id>
 <set>
-<desc>Determines how long each stimulus will be response active in ms</desc>
+<desc>Sets the Language
+
+1= German
+2 = English</desc>
 <edit>1</edit>
-<name>STIMULUS_ACTIVE_DURATION_DEFAULT</name>
+<name>Language</name>
 <set>
-<rest></rest>
+<rest>[1,2]</rest>
 </set>
 <temp>0</temp>
 <type>int</type>
@@ -321,11 +362,12 @@
 <parm>
 <id>10</id>
 <set>
-<desc></desc>
+<desc>Feedback for HIT
+English</desc>
 <edit>1</edit>
-<name>MODE_DEFAULT</name>
+<name>Feedback HIT ENG</name>
 <set>
-<rest>video_and_sounds,video_and_circles</rest>
+<rest></rest>
 </set>
 <temp>0</temp>
 <type>string</type>
@@ -335,84 +377,92 @@
 <parm>
 <id>11</id>
 <set>
-<desc></desc>
+<desc>Feedback for INCORRECT
+English</desc>
 <edit>1</edit>
-<name>TARGET_COLOR_DEFAULT</name>
+<name>Feedback INCORRECT ENG</name>
 <set>
 <rest></rest>
 </set>
 <temp>0</temp>
-<type>color</type>
+<type>string</type>
 <vis>1</vis>
 </set>
 </parm>
 <parm>
 <id>12</id>
 <set>
-<desc></desc>
+<desc>Feedback for MISS
+English</desc>
 <edit>1</edit>
-<name>NON_TARGET_COLOR_DEFAULT</name>
+<name>Feedback MISS ENG</name>
 <set>
 <rest></rest>
 </set>
 <temp>0</temp>
-<type>color</type>
+<type>string</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>13</id>
+<set>
+<desc>Feedback for FALSE ALARM
+English</desc>
+<edit>1</edit>
+<name>Feedback FALSE ALARM ENG</name>
+<set>
+<rest></rest>
+</set>
+<temp>0</temp>
+<type>string</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>14</id>
+<set>
+<desc>Width of all Form Pictures in px</desc>
+<edit>1</edit>
+<name>Form Width</name>
+<set>
+<rest>[1,)</rest>
+</set>
+<temp>0</temp>
+<type>int</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>15</id>
+<set>
+<desc>Height of all Form Pictures in px</desc>
+<edit>1</edit>
+<name>Form Height</name>
+<set>
+<rest>[1,)</rest>
+</set>
+<temp>0</temp>
+<type>int</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>16</id>
+<set>
+<desc>Diameter of the Circle in px</desc>
+<edit>1</edit>
+<name>Circle Diameter</name>
+<set>
+<rest>[1,)</rest>
+</set>
+<temp>0</temp>
+<type>int</type>
 <vis>1</vis>
 </set>
 </parm>
 </parms>
-<ssl>
-<ss>
-<sid>0</sid>
-<ssd>
-<name>No Video Picking Menu</name>
-<parm>
-<ovr>0</ovr>
-<pid>0</pid>
-</parm>
-<parm>
-<ovr>0</ovr>
-<pid>1</pid>
-</parm>
-<parm>
-<ovr>0</ovr>
-<pid>2</pid>
-</parm>
-<parm>
-<ovr>0</ovr>
-<pid>3</pid>
-</parm>
-<parm>
-<ovr>0</ovr>
-<pid>4</pid>
-</parm>
-<parm>
-<ovr>0</ovr>
-<pid>7</pid>
-</parm>
-<parm>
-<ovr>0</ovr>
-<pid>8</pid>
-</parm>
-<parm>
-<ovr>0</ovr>
-<pid>10</pid>
-</parm>
-<parm>
-<ovr>0</ovr>
-<pid>9</pid>
-</parm>
-<parm>
-<ovr>0</ovr>
-<pid>11</pid>
-</parm>
-<parm>
-<ovr>0</ovr>
-<pid>12</pid>
-</parm>
-</ssd>
-</ss>
-</ssl>
+<ssl></ssl>
 </parms>
 <pass></pass>
 <ssa>
@@ -422,7 +472,7 @@
 </ssa>
 </man>
 </exparam>
-<experiment_id>{DC23946D-9824-436C-AC02-DAA073E16653}</experiment_id>
+<experiment_id>{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}</experiment_id>
 <font_settings>
 <dpi>96</dpi>
 <font_smooth>1</font_smooth>
@@ -435,7 +485,7 @@
 <sce>1</sce>
 </do_upload>
 <host></host>
-<id>{BB8DE89B-6772-4309-9D81-1BDE5B41CB94}</id>
+<id>{27203276-FC9E-4F3D-98A5-348D790CAAC3}</id>
 <idle_timeout>0</idle_timeout>
 <login_timeout>0</login_timeout>
 <mode>0</mode>
@@ -453,18 +503,23 @@
 <idc>0</idc>
 <idt>0</idt>
 <ilc>0</ilc>
-<ip_chans></ip_chans>
-<lfd>C:\work\Oddball\logfiles</lfd>
+<ip_chans>
+<chan>
+<name>trigger channel</name>
+<pindex>4294967295</pindex>
+</chan>
+</ip_chans>
+<lfd>C:\work\SWaD_kids_eeg\logfiles</lfd>
 <lnb>2</lnb>
-<lno>4</lno>
+<lno>2</lno>
 <log>
-<append_counter>0</append_counter>
+<append_counter>1</append_counter>
 <delimiter>9</delimiter>
 <general_list>1</general_list>
 <its>0</its>
 <meta>1</meta>
 <pien>0</pien>
-<set_def_file>C:\work\Oddball\Oddball.sdf</set_def_file>
+<set_def_file>C:\work\SWaD_kids_eeg\Swad_kids_et.sdf</set_def_file>
 <stimulus_list>0</stimulus_list>
 <subject_id></subject_id>
 <subject_id_pol>1</subject_id_pol>
@@ -482,7 +537,7 @@
 </lslset>
 <maxpv></maxpv>
 <minpv></minpv>
-<nam>Oddball</nam>
+<nam>Swad_kids_eeg</nam>
 <one_processor>2</one_processor>
 <oports>
 <p>
@@ -637,7 +692,7 @@
 <lang></lang>
 <mc>0</mc>
 <rw>0</rw>
-<sil>200</sil>
+<sil>0</sil>
 <uwd>0</uwd>
 <vocab></vocab>
 </speech>
@@ -914,16 +969,12 @@
 <rng>1</rng>
 <rts>1</rts>
 <sce>
-<overrides></overrides>
-<sfn>all_scenarios</sfn>
-</sce>
-<sce>
 <idv>
 <device_type>3</device_type>
 <dx_device_type>19</dx_device_type>
-<ibn>LEER</ibn>
-<ibn>A</ibn>
 <ibn>L</ibn>
+<ibn>S</ibn>
+<ibn>LEER</ibn>
 <idn>Tastatur</idn>
 <index>0</index>
 <index>1</index>
@@ -931,12 +982,33 @@
 <label></label>
 <label></label>
 <label></label>
-<offset>57</offset>
-<offset>30</offset>
 <offset>38</offset>
+<offset>31</offset>
+<offset>57</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\work\Oddball\Oddball.sce</sfn>
+<sfn>all_scenarios</sfn>
+</sce>
+<sce>
+<idv>
+<device_type>3</device_type>
+<dx_device_type>19</dx_device_type>
+<ibn>L</ibn>
+<ibn>S</ibn>
+<ibn>LEER</ibn>
+<idn>Tastatur</idn>
+<index>0</index>
+<index>1</index>
+<index>2</index>
+<label></label>
+<label></label>
+<label></label>
+<offset>38</offset>
+<offset>31</offset>
+<offset>57</offset>
+</idv>
+<overrides></overrides>
+<sfn>C:\work\SWaD_kids_eeg\Swad_kids_eeg.sce</sfn>
 </sce>
 <sct>
 <capture_device>
@@ -1006,12 +1078,13 @@
 <swp>1</swp>
 <text_encoding>utf8</text_encoding>
 <trigger_mode>
-<cn></cn>
+<cn>trigger channel</cn>
 <m>0</m>
-<v></v>
+<v>2</v>
 <vt>0</vt>
 </trigger_mode>
 <udt>0</udt>
+<uln>dummy</uln>
 <unc></unc>
 <upb>0</upb>
 <urp>0</urp>
