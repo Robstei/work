@@ -1,0 +1,42 @@
+Scenario - 
+Logfile written - 10/21/2019 00:31:04
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+robin	1	Response	1	126616	126450	0
+robin	2	Response	1	209256	82425	0
+robin	4	Picture	circles;block_1;1	217497	7167	1	1667	1	7000	1500	other	0
+robin	4	Picture	circles;block_1;2	242497	32166	1	1667	1	32000	1500	miss	0
+robin	4	Picture	circles;block_1;3	271497	61166	1	1667	1	61000	1500	false_alarm	6
+robin	4	Response	1	274537	64206	0
+robin	4	Picture	circles;block_1;4	301496	91166	1	1667	1	91000	1500	hit	8
+robin	4	Response	1	304853	94523	4
+robin	4	Picture	circles;block_1;5	329496	119165	1	1667	1	119000	1500	hit	10
+robin	4	Response	1	332456	122126	0
+robin	5	Response	2	398376	48714	0
+robin	7	Response	3	411657	8996	0
+robin	9	Response	1	453739	37578	0
+robin	11	Sound	sounds;block_2;1	462994	8000	2			8000		other	0
+robin	11	Sound	sounds;block_2;2	487994	33000	1			33000		miss	0
+robin	11	Sound	sounds;block_2;3	513994	59000	1			59000		hit	17
+robin	11	Response	1	518136	63142	0
+robin	11	Sound	sounds;block_2;4	543994	89000	1			89000		false_alarm	19
+robin	11	Response	1	548697	93703	0
+robin	11	Sound	sounds;block_2;5	570994	116000	1			116000		hit	21
+robin	11	Response	1	574297	119303	0
+robin	12	Response	1	615736	24410	0
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{DC23946D-9824-436C-AC02-DAA073E16653}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Oddball.sce",
+   "subject": "robin",
+   "timestamp": "2019/10/20 22:29:58 GMT"
+}

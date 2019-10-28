@@ -120,7 +120,7 @@ begin;
 			x=0;y=0;
 		} picture_information;
 		stimulus_time_in = 1000;
-		response_active= true;
+		response_active = true;
 	} trial_information;
 	
 	trial {
@@ -146,7 +146,7 @@ begin;
 				
 			} picture_instruction_color;
 			stimulus_time_in = 1500;
-			response_active= true;
+			response_active = true;
 	
 		} trial_instruction_color;
 		
@@ -1052,4 +1052,46 @@ begin_pcl;
 			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "3");
 			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "4");
 			present_information(array_information[language][6], 30);
+			
+	elseif configuration == 7
+	then
+		##########################Only Selective########################################
+
+			pause_seconds(30);
+			present_information(array_information[language][3], 30);
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "selective", "1");
+			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2");
+			make_and_present_block(1, 4, array_color_indexes, -1, 6, 20, false, "selective", "3");
+			make_and_present_block(2, -1, array_color_indexes, 3, 8, 18, false, "selective", "4");
+			present_information(array_information[language][6], 30);
+			
+	elseif configuration == 8
+	then
+		##########################Only Divided########################################
+
+			pause_seconds(30);
+			present_information(array_information[language][3], 30);
+			make_and_present_block(3, 3, array_color_indexes, 2, 8, 18, false, "divided", "1");
+			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "2");
+			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "3");
+			make_and_present_block(3, 6, array_color_indexes, 5, 6, 20, false, "divided", "4");
+			present_information(array_information[language][6], 30);
+			
+	elseif configuration == 9
+	then
+		##########################Only Switching########################################
+
+			pause_seconds(30);
+			present_information(array_information[language][3], 30);
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");
+			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
+			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
+			
+			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
+			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
+			present_information(array_information[language][6], 30);		
 	end;
+	

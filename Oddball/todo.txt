@@ -9,6 +9,20 @@ einmal wie die swad
 dann noch aggregiert mit durchscnittswerten und Summe der Fehler und durchschnittsliche reaktionszeit der richtigen reaktionen
 
 
+todo:
+
+- single erstellen, dann die durchschnittsliche reaktionszeit der richtigen reaktionen
+
+
+
+
+
+
+
+
+
+
+
 
 
 Für SWAD
