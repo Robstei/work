@@ -10,6 +10,8 @@ response_logging = log_active;
 default_background_color = 60, 60, 60;
 default_text_color = 255, 255, 255; 
 
+
+button_codes = 101, 102, 103;
 default_output_port = 1;
 pulse_width=50;
 write_codes = true;
@@ -135,19 +137,19 @@ begin;
 		all_responses = false;
 		
 			picture {
-				text { caption = ""; font_size = 30;}text_instruction_color1;
+				text { caption = " "; font_size = 30;}text_instruction_color1;
 				x=0; y=200;
 				
 				ellipse_graphic ellipse_instruction;
 				x=-100; y=100;
 				
-				text { caption = ""; font_size = 30;}text_instruction_color2;
+				text { caption = " "; font_size = 30;}text_instruction_color2;
 				x=50; y=100;
 				
-				text { caption = ""; font_size = 30;}text_instruction_color5;
+				text { caption = " "; font_size = 30;}text_instruction_color5;
 				x=0; y=-200;
 				
-				text { caption = ""; font_size = 30;}text_instruction_color6;
+				text { caption = " "; font_size = 30;}text_instruction_color6;
 				x=0; y=-300;
 				
 			} picture_instruction_color;
@@ -162,19 +164,19 @@ begin;
 		all_responses = false;
 		
 		picture {
-			text { caption = ""; font_size = 30;}text_instruction_form3;
+			text { caption = " "; font_size = 30;}text_instruction_form3;
 			x=0; y=200;
 			
 			bitmap {filename = "heart.png"; width=266; height=150;}bitmap_target_form;
 			x=-100; y=100;
 
-			text { caption = ""; font_size = 30;}text_instruction_form4;
+			text { caption = " "; font_size = 30;}text_instruction_form4;
 			x=100; y=100;
 			
-			text { caption = ""; font_size = 30;}text_instruction_form5;
+			text { caption = " "; font_size = 30;}text_instruction_form5;
 			x=0; y=-200;
 			
-			text { caption = ""; font_size = 30;}text_instruction_form6;
+			text { caption = " "; font_size = 30;}text_instruction_form6;
 			x=0; y=-300;
 		} picture_instruction_form;
 		
@@ -189,30 +191,30 @@ begin;
 		
 		picture {
 		
-			text { caption = ""; font_size = 30;}text_instruction_divided1;
+			text { caption = " "; font_size = 30;}text_instruction_divided1;
 			x=0; y=350;
 			
 			ellipse_graphic ellipse_instruction;
 			x=-100; y=250;
 			
-			text { caption = ""; font_size = 30;}text_instruction_divided2;
+			text { caption = " "; font_size = 30;}text_instruction_divided2;
 			x=50; y=250;
 			
-			text { caption = ""; font_size = 30;}text_instruction_divided3;
+			text { caption = " "; font_size = 30;}text_instruction_divided3;
 			x=0; y=50;
 			
 			bitmap {filename = "heart.png"; width=266; height=150;}bitmap_target_divided;
 			x=-100; y=-50;
 
-			text { caption = ""; font_size = 30;}text_instruction_divided4;
+			text { caption = " "; font_size = 30;}text_instruction_divided4;
 			x=100; y=-50;
 			
 			
 			
-			text { caption = ""; font_size = 30;}text_instruction_divided5;
+			text { caption = " "; font_size = 30;}text_instruction_divided5;
 			x=0; y=-200;
 			
-			text { caption = ""; font_size = 30;}text_instruction_divided6;
+			text { caption = " "; font_size = 30;}text_instruction_divided6;
 			x=0; y=-300;
 		} picture_instruction_divided;
 		

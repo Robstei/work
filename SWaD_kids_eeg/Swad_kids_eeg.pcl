@@ -171,7 +171,49 @@
 	
 	sub set_eeg_code (stimulus_event se, int seperate_attention, string run_id, bool is_target, string divided_attention_target)
 	begin
-		se.set_port_code(1);
+		if run_id == "selective" && seperate_attention  == 1 && !is_target
+		then
+			se.set_port_code(1);
+		elseif run_id == "selective" && seperate_attention  == 1 && is_target
+		then
+			se.set_port_code(2);
+		elseif run_id == "selective" && seperate_attention  == 2 && !is_target
+		then
+			se.set_port_code(3);
+		elseif run_id == "selective" && seperate_attention  == 2 && is_target
+		then
+			se.set_port_code(4);
+		elseif run_id == "divided" &&  !is_target
+		then
+			se.set_port_code(5);
+		elseif run_id == "divided" && divided_attention_target == "form" &&  is_target
+		then
+			se.set_port_code(6);
+		elseif run_id == "divided" && divided_attention_target == "color" &&  is_target
+		then
+			se.set_port_code(7);
+		elseif run_id == "switching" && seperate_attention == 1 &&  !is_target
+		then
+			se.set_port_code(8);
+		elseif run_id == "switching" && seperate_attention == 1 &&  is_target
+		then
+			se.set_port_code(9);
+		elseif run_id == "switching" && seperate_attention == 2 &&  !is_target
+		then
+			se.set_port_code(10);
+			elseif run_id == "switching" && seperate_attention == 2 &&  is_target
+		then
+			se.set_port_code(11);
+		elseif run_id == "switching" && seperate_attention == 3 &&  !is_target
+		then
+			se.set_port_code(12);
+		elseif run_id == "switching" && seperate_attention == 3 && divided_attention_target == "color" &&  is_target
+		then
+			se.set_port_code(13);
+		elseif run_id == "switching" && seperate_attention == 3 && divided_attention_target == "form" &&  is_target
+		then
+			se.set_port_code(14);
+		end;
 	end;
 	
 	# returns true if
@@ -561,6 +603,7 @@
 				end;
 			else	
 			end;
+			set_eeg_code(stim_event, seperate_attention, run_id, is_target, divided_attention_target);
 			
 			#ISI
 			if i == 1
@@ -572,6 +615,7 @@
 			trial_cross.present();
 			
 			set_response_mode(2);
+			
 						
 			trial_main.present();
 			set_response_mode(1);

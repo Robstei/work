@@ -496,10 +496,10 @@ begin
 
 	if parameter_manager.parameter_set_name() == "All parameters"
 	then
-		if block == "block 1"
+		if block == "block_1"
 		then
 			video_name = parameter_manager.get_string("Video 1");
-		elseif block == "block 2"
+		elseif block == "block_2"
 		then
 			video_name = parameter_manager.get_string("Video 2");
 		end;
