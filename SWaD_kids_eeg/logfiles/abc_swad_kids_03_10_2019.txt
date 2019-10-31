@@ -1,0 +1,10 @@
+subjectid	configuration	conditionid	trialid	form	color	seperateAttention	target	time_stimulus	code	time_reaction	time_diff	rm_type
+
+abc	1	selective	1	flower	2	2	0	22312.1	2	22755.6	443.5	rm_false_alarm
+abc	1	selective	1	moon	3	2	0	23666.2	2	24051.6	385.4	rm_false_alarm
+abc	1	selective	1	flower	6	2	0	24562	1	24979.6	417.6	rm_false_alarm
+abc	1	selective	1	bell	5	2	2	27291.2	2	27523.6	232.4	rm_hit
+abc	1	selective	1	heart	4	2	0	29832.8	1	30131.6	298.8	rm_false_alarm
+abc	1	selective	1	bell	3	2	2	31041.1	2	31403.6	362.5	rm_hit
+abc	1	selective	1	star	5	2	0	33318.8	1	33507.6	188.8	rm_false_alarm
+

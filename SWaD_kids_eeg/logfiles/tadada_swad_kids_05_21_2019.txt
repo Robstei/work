@@ -1,0 +1,5 @@
+subjectid	configuration	conditionid	trialid	form	color	seperateAttention	target	time_stimulus	code	time_reaction	time_diff	rm_type
+
+tadada	1	selective	1	flower	2	2	0	26955.7		-1	-26956.7	rm_other
+tadada	1	selective	1	bell	3	2	2	30325.1		-1	-30326.1	rm_miss
+

@@ -1,0 +1,45 @@
+Scenario - Swad_kids_et
+Logfile written - 05/22/2019 14:34:49
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+mittwoch2	0	Response	3								40019	40019	173
+mittwoch2	0	Response	3								163483	163483	72
+mittwoch2	1	Response	3								239867	13346	0
+mittwoch2	2	Response	3								251388	11022	0
+mittwoch2	3	Response	3								267547	15671	0
+mittwoch2	4	Response	3								269626	1237	0
+mittwoch2	5	Picture	1;test;1;bell;6;1;0	1	test	1	bell	6	1	0	278898	0	1	2669	1	0	2500	other	0
+mittwoch2	7	Picture	1;test;1;circle;1;1;1	1	test	1	circle	1	1	1	320933	0	1	2669	1	0	2500	miss	0
+mittwoch2	266	Response	3								715867	55486	0
+mittwoch2	267	Response	3								735706	18945	0
+mittwoch2	268	Response	3								737306	862	0
+mittwoch2	268	Response	3								739066	2622	0
+mittwoch2	269	Picture	1;selective;1;moon;5;2;0	1	selective	1	moon	5	2	0	747286	0	1	2669	1	0	2500	other	0
+mittwoch2	271	Picture	1;selective;1;bell;5;2;2	1	selective	1	bell	5	2	2	789321	0	1	2669	1	0	2500	miss	0
+mittwoch2	272	Response	3								843227	35223	0
+mittwoch2	273	Response	3								882106	38073	0
+mittwoch2	275	Picture	1;divided;1;heart;1;3;0	1	divided	1	heart	1	3	0	893241	0	1	2669	1	0	2500	other	0
+mittwoch2	277	Picture	1;divided;1;moon;3;3;0	1	divided	1	moon	3	3	0	931272	0	1	2669	1	0	2500	other	0
+mittwoch2	278	Response	3								961626	11672	0
+mittwoch2	279	Response	3								977786	15321	0
+mittwoch2	281	Picture	1;switching;1;star;3;2;0	1	switching	1	star	3	2	0	989153	0	1	2669	1	0	2500	other	0
+mittwoch2	283	Picture	1;switching;1;bell;2;2;2	1	switching	1	bell	2	2	2	1015008	0	1	2669	1	0	2500	miss	0
+mittwoch2	284	Response	3								1067386	33362	0
+mittwoch2	286	Picture	1;switching;2;bell;2;3;0	1	switching	2	bell	2	3	0	1078227	0	1	2669	1	0	2500	other	0
+mittwoch2	288	Picture	1;switching;2;star;2;3;0	1	switching	2	star	2	3	0	1108586	0	1	2669	1	0	2500	other	0
+
+
+{
+   "app": "Presentation Version 20.1 Build 12.04.17",
+   "device": "Dell Inc. Latitude 3580",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_et.sce",
+   "subject": "mittwoch2",
+   "timestamp": "2019/05/22 12:32:46 GMT"
+}

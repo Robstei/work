@@ -1,0 +1,11 @@
+subjectid	configuration	conditionid	trialid	form	color	seperateAttention	target	time_stimulus	code	time_reaction	time_diff	rm_type
+
+robinDritterTag	1	selective	1	moon	3	2	0	71959.8		-1	-71960.8	rm_other
+robinDritterTag	1	selective	1	bell	3	2	2	76146.6		-1	-76147.6	rm_miss
+robinDritterTag	1	divided	1	star	4	3	0	81868		-1	-81869	rm_other
+robinDritterTag	1	divided	1	bell	4	3	0	85654.5		-1	-85655.5	rm_other
+robinDritterTag	1	switching	1	moon	2	2	0	91759.6		-1	-91760.6	rm_other
+robinDritterTag	1	switching	1	bell	4	2	2	95362.5		-1	-95363.5	rm_miss
+robinDritterTag	1	switching	2	bell	4	3	0	102785.4		-1	-102786.4	rm_other
+robinDritterTag	1	switching	2	flower	2	3	0	105420.9		-1	-105421.9	rm_other
+

@@ -48,6 +48,7 @@
 <filename>C:\work\SWaD_kids_et\Swad_kids_et.sdf</filename>
 <filename>C:\work\SWaD_kids_et\Swad_kids_et.pcl</filename>
 <filename>C:\work\Single Dot Task ET\eye_tracker_connection.pcl</filename>
+
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -635,12 +636,16 @@ English</desc>
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
+<<<<<<< HEAD
 <name>HID Keyboard Device</name>
 </device>
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
 <name>HID Keyboard Device 1</name>
+=======
+<name>Standard PS/2 Keyboard</name>
+>>>>>>> 9fccb59e0797d3eb960248f52dbc7a0e77edbacf
 </device>
 <device>
 <abs_axis>
@@ -682,6 +687,7 @@ English</desc>
 <dx_device_type>0</dx_device_type>
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
+<<<<<<< HEAD
 <name>HID-compliant mouse</name>
 </device>
 <device>
@@ -703,6 +709,9 @@ English</desc>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
 <name>ndPoint1 Inte 1</name>
+=======
+<name>Synaptics Pointing Device</name>
+>>>>>>> 9fccb59e0797d3eb960248f52dbc7a0e77edbacf
 </device>
 <device>
 <axis>
@@ -1129,7 +1138,7 @@ English</desc>
 <vt>0</vt>
 </trigger_mode>
 <udt>0</udt>
-<uln>test</uln>
+<uln>dummy</uln>
 <unc></unc>
 <upb>0</upb>
 <urp>0</urp>

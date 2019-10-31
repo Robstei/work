@@ -1,0 +1,26 @@
+Swad Logifle:
+
+subjectid: subjectid die am Anfang eingegeben wurde
+configuration: Konfiguration bzgl. Reihenfolge von geteiltem, selektivem und wechselnder Condition
+conditionid: Angabe ob es sich um geteilten, selektiven oder wechselnde Condition handelt
+trialid: Trial innerhalb der entsprechenden Condition
+form: Angezeigte Form
+color: Angezeigte Farbe (Screenshot)
+seperateAttention:	1: Eine Farbe ist das Target in diesem Trial		
+			2: Eine Form ist das Target in diesem Trial
+			3: Ein Farbe und eine Form sind Target in diesem Trial
+
+target:		0: Kein Target in diesem Stimulus
+		1: Die Farbe ist ein Target in diesem Stimulus
+		2: Die Form ist ein Target in diesem Stimulus
+
+time_stimulus: Anzeigezeit des Stimulus in Millisekunden nach Start des Paradigmas
+code: Button der Gedrückt wurde 1: Die Taste "L", die Taste für Farben Targets
+				 2: Die Taste "S", die Taste für Form Targets
+time_reaction: Absolute Reaktionszeit in Millisekunden nach Start des Paradigmas
+time_diff: Reaktionszeit
+rm_type: rm_hit: auf ein Target korrekt reagiert
+	 rm_miss: auf ein Target nicht reagiert
+	 rm_incorrect: auf ein Target mit der falschen Taste reagiert
+	 rm_false_alarm: auf ein Nontarget reagiert
+	 rm_other: auf ein Nontarget nicht reagiert

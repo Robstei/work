@@ -56,5 +56,8 @@ time = 0;
 
 } trial_test;
 begin_pcl;
-
+term.print_line("Hit: " + string(stimulus_data::HIT));
+term.print_line("Miss: " + string(stimulus_data::MISS));
+term.print_line("FALSE_ALARM: " + string(stimulus_data::FALSE_ALARM));
+term.print_line("OTHER: " + string(stimulus_data::OTHER));
 trial_test.present();

@@ -1,0 +1,22 @@
+Scenario - 
+Logfile written - 10/29/2019 12:35:32
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+	1	Response	1	4675	4467	0
+	2	Response	1	8014	3224	0
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "LENOVO 20FMS2L703",
+   "experiment": "{DC23946D-9824-436C-AC02-DAA073E16653}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Oddball.sce",
+   "subject": "",
+   "timestamp": "2019/10/29 11:35:31 GMT"
+}

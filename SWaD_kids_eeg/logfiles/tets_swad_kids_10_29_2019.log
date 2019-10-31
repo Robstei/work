@@ -1,0 +1,26 @@
+Scenario - Swad_kids_eeg
+Logfile written - 10/29/2019 15:08:22
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+tets	1	Response	103								13569	13236	1
+tets	2	Response	103								33712	20047	1
+tets	3	Response	103								68087	34258	1
+tets	4	Response	103								73700	5542	1
+tets	5	Picture	1;test;1;star;2;1;0	1	test	1	star	2	1	0	78324	0	1	22030	1	0	2500	other	0
+tets	5	Quit									80450	2126	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "LENOVO 20FMS2L703",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_eeg.sce",
+   "subject": "tets",
+   "timestamp": "2019/10/29 14:08:08 GMT"
+}

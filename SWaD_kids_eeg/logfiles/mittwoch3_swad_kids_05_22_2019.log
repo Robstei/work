@@ -1,0 +1,81 @@
+Scenario - Swad_kids_et
+Logfile written - 05/22/2019 15:06:03
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+mittwoch3	0	Response	3								29420	29420	0
+mittwoch3	0	Response	3								33901	33901	0
+mittwoch3	0	Response	3								39181	39181	0
+mittwoch3	0	Response	3								122611	122611	94
+mittwoch3	0	Response	3								124941	124941	0
+mittwoch3	0	Response	3								127341	127341	0
+mittwoch3	0	Response	3								130013	130013	50
+mittwoch3	0	Response	3								132299	132299	2
+mittwoch3	0	Response	3								134862	134862	0
+mittwoch3	0	Response	3								137101	137101	0
+mittwoch3	0	Response	3								141742	141742	0
+mittwoch3	0	Response	3								144464	144464	1
+mittwoch3	0	Response	3								146775	146775	86
+mittwoch3	0	Response	3								149261	149261	0
+mittwoch3	0	Response	3								151981	151981	0
+mittwoch3	0	Response	3								154541	154541	0
+mittwoch3	0	Response	3								156774	156774	169
+mittwoch3	0	Response	3								159331	159331	12
+mittwoch3	0	Response	3								161577	161577	4
+mittwoch3	0	Response	3								163984	163984	0
+mittwoch3	0	Response	3								166505	166505	36
+mittwoch3	0	Response	3								169331	169331	92
+mittwoch3	0	Response	3								171664	171664	0
+mittwoch3	0	Response	3								176462	176462	2
+mittwoch3	0	Response	3								178967	178967	56
+mittwoch3	0	Response	3								181581	181581	0
+mittwoch3	1	Response	3								202538	12047	0
+mittwoch3	2	Response	3								215018	12016	0
+mittwoch3	3	Response	3								231658	15979	0
+mittwoch3	4	Response	3								234059	1866	0
+mittwoch3	4	Response	3								236458	4266	1
+mittwoch3	4	Response	3								238858	6665	0
+mittwoch3	4	Response	3								241260	9067	0
+mittwoch3	5	Picture	1;test;1;bell;4;1;0	1	test	1	bell	4	1	0	242701	0	1	2669	1	0	2500	other	0
+mittwoch3	7	Picture	1;test;1;heart;1;1;1	1	test	1	heart	1	1	1	282734	0	1	2669	1	0	2500	miss	0
+mittwoch3	266	Response	3								652618	29768	0
+mittwoch3	267	Response	3								669258	15883	0
+mittwoch3	268	Response	3								671017	1296	0
+mittwoch3	268	Response	3								672937	3215	0
+mittwoch3	269	Picture	1;selective;1;circle;5;2;0	1	selective	1	circle	5	2	0	680231	0	1	2669	1	0	2500	other	0
+mittwoch3	271	Picture	1;selective;1;bell;1;2;2	1	selective	1	bell	1	2	2	710422	0	1	2669	1	0	2500	miss	0
+mittwoch3	272	Response	3								882057	152786	0
+mittwoch3	273	Response	3								903497	20765	0
+mittwoch3	274	Response	3								905578	1661	0
+mittwoch3	275	Picture	1;divided;1;heart;4;3;0	1	divided	1	heart	4	3	0	914592	0	1	2669	1	0	2500	other	0
+mittwoch3	276	Response	3								939658	6551	0
+mittwoch3	276	Response	3								942217	9110	0
+mittwoch3	276	Response	3								945737	12630	0
+mittwoch3	276	Response	3								947817	14710	0
+mittwoch3	276	Response	3								949577	16470	0
+mittwoch3	277	Picture	1;divided;1;heart;2;3;0	1	divided	1	heart	2	3	0	950455	0	1	2669	1	0	2500	other	0
+mittwoch3	278	Response	3								987337	18368	0
+mittwoch3	279	Response	3								1003177	15025	0
+mittwoch3	280	Response	3								1006857	3192	0
+mittwoch3	280	Response	3								1008777	5111	0
+mittwoch3	280	Response	3								1010217	6551	0
+mittwoch3	281	Picture	1;switching;1;moon;5;2;0	1	switching	1	moon	5	2	0	1014174	0	1	2669	1	0	2500	other	0
+mittwoch3	283	Picture	1;switching;1;bell;3;2;2	1	switching	1	bell	3	2	2	1040196	0	1	2669	1	0	2500	miss	0
+mittwoch3	284	Response	3								1076137	16759	0
+mittwoch3	286	Picture	1;switching;2;moon;4;3;0	1	switching	2	moon	4	3	0	1087235	0	1	2669	1	0	2500	other	0
+mittwoch3	288	Picture	1;switching;2;flower;6;3;0	1	switching	2	flower	6	3	0	1127268	0	1	2669	1	0	2500	other	0
+
+
+{
+   "app": "Presentation Version 20.1 Build 12.04.17",
+   "device": "Dell Inc. Latitude 3580",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_et.sce",
+   "subject": "mittwoch3",
+   "timestamp": "2019/05/22 13:04:01 GMT"
+}

@@ -557,29 +557,31 @@ For Example if the suffix is "_oddball_control.txt" and the subject id is 12 the
 <minpv></minpv>
 <nam>Oddball</nam>
 <one_processor>2</one_processor>
-<oports></oports>
+<oports>
+<p>
+<ama>0</ama>
+<ami>0</ami>
+<at>0</at>
+<dpw>5</dpw>
+<dsdi>0</dsdi>
+<dsi>0</dsi>
+<dsn>Data port</dsn>
+<igm>0</igm>
+<il>0</il>
+<ivm>0</ivm>
+<mtype>dig</mtype>
+<piai>LPT1</piai>
+<pian>Parallel Port</pian>
+<pihpn>LPT1</pihpn>
+<pindex>0</pindex>
+<rs>1</rs>
+<rt>0</rt>
+</p>
+</oports>
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
 <plat>1</plat>
-<port_devices>
-<device>
-<parameters>
-<cts>0</cts>
-<dsrin>0</dsrin>
-<dsrout>0</dsrout>
-<dtr>disable</dtr>
-<rts>disable</rts>
-<set_fifo>1</set_fifo>
-<spd></spd>
-<spp></spp>
-<spr></spr>
-<sps></sps>
-</parameters>
-<piai>COM1</piai>
-<pian>Serial Port</pian>
-<pihpn>COM1</pihpn>
-</device>
-</port_devices>
+<port_devices></port_devices>
 <rdl>
 <device>
 <abs_axis>
@@ -631,12 +633,7 @@ For Example if the suffix is "_oddball_control.txt" and the subject id is 12 the
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device 1</name>
+<name>Standard PS/2 Keyboard</name>
 </device>
 <device>
 <abs_axis>
