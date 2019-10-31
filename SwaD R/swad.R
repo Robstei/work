@@ -10,7 +10,7 @@ SwaDData %>% mutate(Condition = case_when(
                   "selective_color_non_target.jpg",
                   "selective_color_target.jpg")                     ~ "selective",
   Stimulus %in% c("divided_non_target.jpg", "divided_color_target.jpg", "divided_form_target.jpg")
-  ~ "divided",
+                    ~ "divided",
   Stimulus %in% c("switching_selective_form_non_target.jpg",
                   "switching_selective_form_target.jpg",
                   "switching_selective_color_non_target.jpg",
@@ -22,6 +22,7 @@ SwaDData %>% mutate(Condition = case_when(
   TRUE ~ "noTrial")) %>%
   subset(Condition != "noTrial") %>%
   mutate(Saccade.Velocity.Maximum..Â..s. = ifelse(
+    #. um auf den bisherigen Data Frame zuzufreigen und $ um auf die entsprechende Spalte zuzugreifen
     is.na(as.numeric(as.character(.$Saccade.Velocity.Maximum..Â..s))),
     0,
     as.numeric(as.character(.$Saccade.Velocity.Maximum..Â..s))

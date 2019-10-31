@@ -1,0 +1,84 @@
+	string iViewX_IP = "192.168.1.2";
+	string Local_IP = "192.168.1.1";
+	int Send_Port = 4444;
+	int Recv_Port = 5555;
+
+	#create iViewXAPI::eye_tracker2 instance 
+	iViewXAPI::eye_tracker2 tracker2;
+
+	# create eye_tracker instance 
+	eye_tracker tracker;
+
+	#create extension objects
+	tracker2 = new iViewXAPI::eye_tracker2( "{B7A4A7F7-7879-4C95-A3BA-6CCB355AECF6}" );
+	tracker2.disconnect();
+	tracker2.connect(iViewX_IP, Send_Port, Local_IP, Recv_Port);
+
+	tracker = new eye_tracker( "{FDC35980-7480-4761-859F-4DCCFA93BA57}" );
+
+	tracker.clear_buffer(dt_position);
+	tracker.start_tracking();
+	tracker.start_data(dt_position);
+	
+	
+double accuracy_x, accuracy_y;
+	
+##### calibration
+
+######### calibration ##########
+
+# Calibration method 
+#double calibration_method = 1.0;
+#double calibration_method = 2.0;
+double calibration_method = 5.0;
+#double calibration_method = 9.0;
+#double calibration_method = 13.0;
+
+# Calibration auto accept
+#double calibration_auto_accept = 0.0;
+double calibration_auto_accept = 1.0;
+#double calibration_auto_accept = 2.0;
+
+# Calibration speed
+#double calibration_speed = 0.0;
+double calibration_speed = 1.0;
+
+term.print ( "calibration" ); term.print ( "\n" );
+tracker.calibrate(et_calibrate_default, calibration_method, calibration_auto_accept, calibration_speed);
+wait_interval (500);
+
+##### validation 
+		
+term.print ( "validation" ); term.print ( "\n" );	
+tracker.calibrate(2, calibration_method, calibration_auto_accept, calibration_speed);
+
+accuracy_x = tracker2.get_accuracy_x();
+accuracy_y = tracker2.get_accuracy_y();
+		
+term.print ( "x\t" ); term.print ( string(accuracy_x) ); term.print ( "\t" );
+term.print ( "y\t" ); term.print ( string(accuracy_y) ); term.print ( "\n" );
+
+wait_interval (500);
+tracker.set_recording(true);
+
+	sub print_et_status(string code)
+	begin
+		term.print_line("\n-------------" + code +"------------");
+		int status = tracker.get_status();
+		term.print("Status: ");
+		if (status == tracker.STATUS_STOPPED)
+		then
+			term.print_line("stopped");
+		elseif(status == tracker.STATUS_INITIALIZING)
+		then
+			term.print_line("initializing");
+		elseif(status == tracker.STATUS_TRACKING)
+		then
+			term.print_line("tracking");
+		elseif(status == tracker.STATUS_ERROR)
+		then
+			term.print_line("error");
+		end;
+		
+		term.print_line("\n-------------" + code +"------------");
+	end;

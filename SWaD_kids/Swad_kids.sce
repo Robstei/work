@@ -675,7 +675,7 @@ begin_pcl;
 	# see make_and_present_block for parameter explanation
 	
 	sub present_block( int seperate_attention, int color_target_index, array<int,1> color_indexes, 
-								int form_target_index, array<int> block[][], bool show_feedback, string run_id, string block_id)
+								int form_target_index, array<int> block[][], bool show_feedback, string condition_id, string block_id)
 	begin
 		
 		if seperate_attention == 1
@@ -729,7 +729,7 @@ begin_pcl;
 			main_picture = form_array[form_index];
 			change_color(ellipse_graphic(main_picture.get_part(2)), color_index);
 			stim_event.set_stimulus(main_picture);
-			string tmp_event_code = string(configuration) + ";" + run_id + ";" + block_id + ";" + main_picture.description() + 
+			string tmp_event_code = string(configuration) + ";" + condition_id + ";" + block_id + ";" + main_picture.description() + 
 												";" + string(color_index) + ";" + string(seperate_attention);
 
 			stim_event.set_target_button(0);
@@ -824,12 +824,12 @@ begin_pcl;
 	
 	sub make_and_present_block (int seperate_attention, int color_target_index, array<int,1> color_indexes,
 											int form_target_index, int number_of_targets, int number_of_non_targets,  
-											bool show_feedback, string run_id, string block_id)
+											bool show_feedback, string condition_id, string block_id)
 	begin
 		array<int> block_presentet[][] = make_block(seperate_attention,color_target_index, array_color_indexes,
 											form_target_index, number_of_targets, number_of_non_targets);
 		present_block(seperate_attention, color_target_index, array_color_indexes,
-											 form_target_index, block_presentet, show_feedback, run_id, block_id)
+											 form_target_index, block_presentet, show_feedback, condition_id, block_id)
 	end;
 	
 

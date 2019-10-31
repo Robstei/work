@@ -1,91 +1,4 @@
-#########EYE TRACKER##################
-	
-	string iViewX_IP = "192.168.1.2";
-	string Local_IP = "192.168.1.1";
-	int Send_Port = 4444;
-	int Recv_Port = 5555;
-
-	#create iViewXAPI::eye_tracker2 instance 
-	iViewXAPI::eye_tracker2 tracker2;
-
-	# create eye_tracker instance 
-	eye_tracker tracker;
-
-	#create extension objects
-	tracker2 = new iViewXAPI::eye_tracker2( "{B7A4A7F7-7879-4C95-A3BA-6CCB355AECF6}" );
-	tracker2.disconnect();
-	tracker2.connect(iViewX_IP, Send_Port, Local_IP, Recv_Port);
-
-	tracker = new eye_tracker( "{FDC35980-7480-4761-859F-4DCCFA93BA57}" );
-
-	tracker.clear_buffer(dt_position);
-	tracker.start_tracking();
-	tracker.start_data(dt_position);
-	
-	
-double accuracy_x, accuracy_y;
-	
-##### calibration
-
-######### calibration ##########
-
-# Calibration method 
-#double calibration_method = 1.0;
-#double calibration_method = 2.0;
-double calibration_method = 5.0;
-#double calibration_method = 9.0;
-#double calibration_method = 13.0;
-
-# Calibration auto accept
-#double calibration_auto_accept = 0.0;
-double calibration_auto_accept = 1.0;
-#double calibration_auto_accept = 2.0;
-
-# Calibration speed
-#double calibration_speed = 0.0;
-double calibration_speed = 1.0;
-
-term.print ( "calibration" ); term.print ( "\n" );
-tracker.calibrate(et_calibrate_default, calibration_method, calibration_auto_accept, calibration_speed);
-wait_interval (500);
-
-##### validation 
-		
-term.print ( "validation" ); term.print ( "\n" );	
-tracker.calibrate(2, calibration_method, calibration_auto_accept, calibration_speed);
-
-accuracy_x = tracker2.get_accuracy_x();
-accuracy_y = tracker2.get_accuracy_y();
-		
-term.print ( "x\t" ); term.print ( string(accuracy_x) ); term.print ( "\t" );
-term.print ( "y\t" ); term.print ( string(accuracy_y) ); term.print ( "\n" );
-
-wait_interval (500);
-tracker.set_recording(true);
-
-	sub print_et_status(string code)
-	begin
-		term.print_line("\n-------------" + code +"------------");
-		int status = tracker.get_status();
-		term.print("Status: ");
-		if (status == tracker.STATUS_STOPPED)
-		then
-			term.print_line("stopped");
-		elseif(status == tracker.STATUS_INITIALIZING)
-		then
-			term.print_line("initializing");
-		elseif(status == tracker.STATUS_TRACKING)
-		then
-			term.print_line("tracking");
-		elseif(status == tracker.STATUS_ERROR)
-		then
-			term.print_line("error");
-		end;
-		
-		term.print_line("\n-------------" + code +"------------");
-	end;
-	
-	########END EYE TRACKER############
+include "Swad_kids_et_connection.pcl";
 
 	int COLOR = 1;
 	int FORM = 2;
@@ -159,6 +72,17 @@ tracker.set_recording(true);
 	int configuration = parameter_manager.get_int("Configuration Parameter");
 	int non_targets = parameter_manager.get_int("Non Targets at Start of each Block");
 	int language = parameter_manager.get_int("Language");
+	
+	sub set_response_mode
+	begin
+		string response_mode = parameter_manager.get_string("Stimulus response mode");
+		if response_mode == "Response"
+		then
+			trial_main.set_type(trial:FIRST_RESPONSE);
+		elseif response_mode == "Fixed"
+		trial_main.set_type(trial:FIXED);
+		end;
+	end;
 	
 	sub pause_seconds (int time_in_seconds)
 	begin
@@ -261,11 +185,11 @@ tracker.set_recording(true);
 	# 4. Switching blocks with selective attention
 	# 5. Switching blocks with divided attention
 	
-	sub send_eye_tracker_message (int seperate_attention, string run_id, bool is_target, string divided_attention_target)
+	sub send_eye_tracker_message (int seperate_attention, string condition_id, bool is_target, string divided_attention_target)
 	begin
-		string message = run_id;
+		string message = condition_id;
 		
-		if (run_id == "switching")
+		if (condition_id == "switching")
 		then 
 			if (seperate_attention == 1 || seperate_attention == 2)
 			then
@@ -296,7 +220,7 @@ tracker.set_recording(true);
 			message = message + "_non_target";
 		end;
 		
-		if(run_id == "test")
+		if(condition_id == "test")
 		then
 			message = "test";
 		end;
@@ -590,7 +514,7 @@ tracker.set_recording(true);
 	# see make_and_present_block for parameter explanation
 	
 	sub present_block( int seperate_attention, int color_target_index, array<int,1> color_indexes, 
-								int form_target_index, array<int> block[][], bool show_feedback, string run_id, string block_id)
+								int form_target_index, array<int> block[][], bool show_feedback, string condition_id, string block_id)
 	begin
 		
 		if seperate_attention == 1
@@ -649,7 +573,7 @@ tracker.set_recording(true);
 			main_picture = form_array[form_index];
 			change_color(ellipse_graphic(main_picture.get_part(2)), color_index);
 			stim_event.set_stimulus(main_picture);
-			string tmp_event_code = string(configuration) + ";" + run_id + ";" + block_id + ";" + main_picture.description() + 
+			string tmp_event_code = string(configuration) + ";" + condition_id + ";" + block_id + ";" + main_picture.description() + 
 												";" + string(color_index) + ";" + string(seperate_attention);
 
 			stim_event.set_target_button(0);
@@ -707,7 +631,7 @@ tracker.set_recording(true);
 			
 			set_response_mode(2);
 			
-			send_eye_tracker_message(seperate_attention, run_id, is_target, divided_attention_target);
+			send_eye_tracker_message(seperate_attention, condition_id, is_target, divided_attention_target);
 			
 			trial_main.present();
 			set_response_mode(1);
@@ -757,18 +681,19 @@ tracker.set_recording(true);
 	
 	sub make_and_present_block (int seperate_attention, int color_target_index, array<int,1> color_indexes,
 											int form_target_index, int number_of_targets, int number_of_non_targets,  
-											bool show_feedback, string run_id, string block_id)
+											bool show_feedback, string condition_id, string block_id)
 	begin
 		array<int> block_presentet[][] = make_block(seperate_attention,color_target_index, array_color_indexes,
 											form_target_index, number_of_targets, number_of_non_targets);
 		present_block(seperate_attention, color_target_index, array_color_indexes,
-											 form_target_index, block_presentet, show_feedback, run_id, block_id)
+											 form_target_index, block_presentet, show_feedback, condition_id, block_id)
 	end;
 	
 
 ##########################Test Condition########################################
 	set_response_mode(1);
 	set_logfile_name();
+	set_response_mode();
 	present_information(array_information[language][1], 25);
    present_information(array_information[language][2], 30);
 

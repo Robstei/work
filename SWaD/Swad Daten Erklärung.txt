@@ -10,7 +10,7 @@ seperateAttention1:	1: Ein Char ist das Target in diesem Block
 			3: Ein Char und eine Form sind Target in diesem Block
 
 target1:	0: Kein Target in diesem Stimulus
-		1: Der Char ist ein Target in diesem Stimulus
+		1: Die Farbe ist ein Target in diesem Stimulus
 		2: Die Form ist ein Target in diesem Stimulus
 
 time1: Anzeigezeit des Stimulus in Millisekunden nach Start des Paradigmas

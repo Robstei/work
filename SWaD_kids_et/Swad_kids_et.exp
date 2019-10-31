@@ -1,5 +1,5 @@
-<ver>20.1</ver>
-<efn>C:\Users\Eye-Tracking\Desktop\SWaD_kids_et\Swad_kids_et.exp</efn>
+<ver>20.3</ver>
+<efn>C:\work\SWaD_kids_et\Swad_kids_et.exp</efn>
 <author></author>
 <con>
 <pause>P</pause>
@@ -20,32 +20,34 @@
 </con>
 <dbi></dbi>
 <dbs>button</dbs>
-<ddi>1</ddi>
+<ddi>0</ddi>
 <dds>
 <icm_profile></icm_profile>
 <use_icm>0</use_icm>
 </dds>
-<ddv>Intel(R) HD Graphics 620</ddv>
+<ddv>Primary Display Driver</ddv>
 <depchg>1</depchg>
 <discard_windows_messages>0</discard_windows_messages>
 <display_status_window>1</display_status_window>
 <dmd>32</dmd>
-<dmh>1200</dmh>
+<dmh>1050</dmh>
 <dmr>60</dmr>
-<dmrf>59.9501712862037</dmrf>
-<dmw>1920</dmw>
+<dmrf>60</dmrf>
+<dmw>1680</dmw>
 <docs>
 <args></args>
 <exfl></exfl>
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\Users\Eye-Tracking\Desktop\SWaD_kids_et\stimuli</dsd>
+<dsd>C:\work\SWaD_kids_et\stimuli</dsd>
+<dwm>0</dwm>
 <dxv>8</dxv>
 <efs>
-<filename>C:\Users\Eye-Tracking\Desktop\SWaD_kids_et\Swad_kids_et.sce</filename>
-<filename>C:\Users\Eye-Tracking\Desktop\SWaD_kids_et\Swad_kids_et.sdf</filename>
-<filename>C:\Users\Eye-Tracking\Desktop\SWaD_kids_et\Swad_kids_et.pcl</filename>
+<filename>C:\work\SWaD_kids_et\Swad_kids_et.sce</filename>
+<filename>C:\work\SWaD_kids_et\Swad_kids_et.sdf</filename>
+<filename>C:\work\SWaD_kids_et\Swad_kids_et.pcl</filename>
+<filename>C:\work\Single Dot Task ET\eye_tracker_connection.pcl</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -167,6 +169,12 @@ Du hättest drücken müssen.</val>
 </dat>
 <id>16</id>
 </val>
+<val>
+<dat>
+<val>Response</val>
+</dat>
+<id>17</id>
+</val>
 </sd>
 <sid>-1</sid>
 </ss>
@@ -187,6 +195,7 @@ Du hättest drücken müssen.</val>
 <pid>14</pid>
 <pid>15</pid>
 <pid>16</pid>
+<pid>17</pid>
 </pl>
 </grp>
 <grp>
@@ -460,6 +469,20 @@ English</desc>
 <vis>1</vis>
 </set>
 </parm>
+<parm>
+<id>17</id>
+<set>
+<desc>Determines if Stimulus and the time the subject has to respond should disapear once the subject reacted(Response) or if it should always be presented for the fixes amount of time(Fixed)</desc>
+<edit>1</edit>
+<name>Stimulus response reaction</name>
+<set>
+<rest>Fixed,Response</rest>
+</set>
+<temp>0</temp>
+<type>string</type>
+<vis>1</vis>
+</set>
+</parm>
 </parms>
 <ssl></ssl>
 </parms>
@@ -508,7 +531,7 @@ English</desc>
 <pindex>4294967295</pindex>
 </chan>
 </ip_chans>
-<lfd>C:\Users\Eye-Tracking\Desktop\SWaD_kids_et\logfiles</lfd>
+<lfd>C:\work\SWaD_kids_et\logfiles</lfd>
 <lnb>2</lnb>
 <lno>2</lno>
 <log>
@@ -518,7 +541,7 @@ English</desc>
 <its>0</its>
 <meta>1</meta>
 <pien>0</pien>
-<set_def_file>C:\Users\Eye-Tracking\Desktop\SWaD_kids_et\Swad_kids_et.sdf</set_def_file>
+<set_def_file>C:\work\SWaD_kids_et\Swad_kids_et.sdf</set_def_file>
 <stimulus_list>0</stimulus_list>
 <subject_id></subject_id>
 <subject_id_pol>1</subject_id_pol>
@@ -542,7 +565,25 @@ English</desc>
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
 <plat>1</plat>
-<port_devices></port_devices>
+<port_devices>
+<device>
+<parameters>
+<cts>0</cts>
+<dsrin>0</dsrin>
+<dsrout>0</dsrout>
+<dtr>disable</dtr>
+<rts>disable</rts>
+<set_fifo>1</set_fifo>
+<spd></spd>
+<spp></spp>
+<spr></spr>
+<sps></sps>
+</parameters>
+<piai>COM1</piai>
+<pian>Serial Port</pian>
+<pihpn>COM1</pihpn>
+</device>
+</port_devices>
 <rdl>
 <device>
 <abs_axis>
@@ -602,58 +643,6 @@ English</desc>
 <name>HID Keyboard Device 1</name>
 </device>
 <device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>Standard PS/2 Keyboard</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device 2</name>
-</device>
-<device>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<abs_axis>
-<dead_zone>0</dead_zone>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<saturation>1</saturation>
-</abs_axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>X-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Y-axis</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<axis>
-<max>1000</max>
-<min>-1000</min>
-<name>Wheel</name>
-<restricted>1</restricted>
-<scale>1</scale>
-</axis>
-<device_type>2</device_type>
-<dx_device_type>0</dx_device_type>
-<max_raw_pos>65535</max_raw_pos>
-<min_raw_pos>0</min_raw_pos>
-<name>PS/2 Compatible Mouse</name>
-</device>
-<device>
 <abs_axis>
 <dead_zone>0</dead_zone>
 <max>1000</max>
@@ -698,92 +687,22 @@ English</desc>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter</name>
+<name>ndPoint1 Inte</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 1</name>
+<name>Wired Gaming Mouse</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 2</name>
+<name>HyperX Virtual Surround Sound</name>
 </device>
 <device>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 3</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 4</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 5</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 6</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 7</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 8</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Dell KB216 Wired Keyboard</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 9</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Konvertiertes PDC (Portable Device Control)-Gerät</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Dell KB216 Wired Keyboard 1</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 10</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 11</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 12</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Konvertiertes PDC (Portable Device Control)-Gerät 1</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Intel(R) HID Event Filter 13</name>
+<name>ndPoint1 Inte 1</name>
 </device>
 <device>
 <axis>
@@ -815,8 +734,10 @@ English</desc>
 <name>Speech Recognition</name>
 <speech>
 <engine_class></engine_class>
+<lang></lang>
 <mc>0</mc>
 <rw>0</rw>
+<sil>0</sil>
 <uwd>0</uwd>
 <vocab></vocab>
 </speech>
@@ -1132,7 +1053,7 @@ English</desc>
 <offset>57</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\Users\Eye-Tracking\Desktop\SWaD_kids_et\Swad_kids_et.sce</sfn>
+<sfn>C:\work\SWaD_kids_et\Swad_kids_et.sce</sfn>
 </sce>
 <sct>
 <capture_device>

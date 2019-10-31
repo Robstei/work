@@ -121,7 +121,7 @@ Du hättest drücken müssen.</val>
 </val>
 <val>
 <dat>
-<val>2</val>
+<val>1</val>
 </dat>
 <id>9</id>
 </val>
@@ -665,6 +665,11 @@ English</desc>
 <device_type>4</device_type>
 <dx_device_type>17</dx_device_type>
 <name>Wired Gaming Mouse</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>HyperX Virtual Surround Sound</name>
 </device>
 <device>
 <device_type>4</device_type>
