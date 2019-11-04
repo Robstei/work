@@ -1,0 +1,180 @@
+Scenario - Swad_kids_fmrt
+Logfile written - 11/02/2019 20:31:03
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+jaja	0	Pulse	0								0	0	NA
+jaja	1	Response	3								18769	18602	0
+jaja	2	Pulse	0								20000	1167	NA
+jaja	2	Response	3								33649	14816	0
+jaja	2	Pulse	0								40000	21167	NA
+jaja	2	Pulse	0								60000	41167	NA
+jaja	2	Pulse	0								80000	61167	NA
+jaja	3	Picture	cross	cross							80164	0	2	10168	2	0	next	other	0
+jaja	4	Picture	7;test;1;flower;2;1;0	7	test	1	flower	2	1	0	90332	0	1	2667	1	0	2500	other	0
+jaja	4	Pulse	0								100000	9668	NA
+jaja	5	Picture	cross	cross							108498	0	1	23166	1	0	next	other	0
+jaja	5	Pulse	0								120000	11502	NA
+jaja	6	Picture	7;test;1;heart;1;1;1	7	test	1	heart	1	1	1	131665	0	1	2666	2	0	2500	miss	0
+jaja	6	Pulse	0								140000	8335	NA
+jaja	7	Response	3								153568	3737	0
+jaja	7	Response	3								157009	7178	0
+jaja	7	Response	3								159088	9257	0
+jaja	7	Pulse	0								160000	10169	NA
+jaja	7	Response	3								161169	11337	0
+jaja	7	Response	3								163249	13417	0
+jaja	7	Response	3								165249	15418	0
+jaja	7	Response	3								167169	17338	0
+jaja	7	Response	3								169248	19417	0
+jaja	8	Picture	cross	cross							169996	0	2	11168	2	0	next	other	0
+jaja	8	Response	3								171330	1334	0
+jaja	8	Pulse	0								180000	10004	NA
+jaja	9	Picture	7;test;1;bell;2;1;0	7	test	1	bell	2	1	0	181164	0	1	2667	1	0	2500	other	0
+jaja	10	Picture	cross	cross							199330	0	1	19167	1	0	next	other	0
+jaja	10	Pulse	0								200000	670	NA
+jaja	11	Picture	7;test;1;moon;1;1;1	7	test	1	moon	1	1	1	218497	0	1	2666	1	0	2500	miss	0
+jaja	11	Pulse	0								220000	1503	NA
+jaja	12	Pulse	0								240000	3338	NA
+jaja	13	Picture	cross	cross							256830	0	1	19166	1	0	next	other	0
+jaja	13	Pulse	0								260000	3170	NA
+jaja	14	Picture	7;test;1;bell;3;1;0	7	test	1	bell	3	1	0	275996	0	1	2667	1	0	2500	other	0
+jaja	14	Pulse	0								280000	4004	NA
+jaja	15	Picture	cross	cross							294162	0	1	13167	1	0	next	other	0
+jaja	15	Pulse	0								300000	5838	NA
+jaja	16	Picture	7;test;1;bell;1;1;1	7	test	1	bell	1	1	1	307329	0	1	2667	1	0	2500	incorrect	40
+jaja	16	Response	2								310048	2719	0
+jaja	17	Pulse	0								320000	9838	NA
+jaja	18	Picture	cross	cross							330327	0	2	13168	2	0	next	other	0
+jaja	18	Pulse	0								340000	9673	NA
+jaja	19	Picture	7;test;1;flower;4;1;0	7	test	1	flower	4	1	0	343495	0	1	2667	1	0	2500	other	0
+jaja	19	Pulse	0								360000	16505	NA
+jaja	20	Picture	cross	cross							361662	0	1	5167	1	0	next	other	0
+jaja	21	Picture	7;test;1;star;1;1;1	7	test	1	star	1	1	1	366828	0	1	2667	1	0	2500	miss	0
+jaja	21	Pulse	0								380000	13172	NA
+jaja	22	Pulse	0								400000	15005	NA
+jaja	23	Picture	cross	cross							405161	0	1	21166	1	0	next	other	0
+jaja	23	Pulse	0								420000	14839	NA
+jaja	24	Picture	7;test;1;heart;5;1;0	7	test	1	heart	5	1	0	426327	0	1	2667	1	0	2500	other	0
+jaja	24	Pulse	0								440000	13673	NA
+jaja	25	Picture	cross	cross							444494	0	1	23166	1	0	next	other	0
+jaja	25	Pulse	0								460000	15506	NA
+jaja	26	Picture	7;test;1;star;2;1;0	7	test	1	star	2	1	0	467660	0	1	2667	1	0	2500	other	0
+jaja	26	Pulse	0								480000	12340	NA
+jaja	27	Pulse	0								500000	14007	NA
+jaja	27	Pulse	0								520000	34007	NA
+jaja	27	Pulse	0								540000	54007	NA
+jaja	27	Response	3								545808	59814	0
+jaja	28	Picture	cross	cross							545992	0	1	10167	1	0	next	other	0
+jaja	29	Picture	7;test;2;circle;6;3;0	7	test	2	circle	6	3	0	556159	0	1	2667	1	0	2500	other	0
+jaja	29	Pulse	0								560000	3841	NA
+jaja	30	Picture	cross	cross							574325	0	1	15166	1	0	next	other	0
+jaja	30	Pulse	0								580000	5675	NA
+jaja	31	Picture	7;test;2;heart;1;3;0	7	test	2	heart	1	3	0	589492	0	1	2666	2	0	2500	other	0
+jaja	31	Pulse	0								600000	10508	NA
+jaja	32	Picture	cross	cross							607657	0	2	5168	2	0	next	other	0
+jaja	33	Picture	7;test;2;flower;5;3;2	7	test	2	flower	5	3	2	612825	0	1	2667	1	0	2500	miss	0
+jaja	33	Pulse	0								620000	7175	NA
+jaja	34	Pulse	0								640000	9010	NA
+jaja	35	Picture	cross	cross							651158	0	1	9167	1	0	next	other	0
+jaja	35	Pulse	0								660000	8842	NA
+jaja	36	Picture	7;test;2;circle;5;3;0	7	test	2	circle	5	3	0	660324	0	1	2667	1	0	2500	other	0
+jaja	37	Picture	cross	cross							678490	0	1	17166	1	0	next	other	0
+jaja	37	Pulse	0								680000	1510	NA
+jaja	38	Picture	7;test;2;heart;2;3;1	7	test	2	heart	2	3	1	695657	0	1	2667	1	0	2500	miss	0
+jaja	38	Pulse	0								700000	4343	NA
+jaja	39	Pulse	0								720000	6177	NA
+jaja	40	Picture	cross	cross							733990	0	1	21167	1	0	next	other	0
+jaja	40	Pulse	0								740000	6010	NA
+jaja	41	Picture	7;test;2;star;5;3;0	7	test	2	star	5	3	0	755156	0	1	2667	1	0	2500	other	0
+jaja	41	Pulse	0								760000	4844	NA
+jaja	42	Picture	cross	cross							773323	0	1	11167	1	0	next	other	0
+jaja	42	Pulse	0								780000	6677	NA
+jaja	43	Picture	7;test;2;flower;1;3;2	7	test	2	flower	1	3	2	784489	0	1	2667	1	0	2500	miss	0
+jaja	43	Pulse	0								800000	15511	NA
+jaja	44	Pulse	0								820000	17345	NA
+jaja	45	Picture	cross	cross							822822	0	1	21166	1	0	next	other	0
+jaja	45	Pulse	0								840000	17178	NA
+jaja	46	Picture	7;test;2;bell;5;3;0	7	test	2	bell	5	3	0	843988	0	1	2666	1	0	2500	other	0
+jaja	46	Pulse	0								860000	16012	NA
+jaja	47	Picture	cross	cross							862155	0	1	13165	3	0	next	other	0
+jaja	48	Picture	7;test;2;moon;2;3;1	7	test	2	moon	2	3	1	875320	0	2	2667	4	0	2500	miss	0
+jaja	48	Pulse	0								880000	4680	NA
+jaja	49	Pulse	0								900000	6513	NA
+jaja	50	Picture	cross	cross							913654	0	1	15166	1	0	next	other	0
+jaja	50	Pulse	0								920000	6346	NA
+jaja	51	Picture	7;test;2;bell;6;3;0	7	test	2	bell	6	3	0	928820	0	1	2667	1	0	2500	other	0
+jaja	51	Pulse	0								940000	11180	NA
+jaja	52	Pulse	0								960000	13014	NA
+jaja	52	Pulse	0								980000	33014	NA
+jaja	52	Pulse	0								1000000	53014	NA
+jaja	52	Response	3								1018446	71461	0
+jaja	53	Pulse	0								1020000	1181	NA
+jaja	53	Response	3								1034847	16028	0
+jaja	54	Pulse	0								1040000	5015	NA
+jaja	54	Pulse	0								1060000	25015	NA
+jaja	54	Pulse	0								1080000	45015	NA
+jaja	54	Pulse	0								1100000	65015	NA
+jaja	55	Picture	cross	cross							1100151	0	1	10166	1	0	next	other	0
+jaja	56	Picture	7;selective;1;moon;4;2;0	7	selective	1	moon	4	2	0	1110318	0	1	2667	1	0	2500	other	0
+jaja	56	Pulse	0								1120000	9682	NA
+jaja	57	Picture	cross	cross							1128484	0	1	13167	1	0	next	other	0
+jaja	57	Pulse	0								1140000	11516	NA
+jaja	58	Picture	7;selective;1;bell;5;2;2	7	selective	1	bell	5	2	2	1141651	0	1	2667	1	0	2500	miss	0
+jaja	59	Picture	cross	cross							1159817	0	1	19166	1	0	next	other	0
+jaja	59	Pulse	0								1160000	183	NA
+jaja	60	Picture	7;selective;1;moon;6;2;0	7	selective	1	moon	6	2	0	1178984	0	1	2667	1	0	2500	other	0
+jaja	60	Pulse	0								1180000	1016	NA
+jaja	61	Picture	cross	cross							1197316	0	2	17167	2	0	next	other	0
+jaja	61	Pulse	0								1200000	2684	NA
+jaja	62	Picture	7;selective;1;bell;1;2;2	7	selective	1	bell	1	2	2	1214483	0	1	2667	1	0	2500	miss	0
+jaja	62	Pulse	0								1220000	5517	NA
+jaja	69	Pulse	0								1240000	351	NA
+jaja	86	Pulse	0								1260000	517	NA
+jaja	97	Response	3								1272766	451	0
+jaja	103	Pulse	0								1280000	685	NA
+jaja	120	Pulse	0								1300000	851	NA
+jaja	137	Pulse	0								1320000	1018	NA
+jaja	155	Pulse	0								1340000	19	NA
+jaja	172	Pulse	0								1360000	186	NA
+jaja	189	Pulse	0								1380000	353	NA
+jaja	206	Pulse	0								1400000	686	NA
+jaja	223	Pulse	0								1420000	853	NA
+jaja	240	Pulse	0								1440000	1021	NA
+jaja	258	Pulse	0								1460000	20	NA
+jaja	275	Pulse	0								1480000	187	NA
+jaja	280	Response	3								1486206	560	0
+jaja	287	Response	3								1494286	473	0
+jaja	292	Pulse	0								1500000	188	NA
+jaja	309	Pulse	0								1520000	354	NA
+jaja	321	Pulse	0								1540000	6188	NA
+jaja	321	Response	3								1552127	18315	0
+jaja	322	Picture	cross	cross							1552312	0	1	10166	1	0	next	other	0
+jaja	322	Pulse	0								1560000	7688	NA
+jaja	323	Picture	7;switching;2;circle;4;3;0	7	switching	2	circle	4	3	0	1562478	0	1	2667	1	0	2500	other	0
+jaja	323	Pulse	0								1580000	17522	NA
+jaja	324	Picture	cross	cross							1580645	0	1	17167	1	0	next	other	0
+jaja	325	Picture	7;switching;2;heart;2;3;2	7	switching	2	heart	2	3	2	1597811	0	1	2666	1	0	2500	miss	0
+jaja	325	Pulse	0								1600000	2189	NA
+jaja	326	Picture	cross	cross							1615976	0	2	19168	2	0	next	other	0
+jaja	326	Pulse	0								1620000	4024	NA
+jaja	327	Picture	7;switching;2;moon;4;3;0	7	switching	2	moon	4	3	0	1635144	0	1	2667	1	0	2500	other	0
+jaja	327	Pulse	0								1640000	4856	NA
+jaja	328	Picture	cross	cross							1653309	0	2	23167	2	0	next	other	0
+jaja	328	Pulse	0								1660000	6691	NA
+jaja	329	Picture	7;switching;2;flower;3;3;1	7	switching	2	flower	3	3	1	1676477	0	1	2665	2	0	2500	miss	0
+jaja	329	Pulse	0								1680000	3523	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_fmrt.sce",
+   "subject": "jaja",
+   "timestamp": "2019/11/02 19:28:12 GMT"
+}

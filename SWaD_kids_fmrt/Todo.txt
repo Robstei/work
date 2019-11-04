@@ -1,0 +1,4 @@
+header parameter
+syncen mit puls
+logfiles umschreiben
+modus zwischen fixed und first response wechseln lassen

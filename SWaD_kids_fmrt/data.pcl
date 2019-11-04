@@ -7,14 +7,16 @@ array<string> array_tmp_cross_data[2];
 
 loop int i = 1 until i > stimulus_manager.stimulus_count()
 begin
+	term.print_line("A");
 	stimulus_data stimulus_data_subject = stimulus_manager.get_stimulus_data(i);
 	string event_code = stimulus_data_subject.event_code();
 	array <string> array_metadata[0];
 	event_code.split(";", array_metadata);
-	
 	array<string> array_tmp_stimulus_data[0];
-
-	if(array_metadata[1] == "test")
+	
+	if array_metadata[1] == ""
+	then
+	elseif(array_metadata[1] == "test")
 	then
 	elseif(array_metadata[1] == "instruction")
 	then
@@ -50,17 +52,20 @@ begin
 		array_data.add(array_tmp_stimulus_data);
 	end;
 	
+	term.print_line("B");
 	i = i + 1;
 end;
 
 output_file single = new output_file();
 if(logfile.subject() != "")
 then
-	single.open_append("singles/SingleDT_control_" + logfile.subject() + ".txt");
+	single.open_append("singles/SwAD_kids_fmrt_" + logfile.subject() + ".txt");
 else
 	single.open_append("singles/no_name.txt");
 end;
-	string col_headings = "ID,presentation_time_fmrt,presentation_time_start,reaction_time,reaction_type,group,block,stimulus,block_type,color,target_non_target,cross_time_fmrt,cross_time_start";
+
+	term.print_line("C");
+	string col_headings = "ID,presentation_time_fmrt,presentation_time_start,reaction_time,reaction_type,configuration,condition,run,form,color,seperate_attention,cross_time_fmrt,cross_time_start";
 	single.print_line(col_headings);
 	loop int row = 1 until row > array_data.count()
 	begin
@@ -77,5 +82,6 @@ end;
 		single.print_line(string_row);
 		row = row + 1;
 	end;
-	
+
+	term.print_line("D");	
 single.close();
