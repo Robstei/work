@@ -2,7 +2,8 @@
 	int FORM = 2;
 	array <int> ISI_values [] = {500, 700, 900, 1100, 1300, 1500, 1700, 1900, 2100, 2300};
 	array <int> array_color_indexes [] = {1,2,3,4,5,6};
-	
+	int fmrt_start_time;
+	bool fmri_running = false;
 	
 	array <string> array_instructions [][] = {
 		{ 
@@ -106,6 +107,12 @@
 		end;
 	end;
 	
+	sub wait_pulses (trial trial_to_set, int pulses)
+	begin
+		int current_pulse = pulse_manager.main_pulse_count();
+		trial_to_set.set_mri_pulse(current_pulse + pulses + 1);
+	end;
+
 	sub set_logfile_name
 	begin
 		logfile.set_filename(logfile.subject() + "_" + "swad_kids_" + date_time("mm_dd_yyyy") + ".log");
@@ -159,60 +166,6 @@
 		then
 			eg.set_color(153,0,153,255);
 			eg.redraw();
-		end;
-	end;
-	
-	#creates 5 categories of stimuli and groups them for analysis regarding the eye tracker
-	# 1. test stimuli
-	# 2. Selective blocks
-	# 3. Divided blocks
-	# 4. Switching blocks with selective attention
-	# 5. Switching blocks with divided attention
-	
-	sub set_eeg_code (stimulus_event se, int seperate_attention, string run_id, bool is_target, string divided_attention_target)
-	begin
-		if run_id == "selective" && seperate_attention  == 1 && !is_target
-		then
-			se.set_port_code(1);
-		elseif run_id == "selective" && seperate_attention  == 1 && is_target
-		then
-			se.set_port_code(2);
-		elseif run_id == "selective" && seperate_attention  == 2 && !is_target
-		then
-			se.set_port_code(3);
-		elseif run_id == "selective" && seperate_attention  == 2 && is_target
-		then
-			se.set_port_code(4);
-		elseif run_id == "divided" &&  !is_target
-		then
-			se.set_port_code(5);
-		elseif run_id == "divided" && divided_attention_target == "form" &&  is_target
-		then
-			se.set_port_code(6);
-		elseif run_id == "divided" && divided_attention_target == "color" &&  is_target
-		then
-			se.set_port_code(7);
-		elseif run_id == "switching" && seperate_attention == 1 &&  !is_target
-		then
-			se.set_port_code(8);
-		elseif run_id == "switching" && seperate_attention == 1 &&  is_target
-		then
-			se.set_port_code(9);
-		elseif run_id == "switching" && seperate_attention == 2 &&  !is_target
-		then
-			se.set_port_code(10);
-			elseif run_id == "switching" && seperate_attention == 2 &&  is_target
-		then
-			se.set_port_code(11);
-		elseif run_id == "switching" && seperate_attention == 3 &&  !is_target
-		then
-			se.set_port_code(12);
-		elseif run_id == "switching" && seperate_attention == 3 && divided_attention_target == "color" &&  is_target
-		then
-			se.set_port_code(13);
-		elseif run_id == "switching" && seperate_attention == 3 && divided_attention_target == "form" &&  is_target
-		then
-			se.set_port_code(14);
 		end;
 	end;
 	
@@ -501,7 +454,7 @@
 	# see make_and_present_block for parameter explanation
 	
 	sub present_block( int seperate_attention, int color_target_index, array<int,1> color_indexes, 
-								int form_target_index, array<int> block[][], bool show_feedback, string run_id, string block_id)
+								int form_target_index, array<int> block[][], bool show_feedback, string run_id, string block_id, int pulses_to_wait)
 	begin
 		
 		if seperate_attention == 1
@@ -542,11 +495,8 @@
 			text_instruction_divided6.set_caption(array_instructions[language][6], true);
 			trial_instruction_divided.present();
 		end;
-		
-			
-	
-	
-	
+		display_device.screenshot(scenario_directory  + "instruction.bmp");
+
 		loop int i = 1 until i > block.count()
 		begin
 			bool is_target = false;
@@ -563,7 +513,6 @@
 			stim_event.set_target_button(0);
 			stim_event.set_response_active(true);
 			
-			set_eeg_code(stim_event, seperate_attention, run_id, is_target, divided_attention_target);
 			if seperate_attention == 1
 			then
 				if color_target_index == color_index
@@ -603,7 +552,11 @@
 				end;
 			else	
 			end;
-			set_eeg_code(stim_event, seperate_attention, run_id, is_target, divided_attention_target);
+			
+			if run_id == "test"
+			then
+				tmp_event_code = "test";
+			end;
 			
 			#ISI
 			if i == 1
@@ -612,12 +565,27 @@
 			else
 				trial_cross.set_duration(ISI_values[random(1,ISI_values.count())]);
 			end;
+			
+			if (pulses_to_wait > 0 && i == 1)
+			then
+				wait_pulses(trial_cross, pulses_to_wait);
+				term.print_line("Synchronisation mit " + string(pulses_to_wait) + " Pulsen");
+				trial_sync.present();
+			end;
+			
+			if (!fmri_running)
+			then
+				fmrt_start_time = stimulus_manager.last_stimulus_data().time();
+				fmri_running = true;
+			end;
+		
 			trial_cross.present();
-			
+			display_device.screenshot(scenario_directory  + "cross.bmp");
 			set_response_mode(2);
-			
+		
 						
 			trial_main.present();
+			display_device.screenshot(scenario_directory  + "stimulus" + string(i) + ".bmp");
 			set_response_mode(1);
 			
 			i=i+1;
@@ -643,13 +611,14 @@
 				if feedback != ""
 				then
 				text_feedback.set_caption(feedback, true);
-				trial_feedback.present();	
+				trial_feedback.present();
+				display_device.screenshot(scenario_directory  + "feedback" + string(i) + ".bmp");
 				end;
 			end;
 		end;
 	end;
 	
-	#	Arguments for make_and_present_block()
+	#	Parameters for make_and_present_block
 	#	1. Value: seperate_attention: 1 = only a color is a target
 	#											 2 = only a form is a target
 	#											 3 = a color and a form is a target
@@ -660,61 +629,65 @@
 	#	6. Value: number of non targets in returned trial
 	#	7. Value: bool to determin if feedback will be given. true = feedback
 	#	8. Value: condition_id for event_code
-	#	9. Value: block_id for event_code
+	#	9. Value: trial_id for event_code
 	
 	sub make_and_present_block (int seperate_attention, int color_target_index, array<int,1> color_indexes,
 											int form_target_index, int number_of_targets, int number_of_non_targets,  
-											bool show_feedback, string run_id, string block_id)
+											bool show_feedback, string run_id, string block_id, int pulses_to_wait)
 	begin
 		array<int> block_presentet[][] = make_block(seperate_attention,color_target_index, array_color_indexes,
 											form_target_index, number_of_targets, number_of_non_targets);
 		present_block(seperate_attention, color_target_index, array_color_indexes,
-											 form_target_index, block_presentet, show_feedback, run_id, block_id)
+											 form_target_index, block_presentet, show_feedback, run_id, block_id, pulses_to_wait)
 	end;
 	
 
 ##########################Test Condition########################################
 	set_response_mode(1);
 	set_logfile_name();
+	
 	present_information(array_information[language][1], 25);
+	display_device.screenshot(scenario_directory  + "main_instruction1.bmp");
    present_information(array_information[language][2], 30);
+	display_device.screenshot(scenario_directory  + "main_instruction2.bmp");
 
-	make_and_present_block(1, 1, array_color_indexes, -1, 4, 6, true, "test", "1");
-	make_and_present_block(3, 2, array_color_indexes, 1, 4, 6, true, "test", "2");
+	make_and_present_block(1, 1, array_color_indexes, -1, 4, 6, true, "test", "1", 3);
+	make_and_present_block(3, 2, array_color_indexes, 1, 4, 6, true, "test", "2", 0);
 	
 	if configuration == 1
 	then
 		##########################Condition 1########################################
 
 			pause_seconds(30);
+			display_device.screenshot(scenario_directory  + "pause.bmp");
 			present_information(array_information[language][3], 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "selective", "1");
-			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 6, 20, false, "selective", "3");
-			make_and_present_block(2, -1, array_color_indexes, 3, 8, 18, false, "selective", "4");
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "selective", "1", 1);
+			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2", 0);
+			make_and_present_block(1, 4, array_color_indexes, -1, 6, 20, false, "selective", "3", 0);
+			make_and_present_block(2, -1, array_color_indexes, 3, 8, 18, false, "selective", "4", 0);
 			
 		##########################Condition 2########################################
 
 			pause_minutes(2);
 			present_information(array_information[language][4], 30);
-			make_and_present_block(3, 5, array_color_indexes, 4, 8, 18, false, "divided", "1");
-			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
-			make_and_present_block(3, 1, array_color_indexes, 6, 7, 19, false, "divided", "3");
-			make_and_present_block(3, 2, array_color_indexes, 1, 6, 20, false, "divided", "4");
+			make_and_present_block(3, 5, array_color_indexes, 4, 8, 18, false, "divided", "1", 1);
+			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2", 0);
+			make_and_present_block(3, 1, array_color_indexes, 6, 7, 19, false, "divided", "3", 0);
+			make_and_present_block(3, 2, array_color_indexes, 1, 6, 20, false, "divided", "4", 0);
 			
 		##########################Condition 3########################################
 
 			pause_minutes(2);
 			present_information(array_information[language][5], 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");
-			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1", 1);
+			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2", 0);
+			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3", 0);
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4", 0);
 			
-			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
-			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
+			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5", 0);
+			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6", 0);
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7", 0);
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8", 0);
 			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 2
@@ -723,33 +696,33 @@
 
 			pause_seconds(30);
 			present_information(array_information[language][3], 30);
-			make_and_present_block(3, 3, array_color_indexes, 2, 8, 18, false, "divided", "1");
-			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "2");
-			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "3");
-			make_and_present_block(3, 6, array_color_indexes, 5, 6, 20, false, "divided", "4");
+			make_and_present_block(3, 3, array_color_indexes, 2, 8, 18, false, "divided", "1", 1);
+			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "2", 0);
+			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "3", 0);
+			make_and_present_block(3, 6, array_color_indexes, 5, 6, 20, false, "divided", "4", 0);
 			
 		##########################Condition 2########################################
 
 			pause_minutes(2);
 			present_information(array_information[language][4], 30);
-			make_and_present_block(2, -1, array_color_indexes, 6, 7, 19, false, "selective", "1");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2");
-			make_and_present_block(1, 2, array_color_indexes, -1, 6, 20, false, "selective", "3");
-			make_and_present_block(2, -1, array_color_indexes, 1, 8, 18, false, "selective", "4");
+			make_and_present_block(2, -1, array_color_indexes, 6, 7, 19, false, "selective", "1", 1);
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2", 0);
+			make_and_present_block(1, 2, array_color_indexes, -1, 6, 20, false, "selective", "3", 0);
+			make_and_present_block(2, -1, array_color_indexes, 1, 8, 18, false, "selective", "4", 0);
 			
 		##########################Condition 3########################################
 
 			pause_minutes(2);
 			present_information(array_information[language][5], 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");
-			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1", 1);
+			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2", 0);
+			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3", 0);
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4", 0);
 			
-			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
-			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
+			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5", 0);
+			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6", 0);
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7", 0);
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8", 0);
 			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 3
@@ -758,33 +731,33 @@
 
 			pause_seconds(30);
 			present_information(array_information[language][3], 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");
-			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1", 1);
+			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2", 0);
+			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3", 0);
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4", 0);
 			
-			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
-			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
+			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5", 0);
+			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6", 0);
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7", 0);
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8", 0);
 			
 		##########################Condition 2########################################
 
 			pause_minutes(2);
 			present_information(array_information[language][4], 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 8, 18, false, "selective", "1");
-			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 7, 19, false, "selective", "3");
-			make_and_present_block(2, -1, array_color_indexes, 3, 6, 20, false, "selective", "4");
+			make_and_present_block(2, -1, array_color_indexes, 2, 8, 18, false, "selective", "1", 1);
+			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2", 0);
+			make_and_present_block(1, 4, array_color_indexes, -1, 7, 19, false, "selective", "3", 0);
+			make_and_present_block(2, -1, array_color_indexes, 3, 6, 20, false, "selective", "4", 0);
 			
 		##########################Condition 3########################################
 
 			pause_minutes(2);
 			present_information(array_information[language][5], 30);
-			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "1");
-			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
-			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "divided", "3");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "divided", "4");
+			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "1", 1);
+			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2", 0);
+			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "divided", "3", 0);
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "divided", "4", 0);
 			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 4
@@ -793,33 +766,33 @@
 
 			pause_seconds(30);
 			present_information(array_information[language][3], 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");
-			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4");
+			make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1", 1);
+			make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2", 0);
+			make_and_present_block(1, 4, array_color_indexes, -1, 5, 21, false, "switching", "3", 0);
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "switching", "4", 0);
 			
-			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5");
-			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8");
+			make_and_present_block(2, -1, array_color_indexes, 5, 6, 20, false, "switching", "5", 0);
+			make_and_present_block(3, 6, array_color_indexes, 6, 7, 19, false, "switching", "6", 0);
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "switching", "7", 0);
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "switching", "8", 0);
 			
 		##########################Condition 2########################################
 
 			pause_minutes(2);
 			present_information(array_information[language][4], 30);
-			make_and_present_block(3, 3, array_color_indexes, 2, 7, 19, false, "divided", "1");
-			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "2");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "divided", "3");
-			make_and_present_block(3, 6, array_color_indexes, 5, 8, 18, false, "divided", "4");
+			make_and_present_block(3, 3, array_color_indexes, 2, 7, 19, false, "divided", "1", 1);
+			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "2", 0);
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "divided", "3", 0);
+			make_and_present_block(3, 6, array_color_indexes, 5, 8, 18, false, "divided", "4", 0);
 			
 		##########################Condition 3########################################
 
 			pause_minutes(2);
 			present_information(array_information[language][5], 30);
-			make_and_present_block(2, -1, array_color_indexes, 6, 8, 18, false, "selective", "1");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2");
-			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "3");
-			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "4");
+			make_and_present_block(2, -1, array_color_indexes, 6, 8, 18, false, "selective", "1", 1);
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2", 0);
+			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "3", 0);
+			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "4", 0);
 			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 5
@@ -828,33 +801,33 @@
 
 			pause_seconds(30);
 			present_information(array_information[language][3], 30);
-			make_and_present_block(2, -1, array_color_indexes, 2, 8, 18, false, "selective", "1");
-			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2");
-			make_and_present_block(1, 4, array_color_indexes, -1, 7, 19, false, "selective", "3");
-			make_and_present_block(2, -1, array_color_indexes, 3, 6, 20, false, "selective", "4");
+			make_and_present_block(2, -1, array_color_indexes, 2, 8, 18, false, "selective", "1", 1);
+			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "selective", "2", 0);
+			make_and_present_block(1, 4, array_color_indexes, -1, 7, 19, false, "selective", "3", 0);
+			make_and_present_block(2, -1, array_color_indexes, 3, 6, 20, false, "selective", "4", 0);
 			
 		##########################Condition 2########################################
 
 			pause_minutes(2);
 			present_information(array_information[language][4], 30);
-			make_and_present_block(2, -1, array_color_indexes, 4, 7, 19, false, "switching", "1");
-			make_and_present_block(3, 5, array_color_indexes, 5, 8, 18, false, "switching", "2");
-			make_and_present_block(1, 6, array_color_indexes, -1, 5, 21, false, "switching", "3");
-			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "switching", "4");
+			make_and_present_block(2, -1, array_color_indexes, 4, 7, 19, false, "switching", "1", 1);
+			make_and_present_block(3, 5, array_color_indexes, 5, 8, 18, false, "switching", "2", 0);
+			make_and_present_block(1, 6, array_color_indexes, -1, 5, 21, false, "switching", "3", 0);
+			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "switching", "4", 0);
 			
-			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "switching", "5");
-			make_and_present_block(3, 2, array_color_indexes, 2, 7, 19, false, "switching", "6");
-			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "switching", "7");
-			make_and_present_block(3, 4, array_color_indexes, 3, 8, 18, false, "switching", "8");
+			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "switching", "5", 0);
+			make_and_present_block(3, 2, array_color_indexes, 2, 7, 19, false, "switching", "6", 0);
+			make_and_present_block(1, 3, array_color_indexes, -1, 5, 21, false, "switching", "7", 0);
+			make_and_present_block(3, 4, array_color_indexes, 3, 8, 18, false, "switching", "8", 0);
 			
 		##########################Condition 3########################################
 
 			pause_minutes(2);
 			present_information(array_information[language][5], 30);
-			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "1");
-			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2");
-			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "divided", "3");
-			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "divided", "4");
+			make_and_present_block(3, 5, array_color_indexes, 4, 7, 19, false, "divided", "1", 1);
+			make_and_present_block(3, 6, array_color_indexes, 5, 5, 21, false, "divided", "2", 0);
+			make_and_present_block(3, 1, array_color_indexes, 6, 6, 20, false, "divided", "3", 0);
+			make_and_present_block(3, 2, array_color_indexes, 1, 8, 18, false, "divided", "4", 0);
 			present_information(array_information[language][6], 30);
 			
 	elseif configuration == 6
@@ -863,43 +836,43 @@
 
 			pause_seconds(30);
 			present_information(array_information[language][3], 30);
-			make_and_present_block(3, 3, array_color_indexes, 2, 7, 19, false, "divided", "1");
-			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "2");
-			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "divided", "3");
-			make_and_present_block(3, 6, array_color_indexes, 5, 8, 18, false, "divided", "4");
+			make_and_present_block(3, 3, array_color_indexes, 2, 7, 19, false, "divided", "1", 1);
+			make_and_present_block(3, 4, array_color_indexes, 3, 5, 21, false, "divided", "2", 0);
+			make_and_present_block(3, 5, array_color_indexes, 4, 6, 20, false, "divided", "3", 0);
+			make_and_present_block(3, 6, array_color_indexes, 5, 8, 18, false, "divided", "4", 0);
 			
 		##########################Condition 2########################################
 
 			pause_minutes(2);
 			present_information(array_information[language][4], 30);
-			make_and_present_block(2, -1, array_color_indexes, 6, 7, 19, false, "switching", "1");
-			make_and_present_block(3, 1, array_color_indexes, 1, 8, 18, false, "switching", "2");
-			make_and_present_block(1, 2, array_color_indexes, -1, 5, 21, false, "switching", "3");
-			make_and_present_block(3, 3, array_color_indexes, 2, 6, 20, false, "switching", "4");
+			make_and_present_block(2, -1, array_color_indexes, 6, 7, 19, false, "switching", "1", 1);
+			make_and_present_block(3, 1, array_color_indexes, 1, 8, 18, false, "switching", "2", 0);
+			make_and_present_block(1, 2, array_color_indexes, -1, 5, 21, false, "switching", "3", 0);
+			make_and_present_block(3, 3, array_color_indexes, 2, 6, 20, false, "switching", "4", 0);
 			
-			make_and_present_block(2, -1, array_color_indexes, 3, 6, 20, false, "switching", "5");
-			make_and_present_block(3, 4, array_color_indexes, 4, 7, 19, false, "switching", "6");
-			make_and_present_block(1, 5, array_color_indexes, -1, 5, 21, false, "switching", "7");
-			make_and_present_block(3, 6, array_color_indexes, 5, 8, 18, false, "switching", "8");
+			make_and_present_block(2, -1, array_color_indexes, 3, 6, 20, false, "switching", "5", 0);
+			make_and_present_block(3, 4, array_color_indexes, 4, 7, 19, false, "switching", "6", 0);
+			make_and_present_block(1, 5, array_color_indexes, -1, 5, 21, false, "switching", "7", 0);
+			make_and_present_block(3, 6, array_color_indexes, 5, 8, 18, false, "switching", "8", 0);
 			
 		##########################Condition 3########################################
 
 			pause_minutes(2);
 			present_information(array_information[language][5], 30);
-			make_and_present_block(2, -1, array_color_indexes, 6, 8, 18, false, "selective", "1");
-			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2");
-			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "3");
-			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "4");
+			make_and_present_block(2, -1, array_color_indexes, 6, 8, 18, false, "selective", "1", 1);
+			make_and_present_block(1, 1, array_color_indexes, -1, 5, 21, false, "selective", "2", 0);
+			make_and_present_block(1, 2, array_color_indexes, -1, 7, 19, false, "selective", "3", 0);
+			make_and_present_block(2, -1, array_color_indexes, 1, 6, 20, false, "selective", "4", 0);
 			present_information(array_information[language][6], 30);
 	
 	elseif configuration == 7
 	then
-		/*present_information(array_information[language][3], 30);
-		make_and_present_block(2, -1, array_color_indexes, 2, 2, 2, false, "selective", "1");
+		present_information(array_information[language][3], 30);
+		make_and_present_block(2, -1, array_color_indexes, 2, 2, 2, false, "selective", "1",3);
 		pause_seconds(30);
-		make_and_present_block(3, 3, array_color_indexes, 3, 2, 2, false, "switching", "2");
+		make_and_present_block(3, 3, array_color_indexes, 3, 2, 2, false, "switching", "2",0);
 
-		pause_minutes(2);
+		/*pause_minutes(2);
 		present_information(array_information[language][4], 30);
 		make_and_present_block(3, 5, array_color_indexes, 4, 8, 18, false, "divided", "1");
 		
@@ -908,3 +881,5 @@
 		make_and_present_block(2, -1, array_color_indexes, 2, 7, 19, false, "switching", "1");*/
 		#make_and_present_block(3, 3, array_color_indexes, 3, 8, 18, false, "switching", "2");
 	end;
+	
+	include "data.pcl";

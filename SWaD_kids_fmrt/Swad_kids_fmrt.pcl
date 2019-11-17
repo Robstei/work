@@ -87,6 +87,8 @@
 				trial_pause.present();
 			end;
 		end;
+		trial_pause_button.present();
+		term.print_line("Investigator needs to end pause");
      end;
 	
 	sub pause_minutes (int time_in_minutes)
@@ -105,6 +107,8 @@
 				trial_pause.present();
 			end;
 		end;
+		trial_pause_button.present();
+		term.print_line("Investigator needs to end pause");
 	end;
 	
 	sub wait_pulses (trial trial_to_set, int pulses)
@@ -642,7 +646,6 @@
 ##########################Test Condition########################################
 	set_response_mode(1);
 	set_logfile_name();
-	
 	present_information(array_information[language][1], 25);
    present_information(array_information[language][2], 30);
 

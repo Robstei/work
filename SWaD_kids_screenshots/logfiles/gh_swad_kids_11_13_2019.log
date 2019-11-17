@@ -1,0 +1,41 @@
+Scenario - Swad_kids_fmrt
+Logfile written - 11/13/2019 21:22:51
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+gh	0	Pulse	0								0	0	NA
+gh	1	Response	3								13691	13524	0
+gh	2	Pulse	0								20000	6167	NA
+gh	2	Response	3								25691	11858	0
+gh	3	Pulse	0								40000	14001	NA
+gh	3	Response	3								41850	15851	0
+gh	4	Pulse	0								60000	18001	NA
+gh	4	Pulse	0								80000	38001	NA
+gh	4	Pulse	0								100000	58001	NA
+gh	4	Pulse	0								120000	78001	NA
+gh	5	Picture	cross	cross							120165	0	1	10167	1	0	next	other	0
+gh	6	Picture	1;test;1;star;2;1;0	1	test	1	star	2	1	0	130331	0	1	2667	1	0	2500	other	0
+gh	6	Pulse	0								140000	9669	NA
+gh	7	Picture	cross	cross							148498	0	1	11166	1	0	next	other	0
+gh	8	Picture	1;test;1;star;1;1;1	1	test	1	star	1	1	1	159664	0	1	2667	1	0	2500	miss	0
+gh	8	Pulse	0								160000	336	NA
+gh	9	Pulse	0								180000	2169	NA
+gh	10	Picture	cross	cross							197997	0	1	7167	1	0	next	other	0
+gh	10	Pulse	0								200000	2003	NA
+gh	11	Picture	1;test;1;heart;5;1;0	1	test	1	heart	5	1	0	205164	0	1	2667	1	0	2500	other	0
+gh	11	Quit									208810	3647	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_fmrt.sce",
+   "subject": "gh",
+   "timestamp": "2019/11/13 20:22:29 GMT"
+}

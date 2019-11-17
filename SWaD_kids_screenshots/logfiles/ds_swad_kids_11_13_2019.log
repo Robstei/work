@@ -1,0 +1,122 @@
+Scenario - Swad_kids_fmrt
+Logfile written - 11/13/2019 22:30:42
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+ds	0	Pulse	0								0	0	NA
+ds	1	Response	3								10900	10734	0
+ds	2	Pulse	0								20000	8834	NA
+ds	2	Response	3								25780	14613	0
+ds	3	Pulse	0								40000	14001	NA
+ds	3	Response	3								41302	15303	0
+ds	4	Pulse	0								60000	18501	NA
+ds	4	Pulse	0								80000	38501	NA
+ds	4	Pulse	0								100000	58501	NA
+ds	4	Pulse	0								120000	78501	NA
+ds	5	Picture	cross	cross							120164	0	2	10334	2	0	next	other	0
+ds	6	Picture	1;test;1;bell;2;1;0	1	test	1	bell	2	1	0	130498	0	1	18167	1	0	next	other	0
+ds	6	Pulse	0								140000	9502	NA
+ds	7	Picture	cross	cross							148665	0	1	13333	1	0	next	other	0
+ds	7	Pulse	0								160000	11335	NA
+ds	8	Picture	1;test;1;circle;1;1;1	1	test	1	circle	1	1	1	161997	0	1	18167	1	0	next	miss	0
+ds	8	Pulse	0								180000	18003	NA
+ds	9	Pulse	0								200000	19836	NA
+ds	10	Picture	cross	cross							200331	0	1	5167	1	0	next	other	0
+ds	11	Picture	1;test;1;bell;3;1;0	1	test	1	bell	3	1	0	205497	0	1	18166	1	0	next	other	0
+ds	11	Pulse	0								220000	14503	NA
+ds	12	Picture	cross	cross							223664	0	1	23333	1	0	next	other	0
+ds	12	Pulse	0								240000	16336	NA
+ds	13	Picture	1;test;1;moon;4;1;0	1	test	1	moon	4	1	0	246997	0	1	18166	1	0	next	other	0
+ds	13	Pulse	0								260000	13003	NA
+ds	14	Picture	cross	cross							265163	0	1	5332	2	0	next	other	0
+ds	15	Picture	1;test;1;flower;1;1;1	1	test	1	flower	1	1	1	270496	0	2	18167	2	0	next	miss	0
+ds	15	Pulse	0								280000	9504	NA
+ds	16	Pulse	0								300000	11337	NA
+ds	17	Picture	cross	cross							308829	0	1	17167	1	0	next	other	0
+ds	17	Pulse	0								320000	11171	NA
+ds	18	Picture	1;test;1;circle;5;1;0	1	test	1	circle	5	1	0	325996	0	1	18333	1	0	next	other	0
+ds	18	Pulse	0								340000	14004	NA
+ds	19	Picture	cross	cross							344329	0	1	23333	1	0	next	other	0
+ds	19	Pulse	0								360000	15671	NA
+ds	20	Picture	1;test;1;bell;1;1;1	1	test	1	bell	1	1	1	367662	0	1	18333	1	0	next	miss	0
+ds	20	Pulse	0								380000	12338	NA
+ds	21	Pulse	0								400000	14005	NA
+ds	22	Picture	cross	cross							406328	0	1	17333	1	0	next	other	0
+ds	22	Pulse	0								420000	13672	NA
+ds	23	Picture	1;test;1;circle;3;1;0	1	test	1	circle	3	1	0	423661	0	1	18166	1	0	next	other	0
+ds	23	Pulse	0								440000	16339	NA
+ds	24	Picture	cross	cross							441828	0	1	23166	1	0	next	other	0
+ds	24	Pulse	0								460000	18172	NA
+ds	25	Picture	1;test;1;moon;2;1;0	1	test	1	moon	2	1	0	464994	0	1	18166	1	0	next	other	0
+ds	25	Pulse	0								480000	15006	NA
+ds	26	Picture	cross	cross							483161	0	1	15333	1	0	next	other	0
+ds	27	Picture	1;test;1;moon;1;1;1	1	test	1	moon	1	1	1	498494	0	1	18166	1	0	next	miss	0
+ds	27	Pulse	0								500000	1506	NA
+ds	28	Pulse	0								520000	3340	NA
+ds	29	Pulse	0								540000	2840	NA
+ds	29	Response	3								552820	15659	0
+ds	30	Picture	cross	cross							552993	0	1	10167	1	0	next	other	0
+ds	30	Response	3								554340	1347	0
+ds	30	Response	3								558660	5667	0
+ds	30	Pulse	0								560000	7007	NA
+ds	30	Response	3								560260	7267	0
+ds	31	Picture	1;test;2;bell;6;3;0	1	test	2	bell	6	3	0	563160	0	1	18166	1	0	next	other	0
+ds	31	Pulse	0								580000	16840	NA
+ds	32	Picture	cross	cross							581326	0	1	9333	1	0	next	other	0
+ds	33	Picture	1;test;2;flower;4;3;2	1	test	2	flower	4	3	2	590660	0	1	18166	1	0	next	miss	0
+ds	33	Pulse	0								600000	9340	NA
+ds	34	Pulse	0								620000	11174	NA
+ds	35	Picture	cross	cross							628992	0	1	23166	1	0	next	other	0
+ds	35	Pulse	0								640000	11008	NA
+ds	36	Picture	1;test;2;heart;1;3;0	1	test	2	heart	1	3	0	652159	0	1	18167	1	0	next	other	0
+ds	36	Pulse	0								660000	7841	NA
+ds	37	Picture	cross	cross							670325	0	1	11166	2	0	next	other	0
+ds	37	Pulse	0								680000	9675	NA
+ds	38	Picture	1;test;2;flower;6;3;2	1	test	2	flower	6	3	2	681491	0	2	18167	2	0	next	miss	0
+ds	39	Pulse	0								700000	342	NA
+ds	40	Picture	cross	cross							719825	0	1	5167	1	0	next	other	0
+ds	40	Pulse	0								720000	175	NA
+ds	41	Picture	1;test;2;moon;1;3;0	1	test	2	moon	1	3	0	724991	0	1	18166	1	0	next	other	0
+ds	41	Pulse	0								740000	15009	NA
+ds	42	Picture	cross	cross							743157	0	1	21167	1	0	next	other	0
+ds	42	Pulse	0								760000	16843	NA
+ds	43	Picture	1;test;2;heart;6;3;0	1	test	2	heart	6	3	0	764324	0	1	18166	1	0	next	other	0
+ds	43	Pulse	0								780000	15676	NA
+ds	44	Picture	cross	cross							782491	0	1	13333	1	0	next	other	0
+ds	45	Picture	1;test;2;star;2;3;1	1	test	2	star	2	3	1	795824	0	1	18167	1	0	next	miss	0
+ds	45	Pulse	0								800000	4176	NA
+ds	46	Pulse	0								820000	6010	NA
+ds	47	Picture	cross	cross							834157	0	1	11167	1	0	next	other	0
+ds	47	Pulse	0								840000	5843	NA
+ds	48	Picture	1;test;2;star;5;3;0	1	test	2	star	5	3	0	845323	0	1	18166	1	0	next	other	0
+ds	48	Pulse	0								860000	14677	NA
+ds	49	Picture	cross	cross							863490	0	1	17167	1	0	next	other	0
+ds	49	Pulse	0								880000	16510	NA
+ds	50	Picture	1;test;2;star;1;3;0	1	test	2	star	1	3	0	880656	0	1	18166	1	0	next	other	0
+ds	51	Picture	cross	cross							898822	0	1	13166	2	0	next	other	0
+ds	51	Pulse	0								900000	1178	NA
+ds	52	Picture	1;test;2;moon;2;3;1	1	test	2	moon	2	3	1	911989	0	1	18167	2	0	next	miss	0
+ds	52	Pulse	0								920000	8011	NA
+ds	53	Pulse	0								940000	9845	NA
+ds	62	Pulse	0								960000	178	NA
+ds	79	Pulse	0								980000	345	NA
+ds	96	Pulse	0								1000000	512	NA
+ds	113	Pulse	0								1020000	679	NA
+ds	130	Pulse	0								1040000	846	NA
+ds	147	Pulse	0								1060000	1013	NA
+ds	150	Quit									1063140	653	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_fmrt.sce",
+   "subject": "ds",
+   "timestamp": "2019/11/13 21:28:54 GMT"
+}

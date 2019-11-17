@@ -1,6 +1,6 @@
 <ver>20.3</ver>
-<efn>C:\work\SWaD_kids_et\Swad_kids_et.exp</efn>
-<author>Robin Steil</author>
+<efn>C:\work\SWaD_kids_screenshots\Swad_kids_fmrt.exp</efn>
+<author></author>
 <con>
 <pause>P</pause>
 <pause_code></pause_code>
@@ -30,24 +30,23 @@
 <discard_windows_messages>0</discard_windows_messages>
 <display_status_window>1</display_status_window>
 <dmd>32</dmd>
-<dmh>1050</dmh>
+<dmh>1080</dmh>
 <dmr>60</dmr>
 <dmrf>60</dmrf>
-<dmw>1680</dmw>
+<dmw>1920</dmw>
 <docs>
 <args></args>
 <exfl></exfl>
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\work\SWaD_kids_et\stimuli</dsd>
+<dsd>C:\work\SWaD_kids_screenshots\stimuli</dsd>
 <dwm>0</dwm>
 <dxv>8</dxv>
 <efs>
-<filename>C:\work\SWaD_kids_et\Swad_kids_et.sce</filename>
-<filename>C:\work\SWaD_kids_et\Swad_kids_et.sdf</filename>
-<filename>C:\work\SWaD_kids_et\Swad_kids_et.pcl</filename>
-<filename>C:\work\SWaD_kids_et\Swad_kids_et_connection.pcl</filename>
+<filename>C:\work\SWaD_kids_screenshots\Swad_kids_fmrt.sce</filename>
+<filename>C:\work\SWaD_kids_screenshots\Swad_kids_fmrt.pcl</filename>
+<filename>C:\work\SWaD_kids_screenshots\data.pcl</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -73,7 +72,7 @@
 </val>
 <val>
 <dat>
-<val>250</val>
+<val>1400</val>
 </dat>
 <id>1</id>
 </val>
@@ -169,12 +168,6 @@ Du hättest drücken müssen.</val>
 </dat>
 <id>16</id>
 </val>
-<val>
-<dat>
-<val>Response</val>
-</dat>
-<id>17</id>
-</val>
 </sd>
 <sid>-1</sid>
 </ss>
@@ -195,7 +188,6 @@ Du hättest drücken müssen.</val>
 <pid>14</pid>
 <pid>15</pid>
 <pid>16</pid>
-<pid>17</pid>
 </pl>
 </grp>
 <grp>
@@ -329,7 +321,7 @@ German</desc>
 <edit>1</edit>
 <name>Configuration Parameter</name>
 <set>
-<rest>[1,6]</rest>
+<rest>[1,7]</rest>
 </set>
 <temp>1</temp>
 <type>int</type>
@@ -469,20 +461,6 @@ English</desc>
 <vis>1</vis>
 </set>
 </parm>
-<parm>
-<id>17</id>
-<set>
-<desc>Determines if Stimulus and the time the subject has to respond should disapear once the subject reacted(Response) or if it should always be presented for the fixes amount of time(Fixed)</desc>
-<edit>1</edit>
-<name>Stimulus response reaction</name>
-<set>
-<rest>Fixed,Response</rest>
-</set>
-<temp>0</temp>
-<type>string</type>
-<vis>1</vis>
-</set>
-</parm>
 </parms>
 <ssl></ssl>
 </parms>
@@ -531,7 +509,7 @@ English</desc>
 <pindex>4294967295</pindex>
 </chan>
 </ip_chans>
-<lfd>C:\work\SWaD_kids_et\logfiles</lfd>
+<lfd>C:\work\SWaD_kids_screenshots\logfiles</lfd>
 <lnb>2</lnb>
 <lno>2</lno>
 <log>
@@ -541,7 +519,7 @@ English</desc>
 <its>0</its>
 <meta>1</meta>
 <pien>0</pien>
-<set_def_file>C:\work\SWaD_kids_et\Swad_kids_et.sdf</set_def_file>
+<set_def_file></set_def_file>
 <stimulus_list>0</stimulus_list>
 <subject_id></subject_id>
 <subject_id_pol>1</subject_id_pol>
@@ -559,7 +537,7 @@ English</desc>
 </lslset>
 <maxpv></maxpv>
 <minpv></minpv>
-<nam>Swad_kids_et</nam>
+<nam>Swad_kids_fmrt</nam>
 <one_processor>2</one_processor>
 <oports></oports>
 <out_encrypt_key></out_encrypt_key>
@@ -1043,7 +1021,7 @@ English</desc>
 <offset>57</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\work\SWaD_kids_et\Swad_kids_et.sce</sfn>
+<sfn>C:\work\SWaD_kids_screenshots\Swad_kids_fmrt.sce</sfn>
 </sce>
 <sct>
 <capture_device>

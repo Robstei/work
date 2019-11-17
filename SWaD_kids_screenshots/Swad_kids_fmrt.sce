@@ -93,7 +93,6 @@ begin;
 		
 		stimulus_event{
 		picture {} main_picture;
-		duration = EXPARAM("Time Stimulus" : 250);
 		}stim_event;
 	} trial_main;
 
@@ -238,22 +237,3 @@ begin;
 			x=0; y=0;
 		};
 	} trial_pause;
-	
-	trial {
-	trial_type = specific_response;
-	trial_duration = forever;
-	terminator_button = 3;
-	picture {
-		text{
-			caption = "...";
-			font_size = 40;
-		}text_pause_button;
-		x=0;y=0;
-	};
-	
-	sound {
-		wavefile{
-			filename = "sound.wav";
-		};
-	};
-} trial_pause_button;

@@ -1,0 +1,87 @@
+# create indiviual file for subject
+
+array<string> array_data[0][0];
+
+#holds cross timing data for following stimulus
+array<string> array_tmp_cross_data[2];
+
+loop int i = 1 until i > stimulus_manager.stimulus_count()
+begin
+	term.print_line("A");
+	stimulus_data stimulus_data_subject = stimulus_manager.get_stimulus_data(i);
+	string event_code = stimulus_data_subject.event_code();
+	array <string> array_metadata[0];
+	event_code.split(";", array_metadata);
+	array<string> array_tmp_stimulus_data[0];
+	
+	if array_metadata[1] == ""
+	then
+	elseif(array_metadata[1] == "test")
+	then
+	elseif(array_metadata[1] == "instruction")
+	then
+		#array_tmp_stimulus_data.add(logfile.subject());
+		#array_tmp_stimulus_data.add("instruction");
+		#array_tmp_stimulus_data.add(string(stimulus_data_subject.time()));
+	elseif(array_metadata[1] == "instruction_block")
+	then
+		#array_tmp_stimulus_data.add(logfile.subject());
+		#array_tmp_stimulus_data.add("instruction_block");
+		#array_tmp_stimulus_data.add(string(stimulus_data_subject.time()));
+	elseif(array_metadata[1] == "cross")
+	then
+		array_tmp_cross_data[1] = string(stimulus_data_subject.time()- fmrt_start_time);
+		array_tmp_cross_data[2] = string(stimulus_data_subject.time());
+		#array_tmp_stimulus_data.add("cross");
+		#array_tmp_stimulus_data.add(string(stimulus_data_subject.time()));
+	else
+		array_tmp_stimulus_data.add(logfile.subject());
+		array_tmp_stimulus_data.add(string(stimulus_data_subject.time()- fmrt_start_time));
+		array_tmp_stimulus_data.add(string(stimulus_data_subject.time()));
+		array_tmp_stimulus_data.add(string(stimulus_data_subject.reaction_time()));
+		array_tmp_stimulus_data.add(string(stimulus_data_subject.type()));
+		array_tmp_stimulus_data.add(array_metadata[1]);
+		array_tmp_stimulus_data.add(array_metadata[2]);
+		array_tmp_stimulus_data.add(array_metadata[3]);
+		array_tmp_stimulus_data.add(array_metadata[4]);
+		array_tmp_stimulus_data.add(array_metadata[5]);
+		array_tmp_stimulus_data.add(array_metadata[6]);
+		array_tmp_stimulus_data.add(array_tmp_cross_data[1]);
+		array_tmp_stimulus_data.add(array_tmp_cross_data[2]);
+		
+		array_data.add(array_tmp_stimulus_data);
+	end;
+	
+	term.print_line("B");
+	i = i + 1;
+end;
+
+output_file single = new output_file();
+if(logfile.subject() != "")
+then
+	single.open_append("singles/SwAD_kids_fmrt_" + logfile.subject() + ".txt");
+else
+	single.open_append("singles/no_name.txt");
+end;
+
+	term.print_line("C");
+	string col_headings = "ID,presentation_time_fmrt,presentation_time_start,reaction_time,reaction_type,configuration,condition,run,form,color,seperate_attention,cross_time_fmrt,cross_time_start";
+	single.print_line(col_headings);
+	loop int row = 1 until row > array_data.count()
+	begin
+		string string_row;
+		loop int col = 1 until col > array_data[row].count()
+		begin
+			string_row = string_row + array_data[row][col];
+			if (col != array_data[row].count())
+			then
+				string_row = string_row + ","
+			end;
+			col = col + 1;
+		end;
+		single.print_line(string_row);
+		row = row + 1;
+	end;
+
+	term.print_line("D");	
+single.close();

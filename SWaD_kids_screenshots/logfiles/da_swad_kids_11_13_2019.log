@@ -1,0 +1,125 @@
+Scenario - Swad_kids_fmrt
+Logfile written - 11/13/2019 22:27:58
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+da	0	Pulse	0								0	0	NA
+da	1	Response	3								10574	10408	0
+da	2	Pulse	0								20000	9167	NA
+da	2	Response	3								22414	11581	0
+da	3	Pulse	0								40000	17334	NA
+da	3	Response	3								40334	17668	0
+da	4	Response	3								43614	3114	0
+da	4	Response	3								45054	4555	0
+da	4	Pulse	0								60000	19501	NA
+da	4	Pulse	0								80000	39501	NA
+da	4	Pulse	0								100000	59501	NA
+da	4	Pulse	0								120000	79501	NA
+da	5	Picture	cross	cross							120164	0	1	10333	2	0	next	other	0
+da	6	Picture	1;test;1;heart;6;1;0	1	test	1	heart	6	1	0	130498	0	1	14167	1	0	14000	other	0
+da	6	Pulse	0								140000	9502	NA
+da	7	Picture	cross	cross							148831	0	1	17333	1	0	next	other	0
+da	7	Pulse	0								160000	11169	NA
+da	8	Picture	1;test;1;bell;1;1;1	1	test	1	bell	1	1	1	166164	0	1	14166	1	0	14000	miss	0
+da	8	Pulse	0								180000	13836	NA
+da	9	Pulse	0								200000	15669	NA
+da	10	Picture	cross	cross							204497	0	1	23333	1	0	next	other	0
+da	10	Pulse	0								220000	15503	NA
+da	11	Picture	1;test;1;flower;4;1;0	1	test	1	flower	4	1	0	227830	0	1	14167	1	0	14000	other	0
+da	11	Pulse	0								240000	12170	NA
+da	12	Picture	cross	cross							245997	0	1	17166	1	0	next	other	0
+da	12	Pulse	0								260000	14003	NA
+da	13	Picture	1;test;1;flower;1;1;1	1	test	1	flower	1	1	1	263163	0	1	4500	1	0	14000	hit	28
+da	13	Response	1								267455	4292	0
+da	14	Pulse	0								280000	12337	NA
+da	15	Picture	cross	cross							287996	0	1	23334	1	0	next	other	0
+da	15	Pulse	0								300000	12004	NA
+da	16	Picture	1;test;1;star;4;1;0	1	test	1	star	4	1	0	311329	0	1	14167	1	0	14000	other	0
+da	16	Pulse	0								320000	8671	NA
+da	17	Picture	cross	cross							329662	0	1	13334	1	0	next	other	0
+da	17	Pulse	0								340000	10338	NA
+da	18	Picture	1;test;1;bell;2;1;0	1	test	1	bell	2	1	0	342996	0	1	14166	2	0	14000	other	0
+da	18	Pulse	0								360000	17004	NA
+da	19	Picture	cross	cross							361162	0	1	23333	1	0	next	other	0
+da	19	Pulse	0								380000	18838	NA
+da	20	Picture	1;test;1;heart;1;1;1	1	test	1	heart	1	1	1	384495	0	1	14166	2	0	14000	miss	0
+da	20	Pulse	0								400000	15505	NA
+da	21	Pulse	0								420000	17339	NA
+da	22	Picture	cross	cross							422828	0	1	19333	1	0	next	other	0
+da	22	Pulse	0								440000	17172	NA
+da	23	Picture	1;test;1;circle;4;1;0	1	test	1	circle	4	1	0	442161	0	1	14167	1	0	14000	other	0
+da	23	Pulse	0								460000	17839	NA
+da	24	Picture	cross	cross							460494	0	1	13166	1	0	next	other	0
+da	25	Picture	1;test;1;star;1;1;1	1	test	1	star	1	1	1	473660	0	1	14166	2	0	14000	miss	0
+da	25	Pulse	0								480000	6340	NA
+da	26	Pulse	0								500000	8173	NA
+da	27	Picture	cross	cross							511994	0	1	15333	1	0	next	other	0
+da	27	Pulse	0								520000	8006	NA
+da	28	Picture	1;test;1;moon;3;1;0	1	test	1	moon	3	1	0	527326	0	1	14166	2	0	14000	other	0
+da	28	Pulse	0								540000	12674	NA
+da	29	Pulse	0								560000	14173	NA
+da	29	Response	3								570574	24747	0
+da	30	Picture	cross	cross							570826	0	1	10167	1	0	next	other	0
+da	30	Response	3								578814	7988	0
+da	30	Pulse	0								580000	9174	NA
+da	31	Picture	1;test;2;circle;5;3;0	1	test	2	circle	5	3	0	580993	0	1	14166	2	0	14000	other	0
+da	32	Picture	cross	cross							599159	0	1	23166	1	0	next	other	0
+da	32	Pulse	0								600000	841	NA
+da	32	Pulse	0								620000	20841	NA
+da	33	Picture	1;test;2;bell;2;3;1	1	test	2	bell	2	3	1	622326	0	1	14166	1	0	14000	miss	0
+da	33	Pulse	0								640000	17674	NA
+da	34	Pulse	0								660000	19341	NA
+da	35	Picture	cross	cross							660825	0	1	9167	1	0	next	other	0
+da	36	Picture	1;test;2;moon;3;3;0	1	test	2	moon	3	3	0	669992	0	1	14166	1	0	14000	other	0
+da	36	Pulse	0								680000	10008	NA
+da	37	Picture	cross	cross							688325	0	1	7167	1	0	next	other	0
+da	38	Picture	1;test;2;flower;3;3;2	1	test	2	flower	3	3	2	695492	0	1	14167	1	0	14000	miss	0
+da	38	Pulse	0								700000	4508	NA
+da	39	Pulse	0								720000	6342	NA
+da	40	Picture	cross	cross							733825	0	1	15166	1	0	next	other	0
+da	40	Pulse	0								740000	6175	NA
+da	41	Picture	1;test;2;circle;6;3;0	1	test	2	circle	6	3	0	748991	0	1	14166	1	0	14000	other	0
+da	41	Pulse	0								760000	11009	NA
+da	42	Picture	cross	cross							767158	0	1	11166	1	0	next	other	0
+da	43	Picture	1;test;2;star;5;3;0	1	test	2	star	5	3	0	778323	0	1	14167	1	0	14000	other	0
+da	43	Pulse	0								780000	1677	NA
+da	44	Picture	cross	cross							796657	0	1	7167	1	0	next	other	0
+da	44	Pulse	0								800000	3343	NA
+da	45	Picture	1;test;2;circle;2;3;1	1	test	2	circle	2	3	1	803824	0	1	14166	1	0	14000	miss	0
+da	45	Pulse	0								820000	16176	NA
+da	46	Pulse	0								840000	18011	NA
+da	47	Picture	cross	cross							842156	0	2	17167	2	0	next	other	0
+da	48	Picture	1;test;2;circle;4;3;0	1	test	2	circle	4	3	0	859323	0	1	14166	1	0	14000	other	0
+da	48	Pulse	0								860000	677	NA
+da	49	Picture	cross	cross							877490	0	1	7165	2	0	next	other	0
+da	49	Pulse	0								880000	2510	NA
+da	50	Picture	1;test;2;flower;6;3;2	1	test	2	flower	6	3	2	884655	0	2	14167	3	0	14000	miss	0
+da	50	Pulse	0								900000	15346	NA
+da	51	Pulse	0								920000	17011	NA
+da	52	Picture	cross	cross							923155	0	1	11167	2	0	next	other	0
+da	53	Picture	1;test;2;star;6;3;0	1	test	2	star	6	3	0	934322	0	1	14166	2	0	14000	other	0
+da	53	Pulse	0								940000	5678	NA
+da	60	Pulse	0								960000	512	NA
+da	77	Pulse	0								980000	678	NA
+da	94	Pulse	0								1000000	845	NA
+da	111	Pulse	0								1020000	1012	NA
+da	129	Pulse	0								1040000	12	NA
+da	146	Pulse	0								1060000	179	NA
+da	163	Pulse	0								1080000	346	NA
+da	180	Pulse	0								1100000	513	NA
+da	184	Quit									1104574	420	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_fmrt.sce",
+   "subject": "da",
+   "timestamp": "2019/11/13 21:26:06 GMT"
+}

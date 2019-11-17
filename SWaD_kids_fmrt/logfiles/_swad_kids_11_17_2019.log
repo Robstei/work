@@ -1,0 +1,164 @@
+Scenario - Swad_kids_fmrt
+Logfile written - 11/17/2019 03:40:44
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+	0	Pulse	0								0	0	NA
+	1	Response	3								10762	10595	0
+	2	Pulse	0								20000	9167	NA
+	2	Response	3								23722	12889	0
+	3	Response	3								39961	16128	0
+	4	Pulse	0								40000	1	NA
+	4	Response	3								42681	2682	0
+	4	Pulse	0								60000	20001	NA
+	4	Pulse	0								80000	40001	NA
+	4	Pulse	0								100000	60001	NA
+	5	Picture	cross	cross							100165	0	1	10166	1	0	next	other	0
+	6	Picture	1;test;1;heart;3;1;0	1	test	1	heart	3	1	0	110331	0	1	2667	1	0	2500	other	0
+	6	Pulse	0								120000	9669	NA
+	7	Picture	cross	cross							128498	0	1	15166	1	0	next	other	0
+	7	Pulse	0								140000	11502	NA
+	8	Picture	1;test;1;star;1;1;1	1	test	1	star	1	1	1	143664	0	1	2667	1	0	2500	miss	0
+	8	Pulse	0								160000	16336	NA
+	9	Pulse	0								180000	18169	NA
+	10	Picture	cross	cross							181997	0	1	23166	1	0	next	other	0
+	10	Pulse	0								200000	18003	NA
+	11	Picture	1;test;1;circle;5;1;0	1	test	1	circle	5	1	0	205163	0	1	2667	1	0	2500	other	0
+	11	Pulse	0								220000	14837	NA
+	12	Picture	cross	cross							223330	0	1	9166	1	0	next	other	0
+	13	Picture	1;test;1;heart;5;1;0	1	test	1	heart	5	1	0	232496	0	1	2667	1	0	2500	other	0
+	13	Pulse	0								240000	7504	NA
+	14	Picture	cross	cross							250663	0	1	21166	1	0	next	other	0
+	14	Pulse	0								260000	9337	NA
+	15	Picture	1;test;1;heart;4;1;0	1	test	1	heart	4	1	0	271829	0	1	2667	1	0	2500	other	0
+	15	Pulse	0								280000	8171	NA
+	16	Picture	cross	cross							289996	0	1	15166	1	0	next	other	0
+	16	Pulse	0								300000	10004	NA
+	17	Picture	1;test;1;circle;1;1;1	1	test	1	circle	1	1	1	305162	0	1	2667	1	0	2500	miss	0
+	17	Pulse	0								320000	14838	NA
+	18	Pulse	0								340000	16672	NA
+	19	Picture	cross	cross							343495	0	1	21166	1	0	next	other	0
+	19	Pulse	0								360000	16505	NA
+	20	Picture	1;test;1;heart;2;1;0	1	test	1	heart	2	1	0	364661	0	1	2667	1	0	2500	other	0
+	20	Pulse	0								380000	15339	NA
+	21	Picture	cross	cross							382828	0	1	23166	1	0	next	other	0
+	21	Pulse	0								400000	17172	NA
+	22	Picture	1;test;1;heart;1;1;1	1	test	1	heart	1	1	1	405994	0	1	2667	1	0	2500	miss	0
+	22	Pulse	0								420000	14006	NA
+	23	Pulse	0								440000	15840	NA
+	24	Picture	cross	cross							444327	0	1	21166	1	0	next	other	0
+	24	Pulse	0								460000	15673	NA
+	25	Picture	1;test;1;flower;4;1;0	1	test	1	flower	4	1	0	465493	0	1	2667	1	0	2500	other	0
+	25	Pulse	0								480000	14507	NA
+	26	Picture	cross	cross							483660	0	1	7167	1	0	next	other	0
+	27	Picture	1;test;1;moon;1;1;1	1	test	1	moon	1	1	1	490826	0	1	2667	1	0	2500	miss	0
+	27	Pulse	0								500000	9174	NA
+	28	Pulse	0								520000	11007	NA
+	29	Pulse	0								540000	10674	NA
+	29	Pulse	0								560000	30674	NA
+	29	Pulse	0								580000	50674	NA
+	29	Pulse	0								600000	70674	NA
+	29	Pulse	0								620000	90674	NA
+	29	Pulse	0								640000	110674	NA
+	29	Pulse	0								660000	130674	NA
+	29	Pulse	0								680000	150674	NA
+	29	Pulse	0								700000	170674	NA
+	29	Pulse	0								720000	190674	NA
+	29	Pulse	0								740000	210674	NA
+	29	Pulse	0								760000	230674	NA
+	29	Pulse	0								780000	250674	NA
+	29	Pulse	0								800000	270674	NA
+	29	Pulse	0								820000	290674	NA
+	29	Pulse	0								840000	310674	NA
+	29	Pulse	0								860000	330674	NA
+	29	Pulse	0								880000	350674	NA
+	29	Pulse	0								900000	370674	NA
+	29	Pulse	0								920000	390674	NA
+	29	Pulse	0								940000	410674	NA
+	29	Pulse	0								960000	430674	NA
+	29	Pulse	0								980000	450674	NA
+	29	Pulse	0								1000000	470674	NA
+	29	Pulse	0								1020000	490674	NA
+	29	Pulse	0								1040000	510674	NA
+	29	Pulse	0								1060000	530674	NA
+	29	Pulse	0								1080000	550674	NA
+	29	Pulse	0								1100000	570674	NA
+	29	Pulse	0								1120000	590674	NA
+	29	Pulse	0								1140000	610674	NA
+	29	Response	3								1145800	616474	0
+	30	Picture	cross	cross							1145984	0	1	10166	1	0	next	other	0
+	31	Picture	1;test;2;bell;5;3;0	1	test	2	bell	5	3	0	1156150	0	1	2667	1	0	2500	other	0
+	31	Pulse	0								1160000	3850	NA
+	32	Picture	cross	cross							1174317	0	1	9167	1	0	next	other	0
+	32	Pulse	0								1180000	5683	NA
+	33	Picture	1;test;2;circle;3;3;0	1	test	2	circle	3	3	0	1183483	0	1	2667	1	0	2500	other	0
+	33	Pulse	0								1200000	16517	NA
+	34	Picture	cross	cross							1201650	0	1	23166	1	0	next	other	0
+	34	Pulse	0								1220000	18350	NA
+	35	Picture	1;test;2;star;2;3;1	1	test	2	star	2	3	1	1224816	0	1	2667	1	0	2500	miss	0
+	35	Pulse	0								1240000	15184	NA
+	36	Pulse	0								1260000	17017	NA
+	37	Picture	cross	cross							1263149	0	1	17166	1	0	next	other	0
+	37	Pulse	0								1280000	16851	NA
+	38	Picture	1;test;2;star;1;3;0	1	test	2	star	1	3	0	1280315	0	1	2667	1	0	2500	other	0
+	39	Picture	cross	cross							1298482	0	1	11167	1	0	next	other	0
+	39	Pulse	0								1300000	1518	NA
+	40	Picture	1;test;2;flower;1;3;2	1	test	2	flower	1	3	2	1309648	0	1	2667	1	0	2500	miss	0
+	40	Pulse	0								1320000	10352	NA
+	41	Pulse	0								1340000	12185	NA
+	42	Picture	cross	cross							1347981	0	1	5167	1	0	next	other	0
+	43	Picture	1;test;2;moon;4;3;0	1	test	2	moon	4	3	0	1353148	0	1	2667	1	0	2500	other	0
+	43	Pulse	0								1360000	6852	NA
+	44	Picture	cross	cross							1371314	0	1	21166	1	0	next	other	0
+	44	Pulse	0								1380000	8686	NA
+	45	Picture	1;test;2;moon;5;3;0	1	test	2	moon	5	3	0	1392481	0	1	2667	1	0	2500	other	0
+	45	Pulse	0								1400000	7520	NA
+	46	Picture	cross	cross							1410647	0	1	9167	1	0	next	other	0
+	47	Picture	1;test;2;flower;4;3;2	1	test	2	flower	4	3	2	1419813	0	1	2667	1	0	2500	miss	0
+	47	Pulse	0								1420000	187	NA
+	48	Pulse	0								1440000	2020	NA
+	49	Picture	cross	cross							1458146	0	1	15166	1	0	next	other	0
+	49	Pulse	0								1460000	1854	NA
+	50	Picture	1;test;2;star;4;3;0	1	test	2	star	4	3	0	1473313	0	1	2667	1	0	2500	other	0
+	50	Pulse	0								1480000	6687	NA
+	51	Picture	cross	cross							1491479	0	1	23166	1	0	next	other	0
+	51	Pulse	0								1500000	8521	NA
+	52	Picture	1;test;2;moon;2;3;1	1	test	2	moon	2	3	1	1514646	0	1	2667	1	0	2500	miss	0
+	52	Pulse	0								1520000	5354	NA
+	53	Pulse	0								1540000	7188	NA
+	60	Pulse	0								1560000	22	NA
+	77	Pulse	0								1580000	189	NA
+	94	Pulse	0								1600000	356	NA
+	111	Pulse	0								1620000	523	NA
+	128	Pulse	0								1640000	690	NA
+	145	Pulse	0								1660000	856	NA
+	162	Pulse	0								1680000	1023	NA
+	180	Pulse	0								1700000	24	NA
+	197	Pulse	0								1720000	191	NA
+	214	Pulse	0								1740000	358	NA
+	231	Pulse	0								1760000	525	NA
+	248	Pulse	0								1780000	691	NA
+	265	Pulse	0								1800000	858	NA
+	282	Pulse	0								1820000	1025	NA
+	300	Pulse	0								1840000	26	NA
+	312	Pulse	0								1860000	6026	NA
+	312	Pulse	0								1880000	26026	NA
+	312	Pulse	0								1900000	46026	NA
+	312	Pulse	0								1920000	66026	NA
+	312	Response	3								1927319	73345	0
+	313	Quit									1938679	11039	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_fmrt.sce",
+   "subject": "",
+   "timestamp": "2019/11/17 02:37:29 GMT"
+}
