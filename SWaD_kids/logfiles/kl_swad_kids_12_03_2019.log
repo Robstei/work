@@ -1,0 +1,29 @@
+Scenario - 
+Logfile written - 12/03/2019 00:05:39
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+kl	1	Response	3								12896	12730	0
+kl	2	Response	3								23857	10690	0
+kl	3	Response	3								39856	15857	0
+kl	4	Response	3								42256	2257	0
+kl	5	Picture	1;test;1;flower;2;1;0	1	test	1	flower	2	1	0	50166	0	1	2667	1	0	2500	false_alarm	6
+kl	5	Response	1								53216	3051	0
+kl	8	Picture	1;test;1;heart;1;1;1	1	test	1	heart	1	1	1	92665	0	1	2667	1	0	2500	hit	8
+kl	8	Response	1								95456	2791	0
+kl	9	Quit									101536	6038	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids.sce",
+   "subject": "kl",
+   "timestamp": "2019/12/02 23:05:27 GMT"
+}

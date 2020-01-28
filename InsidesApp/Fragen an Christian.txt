@@ -1,0 +1,4 @@
+- Auf Mail antworten
+- wofür steht "screen_off_before_duration" in data_user_sessions
+- was bedeutet "-1" in "screen_off_before_duration"
+
