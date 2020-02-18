@@ -1,0 +1,15 @@
+db abfrage mit: usage_time, first_overall_usage_date, date
+
+manuell einfügen: relative_day, realative_week
+
+maximale realtive week ermitteln
+ 
+abweigen für erste und letze nutzung pro tag pro proband mit array filter + array_foreach
+
+pro proband array erstellen mit einem array pro woche, dieser hat einen array für jede erste und einen array für jede letzte nutzung
+
+durchscnitt dieser beiden arrays für jede woche bilden mit array_sum(strtotime und array_map)
+
+arrays dabei löschen, wenn sie keien eintrag haben.
+
+hader einfügen, values einfügen
