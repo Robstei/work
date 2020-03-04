@@ -133,7 +133,20 @@ include "Swad_kids_et_connection.pcl";
 		tracker.send_message("Information.jpg");
 		trial_information.present();
 	end;
+	
+	sub set_trial_type
+	begin
+		string trial_type = parameter_manager.get_string("Trial Type");
 		
+		if trial_type == "fixed"
+		then
+			trial_main.set_type(trial::FIXED);
+		elseif trial_type == "first response"
+		then
+			trial_main.set_type(trial::FIRST_RESPONSE);
+		end;
+	end;
+	
 	sub set_response_mode (int mode)
 	begin
 		if mode == 1

@@ -1,0 +1,60 @@
+int target_stimulus;
+int non_target_stimulus;
+
+trial_instruction.present();
+
+target_stimulus = 1;
+non_target_stimulus = 2;
+
+create_block(45, 15, "inhibition");
+present_block(target_stimulus, non_target_stimulus, "group1;block1", "D", true);
+
+target_stimulus = 2;
+non_target_stimulus = 1;
+
+create_block(45, 15, "inhibition");
+present_block(target_stimulus, non_target_stimulus, "group1;block1", "D", true);
+
+pause(30);
+
+target_stimulus = 1;
+non_target_stimulus = 2;
+
+create_block(45, 15, "inhibition");
+present_block(target_stimulus, non_target_stimulus, "group1;block2", "B", true);
+
+target_stimulus = 2;
+non_target_stimulus = 1;
+
+create_block(45, 15, "inhibition");
+present_block(target_stimulus, non_target_stimulus, "group1;block1", "D", true);
+
+pause(60);
+
+target_stimulus = 1;
+non_target_stimulus = 2;
+
+create_block(15, 45, "attention");
+present_block(target_stimulus, non_target_stimulus, "group1;block3", "A", true);
+
+target_stimulus = 2;
+non_target_stimulus = 1;
+
+create_block(15, 45, "attention");
+present_block(target_stimulus, non_target_stimulus, "group1;block1", "D", true);
+
+pause(30);
+
+target_stimulus = 1;
+non_target_stimulus = 2;
+
+create_block(15, 45, "attention");
+present_block(target_stimulus, non_target_stimulus, "group1;block4", "C", true);
+
+target_stimulus = 2;
+non_target_stimulus = 1;
+
+create_block(15, 45, "attention");
+present_block(target_stimulus, non_target_stimulus, "group1;block1", "D", true);
+
+trial_instruction_end.present();

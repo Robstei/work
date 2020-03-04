@@ -1,0 +1,103 @@
+Scenario - 
+Logfile written - 01/28/2020 14:59:04
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+test	1	Response	2	11151	10818	0
+test	2	Response	2	22874	11543	0
+test	4	Picture	group1;block1;1;D;2;non_target	30996	0	1	2166	1	0	2000	false_alarm	4
+test	4	Response	1	34697	3701	0
+test	6	Picture	group1;block1;2;D;2;non_target	41328	0	1	2166	1	0	2000	other	0
+test	8	Picture	group1;block1;3;D;2;non_target	57659	0	1	2166	1	0	2000	other	0
+test	10	Picture	group1;block1;4;D;2;non_target	71325	0	1	2166	1	0	2000	other	0
+test	12	Picture	group1;block1;5;D;2;non_target	85823	0	1	2166	1	0	2000	false_alarm	9
+test	12	Response	1	87858	2035	0
+test	13	Response	1	96941	8785	0
+test	14	Picture	group1;block1;6;D;2;non_target	98155	0	1	1333	1	0	2000	false_alarm	12
+test	14	Response	1	99265	1110	0
+test	15	Response	1	101365	1877	0
+test	15	Response	1	103605	4117	0
+test	15	Response	1	105587	6099	0
+test	15	Response	1	107359	7871	0
+test	15	Response	1	108979	9491	0
+test	16	Picture	group1;block1;7;D;2;non_target	109487	0	1	1167	1	0	2000	false_alarm	19
+test	16	Response	1	110448	961	0
+test	17	Response	1	111897	1244	0
+test	17	Response	1	113425	2771	0
+test	17	Response	1	114966	4313	0
+test	17	Response	1	117004	6350	10
+test	18	Picture	group1;block1;8;D;2;non_target	117153	0	1	2000	1	0	2000	false_alarm	25
+test	18	Response	1	119005	1853	0
+test	19	Response	1	120484	1332	0
+test	19	Response	1	122599	3446	0
+test	20	Picture	group1;block1;9;D;2;non_target	125818	0	1	2166	1	0	2000	other	0
+test	22	Picture	group1;block1;10;D;2;non_target	141483	0	1	2166	1	0	2000	false_alarm	30
+test	22	Response	1	143468	1985	0
+test	23	Response	1	144813	1163	0
+test	24	Picture	group1;block1;11;D;2;non_target	149982	0	1	2166	1	0	2000	false_alarm	33
+test	24	Response	1	151946	1964	0
+test	26	Picture	group1;block1;12;D;2;non_target	158315	0	1	2000	1	0	2000	false_alarm	35
+test	26	Response	1	160239	1924	0
+test	27	Response	1	167929	7614	0
+test	28	Picture	group1;block1;13;D;2;non_target	168980	0	1	667	1	0	2000	false_alarm	38
+test	28	Response	1	169574	594	0
+test	29	Response	1	170896	1249	0
+test	29	Response	1	172499	2853	0
+test	29	Response	1	173806	4159	0
+test	29	Response	1	177733	8086	0
+test	30	Picture	group1;block1;14;D;2;non_target	178646	0	1	667	1	0	2000	false_alarm	44
+test	30	Response	1	179151	505	0
+test	31	Response	1	180403	1091	0
+test	31	Response	1	181761	2449	0
+test	31	Response	1	183133	3820	0
+test	31	Response	1	184389	5077	0
+test	31	Response	1	185697	6385	0
+test	31	Response	1	186998	7686	0
+test	32	Picture	group1;block1;15;D;2;non_target	187811	0	1	667	1	0	2000	false_alarm	52
+test	32	Response	1	188347	536	0
+test	33	Response	1	189616	1138	0
+test	33	Response	1	190928	2451	0
+test	33	Response	1	192313	3835	0
+test	33	Response	1	193710	5233	0
+test	33	Response	1	195042	6564	0
+test	34	Picture	group1;block1;16;D;2;non_target	196310	0	1	167	1	0	2000	false_alarm	59
+test	34	Response	1	196365	55	0
+test	35	Response	1	197741	1264	0
+test	35	Response	1	199108	2631	0
+test	35	Response	1	200499	4022	0
+test	35	Response	1	201878	5401	0
+test	35	Response	1	203192	6715	0
+test	35	Response	1	204545	8069	0
+test	35	Response	1	205903	9426	0
+test	36	Picture	group1;block1;17;D;2;non_target	206142	0	1	1167	1	0	2000	false_alarm	68
+test	36	Response	1	207236	1094	0
+test	37	Response	1	208627	1318	0
+test	37	Response	1	210058	2749	0
+test	37	Response	1	211461	4152	0
+test	37	Response	1	212817	5508	0
+test	37	Response	1	214161	6852	0
+test	37	Response	1	215545	8236	0
+test	38	Picture	group1;block1;18;D;2;non_target	216808	0	1	333	1	0	2000	false_alarm	76
+test	38	Response	1	216929	121	0
+test	39	Response	1	218345	1204	0
+test	39	Response	1	219808	2667	0
+test	40	Picture	group1;block1;19;D;2;non_target	227140	0	1	2166	1	0	2000	other	0
+test	42	Picture	group1;block1;20;D;2;non_target	240138	0	1	2166	1	0	2000	other	0
+test	44	Picture	group1;block1;21;D;2;non_target	255470	0	1	2166	1	0	2000	other	0
+test	46	Picture	group1;block1;22;D;2;non_target	272801	0	1	19932	1	0	2000	other	0
+test	46	Quit		273964	1162	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "LENOVO 20FMS2L703",
+   "experiment": "{D641ED79-5C9E-4C22-BD16-86E78985E7F2}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Single_Dot_Task.sce",
+   "subject": "test",
+   "timestamp": "2020/01/28 13:58:32 GMT"
+}

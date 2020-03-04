@@ -111,6 +111,19 @@
 		term.print_line("Investigator needs to end pause");
 	end;
 	
+	sub set_trial_type
+	begin
+		string trial_type = parameter_manager.get_string("Trial Type");
+		
+		if trial_type == "fixed"
+		then
+			trial_main.set_type(trial::FIXED);
+		elseif trial_type == "first response"
+		then
+			trial_main.set_type(trial::FIRST_RESPONSE);
+		end;
+	end;
+	
 	sub wait_pulses (trial trial_to_set, int pulses)
 	begin
 		int current_pulse = pulse_manager.main_pulse_count();

@@ -1,5 +1,5 @@
 <?php 
-	function insertAppUsageTimeOverall($inputArray, $appName, $clockAdjustment) {
+	function insertAppUsageTimeOverall($inputArray, $appName) {
 
 		global $db_connection;
 		$outputArray = $inputArray;
@@ -28,7 +28,7 @@
 		return $outputArray;
 	}
 
-	function insertAppUsageTimeAveragePerUsage($inputArray, $appName, $clockAdjustment) {
+	function insertAppUsageTimeAveragePerUsage($inputArray, $appName) {
 
         global $db_connection;
 		$outputArray = $inputArray;

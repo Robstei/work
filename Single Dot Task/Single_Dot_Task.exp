@@ -1,5 +1,5 @@
 <ver>20.3</ver>
-<efn>C:\work\SWaD_kids_et\Swad_kids_et.exp</efn>
+<efn>C:\work\Single Dot Task\Single_Dot_Task.exp</efn>
 <author>Robin Steil</author>
 <con>
 <pause>P</pause>
@@ -40,14 +40,14 @@
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\work\SWaD_kids_et\stimuli</dsd>
+<dsd>C:\work\Single Dot Task</dsd>
 <dwm>0</dwm>
 <dxv>8</dxv>
 <efs>
-<filename>C:\work\SWaD_kids_et\Swad_kids_et.sce</filename>
-<filename>C:\work\SWaD_kids_et\Swad_kids_et.sdf</filename>
-<filename>C:\work\SWaD_kids_et\Swad_kids_et.pcl</filename>
-<filename>C:\work\SWaD_kids_et\Swad_kids_et_connection.pcl</filename>
+<filename>C:\work\Single Dot Task\Single_Dot_Task.sce</filename>
+<filename>C:\work\Single Dot Task\data.pcl</filename>
+<filename>C:\work\Single Dot Task\execution.pcl</filename>
+<filename>C:\work\Single Dot Task\Single_Dot_Task.pcl</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -56,7 +56,7 @@
 <cfg>
 <dcfg>
 <en>0</en>
-<guid>{EE4F75A5-7F6C-45D5-84D7-F8F5D62B578E}</guid>
+<guid>{0506AEA1-6C62-4B8C-8F22-88C013A77CD7}</guid>
 <name>Default configuration</name>
 <r>
 <plat>2147483647</plat>
@@ -64,124 +64,7 @@
 <ss>0</ss>
 </r>
 <ss>
-<sd>
-<val>
-<dat>
-<val>1800</val>
-</dat>
-<id>0</id>
-</val>
-<val>
-<dat>
-<val>250</val>
-</dat>
-<id>1</id>
-</val>
-<val>
-<dat>
-<val>2000</val>
-</dat>
-<id>2</id>
-</val>
-<val>
-<dat>
-<val>Richtig.</val>
-</dat>
-<id>3</id>
-</val>
-<val>
-<dat>
-<val>Falsch.
-Du hättest nicht drücken müssen.</val>
-</dat>
-<id>4</id>
-</val>
-<val>
-<dat>
-<val>Falsche Taste.</val>
-</dat>
-<id>5</id>
-</val>
-<val>
-<dat>
-<val>Falsch.
-Du hättest drücken müssen.</val>
-</dat>
-<id>6</id>
-</val>
-<val>
-<dat>
-<val>1</val>
-</dat>
-<id>7</id>
-</val>
-<val>
-<dat>
-<val>1</val>
-</dat>
-<id>8</id>
-</val>
-<val>
-<dat>
-<val>1</val>
-</dat>
-<id>9</id>
-</val>
-<val>
-<dat>
-<val>Right.</val>
-</dat>
-<id>10</id>
-</val>
-<val>
-<dat>
-<val>Wrong key.</val>
-</dat>
-<id>11</id>
-</val>
-<val>
-<dat>
-<val>You should have reacted.</val>
-</dat>
-<id>12</id>
-</val>
-<val>
-<dat>
-<val>You should not have reacted.</val>
-</dat>
-<id>13</id>
-</val>
-<val>
-<dat>
-<val>1093</val>
-</dat>
-<id>14</id>
-</val>
-<val>
-<dat>
-<val>614</val>
-</dat>
-<id>15</id>
-</val>
-<val>
-<dat>
-<val>100</val>
-</dat>
-<id>16</id>
-</val>
-<val>
-<dat>
-<val>Response</val>
-</dat>
-<id>17</id>
-</val>
-<val>
-<dat>
-<val>fixed</val>
-</dat>
-<id>18</id>
-</val>
-</sd>
+<sd></sd>
 <sid>-1</sid>
 </ss>
 </dcfg>
@@ -190,321 +73,13 @@ Du hättest drücken müssen.</val>
 <dl>
 <grps>
 <grp>
-<gn>Main</gn>
-<pl>
-<pid>0</pid>
-<pid>1</pid>
-<pid>7</pid>
-<pid>8</pid>
-<pid>9</pid>
-<pid>2</pid>
-<pid>14</pid>
-<pid>15</pid>
-<pid>16</pid>
-<pid>17</pid>
-<pid>18</pid>
-</pl>
-</grp>
-<grp>
-<gn>Feedback GERMAN</gn>
-<pl>
-<pid>3</pid>
-<pid>5</pid>
-<pid>6</pid>
-<pid>4</pid>
-</pl>
-</grp>
-<grp>
-<gn>Feedback ENGLISCH</gn>
-<pl>
-<pid>10</pid>
-<pid>11</pid>
-<pid>12</pid>
-<pid>13</pid>
-</pl>
+<gn></gn>
+<pl></pl>
 </grp>
 </grps>
 </dl>
 <parms>
-<parms>
-<parm>
-<id>0</id>
-<set>
-<desc>Sets the time in milliseconds of how long a subject has to react</desc>
-<edit>1</edit>
-<name>Time Response Active</name>
-<set>
-<rest>[1,)</rest>
-</set>
-<temp>0</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>1</id>
-<set>
-<desc>Sets the time in milliseconds of how long a stimulus will be presented</desc>
-<edit>1</edit>
-<name>Time Stimulus</name>
-<set>
-<rest>[1,)</rest>
-</set>
-<temp>0</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>2</id>
-<set>
-<desc>Sets Time in milliseconds of how long feedback should be presented</desc>
-<edit>1</edit>
-<name>Time Feedback</name>
-<set>
-<rest>[1,)</rest>
-</set>
-<temp>0</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>3</id>
-<set>
-<desc>Feedback for HIT
-German</desc>
-<edit>1</edit>
-<name>Feedback HIT GER</name>
-<set>
-<rest></rest>
-</set>
-<temp>0</temp>
-<type>string</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>4</id>
-<set>
-<desc>Feedback for FALSE ALARM
-German</desc>
-<edit>1</edit>
-<name>Feedback FALSE ALARM GER</name>
-<set>
-<rest></rest>
-</set>
-<temp>0</temp>
-<type>string</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>5</id>
-<set>
-<desc>Feedback for INCORRECT
-German</desc>
-<edit>1</edit>
-<name>Feedback INCORRECT GER</name>
-<set>
-<rest></rest>
-</set>
-<temp>0</temp>
-<type>string</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>6</id>
-<set>
-<desc>Feedback for MISS
-German</desc>
-<edit>1</edit>
-<name>Feedback MISS GER</name>
-<set>
-<rest></rest>
-</set>
-<temp>0</temp>
-<type>string</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>7</id>
-<set>
-<desc>Determines which configuration will be used</desc>
-<edit>1</edit>
-<name>Configuration Parameter</name>
-<set>
-<rest>[1,6]</rest>
-</set>
-<temp>1</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>8</id>
-<set>
-<desc>Validate() will ensure, that the first X Stimuli will not be targets for each block</desc>
-<edit>1</edit>
-<name>Non Targets at Start of each Block</name>
-<set>
-<rest>[0,)</rest>
-</set>
-<temp>0</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>9</id>
-<set>
-<desc>Sets the Language
-
-1= German
-2 = English</desc>
-<edit>1</edit>
-<name>Language</name>
-<set>
-<rest>[1,2]</rest>
-</set>
-<temp>0</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>10</id>
-<set>
-<desc>Feedback for HIT
-English</desc>
-<edit>1</edit>
-<name>Feedback HIT ENG</name>
-<set>
-<rest></rest>
-</set>
-<temp>0</temp>
-<type>string</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>11</id>
-<set>
-<desc>Feedback for INCORRECT
-English</desc>
-<edit>1</edit>
-<name>Feedback INCORRECT ENG</name>
-<set>
-<rest></rest>
-</set>
-<temp>0</temp>
-<type>string</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>12</id>
-<set>
-<desc>Feedback for MISS
-English</desc>
-<edit>1</edit>
-<name>Feedback MISS ENG</name>
-<set>
-<rest></rest>
-</set>
-<temp>0</temp>
-<type>string</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>13</id>
-<set>
-<desc>Feedback for FALSE ALARM
-English</desc>
-<edit>1</edit>
-<name>Feedback FALSE ALARM ENG</name>
-<set>
-<rest></rest>
-</set>
-<temp>0</temp>
-<type>string</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>14</id>
-<set>
-<desc>Width of all Form Pictures in px</desc>
-<edit>1</edit>
-<name>Form Width</name>
-<set>
-<rest>[1,)</rest>
-</set>
-<temp>0</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>15</id>
-<set>
-<desc>Height of all Form Pictures in px</desc>
-<edit>1</edit>
-<name>Form Height</name>
-<set>
-<rest>[1,)</rest>
-</set>
-<temp>0</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>16</id>
-<set>
-<desc>Diameter of the Circle in px</desc>
-<edit>1</edit>
-<name>Circle Diameter</name>
-<set>
-<rest>[1,)</rest>
-</set>
-<temp>0</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>17</id>
-<set>
-<desc>Determines if Stimulus and the time the subject has to respond should disapear once the subject reacted(Response) or if it should always be presented for the fixes amount of time(Fixed)</desc>
-<edit>1</edit>
-<name>Stimulus response reaction</name>
-<set>
-<rest>Fixed,Response</rest>
-</set>
-<temp>0</temp>
-<type>string</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>18</id>
-<set>
-<desc></desc>
-<edit>1</edit>
-<name>Trial Type</name>
-<set>
-<rest>fixed, responce active</rest>
-</set>
-<temp>0</temp>
-<type>string</type>
-<vis>1</vis>
-</set>
-</parm>
-</parms>
+<parms></parms>
 <ssl></ssl>
 </parms>
 <pass></pass>
@@ -515,7 +90,7 @@ English</desc>
 </ssa>
 </man>
 </exparam>
-<experiment_id>{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}</experiment_id>
+<experiment_id>{D641ED79-5C9E-4C22-BD16-86E78985E7F2}</experiment_id>
 <font_settings>
 <dpi>96</dpi>
 <font_smooth>1</font_smooth>
@@ -528,7 +103,7 @@ English</desc>
 <sce>1</sce>
 </do_upload>
 <host></host>
-<id>{27203276-FC9E-4F3D-98A5-348D790CAAC3}</id>
+<id>{19127B80-EF28-48C4-9B17-8982E674F0F4}</id>
 <idle_timeout>0</idle_timeout>
 <login_timeout>0</login_timeout>
 <mode>0</mode>
@@ -546,23 +121,18 @@ English</desc>
 <idc>0</idc>
 <idt>0</idt>
 <ilc>0</ilc>
-<ip_chans>
-<chan>
-<name>trigger channel</name>
-<pindex>4294967295</pindex>
-</chan>
-</ip_chans>
-<lfd>C:\work\SWaD_kids_et\logfiles</lfd>
+<ip_chans></ip_chans>
+<lfd>C:\work\Single Dot Task\logfiles</lfd>
 <lnb>2</lnb>
-<lno>2</lno>
+<lno>4</lno>
 <log>
-<append_counter>1</append_counter>
+<append_counter>0</append_counter>
 <delimiter>9</delimiter>
 <general_list>1</general_list>
 <its>0</its>
 <meta>1</meta>
 <pien>0</pien>
-<set_def_file>C:\work\SWaD_kids_et\Swad_kids_et.sdf</set_def_file>
+<set_def_file></set_def_file>
 <stimulus_list>0</stimulus_list>
 <subject_id></subject_id>
 <subject_id_pol>1</subject_id_pol>
@@ -580,7 +150,7 @@ English</desc>
 </lslset>
 <maxpv></maxpv>
 <minpv></minpv>
-<nam>Swad_kids_et</nam>
+<nam>Single_Dot_Task</nam>
 <one_processor>2</one_processor>
 <oports></oports>
 <out_encrypt_key></out_encrypt_key>
@@ -986,7 +556,7 @@ English</desc>
 </device>
 </rdl>
 <refchg>1</refchg>
-<rep>1</rep>
+<rep>2</rep>
 <require_name_match>0</require_name_match>
 <reschg>1</reschg>
 <rng>1</rng>
@@ -995,19 +565,15 @@ English</desc>
 <idv>
 <device_type>3</device_type>
 <dx_device_type>19</dx_device_type>
-<ibn>L</ibn>
-<ibn>S</ibn>
 <ibn>LEER</ibn>
+<ibn>M</ibn>
 <idn>Tastatur</idn>
 <index>0</index>
 <index>1</index>
-<index>2</index>
 <label></label>
 <label></label>
-<label></label>
-<offset>38</offset>
-<offset>31</offset>
 <offset>57</offset>
+<offset>50</offset>
 </idv>
 <overrides></overrides>
 <sfn>all_scenarios</sfn>
@@ -1016,49 +582,45 @@ English</desc>
 <idv>
 <device_type>3</device_type>
 <dx_device_type>19</dx_device_type>
-<ibn>L</ibn>
-<ibn>S</ibn>
 <ibn>LEER</ibn>
+<ibn>M</ibn>
 <idn>Tastatur</idn>
 <index>0</index>
 <index>1</index>
-<index>2</index>
 <label></label>
 <label></label>
-<label></label>
-<offset>38</offset>
-<offset>31</offset>
 <offset>57</offset>
+<offset>50</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\work\SWaD_kids_et\Swad_kids_et.sce</sfn>
+<sfn>C:\work\Single Dot Task\Single_Dot_Task.sce</sfn>
 </sce>
 <sct>
 <capture_device>
 <abort_on_max_drops>0</abort_on_max_drops>
 <bps></bps>
 <chan></chan>
-<do_rec_vol>0</do_rec_vol>
+<do_rec_vol>1</do_rec_vol>
 <freq></freq>
 <ignore_drops>1</ignore_drops>
 <max_drops>250</max_drops>
 <name>None</name>
-<rec_vol>1</rec_vol>
+<rec_vol>0</rec_vol>
 <show_drops>1</show_drops>
 </capture_device>
 <resp_dev>
 <combine>0</combine>
-<ignore>1000</ignore>
+<ignore></ignore>
 <isr>0</isr>
 <max_rec_dur>10</max_rec_dur>
 <md></md>
 <mio></mio>
-<off_inter>200</off_inter>
-<off_thresh>0.02</off_thresh>
+<off_inter></off_inter>
+<off_thresh></off_thresh>
 <onset_mode>1</onset_mode>
-<rec_dur>1000</rec_dur>
+<rec_dur></rec_dur>
 <save>0</save>
-<thresh>0.2</thresh>
+<thresh></thresh>
 </resp_dev>
 </sct>
 <sde>
@@ -1101,13 +663,12 @@ English</desc>
 <swp>1</swp>
 <text_encoding>utf8</text_encoding>
 <trigger_mode>
-<cn>trigger channel</cn>
+<cn></cn>
 <m>0</m>
-<v>2</v>
+<v></v>
 <vt>0</vt>
 </trigger_mode>
 <udt>0</udt>
-<uln>dummy</uln>
 <unc></unc>
 <upb>0</upb>
 <urp>0</urp>

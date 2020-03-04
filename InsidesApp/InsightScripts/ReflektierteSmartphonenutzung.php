@@ -9,12 +9,19 @@
 	$array = insertParticipants($array);
 	$array = insertAppUsageTimeOverall($array, "WhatsApp", 0);
 	$array = insertAppUsageTimeAveragePerUsage($array, "WhatsApp", 0);
+	$array = insertAppUsageTimeOverall($array, "Instagram", 0);
+	$array = insertAppUsageTimeAveragePerUsage($array, "Instagram", 0);
+	$array = insertAppUsageTimeOverall($array, "FacebookMessanger", 0);
+	$array = insertAppUsageTimeAveragePerUsage($array, "FacebookMessanger", 0);
 	$array = insertFirstDaysDate($array);
 	$array = insertLastDaysDate($array);
 	$array = insertCountUnlockScreen($array);
 	$array = insertCountActiveScreen($array);
 	$array = insertFirstAndLastScreenUnlockPerDay($array);
-
+	//Anrufdaten
+	//Wochendurchschnitt
+	//Fehlende Tage einfügen
+	
 	// echo "<pre>";
 	// var_dump($array);
     // echo"</pre>";
@@ -29,7 +36,6 @@
 						GROUP BY  participant_id, date
 						ORDER BY participant_id, date
 						LIMIT 10', array(0),"table");
-
 
 
 	$data_analysis_functions->easyPrintMySQL(

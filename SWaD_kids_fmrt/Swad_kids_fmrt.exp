@@ -168,6 +168,12 @@ Du hättest drücken müssen.</val>
 </dat>
 <id>16</id>
 </val>
+<val>
+<dat>
+<val>fixed</val>
+</dat>
+<id>17</id>
+</val>
 </sd>
 <sid>-1</sid>
 </ss>
@@ -188,6 +194,7 @@ Du hättest drücken müssen.</val>
 <pid>14</pid>
 <pid>15</pid>
 <pid>16</pid>
+<pid>17</pid>
 </pl>
 </grp>
 <grp>
@@ -461,6 +468,20 @@ English</desc>
 <vis>1</vis>
 </set>
 </parm>
+<parm>
+<id>17</id>
+<set>
+<desc></desc>
+<edit>1</edit>
+<name>Trial Type</name>
+<set>
+<rest>fixed, response active</rest>
+</set>
+<temp>0</temp>
+<type>string</type>
+<vis>1</vis>
+</set>
+</parm>
 </parms>
 <ssl></ssl>
 </parms>
@@ -543,25 +564,7 @@ English</desc>
 <out_encrypt_key></out_encrypt_key>
 <pi_list></pi_list>
 <plat>1</plat>
-<port_devices>
-<device>
-<parameters>
-<cts>0</cts>
-<dsrin>0</dsrin>
-<dsrout>0</dsrout>
-<dtr>disable</dtr>
-<rts>disable</rts>
-<set_fifo>1</set_fifo>
-<spd></spd>
-<spp></spp>
-<spr></spr>
-<sps></sps>
-</parameters>
-<piai>COM1</piai>
-<pian>Serial Port</pian>
-<pihpn>COM1</pihpn>
-</device>
-</port_devices>
+<port_devices></port_devices>
 <rdl>
 <device>
 <abs_axis>
@@ -613,12 +616,7 @@ English</desc>
 <device>
 <device_type>3</device_type>
 <dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device</name>
-</device>
-<device>
-<device_type>3</device_type>
-<dx_device_type>0</dx_device_type>
-<name>HID Keyboard Device 1</name>
+<name>Standard PS/2 Keyboard</name>
 </device>
 <device>
 <abs_axis>
@@ -660,27 +658,7 @@ English</desc>
 <dx_device_type>0</dx_device_type>
 <max_raw_pos>65535</max_raw_pos>
 <min_raw_pos>0</min_raw_pos>
-<name>HID-compliant mouse</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>Wired Gaming Mouse</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>HyperX Virtual Surround Sound</name>
-</device>
-<device>
-<device_type>4</device_type>
-<dx_device_type>17</dx_device_type>
-<name>ndPoint1 Inte 1</name>
+<name>Synaptics Pointing Device</name>
 </device>
 <device>
 <axis>

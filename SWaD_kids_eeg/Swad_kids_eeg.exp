@@ -168,6 +168,12 @@ Du hättest drücken müssen.</val>
 </dat>
 <id>16</id>
 </val>
+<val>
+<dat>
+<val>first response</val>
+</dat>
+<id>17</id>
+</val>
 </sd>
 <sid>-1</sid>
 </ss>
@@ -188,6 +194,7 @@ Du hättest drücken müssen.</val>
 <pid>14</pid>
 <pid>15</pid>
 <pid>16</pid>
+<pid>17</pid>
 </pl>
 </grp>
 <grp>
@@ -458,6 +465,21 @@ English</desc>
 </set>
 <temp>0</temp>
 <type>int</type>
+<vis>1</vis>
+</set>
+</parm>
+<parm>
+<id>17</id>
+<set>
+<desc>fixed: Stimulus and the screen afterwards will always be presented for 1800 ms
+first response: after a reaction the stimulus "ends" and the next ISI starts</desc>
+<edit>1</edit>
+<name>Trial Type</name>
+<set>
+<rest>fixed, first response</rest>
+</set>
+<temp>0</temp>
+<type>string</type>
 <vis>1</vis>
 </set>
 </parm>

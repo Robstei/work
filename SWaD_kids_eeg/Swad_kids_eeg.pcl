@@ -106,6 +106,19 @@
 		end;
 	end;
 	
+	sub set_trial_type
+	begin
+		string trial_type = parameter_manager.get_string("Trial Type");
+		
+		if trial_type == "fixed"
+		then
+			trial_main.set_type(trial::FIXED);
+		elseif trial_type == "first response"
+		then
+			trial_main.set_type(trial::FIRST_RESPONSE);
+		end;
+	end;
+	
 	sub set_logfile_name
 	begin
 		logfile.set_filename(logfile.subject() + "_" + "swad_kids_" + date_time("mm_dd_yyyy") + ".log");
@@ -676,6 +689,7 @@
 ##########################Test Condition########################################
 	set_response_mode(1);
 	set_logfile_name();
+	set_trial_type();
 	present_information(array_information[language][1], 25);
    present_information(array_information[language][2], 30);
 

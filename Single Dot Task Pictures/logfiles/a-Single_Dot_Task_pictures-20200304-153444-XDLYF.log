@@ -1,0 +1,42 @@
+Scenario - 
+Logfile written - 03/04/2020 15:35:02
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+a	1	Response	2	32629	32462	0
+a	2	Response	2	41358	8529	0
+a	4	Picture	group1;block1;1;D;2;non_target	49494	0	1	2166	1	0	2000	other	0
+a	6	Picture	group1;block1;2;D;2;non_target	63492	0	1	2166	1	0	2000	false_alarm	5
+a	6	Response	2	66657	3164	0
+a	7	Response	2	77870	7212	0
+a	8	Picture	group1;block1;3;D;2;non_target	79824	0	1	2166	1	0	2000	false_alarm	8
+a	8	Response	2	81498	1674	0
+a	8	Response	2	83827	4003	0
+a	8	Response	2	86368	6544	0
+a	9	Response	2	88618	1628	0
+a	9	Response	2	92488	5499	0
+a	10	Picture	group1;block1;4;D;2;non_target	94489	0	1	2166	1	0	2000	false_alarm	14
+a	10	Response	2	94740	251	0
+a	11	Response	2	104378	2723	0
+a	11	Response	2	106533	4878	0
+a	12	Picture	group1;block1;5;D;2;non_target	107321	0	1	2166	1	0	2000	false_alarm	18
+a	12	Response	2	108373	1052	0
+a	13	Response	2	119872	5385	0
+a	13	Response	2	121908	7421	0
+a	14	Picture	group1;block1;6;D;2;non_target	122153	0	1	2166	1	0	2000	other	0
+a	14	Quit		126133	3980	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "LENOVO 20FMS2L703",
+   "experiment": "{D641ED79-5C9E-4C22-BD16-86E78985E7F2}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Single_Dot_Task_pictures.sce",
+   "subject": "a",
+   "timestamp": "2020/03/04 14:34:44 GMT"
+}
