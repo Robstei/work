@@ -4,7 +4,6 @@
 	include("getGeneralData");
 	include("getSessionData");
 
-	$headerArray = array();
 	$array = ["header" => array()];
 	$array = insertParticipants($array);
 	$array = insertAppUsageTimeOverall($array, "WhatsApp", 0);
@@ -25,6 +24,18 @@
 	// echo "<pre>";
 	// var_dump($array);
     // echo"</pre>";
+	$array = insertFirstAndLastScreenUnlockPerDay($array, 18000);
+	$array = insertWeeklyAverageFirstAndLastScreenUnlockPerDay($array, 18000);
+	
+	$fp= fopen($result_files_base_path. '/reflektierte_smartphonenutzung_' . date("Y-m-d_H-i-s") . '.csv', 'w');
+	foreach($array as $singlePersonData){
+		fputcsv($fp, $singlePersonData);
+	}
+	fclose($fp);
+
+	echo "<pre>";
+	var_dump($array);
+    echo"</pre>";
 	$data_analysis_functions->easyPrintMySQL(
 						'SELECT 
 							participant_id, DATE(FROM_UNIXTIME(screen_on_event_ts/1000 - 18000)) as date, 
@@ -36,7 +47,6 @@
 						GROUP BY  participant_id, date
 						ORDER BY participant_id, date
 						LIMIT 10', array(0),"table");
-
 
 	$data_analysis_functions->easyPrintMySQL(
 						'SELECT 
