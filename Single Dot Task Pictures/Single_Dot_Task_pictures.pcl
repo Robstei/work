@@ -21,17 +21,74 @@ begin
 	then
 		picture_stimuli.set_filename("stimulus_b.jpg");
 	end;
+	picture_stimuli.load();
 end;
+
+sub string add_target_filename_to_code(string code, int target_stimulus)
+begin
+	string new_code = code;
+	
+	if (target_stimulus == 1)
+	then
+		new_code = new_code + ";" + "stimulus_a.jpg";
+	elseif (target_stimulus == 2)
+	then
+		new_code = new_code + ";" + "stimulus_b.jpg";
+	end;
+	return new_code;
+end;
+
+sub string add_non_target_filename_to_code(string code, int non_target_stimulus)
+begin
+	string new_code = code;
+	
+	if (non_target_stimulus == 1)
+	then
+		new_code = new_code + ";" + "stimulus_a.jpg";
+	elseif (non_target_stimulus == 2)
+	then
+		new_code = new_code + ";" + "stimulus_b.jpg";
+	end;
+	return new_code;
+end;
+
 
 sub bool validate (array<int,1> block_to_test, string mode)
 begin
+	#first stimuli is not allowed to be a target in attention mode 
 	if (mode == "attention" && block_to_test[1] == 1)
 	then
 		return false;
+	#first stimuli is not allowed to be a non target in inhibition mode
 	elseif (mode == "inhibition" && block_to_test[1] == 0)
 	then
 		return false;
 	end;
+	
+	#successive stimuli are not allowed to be targets in attention mode 
+	if (mode == "attention")
+	then
+		loop int i = 1 until i == block_to_test.count() - 1
+		begin
+			if (block_to_test[i] == 1 && block_to_test[i+1] == 1)
+			then
+				return false;
+			end;
+			i = i + 1;
+		end;
+	#successive stimuli are not allowed to be non targets in inhibition mode
+	elseif(mode == "inhibition")
+	then
+		loop int i = 1 until i == block_to_test.count() - 1
+		begin
+			if (block_to_test[i] == 0 && block_to_test[i+1] == 0)
+			then
+				return false;
+			end;
+			i = i + 1;
+		end;
+	end;
+
 	return true;
 end;
 
@@ -44,6 +101,7 @@ begin
 	then
 		picture_instruction_block.set_filename("instruction2.jpg");
 	end;
+	picture_instruction_block.load();
 	trial_instruction_block.present();
 end;
 
@@ -80,6 +138,7 @@ begin
 	loop int i = 1 until i >  array_current_block.count()
 	begin
 		string code = block + ";" + string(i) + ";" + block_type;
+		
 		trial_cross.set_duration(random(500,1000));
 		trial_cross.present();
 		
@@ -95,6 +154,9 @@ begin
 			se_stimuli.set_response_active(true);
 			code = code + ";" + string(non_target_stimulus) + ";" + "non_target";
 		end;
+		
+		code = add_target_filename_to_code(code, target_stimulus);
+		code = add_non_target_filename_to_code(code, non_target_stimulus);
 		
 		se_stimuli.set_event_code(code);
 		trial_stimuli.present();

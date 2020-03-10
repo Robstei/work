@@ -41,7 +41,7 @@ trial {
 		}text_pause_top;
 		x=0;y=300;
 		text{
-			caption ="";
+			caption =" ";
 			font_size = 30;
 		}text_pause;
 		x=0;y=100;

@@ -15,6 +15,7 @@ begin
 	array<string> array_tmp_stimulus_data[0];
 	
 	array_tmp_stimulus_data.add(logfile.subject());
+	array_tmp_stimulus_data.add(string(parameter_manager.get_int("Configuration")));
 	array_tmp_stimulus_data.add(string(stimulus_data_subject.time()));
 	array_tmp_stimulus_data.add(string(stimulus_data_subject.reaction_time()));
 	array_tmp_stimulus_data.add(string(stimulus_data_subject.type()));
@@ -24,6 +25,10 @@ begin
 	array_tmp_stimulus_data.add(array_metadata[4]);
 	array_tmp_stimulus_data.add(array_metadata[5]);
 	array_tmp_stimulus_data.add(array_metadata[6]);
+	array_tmp_stimulus_data.add(array_metadata[7]);
+	array_tmp_stimulus_data.add(array_metadata[8]);
+	
+	term.print_line(array_tmp_stimulus_data);
 
 	array_data.add(array_tmp_stimulus_data);
 	i = i + 1;
@@ -36,7 +41,7 @@ then
 else
 	single.open_append("singles/no_name.txt");
 end;
-	string col_headings = "ID,time,reaction_time,reaction_type,group,block,stimulus,block_type,color,target_non_target";
+	string col_headings = "ID,configuration,time,reaction_time,reaction_type,group,block,stimulus_in_block,block_type,stimulus_id,target_non_target,target_filename,non_target_filename";
 	single.print_line(col_headings);
 	loop int row = 1 until row > array_data.count()
 	begin

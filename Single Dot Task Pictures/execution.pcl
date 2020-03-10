@@ -1,60 +1,125 @@
 int target_stimulus;
 int non_target_stimulus;
+int configuration = parameter_manager.get_int("Configuration");
 
 trial_instruction.present();
 
-target_stimulus = 1;
-non_target_stimulus = 2;
+#####configuration 1######
 
-create_block(45, 15, "inhibition");
-present_block(target_stimulus, non_target_stimulus, "group1;block1", "D", true);
+if configuration == 1
+then
+	target_stimulus = 1;
+	non_target_stimulus = 2;
 
-target_stimulus = 2;
-non_target_stimulus = 1;
+	create_block(45, 15, "inhibition");
+	present_block(target_stimulus, non_target_stimulus, "group1;block1", "Inhibition", true);
 
-create_block(45, 15, "inhibition");
-present_block(target_stimulus, non_target_stimulus, "group1;block1", "D", true);
+	target_stimulus = 2;
+	non_target_stimulus = 1;
 
-pause(30);
+	create_block(45, 15, "inhibition");
+	present_block(target_stimulus, non_target_stimulus, "group1;block2", "Inhibition", true);
 
-target_stimulus = 1;
-non_target_stimulus = 2;
+	pause(30);
 
-create_block(45, 15, "inhibition");
-present_block(target_stimulus, non_target_stimulus, "group1;block2", "B", true);
+	target_stimulus = 1;
+	non_target_stimulus = 2;
 
-target_stimulus = 2;
-non_target_stimulus = 1;
+	create_block(45, 15, "inhibition");
+	present_block(target_stimulus, non_target_stimulus, "group2;block1", "Inhibition", true);
 
-create_block(45, 15, "inhibition");
-present_block(target_stimulus, non_target_stimulus, "group1;block1", "D", true);
+	target_stimulus = 2;
+	non_target_stimulus = 1;
 
-pause(60);
+	create_block(45, 15, "inhibition");
+	present_block(target_stimulus, non_target_stimulus, "group2;block2", "Inhibition", true);
 
-target_stimulus = 1;
-non_target_stimulus = 2;
+	pause(60);
 
-create_block(15, 45, "attention");
-present_block(target_stimulus, non_target_stimulus, "group1;block3", "A", true);
+	target_stimulus = 1;
+	non_target_stimulus = 2;
 
-target_stimulus = 2;
-non_target_stimulus = 1;
+	create_block(15, 45, "attention");
+	present_block(target_stimulus, non_target_stimulus, "group2;block1", "Attention", true);
 
-create_block(15, 45, "attention");
-present_block(target_stimulus, non_target_stimulus, "group1;block1", "D", true);
+	target_stimulus = 2;
+	non_target_stimulus = 1;
 
-pause(30);
+	create_block(15, 45, "attention");
+	present_block(target_stimulus, non_target_stimulus, "group2;block2", "Attention", true);
 
-target_stimulus = 1;
-non_target_stimulus = 2;
+	pause(30);
 
-create_block(15, 45, "attention");
-present_block(target_stimulus, non_target_stimulus, "group1;block4", "C", true);
+	target_stimulus = 1;
+	non_target_stimulus = 2;
 
-target_stimulus = 2;
-non_target_stimulus = 1;
+	create_block(15, 45, "attention");
+	present_block(target_stimulus, non_target_stimulus, "group2;block1", "Attention", true);
 
-create_block(15, 45, "attention");
-present_block(target_stimulus, non_target_stimulus, "group1;block1", "D", true);
+	target_stimulus = 2;
+	non_target_stimulus = 1;
+
+	create_block(15, 45, "attention");
+	present_block(target_stimulus, non_target_stimulus, "group2;block2", "Attention", true);
+	
+	
+#####configuration 2######
+
+elseif (configuration == 2)
+then
+	target_stimulus = 2;
+	non_target_stimulus = 1;
+
+	create_block(45, 15, "inhibition");
+	present_block(target_stimulus, non_target_stimulus, "group1;block1", "Inhibition", true);
+
+	target_stimulus = 1;
+	non_target_stimulus = 2;
+
+	create_block(45, 15, "inhibition");
+	present_block(target_stimulus, non_target_stimulus, "group1;block2", "Inhibition", true);
+
+	pause(30);
+
+	target_stimulus = 2;
+	non_target_stimulus = 1;
+
+	create_block(45, 15, "inhibition");
+	present_block(target_stimulus, non_target_stimulus, "group2;block1", "Inhibition", true);
+
+	target_stimulus = 1;
+	non_target_stimulus = 2;
+
+	create_block(45, 15, "inhibition");
+	present_block(target_stimulus, non_target_stimulus, "group2;block2", "Inhibition", true);
+
+	pause(60);
+
+	target_stimulus = 2;
+	non_target_stimulus = 1;
+
+	create_block(15, 45, "attention");
+	present_block(target_stimulus, non_target_stimulus, "group2;block1", "Attention", true);
+
+	target_stimulus = 1;
+	non_target_stimulus = 2;
+
+	create_block(15, 45, "attention");
+	present_block(target_stimulus, non_target_stimulus, "group2;block2", "Attention", true);
+
+	pause(30);
+
+	target_stimulus = 2;
+	non_target_stimulus = 1;
+
+	create_block(15, 45, "attention");
+	present_block(target_stimulus, non_target_stimulus, "group2;block1", "Attention", true);
+
+	target_stimulus = 1;
+	non_target_stimulus = 2;
+
+	create_block(15, 45, "attention");
+	present_block(target_stimulus, non_target_stimulus, "group2;block2", "Attention", true);
+end;
 
 trial_instruction_end.present();
