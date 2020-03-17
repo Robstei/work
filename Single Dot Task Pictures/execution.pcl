@@ -1,5 +1,6 @@
 int target_stimulus;
 int non_target_stimulus;
+
 int configuration = parameter_manager.get_int("Configuration");
 
 trial_instruction.present();

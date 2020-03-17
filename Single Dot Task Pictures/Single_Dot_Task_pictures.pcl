@@ -16,10 +16,10 @@ sub change_stimulus (int stimulus)
 begin
 	if (stimulus == 1)
 	then
-		picture_stimuli.set_filename("stimulus_a.jpg");
+		picture_stimuli.set_filename("stimulus_neutral.jpg");
 	elseif (stimulus == 2)
 	then
-		picture_stimuli.set_filename("stimulus_b.jpg");
+		picture_stimuli.set_filename("stimulus_sns.jpg");
 	end;
 	picture_stimuli.load();
 end;
@@ -30,10 +30,10 @@ begin
 	
 	if (target_stimulus == 1)
 	then
-		new_code = new_code + ";" + "stimulus_a.jpg";
+		new_code = new_code + ";" + "stimulus_neutral.jpg";
 	elseif (target_stimulus == 2)
 	then
-		new_code = new_code + ";" + "stimulus_b.jpg";
+		new_code = new_code + ";" + "stimulus_sns.jpg";
 	end;
 	return new_code;
 end;
@@ -44,10 +44,10 @@ begin
 	
 	if (non_target_stimulus == 1)
 	then
-		new_code = new_code + ";" + "stimulus_a.jpg";
+		new_code = new_code + ";" + "stimulus_neutral.jpg";
 	elseif (non_target_stimulus == 2)
 	then
-		new_code = new_code + ";" + "stimulus_b.jpg";
+		new_code = new_code + ";" + "stimulus_sns.jpg";
 	end;
 	return new_code;
 end;
