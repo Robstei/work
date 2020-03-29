@@ -1,0 +1,23 @@
+Scenario - 
+Logfile written - 03/17/2020 09:14:07
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+	1	Response	1	13687	13521	0
+	1	Response	2	25367	25201	0
+	2	Response	2	30647	5147	0
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{D641ED79-5C9E-4C22-BD16-86E78985E7F2}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Single_Dot_Task_pictures.sce",
+   "subject": "",
+   "timestamp": "2020/03/17 08:13:59 GMT"
+}

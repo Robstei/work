@@ -1,0 +1,62 @@
+Scenario - 
+Logfile written - 03/17/2020 10:43:31
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+robin	1	Response	2	15104	14938	0
+robin	2	Response	2	23345	8012	0
+robin	4	Picture	group1;block1;1;Inhibition;1;target;stimulus_neutral.jpg;stimulus_sns.jpg	29666	0	1	2167	1	0	2000	miss	0
+robin	6	Picture	group1;block1;2;Inhibition;2;non_target;stimulus_neutral.jpg;stimulus_sns.jpg	46666	0	1	2167	1	0	2000	other	0
+robin	8	Picture	group1;block1;3;Inhibition;1;target;stimulus_neutral.jpg;stimulus_sns.jpg	61499	0	1	2167	1	0	2000	miss	0
+robin	10	Picture	group1;block1;4;Inhibition;2;non_target;stimulus_neutral.jpg;stimulus_sns.jpg	74166	0	1	2167	1	0	2000	other	0
+robin	12	Picture	group1;block1;5;Inhibition;1;target;stimulus_neutral.jpg;stimulus_sns.jpg	87166	0	1	2167	1	0	2000	miss	0
+robin	14	Picture	group1;block1;6;Inhibition;1;target;stimulus_neutral.jpg;stimulus_sns.jpg	99999	0	1	2167	1	0	2000	miss	0
+robin	16	Picture	group1;block1;7;Inhibition;2;non_target;stimulus_neutral.jpg;stimulus_sns.jpg	116499	0	1	2167	1	0	2000	other	0
+robin	18	Picture	group1;block1;8;Inhibition;1;target;stimulus_neutral.jpg;stimulus_sns.jpg	132832	0	1	2167	1	0	2000	miss	0
+robin	20	Picture	group1;block1;9;Inhibition;2;non_target;stimulus_neutral.jpg;stimulus_sns.jpg	148832	0	1	2167	1	0	2000	other	0
+robin	22	Picture	group1;block1;10;Inhibition;2;non_target;stimulus_neutral.jpg;stimulus_sns.jpg	163331	0	1	2167	1	0	2000	other	0
+robin	23	Response	2	183185	12687	0
+robin	25	Picture	group1;block2;1;Inhibition;2;target;stimulus_sns.jpg;stimulus_neutral.jpg	191831	0	1	2167	1	0	2000	hit	15
+robin	25	Response	1	193824	1993	1
+robin	27	Picture	group1;block2;2;Inhibition;1;non_target;stimulus_sns.jpg;stimulus_neutral.jpg	207164	0	1	2167	1	0	2000	false_alarm	17
+robin	27	Response	1	209185	2021	0
+robin	29	Picture	group1;block2;3;Inhibition;2;target;stimulus_sns.jpg;stimulus_neutral.jpg	223328	0	4	2170	4	0	2000	hit	19
+robin	29	Response	1	225345	2017	1
+robin	31	Picture	group1;block2;4;Inhibition;1;non_target;stimulus_sns.jpg;stimulus_neutral.jpg	237831	0	1	2167	1	0	2000	false_alarm	21
+robin	31	Response	1	239745	1914	0
+robin	33	Picture	group1;block2;5;Inhibition;2;target;stimulus_sns.jpg;stimulus_neutral.jpg	250997	0	1	2167	1	0	2000	hit	23
+robin	33	Response	1	252865	1868	0
+robin	35	Picture	group1;block2;6;Inhibition;2;target;stimulus_sns.jpg;stimulus_neutral.jpg	268330	0	1	2167	1	0	2000	hit	25
+robin	35	Response	1	270065	1735	0
+robin	37	Picture	group1;block2;7;Inhibition;1;non_target;stimulus_sns.jpg;stimulus_neutral.jpg	280830	0	1	2167	1	0	2000	false_alarm	27
+robin	37	Response	1	283185	2355	0
+robin	39	Picture	group1;block2;8;Inhibition;2;target;stimulus_sns.jpg;stimulus_neutral.jpg	294163	0	1	2167	1	0	2000	hit	29
+robin	39	Response	1	295985	1822	0
+robin	41	Picture	group1;block2;9;Inhibition;1;non_target;stimulus_sns.jpg;stimulus_neutral.jpg	308830	0	1	2167	1	0	2000	false_alarm	31
+robin	41	Response	1	310385	1555	0
+robin	42	Response	1	321745	5748	0
+robin	42	Response	1	323025	7028	0
+robin	43	Picture	group1;block2;10;Inhibition;1;non_target;stimulus_sns.jpg;stimulus_neutral.jpg	324330	0	1	2167	1	0	2000	false_alarm	35
+robin	43	Response	1	324465	135	0
+robin	43	Response	1	325824	1495	0
+robin	43	Response	1	327265	2935	0
+robin	43	Response	1	331105	6775	0
+robin	44	Response	1	332305	808	0
+robin	44	Response	1	333424	1928	0
+robin	44	Response	1	334865	3368	0
+robin	44	Response	2	346545	15049	0
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{D641ED79-5C9E-4C22-BD16-86E78985E7F2}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Single_Dot_Task_pictures.sce",
+   "subject": "robin",
+   "timestamp": "2020/03/17 09:42:52 GMT"
+}

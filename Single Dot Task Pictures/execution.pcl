@@ -41,13 +41,13 @@ then
 	non_target_stimulus = 2;
 
 	create_block(15, 45, "attention");
-	present_block(target_stimulus, non_target_stimulus, "group2;block1", "Attention", true);
+	present_block(target_stimulus, non_target_stimulus, "group3;block1", "Attention", true);
 
 	target_stimulus = 2;
 	non_target_stimulus = 1;
 
 	create_block(15, 45, "attention");
-	present_block(target_stimulus, non_target_stimulus, "group2;block2", "Attention", true);
+	present_block(target_stimulus, non_target_stimulus, "group3;block2", "Attention", true);
 
 	pause(30);
 
@@ -55,13 +55,13 @@ then
 	non_target_stimulus = 2;
 
 	create_block(15, 45, "attention");
-	present_block(target_stimulus, non_target_stimulus, "group2;block1", "Attention", true);
+	present_block(target_stimulus, non_target_stimulus, "group4;block1", "Attention", true);
 
 	target_stimulus = 2;
 	non_target_stimulus = 1;
 
 	create_block(15, 45, "attention");
-	present_block(target_stimulus, non_target_stimulus, "group2;block2", "Attention", true);
+	present_block(target_stimulus, non_target_stimulus, "group4;block2", "Attention", true);
 	
 	
 #####configuration 2######
@@ -100,13 +100,13 @@ then
 	non_target_stimulus = 1;
 
 	create_block(15, 45, "attention");
-	present_block(target_stimulus, non_target_stimulus, "group2;block1", "Attention", true);
+	present_block(target_stimulus, non_target_stimulus, "group3;block1", "Attention", true);
 
 	target_stimulus = 1;
 	non_target_stimulus = 2;
 
 	create_block(15, 45, "attention");
-	present_block(target_stimulus, non_target_stimulus, "group2;block2", "Attention", true);
+	present_block(target_stimulus, non_target_stimulus, "group3;block2", "Attention", true);
 
 	pause(30);
 
@@ -114,13 +114,13 @@ then
 	non_target_stimulus = 1;
 
 	create_block(15, 45, "attention");
-	present_block(target_stimulus, non_target_stimulus, "group2;block1", "Attention", true);
+	present_block(target_stimulus, non_target_stimulus, "group4;block1", "Attention", true);
 
 	target_stimulus = 1;
 	non_target_stimulus = 2;
 
 	create_block(15, 45, "attention");
-	present_block(target_stimulus, non_target_stimulus, "group2;block2", "Attention", true);
+	present_block(target_stimulus, non_target_stimulus, "group4;block2", "Attention", true);
 end;
 
 trial_instruction_end.present();

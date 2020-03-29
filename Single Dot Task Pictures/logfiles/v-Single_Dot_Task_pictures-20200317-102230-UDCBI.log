@@ -1,0 +1,25 @@
+Scenario - 
+Logfile written - 03/17/2020 10:23:56
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+v	1	Response	2	7829	7662	0
+v	2	Response	2	10389	2389	0
+v	4	Picture	group1;block1;1;Inhibition;1;target;stimulus_neutral.jpg;stimulus_sns.jpg	19333	0	1	2167	1	0	2000	miss	0
+v	6	Picture	group1;block1;2;Inhibition;2;non_target;stimulus_neutral.jpg;stimulus_sns.jpg	34166	0	1	2167	1	0	2000	other	0
+v	7	Response	2	787110	745777	0
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{D641ED79-5C9E-4C22-BD16-86E78985E7F2}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Single_Dot_Task_pictures.sce",
+   "subject": "v",
+   "timestamp": "2020/03/17 09:22:30 GMT"
+}

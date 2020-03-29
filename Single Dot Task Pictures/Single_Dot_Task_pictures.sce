@@ -13,7 +13,7 @@ trial {
 	stimulus_event {
 		picture {
 			bitmap {
-				filename = "stimulus_a.jpg";
+				filename = "stimulus_neutral.jpg";
 			} picture_stimuli;
 			x=0;y=0;
 		} picture_stimuli_container;
