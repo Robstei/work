@@ -1,0 +1,38 @@
+Scenario - 
+Logfile written - 11/12/2019 20:18:16
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+s	1	Response	3								16469	16053	0
+s	2	Response	3								31705	14832	0
+s	3	Response	3								47991	16120	0
+s	5	Picture	1;test;1;flower;6;1;0	1	test	1	flower	6	1	0	58326	0	1	2708	1	0	2500	other	0
+s	6	Response	3								79695	3246	0
+s	6	Response	3								82182	5733	0
+s	6	Response	3								84850	8401	0
+s	7	Picture	1;test;1;flower;3;1;0	1	test	1	flower	3	1	0	85615	0	1	2708	1	0	2500	other	0
+s	8	Response	3								104774	1036	0
+s	8	Response	3								107339	3602	0
+s	8	Response	3								109976	6238	0
+s	8	Response	3								116289	12552	0
+s	8	Response	3								119137	15400	0
+s	8	Response	3								122353	18616	0
+s	8	Response	3								124780	21042	0
+s	9	Picture	1;test;1;flower;1;1;1	1	test	1	flower	1	1	1	126860	0	1	2708	1	0	2500	hit	17
+s	9	Response	1								143513	16653	0
+s	10	Quit									149664	5931	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "LENOVO 20FMS2L703",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids.sce",
+   "subject": "s",
+   "timestamp": "2019/11/12 19:17:58 GMT"
+}

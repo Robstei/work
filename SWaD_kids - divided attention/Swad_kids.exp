@@ -1,5 +1,5 @@
 <ver>20.3</ver>
-<efn>C:\work\SWaD_kids\Swad_kids.exp</efn>
+<efn>C:\work\SWaD_kids - divided attention\Swad_kids.exp</efn>
 <author></author>
 <con>
 <pause>P</pause>
@@ -40,12 +40,11 @@
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\work\SWaD_kids\stimuli</dsd>
+<dsd>C:\work\SWaD_kids - divided attention\stimuli</dsd>
 <dwm>0</dwm>
 <dxv>8</dxv>
 <efs>
-<filename>C:\work\SWaD_kids\Swad_kids.sce</filename>
-<filename>C:\work\SWaD_kids\Swad_kids.sdf</filename>
+<filename>C:\work\SWaD_kids - divided attention\Swad_kids_divided_attention.sce</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -503,7 +502,7 @@ English</desc>
 <idt>0</idt>
 <ilc>0</ilc>
 <ip_chans></ip_chans>
-<lfd>C:\work\SWaD_kids\logfiles</lfd>
+<lfd>C:\work\SWaD_kids - divided attention\logfiles</lfd>
 <lnb>2</lnb>
 <lno>2</lno>
 <log>
@@ -513,7 +512,7 @@ English</desc>
 <its>0</its>
 <meta>1</meta>
 <pien>0</pien>
-<set_def_file>C:\work\SWaD_kids\Swad_kids.sdf</set_def_file>
+<set_def_file>C:\work\SWaD_kids - divided attention\Swad_kids.sdf</set_def_file>
 <stimulus_list>0</stimulus_list>
 <subject_id></subject_id>
 <subject_id_pol>1</subject_id_pol>
@@ -531,7 +530,7 @@ English</desc>
 </lslset>
 <maxpv></maxpv>
 <minpv></minpv>
-<nam>Swad_kids</nam>
+<nam>Swad_kids_divided_attention</nam>
 <one_processor>2</one_processor>
 <oports></oports>
 <out_encrypt_key></out_encrypt_key>
@@ -1067,7 +1066,7 @@ English</desc>
 <offset>57</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\work\SWaD_kids\Swad_kids.sce</sfn>
+<sfn>C:\work\SWaD_kids - divided attention\Swad_kids_divided_attention.sce</sfn>
 </sce>
 <sct>
 <capture_device>
@@ -1143,7 +1142,6 @@ English</desc>
 <vt>0</vt>
 </trigger_mode>
 <udt>0</udt>
-<uln>test</uln>
 <unc></unc>
 <upb>0</upb>
 <urp>0</urp>

@@ -1,0 +1,23 @@
+Scenario - 
+Logfile written - 03/29/2020 18:00:27
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+s	1	Response	3								10863	10794	0
+s	2	Response	3								25823	14921	0
+s	209	Quit									241663	279	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids_divided_attention.sce",
+   "subject": "s",
+   "timestamp": "2020/03/29 16:00:01 GMT"
+}

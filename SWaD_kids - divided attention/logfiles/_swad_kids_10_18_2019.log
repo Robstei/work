@@ -1,0 +1,50 @@
+Scenario - 
+Logfile written - 10/18/2019 21:18:32
+
+Subject	Trial	Event Type	Code	configuration(num)	conditionid(str)	trialid(str)	form(str)	color(str)	seperateAttention(num)	target(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+	1	Response	3								99807	99640	0
+	2	Response	3								111167	11168	0
+	3	Response	3								128607	17275	0
+	4	Response	3								131967	3135	0
+	5	Response	2								138847	15	0
+	5	Picture	9;test;1;bell;4;1;0	9	test	1	bell	4	1	0	138998	166	1	167	1	0	2500	other	0
+	7	Picture	9;test;1;circle;3;1;0	9	test	1	circle	3	1	0	162331	0	1	2167	1	0	2500	false_alarm	8
+	7	Response	1								164366	2035	0
+	10	Picture	9;test;1;flower;1;1;1	9	test	1	flower	1	1	1	189831	0	1	2333	1	0	2500	incorrect	10
+	10	Response	2								191967	2136	0
+	13	Picture	9;test;1;circle;4;1;0	9	test	1	circle	4	1	0	225497	0	1	1333	1	0	2500	false_alarm	12
+	13	Response	2								226767	1269	0
+	16	Picture	9;test;1;bell;1;1;1	9	test	1	bell	1	1	1	270163	0	1	2667	1	0	2500	hit	14
+	16	Response	1								272847	2683	0
+	19	Picture	9;test;1;circle;5;1;0	9	test	1	circle	5	1	0	316329	0	1	2167	1	0	2500	false_alarm	16
+	19	Response	1								318367	2038	0
+	22	Picture	9;test;1;heart;1;1;1	9	test	1	heart	1	1	1	349829	0	1	667	1	0	2500	hit	18
+	22	Response	1								350367	538	0
+	25	Picture	9;test;1;flower;3;1;0	9	test	1	flower	3	1	0	385828	0	1	2667	1	0	2500	false_alarm	20
+	25	Response	1								393567	7738	0
+	28	Picture	9;test;1;moon;3;1;0	9	test	1	moon	3	1	0	432995	0	1	2667	1	0	2500	false_alarm	22
+	28	Response	2								443167	10172	0
+	31	Picture	9;test;1;circle;1;1;1	9	test	1	circle	1	1	1	468661	0	1	833	1	0	2500	incorrect	24
+	31	Response	2								469327	666	0
+	33	Response	3								680210	190383	0
+	35	Picture	9;test;2;bell;4;3;0	9	test	2	bell	4	3	0	690491	0	1	2667	1	0	2500	false_alarm	27
+	35	Response	1								696767	6276	0
+	38	Picture	9;test;2;flower;5;3;2	9	test	2	flower	5	3	2	740157	0	1	2667	1	0	2500	incorrect	29
+	38	Response	1								742767	2609	1
+	39	Quit									747647	4656	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{3EDEE026-D8DC-4466-8CD4-50C9D6AA7BA0}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Swad_kids.sce",
+   "subject": "",
+   "timestamp": "2019/10/18 19:17:16 GMT"
+}

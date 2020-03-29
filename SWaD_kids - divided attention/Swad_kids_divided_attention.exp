@@ -1,5 +1,5 @@
 <ver>20.3</ver>
-<efn>C:\work\SWaD_kids\Swad_kids.exp</efn>
+<efn>C:\work\SWaD_kids - divided attention\Swad_kids_divided_attention.exp</efn>
 <author></author>
 <con>
 <pause>P</pause>
@@ -40,12 +40,11 @@
 <lfn></lfn>
 </docs>
 <dp_list></dp_list>
-<dsd>C:\work\SWaD_kids\stimuli</dsd>
+<dsd>C:\work\SWaD_kids - divided attention\stimuli</dsd>
 <dwm>0</dwm>
 <dxv>8</dxv>
 <efs>
-<filename>C:\work\SWaD_kids\Swad_kids.sce</filename>
-<filename>C:\work\SWaD_kids\Swad_kids.sdf</filename>
+<filename>C:\work\SWaD_kids - divided attention\Swad_kids_divided_attention.sce</filename>
 </efs>
 <exclusive_mouse>1</exclusive_mouse>
 <exp_version></exp_version>
@@ -121,51 +120,45 @@ Du hättest drücken müssen.</val>
 </val>
 <val>
 <dat>
-<val>2</val>
+<val>Right.</val>
 </dat>
 <id>9</id>
 </val>
 <val>
 <dat>
-<val>Right.</val>
+<val>Wrong key.</val>
 </dat>
 <id>10</id>
 </val>
 <val>
 <dat>
-<val>Wrong key.</val>
+<val>You should have reacted.</val>
 </dat>
 <id>11</id>
 </val>
 <val>
 <dat>
-<val>You should have reacted.</val>
+<val>You should not have reacted.</val>
 </dat>
 <id>12</id>
 </val>
 <val>
 <dat>
-<val>You should not have reacted.</val>
+<val>1093</val>
 </dat>
 <id>13</id>
 </val>
 <val>
 <dat>
-<val>1093</val>
+<val>614</val>
 </dat>
 <id>14</id>
 </val>
 <val>
 <dat>
-<val>614</val>
-</dat>
-<id>15</id>
-</val>
-<val>
-<dat>
 <val>100</val>
 </dat>
-<id>16</id>
+<id>15</id>
 </val>
 </sd>
 <sid>-1</sid>
@@ -182,11 +175,10 @@ Du hättest drücken müssen.</val>
 <pid>1</pid>
 <pid>7</pid>
 <pid>8</pid>
-<pid>9</pid>
 <pid>2</pid>
+<pid>13</pid>
 <pid>14</pid>
 <pid>15</pid>
-<pid>16</pid>
 </pl>
 </grp>
 <grp>
@@ -201,10 +193,10 @@ Du hättest drücken müssen.</val>
 <grp>
 <gn>Feedback ENGLISCH</gn>
 <pl>
+<pid>9</pid>
 <pid>10</pid>
 <pid>11</pid>
 <pid>12</pid>
-<pid>13</pid>
 </pl>
 </grp>
 </grps>
@@ -316,20 +308,6 @@ German</desc>
 <parm>
 <id>7</id>
 <set>
-<desc>Determines which configuration will be used</desc>
-<edit>1</edit>
-<name>Configuration Parameter</name>
-<set>
-<rest>[1,9]</rest>
-</set>
-<temp>1</temp>
-<type>int</type>
-<vis>1</vis>
-</set>
-</parm>
-<parm>
-<id>8</id>
-<set>
 <desc>Validate() will ensure, that the first X Stimuli will not be targets for each block</desc>
 <edit>1</edit>
 <name>Non Targets at Start of each Block</name>
@@ -342,7 +320,7 @@ German</desc>
 </set>
 </parm>
 <parm>
-<id>9</id>
+<id>8</id>
 <set>
 <desc>Sets the Language
 
@@ -359,7 +337,7 @@ German</desc>
 </set>
 </parm>
 <parm>
-<id>10</id>
+<id>9</id>
 <set>
 <desc>Feedback for HIT
 English</desc>
@@ -374,7 +352,7 @@ English</desc>
 </set>
 </parm>
 <parm>
-<id>11</id>
+<id>10</id>
 <set>
 <desc>Feedback for INCORRECT
 English</desc>
@@ -389,7 +367,7 @@ English</desc>
 </set>
 </parm>
 <parm>
-<id>12</id>
+<id>11</id>
 <set>
 <desc>Feedback for MISS
 English</desc>
@@ -404,7 +382,7 @@ English</desc>
 </set>
 </parm>
 <parm>
-<id>13</id>
+<id>12</id>
 <set>
 <desc>Feedback for FALSE ALARM
 English</desc>
@@ -419,7 +397,7 @@ English</desc>
 </set>
 </parm>
 <parm>
-<id>14</id>
+<id>13</id>
 <set>
 <desc>Width of all Form Pictures in px</desc>
 <edit>1</edit>
@@ -433,7 +411,7 @@ English</desc>
 </set>
 </parm>
 <parm>
-<id>15</id>
+<id>14</id>
 <set>
 <desc>Height of all Form Pictures in px</desc>
 <edit>1</edit>
@@ -447,7 +425,7 @@ English</desc>
 </set>
 </parm>
 <parm>
-<id>16</id>
+<id>15</id>
 <set>
 <desc>Diameter of the Circle in px</desc>
 <edit>1</edit>
@@ -503,7 +481,7 @@ English</desc>
 <idt>0</idt>
 <ilc>0</ilc>
 <ip_chans></ip_chans>
-<lfd>C:\work\SWaD_kids\logfiles</lfd>
+<lfd>C:\work\SWaD_kids - divided attention\logfiles</lfd>
 <lnb>2</lnb>
 <lno>2</lno>
 <log>
@@ -531,7 +509,7 @@ English</desc>
 </lslset>
 <maxpv></maxpv>
 <minpv></minpv>
-<nam>Swad_kids</nam>
+<nam>Swad Divided Attention</nam>
 <one_processor>2</one_processor>
 <oports></oports>
 <out_encrypt_key></out_encrypt_key>
@@ -1067,7 +1045,7 @@ English</desc>
 <offset>57</offset>
 </idv>
 <overrides></overrides>
-<sfn>C:\work\SWaD_kids\Swad_kids.sce</sfn>
+<sfn>C:\work\SWaD_kids - divided attention\Swad_kids_divided_attention.sce</sfn>
 </sce>
 <sct>
 <capture_device>
