@@ -1,0 +1,258 @@
+Scenario - 
+Logfile written - 05/17/2020 21:17:10
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+a	1	Response	2	25008	24841	0
+a	2	Response	2	34608	9442	0
+a	3	Picture	test	34666	0	1	13000	1	0	next	hit	4
+a	3	Response	4	47568	12902	0
+a	4	Response	4	60610	12944	0
+a	4	Response	4	62288	14622	0
+a	5	Picture	test	62832	0	1	1500	1	0	next	hit	8
+a	5	Response	4	64208	1375	0
+a	6	Response	4	65967	1635	0
+a	6	Response	4	68047	3715	0
+a	6	Response	4	72288	7955	0
+a	6	Response	4	73972	9639	0
+a	6	Response	4	75727	11395	0
+a	7	Picture	test	79499	0	1	1667	1	0	next	incorrect	15
+a	7	Response	4	80847	1348	0
+a	8	Response	4	82527	1362	0
+a	8	Response	4	84290	3125	0
+a	8	Response	4	85807	4642	0
+a	8	Response	4	87327	6162	0
+a	8	Response	4	89167	8002	0
+a	8	Response	4	90612	9447	0
+a	8	Response	4	92287	11122	0
+a	8	Response	4	93729	12564	0
+a	8	Response	4	95247	14082	0
+a	9	Picture	test	96332	0	1	500	1	0	next	incorrect	26
+a	9	Response	4	96687	355	0
+a	10	Response	4	99808	2976	0
+a	10	Response	4	101409	4577	0
+a	10	Response	4	102928	6097	0
+a	10	Response	4	105727	8896	0
+a	10	Response	4	109010	12178	0
+a	10	Response	4	110447	13616	0
+a	11	Picture	test	111998	0	1	166	1	0	next	hit	34
+a	11	Response	4	112047	49	0
+a	12	Response	4	113647	1483	0
+a	12	Response	4	115167	3003	0
+a	12	Response	4	116688	4523	0
+a	12	Response	4	118287	6123	0
+a	12	Response	4	119807	7643	0
+a	12	Response	4	121407	9243	0
+a	12	Response	4	123007	10843	0
+a	12	Response	4	124527	12363	0
+a	12	Response	4	126128	13963	0
+a	13	Picture	test	127331	0	1	500	1	0	next	hit	45
+a	13	Response	4	127648	317	0
+a	14	Response	4	129087	1256	0
+a	14	Response	4	130767	2936	0
+a	14	Response	4	132288	4457	0
+a	14	Response	4	133808	5977	0
+a	14	Response	4	135167	7336	0
+a	14	Response	4	136688	8857	0
+a	14	Response	4	141409	13578	0
+a	15	Response	4	142927	96	1
+a	15	Picture	test	142998	167	1	167	1	0	next	miss	0
+a	16	Response	4	144529	1364	0
+a	16	Response	4	150607	7442	0
+a	17	Picture	test	158331	0	1	4500	1	0	next	incorrect	58
+a	17	Response	4	162767	4436	0
+a	18	Response	4	164447	1617	0
+a	18	Response	4	165807	2976	0
+a	18	Response	4	167407	4576	0
+a	18	Response	4	168847	6016	0
+a	18	Response	4	170367	7536	0
+a	18	Response	4	175007	12176	0
+a	19	Picture	test	177997	0	1	7500	1	0	next	incorrect	66
+a	19	Response	4	185327	7330	0
+a	20	Response	4	186930	1433	0
+a	20	Response	4	192768	7271	0
+a	20	Response	4	198208	12711	0
+a	21	Picture	test	200664	0	1	667	1	0	next	hit	71
+a	21	Response	4	201168	505	0
+a	22	Response	4	202528	1197	0
+a	22	Response	4	204048	2717	0
+a	22	Response	4	205488	4157	0
+a	22	Response	4	208688	7357	0
+a	22	Response	4	209887	8557	0
+a	22	Response	4	211567	10237	0
+a	22	Response	4	213087	11757	0
+a	22	Response	4	214607	13277	0
+a	23	Response	4	217568	1071	0
+a	23	Response	4	219247	2751	0
+a	23	Response	1	253173	36676	0
+a	23	Response	1	254767	38270	0
+a	23	Response	1	256449	39952	0
+a	23	Response	1	258289	41792	0
+a	23	Response	4	258687	42191	0
+a	23	Response	4	261329	44832	0
+a	23	Response	4	262848	46351	0
+a	23	Response	4	264287	47790	0
+a	23	Response	4	265888	49391	0
+a	23	Response	2	269167	52671	0
+a	24	Picture	test	269329	0	1	6500	1	0	next	incorrect	93
+a	24	Response	4	275728	6398	0
+a	25	Response	4	277407	1578	0
+a	25	Response	4	279170	3340	0
+a	25	Response	4	280848	5018	0
+a	25	Response	4	282367	6538	0
+a	25	Response	4	283967	8138	0
+a	25	Response	4	285569	9740	0
+a	25	Response	4	287087	11258	0
+a	25	Response	4	288767	12938	0
+a	25	Response	4	290367	14538	0
+a	26	Picture	test	290996	0	1	1000	1	0	next	hit	104
+a	26	Response	4	291887	891	0
+a	27	Response	4	293408	1412	0
+a	27	Response	4	295007	3011	0
+a	27	Response	4	296528	4532	0
+a	27	Response	4	298207	6211	0
+a	27	Response	4	299808	7812	0
+a	27	Response	4	301007	9011	0
+a	27	Response	4	302768	10772	0
+a	27	Response	4	304531	12535	0
+a	27	Response	4	306127	14131	0
+a	28	Picture	test	307162	0	1	833	1	0	next	incorrect	115
+a	28	Response	4	307807	645	0
+a	29	Response	4	309247	1252	0
+a	29	Response	4	310847	2851	0
+a	29	Response	4	312368	4372	0
+a	29	Response	4	313970	5974	0
+a	29	Response	4	315568	7572	0
+a	29	Response	4	317087	9091	0
+a	29	Response	4	318687	10692	0
+a	29	Response	4	320370	12374	0
+a	29	Response	4	321887	13892	0
+a	30	Picture	test	323162	0	1	333	1	0	next	hit	126
+a	30	Response	4	323410	248	0
+a	31	Response	4	325007	1512	0
+a	31	Response	4	326607	3112	0
+a	31	Response	4	328209	4714	0
+a	31	Response	4	329647	6152	0
+a	31	Response	4	331247	7753	0
+a	31	Response	4	332688	9193	0
+a	31	Response	4	334287	10792	0
+a	31	Response	4	337329	13834	0
+a	32	Picture	test	338662	0	1	3333	1	0	next	incorrect	136
+a	32	Response	4	341967	3305	0
+a	33	Response	4	343727	1732	0
+a	33	Response	4	345247	3252	0
+a	33	Response	4	346928	4932	0
+a	33	Response	4	348528	6532	0
+a	33	Response	4	350047	8052	0
+a	33	Response	4	351568	9572	0
+a	33	Response	4	353247	11252	0
+a	33	Response	4	354608	12612	0
+a	33	Response	4	356207	14212	0
+a	34	Picture	test	357162	0	1	2167	1	0	next	incorrect	147
+a	34	Response	4	359087	1925	0
+a	35	Response	4	360691	1363	0
+a	35	Response	4	362287	2959	0
+a	35	Response	4	363727	4399	0
+a	35	Response	4	366847	7519	0
+a	35	Response	4	368527	9199	0
+a	35	Response	4	370128	10799	0
+a	35	Response	4	371727	12399	0
+a	35	Response	4	373407	14079	0
+a	36	Picture	test	374495	0	1	667	1	0	next	hit	157
+a	36	Response	4	375007	512	0
+a	37	Response	4	376527	1366	0
+a	37	Response	4	378207	3046	0
+a	37	Response	4	379648	4486	0
+a	37	Response	4	381331	6170	0
+a	37	Response	4	382847	7686	0
+a	37	Response	4	384528	9366	0
+a	37	Response	4	386207	11046	0
+a	37	Response	4	387807	12646	0
+a	37	Response	4	389330	14169	0
+a	38	Picture	test	390328	0	1	4167	1	0	next	hit	168
+a	38	Response	4	394369	4041	0
+a	39	Response	4	395889	1395	0
+a	39	Response	4	397487	2993	0
+a	39	Response	4	399090	4596	0
+a	39	Response	4	400767	6273	0
+a	39	Response	4	402287	7793	0
+a	39	Response	4	403887	9392	0
+a	39	Response	4	405567	11073	0
+a	39	Response	4	407167	12673	0
+a	39	Response	4	408769	14274	0
+a	40	Picture	test	409661	0	1	833	1	0	next	hit	179
+a	40	Response	4	410367	706	0
+a	41	Response	4	411969	1475	0
+a	41	Response	4	413650	3156	0
+a	41	Response	4	415167	4673	0
+a	41	Response	4	419967	9473	0
+a	41	Response	4	421647	11152	0
+a	42	Picture	test	425661	0	1	1000	1	0	next	incorrect	186
+a	42	Response	4	426449	788	0
+a	43	Response	4	428207	1546	0
+a	43	Response	4	429887	3226	0
+a	43	Response	4	431487	4827	0
+a	43	Response	4	433167	6506	0
+a	43	Response	4	434848	8187	0
+a	43	Response	4	436529	9868	0
+a	43	Response	4	438288	11627	0
+a	43	Response	4	439567	12907	0
+a	43	Response	4	441247	14586	0
+a	44	Response	4	442927	1100	0
+a	44	Response	4	444447	2620	0
+a	44	Response	4	446129	4302	0
+a	44	Response	4	447887	6060	0
+a	44	Response	4	449247	7420	0
+a	44	Response	4	456127	14300	0
+a	44	Response	1	457967	16140	0
+a	44	Response	2	461327	19500	0
+a	45	Response	4	503968	42474	0
+a	45	Response	1	507327	45833	0
+a	45	Response	2	510848	49354	0
+a	47	Response	4	533088	1929	0
+a	47	Response	4	534848	3689	0
+a	47	Response	4	537087	5927	0
+a	48	Picture	group1;block1;1;Inhibition;stimulus_neutral_4.jpg;4;true;neutral	538993	0	1	2166	1	0	2000	miss	0
+a	48	Response	4	540448	1455	0
+a	48	Response	4	542047	3054	0
+a	48	Response	4	543811	4818	0
+a	48	Response	4	545407	6414	0
+a	49	Response	4	547087	928	0
+a	49	Response	4	548767	2608	0
+a	49	Response	4	550529	4370	0
+a	49	Response	4	552127	5968	0
+a	50	Picture	group1;block1;2;Inhibition;stimulus_neutral_3.jpg;3;true;neutral	553325	0	1	2167	2	0	2000	miss	0
+a	50	Response	4	553968	643	0
+a	50	Response	2	556207	2882	0
+a	50	Response	2	557967	4642	0
+a	51	Response	4	561408	916	0
+a	51	Response	4	563567	3075	0
+a	51	Response	4	566127	5635	0
+a	51	Response	4	568607	8115	0
+a	52	Picture	group1;block1;3;Inhibition;stimulus_neutral_3.jpg;3;true;neutral	569825	0	1	2167	1	0	2000	miss	0
+a	52	Response	4	574369	4543	0
+a	53	Response	4	578608	1616	0
+a	54	Picture	group1;block1;4;Inhibition;stimulus_neutral_2.jpg;2;true;neutral	582159	0	1	2167	1	0	2000	miss	0
+a	54	Response	4	585806	3648	0
+a	54	Response	4	587887	5728	0
+a	55	Response	4	590606	1281	0
+a	55	Response	4	593088	3763	0
+a	55	Response	4	596047	6722	0
+a	55	Response	4	598127	8802	0
+a	56	Picture	group1;block1;5;Inhibition;stimulus_neutral_3.jpg;3;true;neutral	598492	0	1	2167	1	0	2000	miss	0
+a	56	Quit		604687	6195	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{D641ED79-5C9E-4C22-BD16-86E78985E7F2}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Hot Reaction Paradigma.sce",
+   "subject": "a",
+   "timestamp": "2020/05/17 19:16:05 GMT"
+}

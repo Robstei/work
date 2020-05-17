@@ -1,1 +1,0 @@
-ID,configuration,time,reaction_time,reaction_type,group,block,stimulus_in_block,block_type,stimulus_id,target_non_target,target_filename,non_target_filename

@@ -1,0 +1,38 @@
+Scenario - 
+Logfile written - 05/17/2020 20:54:31
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+f	1	Response	2	8217	8050	0
+f	2	Response	2	29736	21403	0
+f	3	Picture	test	29833	0	1	13000	1	0	next	incorrect	4
+f	3	Response	3	42695	12862	0
+f	4	Response	1	51975	9143	0
+f	4	Response	1	53815	10983	0
+f	4	Response	1	55576	12743	0
+f	4	Response	1	57576	14743	0
+f	5	Picture	test	57999	0	1	12167	1	0	next	hit	15
+f	5	Response	1	59575	1576	0
+f	5	Response	1	61496	3497	0
+f	5	Response	1	64455	6456	0
+f	5	Response	1	66535	8536	0
+f	5	Response	1	68296	10297	0
+f	5	Response	4	70055	12056	0
+f	6	Response	4	71415	1249	0
+f	6	Response	4	79895	9730	0
+f	6	Quit		81655	11490	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{D641ED79-5C9E-4C22-BD16-86E78985E7F2}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Hot Reaction Paradigma.sce",
+   "subject": "f",
+   "timestamp": "2020/05/17 18:54:18 GMT"
+}

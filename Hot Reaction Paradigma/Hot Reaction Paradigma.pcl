@@ -1,0 +1,399 @@
+#global variables
+array<int> array_current_block[0];
+
+sub debug_string(string object_to_print)
+begin
+	if(parameter_manager.get_bool("Debug"))
+	then
+		term.print_line(object_to_print)
+	end;
+end;
+
+sub debug_int(int object_to_print)
+begin
+	if(parameter_manager.get_bool("Debug"))
+	then
+		term.print_line(object_to_print)
+	end;
+end;
+
+sub debug_array_int(array<int,1> object_to_print)
+begin
+	if(parameter_manager.get_bool("Debug"))
+	then
+		term.print_line(object_to_print)
+	end;
+end;
+
+sub set_debug_modifications
+begin
+	if (parameter_manager.get_bool("Debug"))
+	then
+		trial_stimuli.set_duration(1);
+		stimulus_event_trial_stimuli.set_duration(1);
+		trial_instruction.set_duration(1);
+		trial_instruction.set_type(trial::FIXED);
+		
+		trial_test.set_duration(1);
+		trial_test.set_type(trial::FIXED);
+		
+		trial_feedback.set_duration(1);
+		trial_feedback.set_type(trial::FIXED);
+		
+		trial_feedback_overview.set_duration(1);
+		trial_feedback_overview.set_type(trial::FIXED);
+		
+		trial_instruction.set_duration(1);
+		trial_instruction.set_type(trial::FIXED);
+		
+		trial_pause_start_of_block.set_duration(1);
+		trial_pause_start_of_block.set_type(trial::FIXED);
+		
+		trial_instruction_block.set_duration(1);
+		trial_instruction_block.set_type(trial::FIXED);
+		
+		trial_instruction_end.set_duration(1);
+		trial_instruction_end.set_type(trial::FIXED);
+	end;
+end;
+
+sub change_active_buttons (bool is_reaction_button_active, bool is_continue_button_active, bool is_first_test_button_active, bool is_second_test_button_active)
+begin
+	response_manager.set_button_active(1, is_reaction_button_active);
+	response_manager.set_button_active(2, is_continue_button_active);
+	response_manager.set_button_active(3, is_first_test_button_active);
+	response_manager.set_button_active(4, is_second_test_button_active);
+end;
+
+sub pause (int time_in_seconds)
+begin
+	if(parameter_manager.get_bool("Debug"))
+	then
+		return
+	end;
+	
+	text_pause_top.set_caption("Pause\n\nSie haben " + string(time_in_seconds) + " Sekunden Pause. " +
+		"An dem Countdown erkennen Sie wann es weiter geht.", true);
+	loop int start_time = clock.time()
+	until clock.time() > start_time + time_in_seconds * 1000
+	begin
+		text_pause.set_caption("In " + string(time_in_seconds - floor((clock.time() - start_time) / 1000)) + " Sekunden geht es weiter", true);
+		trial_pause.present();
+	end;
+	#trial_pause_button.present();
+end;
+
+sub set_target_button_for_stimulus_at_test_phase ( bitmap new_bitmap, stimulus_event new_stimulus_event )
+begin
+	string filename = new_bitmap.filename();
+	#gets the parameter for neutral stimuli, so naming scheme stimuli files can change
+	string neutral_identifier = parameter_manager.get_string("Neutral Identifier");
+	if (filename.find(neutral_identifier) > 0)
+	then
+		new_stimulus_event.set_target_button(4);
+	else
+		new_stimulus_event.set_target_button(3);
+	end;
+end;
+
+sub present_stimuli_test
+begin
+	array<bitmap> array_bitmaps_copy[0];
+	array_bitmaps_copy.assign(array_bitmaps);
+	array_bitmaps_copy.shuffle();
+	
+	loop int i = 1 until i > array_bitmaps.count()
+	begin
+		bitmap new_bitmap = array_bitmaps_copy[i];
+		picture_trial_test.set_part(1,new_bitmap);
+		set_target_button_for_stimulus_at_test_phase( new_bitmap, trial_test.get_stimulus_event(1));
+		stimulus_event_trial_test.set_event_code("test");
+		trial_test.present();
+		
+		stimulus_data stimulus_data_last = stimulus_manager.last_stimulus_data();
+		bool was_correct = stimulus_data_last.type() == stimulus_data::HIT;
+		
+		if (was_correct)
+		then
+			text_feedback.set_caption("Richtig");
+		else
+			text_feedback.set_caption("Falsch");
+		end;
+		text_feedback.redraw();
+		trial_feedback.present();
+		
+		i = i + 1;
+	end;
+end;
+
+sub present_test_runs(int number_of_runs, bool instruction_only_at_first_run)
+begin
+	loop int i = 1 until i > number_of_runs
+	begin
+		change_active_buttons(false, true, false, false);
+		if(instruction_only_at_first_run && (i == 1))
+		then
+			trial_instruction_test_run.present();
+		elseif (!instruction_only_at_first_run)
+		then
+			trial_instruction_test_run.present();
+		end;
+		change_active_buttons(false, false, true, true);
+		present_stimuli_test();
+		change_active_buttons(false, true, false, false);
+		trial_feedback_overview.present();
+		change_active_buttons(true, true, true, true);
+		i = i + 1;
+	end;
+end;
+
+sub bool is_target (bool neutral_is_target, int current_index, int last_neutral_index_in_bitmap_array)
+begin
+	bool stimulus_is_neutral = array_current_block[current_index] <= last_neutral_index_in_bitmap_array;
+	
+	if((neutral_is_target && stimulus_is_neutral) || (!neutral_is_target && !stimulus_is_neutral))
+	then
+		return true;
+	end;
+	
+	return false;
+end;
+
+sub bool is_relevant_for_succesive_stimuli_rules(string mode, bool neutral_is_target, int current_index, int last_neutral_index_in_bitmap_array)
+begin
+	bool is_target = is_target(neutral_is_target, current_index, last_neutral_index_in_bitmap_array);
+	if((is_target && mode == "attention") || (!is_target && mode =="inhibition"))
+	then
+		return true;
+	end;
+	return false;
+end;
+
+sub bool validate (int first_neutral_index_in_bitmap_array, int last_neutral_index_in_bitmap_array,
+	int first_non_neutral_index_in_bitmap_array, int last_non_neutral_index_in_bitmap_array, string mode, bool neutral_is_target)
+begin
+	
+	debug_string("Validating Array");
+	debug_array_int(array_current_block);
+	
+	#if mode is attention and neutral stimuli are targets the first stimulus in not allowed to be a neutral (target) stimulus
+	if (mode == "attention" && neutral_is_target && array_current_block[1] <= last_neutral_index_in_bitmap_array)
+	then
+		debug_string("Array Invalid. Reason 1");
+		return false;
+	#if mode is attention and non-neutral stimuli are targets the first stimulus in not allowed to be a non-neutral (target) stimulus
+	elseif (mode == "attention" && !neutral_is_target && array_current_block[1] >= first_non_neutral_index_in_bitmap_array)
+	then
+		debug_string("Array Invalid. Reason 2");
+		return false;
+	#if mode is inhibition and neutral stimuli are targets the first stimulus in not allowed to be a non-neutral (non-target) stimulus
+	elseif (mode == "inhibition" && neutral_is_target && array_current_block[1] >= first_non_neutral_index_in_bitmap_array)
+	then
+		debug_string("Array Invalid. Reason 3");
+		return false;
+	#if mode is inhibition and non-neutral stimuli are targets the first stimulus in not allowed to be a neutral (non-target) stimulus
+	elseif (mode == "inhibition" && !neutral_is_target && array_current_block[1] <= last_neutral_index_in_bitmap_array)
+	then
+		debug_string("Array Invalid. Reason 4");
+		return false;
+	end;
+	
+	int successive_relevant_stimuli_threshold = parameter_manager.get_int("Threshold of Successive Relevant Stimuli");
+	int threshold_of_occurences_of_successive_relevant_stimuli_threshold = parameter_manager.get_int("Threshold of Occurences of Relevant Stimuli Threshold");
+	int count_of_relevant_successive_stimuli = 0;
+	int occurences_of_successive_relevant_stimuli_threshold = 0;
+	
+	loop int current_index = 1 until current_index > array_current_block.count()
+	begin
+			
+		if(is_relevant_for_succesive_stimuli_rules(mode, neutral_is_target, current_index, last_neutral_index_in_bitmap_array))
+		then
+			count_of_relevant_successive_stimuli = count_of_relevant_successive_stimuli + 1;
+		else
+			count_of_relevant_successive_stimuli = 0;
+		end;
+		
+		if(count_of_relevant_successive_stimuli > successive_relevant_stimuli_threshold)
+		then
+			debug_string("Array Invalid. Reason 5");
+			return false;
+		end;
+		
+		if(count_of_relevant_successive_stimuli ==  successive_relevant_stimuli_threshold)
+		then
+			occurences_of_successive_relevant_stimuli_threshold = occurences_of_successive_relevant_stimuli_threshold + 1;
+		end;
+		
+		if(occurences_of_successive_relevant_stimuli_threshold  > threshold_of_occurences_of_successive_relevant_stimuli_threshold)
+		then
+			debug_string("Array Invalid. Reason 6");
+			return false;
+		end;
+		
+		current_index = current_index + 1;
+	end;
+	
+	debug_string("Array is valid");
+	return true;
+end;
+
+sub present_block_instruction (bool neutral_is_target)
+begin
+	if (neutral_is_target)
+	then
+		picture_instruction_block.set_filename("instruction_neutral_is_target.jpg");
+	else
+		picture_instruction_block.set_filename("instruction_non_neutral_is_target.jpg");
+	end;
+	picture_instruction_block.load();
+	trial_instruction_block.present();
+end;
+
+sub add_bitmap_indices_to_current_block (int first_index_to_add, int last_index_to_add, int amount_to_add)
+begin
+	#example: required array size for indices 3 - 5 is 5 - 3 + 1 = 3
+	array<int> array_indices_to_add [last_index_to_add - first_index_to_add + 1];
+	array_indices_to_add.fill(1, 0, first_index_to_add, 1 );
+	
+	loop int i = 1 until i > amount_to_add
+	begin
+		int index_of_next_index_to_add = i % array_indices_to_add.count();
+		
+		#this is necessary because PCL is 1-counting. Otherwise there would be an error when adding the element with index 5 (programm would try to add element with index 0)
+		if index_of_next_index_to_add == 0
+		then
+			index_of_next_index_to_add = array_indices_to_add.count();
+		end;
+		array_current_block.add(array_indices_to_add[index_of_next_index_to_add]);
+		
+		i = i + 1;
+	end;
+end;
+
+sub create_block (int neutral_stimuli_amount, int non_neutral_stimuli_amount, string mode, bool neutral_is_target)
+begin
+	array_current_block.resize(0);
+	
+	#add neutral_stimuli first
+	int first_neutral_index = 1;
+	int last_neutral_index = array_neutral_bitmaps.count();
+	add_bitmap_indices_to_current_block(first_neutral_index, last_neutral_index, neutral_stimuli_amount);	
+
+	#add non_neutral_stimuli after
+	int first_non_neutral_index = last_neutral_index + 1;
+	int last_non_neutral_index = last_neutral_index + array_non_neutral_bitmaps.count();
+	add_bitmap_indices_to_current_block(first_non_neutral_index, last_non_neutral_index, non_neutral_stimuli_amount);	
+
+	loop until validate(first_neutral_index, last_neutral_index, first_non_neutral_index, last_non_neutral_index, mode,  neutral_is_target)
+	begin
+		array_current_block.shuffle();
+		debug_string("Next Array conditions:\n" +
+				" --- Neutral Stimuli Amount: " + string(neutral_stimuli_amount) +
+				" --- Non Neutral Stimuli Amount: " + string(non_neutral_stimuli_amount) +
+				" --- Mode: " + mode +
+				" --- Neutral is target: " + string(neutral_is_target) );
+				
+			
+	end;
+end;
+
+sub string add_filename_to_code(string code, int target_stimulus_index)
+begin
+	string new_code = code;
+	
+	new_code = new_code + ";" + array_bitmaps[target_stimulus_index].filename();
+	return new_code;
+end;
+
+sub set_target_button_for_stimulus(int index_of_current_stimuli, bool neutral_is_target)
+begin
+	string filename = array_bitmaps[index_of_current_stimuli].filename();
+	bool stimulus_is_neutral = filename.find(parameter_manager.get_string("Neutral Identifier")) > 0;
+	
+	#not sure if necessary but i think i remember a bug with target buttons not reseting properly without this line
+	stimulus_event_trial_stimuli.set_target_button(0);
+	
+	if ( (stimulus_is_neutral && neutral_is_target) || (!stimulus_is_neutral && !neutral_is_target) )
+	then
+		stimulus_event_trial_stimuli.set_target_button(1);
+	else
+		stimulus_event_trial_stimuli.set_response_active(true);
+	end;
+end;
+
+sub set_stimulus_event_code (string block, string group, int stimulus_of_current_block, string block_type, bitmap new_bitmap, int index_new_bitmap,  bool neutral_is_target)
+begin
+	string stimulus_filename = new_bitmap.filename().replace(stimulus_directory, "");
+	bool is_stimulus_target = (stimulus_filename.find(parameter_manager.get_string("Neutral Identifier")) > 0 && neutral_is_target) ||
+										(stimulus_filename.find(parameter_manager.get_string("Neutral Identifier")) == 0 && !neutral_is_target);
+	string target_category_of_block;
+	if(neutral_is_target)
+	then
+		target_category_of_block = "neutral";
+	else
+		target_category_of_block = parameter_manager.get_string("Identifier of non neutral Stimuli");
+	end;
+	
+	string event_code = block + ";" +
+								group + ";" +
+								string(stimulus_of_current_block) + ";" +
+								block_type + ";" +
+								stimulus_filename + ";" +
+								string(index_new_bitmap) + ";" +
+								string(is_stimulus_target) + ";" +
+								target_category_of_block;
+								
+	debug_string("Setting event code to: " + event_code);
+	stimulus_event_trial_stimuli.set_event_code(event_code);
+end;
+
+sub present_block (string block, string group, string block_type, 
+							bool show_instruction, bool neutral_is_target, bool pause_before_block)
+begin
+	if(show_instruction)
+	then
+		change_active_buttons(false, true, false, false);
+		present_block_instruction(neutral_is_target);
+	end;
+	
+	debug_string("Presenting Array:");
+	debug_array_int(array_current_block);
+	
+	if(pause_before_block)
+	then
+		trial_pause_start_of_block.present();
+	end;
+				
+	change_active_buttons(true, false, false, false);
+
+	loop int stimulus_of_current_block = 1 until stimulus_of_current_block >  array_current_block.count()
+	begin
+		trial_cross.set_duration(random(parameter_manager.get_int("Minimal ISI Value"),
+											parameter_manager.get_int("Maximum ISI Value")));
+											
+		if(parameter_manager.get_bool("Debug"))
+		then
+			trial_cross.set_duration(1);
+		end;
+		
+		trial_cross.present();
+		
+		int index_new_bitmap = array_current_block[stimulus_of_current_block];
+		bitmap new_bitmap = array_bitmaps[index_new_bitmap];
+		picture_trial_stimuli.set_part(1, new_bitmap);
+		set_target_button_for_stimulus(index_new_bitmap, neutral_is_target);
+		
+		debug_string("Presenting Stimuli with Index: " + string(index_new_bitmap));	
+
+		set_stimulus_event_code(block, group, stimulus_of_current_block, block_type, new_bitmap, index_new_bitmap, neutral_is_target);
+		
+		trial_stimuli.present();
+		stimulus_of_current_block = stimulus_of_current_block + 1;
+	end;	
+
+	change_active_buttons(true, true, true, true);
+
+end;
+
+include "execution.pcl";
+include "data.pcl";

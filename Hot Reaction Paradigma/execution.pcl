@@ -1,0 +1,108 @@
+int configuration = parameter_manager.get_int("Configuration");
+
+set_debug_modifications();
+
+trial_instruction.present();
+
+bool instruction_only_at_first_run = true;
+int number_of_runs = 2;
+
+present_test_runs(number_of_runs, instruction_only_at_first_run);
+
+
+
+#makes it so that every block has instructions at the start
+#can be changed per block by changing value prior to block presentation
+bool show_instruction = true;
+bool neutral_is_target;
+bool pause_before_block = true;
+
+#####configuration 1######
+
+if configuration == 1
+then
+	neutral_is_target = true;
+	create_block(45, 15, "inhibition", neutral_is_target);
+	present_block("group1", "block1", "Inhibition", show_instruction, neutral_is_target, pause_before_block);
+
+	neutral_is_target = false;
+	create_block(15, 45, "inhibition", neutral_is_target);
+	present_block("group1", "block2", "Inhibition", show_instruction, neutral_is_target, pause_before_block);
+
+	pause(30);
+	
+	
+	neutral_is_target = true;
+	create_block(45, 15, "inhibition", neutral_is_target);
+	present_block("group2", "block1", "Inhibition", show_instruction, neutral_is_target, pause_before_block);
+
+	neutral_is_target = false;
+	create_block(15, 45, "inhibition", neutral_is_target);
+	present_block("group2", "block2", "Inhibition", show_instruction, neutral_is_target, pause_before_block);
+
+	pause(60);
+	
+	neutral_is_target = true;
+	create_block(15, 45, "attention", neutral_is_target);
+	present_block("group3", "block1", "Attention", show_instruction, neutral_is_target, pause_before_block);
+
+	neutral_is_target = false;
+	create_block(45, 15, "attention", neutral_is_target);
+	present_block("group3", "block2", "Attention", show_instruction, neutral_is_target, pause_before_block);
+
+	pause(30);
+	
+	neutral_is_target = true;
+	create_block(15, 45, "attention", neutral_is_target);
+	present_block("group4", "block1", "Attention", show_instruction, neutral_is_target, pause_before_block);
+	
+	neutral_is_target = false;
+	create_block(45, 15, "attention", neutral_is_target);
+	present_block("group4", "block2", "Attention", show_instruction, neutral_is_target, pause_before_block);
+	
+	
+#####configuration 2######
+
+elseif (configuration == 2)
+then
+	
+	neutral_is_target = false;
+	create_block(15, 45, "inhibition", neutral_is_target);
+	present_block("group1", "block1", "Inhibition", show_instruction, neutral_is_target, pause_before_block);
+	
+	neutral_is_target = true;
+	create_block(45, 15, "inhibition", neutral_is_target);
+	present_block("group1", "block2", "Inhibition", show_instruction, neutral_is_target, pause_before_block);
+
+	pause(30);
+	
+	neutral_is_target = false;
+	create_block(15, 45, "inhibition", neutral_is_target);
+	present_block("group2", "block1", "Inhibition", show_instruction, neutral_is_target, pause_before_block);
+	
+	neutral_is_target = true;
+	create_block(45, 15, "inhibition", neutral_is_target);
+	present_block("group2", "block2", "Inhibition", show_instruction, neutral_is_target, pause_before_block);
+
+	pause(60);
+	
+	neutral_is_target = false;
+	create_block(45, 15, "attention", neutral_is_target);
+	present_block("group3", "block1", "Attention", show_instruction, neutral_is_target, pause_before_block);
+	
+	neutral_is_target = true;
+	create_block(15, 45, "attention", neutral_is_target);
+	present_block("group3", "block2", "Attention", show_instruction, neutral_is_target, pause_before_block);
+
+	pause(30);
+	
+	neutral_is_target = false;
+	create_block(45, 15, "attention", neutral_is_target);
+	present_block("group4", "block1", "Attention", show_instruction, neutral_is_target, pause_before_block);
+	
+	neutral_is_target = true;
+	create_block(15, 45, "attention", neutral_is_target);
+	present_block("group4", "block2", "Attention", show_instruction, neutral_is_target, pause_before_block);
+end;
+
+trial_instruction_end.present();

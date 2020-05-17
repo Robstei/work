@@ -1,0 +1,421 @@
+Scenario - 
+Logfile written - 05/17/2020 21:12:59
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+a	1	Response	1	12735	12568	0
+a	1	Response	1	14734	14568	0
+a	1	Response	3	19776	19610	0
+a	1	Response	3	21455	21288	0
+a	1	Response	4	22734	22568	0
+a	1	Response	4	24334	24168	0
+a	1	Response	2	26737	26570	0
+a	2	Response	1	38255	11256	0
+a	2	Response	1	41535	14536	0
+a	2	Response	1	43536	16537	0
+a	2	Response	1	45614	18615	0
+a	2	Response	3	52815	25815	0
+a	2	Response	3	54658	27658	0
+a	2	Response	4	55854	28855	0
+a	2	Response	4	57375	30376	0
+a	2	Response	2	60095	33095	0
+a	3	Picture	test	60166	0	1	24166	1	0	next	incorrect	24
+a	3	Response	1	72255	12089	0
+a	3	Response	1	73856	13691	0
+a	3	Response	1	75855	15690	0
+a	3	Response	2	79055	18889	0
+a	3	Response	2	80735	20569	0
+a	3	Response	2	82256	22090	0
+a	3	Response	3	84255	24089	0
+a	5	Picture	test	99498	0	1	2333	1	0	next	incorrect	26
+a	5	Response	4	101694	2196	0
+a	6	Response	4	108174	6342	0
+a	6	Response	4	110254	8422	0
+a	7	Picture	test	116998	0	1	2333	1	0	next	incorrect	30
+a	7	Response	3	119216	2218	0
+a	8	Response	4	133134	13803	0
+a	9	Picture	test	134498	0	1	500	1	0	next	incorrect	33
+a	9	Response	4	134894	396	0
+a	10	Response	4	136414	1416	0
+a	10	Response	4	140814	5816	0
+a	10	Response	4	142574	7576	0
+a	10	Response	3	149455	14457	0
+a	11	Picture	test	150164	0	1	1667	1	0	next	hit	39
+a	11	Response	3	151694	1530	0
+a	12	Response	3	153694	1863	0
+a	12	Response	3	155854	4023	0
+a	12	Response	3	158174	6343	0
+a	12	Response	3	160174	8343	0
+a	12	Response	3	162574	10743	0
+a	12	Response	3	165054	13223	0
+a	13	Picture	test	166998	0	1	500	1	0	next	hit	47
+a	13	Response	3	167376	378	0
+a	14	Response	3	169374	1877	0
+a	14	Response	3	171616	4119	0
+a	14	Response	3	173774	6277	0
+a	14	Response	3	176255	8757	0
+a	14	Response	3	178334	10836	0
+a	14	Response	3	180574	13077	0
+a	14	Response	3	182494	14997	0
+a	15	Picture	test	182664	0	1	2167	1	0	next	hit	56
+a	15	Response	3	184734	2070	0
+a	16	Response	3	187615	2784	0
+a	16	Response	3	189614	4783	0
+a	16	Response	3	191934	7104	0
+a	16	Response	3	193774	8943	0
+a	16	Response	3	195934	11104	0
+a	16	Response	3	198015	13184	0
+a	17	Picture	test	199997	0	1	167	1	0	next	incorrect	64
+a	17	Response	3	200014	17	0
+a	18	Response	3	204014	3850	0
+a	18	Response	3	206014	5850	0
+a	18	Response	3	208094	7930	0
+a	18	Response	3	210096	9933	0
+a	18	Response	3	212174	12010	0
+a	19	Picture	test	215330	0	1	833	1	0	next	incorrect	71
+a	19	Response	3	216016	686	0
+a	20	Response	3	224654	8490	0
+a	20	Response	3	226819	10655	0
+a	21	Picture	test	231330	0	1	2167	1	0	next	incorrect	75
+a	21	Response	3	233455	2125	0
+a	23	Response	3	250016	1353	0
+a	23	Response	3	255454	6791	0
+a	23	Response	3	257294	8631	0
+a	23	Response	3	259214	10551	0
+a	23	Response	3	261134	12471	0
+a	23	Response	3	262734	14071	0
+a	23	Response	3	262974	14310	0
+a	23	Response	1	265854	17191	0
+a	23	Response	1	267854	19191	0
+a	23	Response	1	269614	20951	0
+a	23	Response	4	271539	22875	0
+a	23	Response	4	273534	24871	0
+a	23	Response	2	276179	27516	0
+a	24	Picture	test	276329	0	1	5833	1	0	next	hit	90
+a	24	Response	3	282014	5685	0
+a	25	Response	3	284017	1854	0
+a	25	Response	3	286094	3931	0
+a	25	Response	3	287934	5771	0
+a	25	Response	3	293538	11375	0
+a	26	Picture	test	297329	0	1	6000	1	0	next	hit	96
+a	26	Response	3	303134	5805	0
+a	27	Response	3	310734	7405	0
+a	27	Response	3	312334	9005	0
+a	27	Response	3	314094	10765	0
+a	27	Response	3	315854	12525	0
+a	27	Response	3	317774	14445	0
+a	28	Picture	test	318495	0	1	1167	1	0	next	incorrect	103
+a	28	Response	3	319614	1119	0
+a	29	Response	3	321455	1793	0
+a	29	Response	3	323214	3552	0
+a	29	Response	3	325295	5633	0
+a	29	Response	3	327054	7392	0
+a	29	Response	3	328977	9314	0
+a	29	Response	3	330974	11312	0
+a	30	Picture	test	334829	0	1	2500	1	0	next	incorrect	111
+a	30	Response	3	337296	2467	0
+a	31	Response	3	339216	1887	0
+a	31	Response	3	344894	7565	0
+a	31	Response	3	346416	9088	0
+a	31	Response	3	348414	11086	0
+a	32	Picture	test	352495	0	1	167	1	0	next	hit	117
+a	32	Response	3	352495	0	0
+a	33	Response	3	354414	1752	0
+a	33	Response	3	356414	3752	0
+a	33	Response	3	358254	5592	0
+a	33	Response	3	360096	7434	0
+a	33	Response	3	362254	9592	0
+a	33	Response	3	364174	11512	0
+a	33	Response	3	366254	13593	0
+a	34	Picture	test	367828	0	1	667	1	0	next	incorrect	126
+a	34	Response	3	368414	586	0
+a	35	Response	3	370334	1839	0
+a	35	Response	3	372334	3839	0
+a	35	Response	3	374333	5839	0
+a	35	Response	3	376254	7759	0
+a	35	Response	3	378334	9839	0
+a	35	Response	3	380414	11919	0
+a	35	Response	3	382414	13919	0
+a	36	Picture	test	383661	0	1	833	1	0	next	hit	135
+a	36	Response	3	384334	672	0
+a	37	Response	3	386334	1839	0
+a	37	Response	3	388414	3919	0
+a	37	Response	3	390414	5919	0
+a	37	Response	3	392334	7839	0
+a	37	Response	3	394013	9519	0
+a	37	Response	3	395773	11279	0
+a	37	Response	3	397854	13359	0
+a	38	Response	3	399614	119	0
+a	38	Picture	test	399661	166	1	167	1	0	next	miss	0
+a	39	Response	3	401373	1546	0
+a	39	Response	3	403455	3628	0
+a	39	Response	3	405454	5626	0
+a	39	Response	3	407455	7627	0
+a	39	Response	3	409455	9628	0
+a	39	Response	3	411374	11546	0
+a	39	Response	3	413693	13866	0
+a	40	Picture	test	414994	0	1	667	1	0	next	hit	153
+a	40	Response	3	415614	619	0
+a	41	Response	3	417697	2036	0
+a	41	Response	3	419534	3873	0
+a	41	Response	3	421774	6113	0
+a	41	Response	3	424336	8675	0
+a	41	Response	3	426416	10755	0
+a	41	Response	3	428494	12833	0
+a	41	Response	3	430574	14914	0
+a	42	Picture	test	430827	0	1	1833	1	0	next	incorrect	162
+a	42	Response	3	432574	1747	0
+a	43	Response	3	434573	1913	0
+a	43	Response	3	436574	3913	0
+a	43	Response	3	438413	5753	0
+a	43	Response	3	440654	7993	0
+a	43	Response	3	442734	10073	0
+a	43	Response	3	444816	12156	0
+a	43	Response	3	446814	14153	0
+a	44	Response	3	448653	826	0
+a	44	Response	3	450734	2907	0
+a	44	Response	3	452734	4906	0
+a	44	Response	3	456654	8827	0
+a	44	Response	3	458574	10747	0
+a	44	Response	4	466736	18909	0
+a	44	Response	4	468254	20427	0
+a	44	Response	4	469774	21947	0
+a	44	Response	4	471373	23546	0
+a	44	Response	4	477134	29307	0
+a	44	Response	3	478734	30907	0
+a	44	Response	4	480334	32507	0
+a	44	Response	3	480653	32826	0
+a	44	Response	4	482174	34347	0
+a	44	Response	3	483214	35387	0
+a	44	Response	3	484896	37069	0
+a	44	Response	1	486976	39149	0
+a	44	Response	1	490174	42347	0
+a	44	Response	1	491694	43867	0
+a	44	Response	2	493774	45947	0
+a	45	Response	3	501295	7302	0
+a	45	Response	3	503216	9223	0
+a	45	Response	3	505054	11061	0
+a	45	Response	4	506414	12421	0
+a	45	Response	4	508254	14261	0
+a	45	Response	4	509613	15620	0
+a	45	Response	1	511373	17380	0
+a	45	Response	1	513136	19143	0
+a	45	Response	1	514814	20821	0
+a	45	Response	1	516254	22261	0
+a	45	Response	1	517774	23781	0
+a	45	Response	3	519454	25461	0
+a	45	Response	4	520894	26901	0
+a	45	Response	4	523854	29861	0
+a	45	Response	4	525454	31461	0
+a	45	Response	1	527214	33221	0
+a	45	Response	1	528895	34902	0
+a	45	Response	1	530574	36580	0
+a	45	Response	1	532414	38421	0
+a	45	Response	1	534094	40101	0
+a	45	Response	4	537214	43221	0
+a	45	Response	4	539054	45061	0
+a	45	Response	4	540734	46741	0
+a	45	Response	3	544174	50181	0
+a	45	Response	3	545934	51940	0
+a	45	Response	3	548734	54741	0
+a	45	Response	3	552096	58103	0
+a	45	Response	3	554574	60581	0
+a	45	Response	4	557614	63621	0
+a	45	Response	4	559294	65301	0
+a	45	Response	4	560894	66901	0
+a	45	Response	4	562494	68501	0
+a	45	Response	4	564173	70180	0
+a	45	Response	1	567694	73701	0
+a	45	Response	1	569214	75221	0
+a	45	Response	1	570894	76901	0
+a	45	Response	3	574974	80981	0
+a	45	Response	3	576654	82661	0
+a	45	Response	3	578734	84741	0
+a	45	Response	4	581054	87061	0
+a	45	Response	4	582654	88661	0
+a	45	Response	4	584173	90180	0
+a	45	Response	4	585773	91780	0
+a	45	Response	4	587293	93300	0
+a	45	Response	1	589775	95782	0
+a	45	Response	1	591694	97701	0
+a	45	Response	4	594416	100423	0
+a	45	Response	3	595613	101620	0
+a	45	Response	4	598014	104021	0
+a	45	Response	1	599613	105620	0
+a	45	Response	1	601934	107941	0
+a	45	Response	1	603694	109701	0
+a	45	Response	2	606494	112501	0
+a	48	Picture	group1;block1;1;Inhibition;stimulus_neutral_4.jpg;4;true;neutral	633991	0	1	2167	1	0	2000	miss	0
+a	50	Picture	group1;block1;2;Inhibition;stimulus_neutral_3.jpg;3;true;neutral	650991	0	1	2167	1	0	2000	miss	0
+a	52	Picture	group1;block1;3;Inhibition;stimulus_neutral_4.jpg;4;true;neutral	664324	0	1	2167	1	0	2000	miss	0
+a	54	Picture	group1;block1;4;Inhibition;stimulus_neutral_4.jpg;4;true;neutral	679324	0	1	2167	1	0	2000	miss	0
+a	56	Picture	group1;block1;5;Inhibition;stimulus_sns_5.jpg;10;false;neutral	695657	0	1	2167	1	0	2000	other	0
+a	58	Picture	group1;block1;6;Inhibition;stimulus_neutral_4.jpg;4;true;neutral	712323	0	1	2167	1	0	2000	miss	0
+a	58	Response	4	715455	3132	0
+a	58	Response	3	719134	6810	0
+a	59	Response	4	722014	2524	0
+a	59	Response	3	723454	3964	0
+a	59	Response	4	724813	5323	0
+a	60	Picture	group1;block1;7;Inhibition;stimulus_neutral_1.jpg;1;true;neutral	725823	0	1	2166	1	0	2000	miss	0
+a	60	Response	3	726335	512	0
+a	60	Response	4	727295	1472	0
+a	60	Response	3	728654	2831	0
+a	60	Response	4	729694	3871	0
+a	60	Response	3	731053	5230	0
+a	60	Response	4	731613	5790	0
+a	61	Response	4	733214	225	0
+a	62	Picture	group1;block1;8;Inhibition;stimulus_neutral_4.jpg;4;true;neutral	739656	0	1	2167	1	0	2000	miss	0
+a	64	Picture	group1;block1;9;Inhibition;stimulus_sns_2.jpg;7;false;neutral	752323	0	1	2166	1	0	2000	other	0
+a	66	Picture	group1;block1;10;Inhibition;stimulus_neutral_5.jpg;5;true;neutral	765156	0	1	2166	2	0	2000	miss	0
+a	68	Picture	group1;block1;11;Inhibition;stimulus_neutral_2.jpg;2;true;neutral	779489	0	1	2167	1	0	2000	miss	0
+a	70	Picture	group1;block1;12;Inhibition;stimulus_neutral_2.jpg;2;true;neutral	793822	0	1	2167	1	0	2000	miss	0
+a	72	Picture	group1;block1;13;Inhibition;stimulus_neutral_5.jpg;5;true;neutral	808989	0	1	2166	1	0	2000	miss	0
+a	74	Picture	group1;block1;14;Inhibition;stimulus_neutral_3.jpg;3;true;neutral	822488	0	1	2167	1	0	2000	miss	0
+a	74	Response	4	826093	3605	0
+a	74	Response	3	829453	6965	0
+a	75	Response	3	831613	1958	0
+a	75	Response	4	834254	4599	0
+a	75	Response	3	836253	6598	0
+a	76	Picture	group1;block1;15;Inhibition;stimulus_neutral_2.jpg;2;true;neutral	836488	0	1	2167	1	0	2000	miss	0
+a	76	Response	4	837933	1445	0
+a	76	Response	3	839053	2565	0
+a	76	Response	4	840573	4085	0
+a	76	Response	3	841694	5205	0
+a	77	Response	1	846895	3240	0
+a	77	Response	1	849453	5798	0
+a	78	Picture	group1;block1;16;Inhibition;stimulus_neutral_5.jpg;5;true;neutral	850988	0	1	2167	1	0	2000	miss	0
+a	80	Picture	group1;block1;17;Inhibition;stimulus_neutral_4.jpg;4;true;neutral	864487	0	1	2167	2	0	2000	miss	0
+a	82	Picture	group1;block1;18;Inhibition;stimulus_neutral_2.jpg;2;true;neutral	877154	0	1	2167	1	0	2000	miss	0
+a	84	Picture	group1;block1;19;Inhibition;stimulus_sns_2.jpg;7;false;neutral	889821	0	1	2166	1	0	2000	other	0
+a	86	Picture	group1;block1;20;Inhibition;stimulus_neutral_1.jpg;1;true;neutral	905987	0	1	2167	1	0	2000	miss	0
+a	88	Picture	group1;block1;21;Inhibition;stimulus_sns_5.jpg;10;false;neutral	921154	0	1	2167	1	0	2000	other	0
+a	90	Picture	group1;block1;22;Inhibition;stimulus_neutral_3.jpg;3;true;neutral	934320	0	1	2167	1	0	2000	miss	0
+a	92	Picture	group1;block1;23;Inhibition;stimulus_neutral_3.jpg;3;true;neutral	946820	0	1	2167	1	0	2000	miss	0
+a	94	Picture	group1;block1;24;Inhibition;stimulus_sns_3.jpg;8;false;neutral	961320	0	1	2166	1	0	2000	other	0
+a	96	Picture	group1;block1;25;Inhibition;stimulus_sns_5.jpg;10;false;neutral	974320	0	1	2167	1	0	2000	other	0
+a	98	Picture	group1;block1;26;Inhibition;stimulus_neutral_5.jpg;5;true;neutral	987653	0	1	2167	1	0	2000	miss	0
+a	100	Picture	group1;block1;27;Inhibition;stimulus_neutral_2.jpg;2;true;neutral	1002819	0	1	2167	1	0	2000	miss	0
+a	102	Picture	group1;block1;28;Inhibition;stimulus_neutral_4.jpg;4;true;neutral	1016486	0	1	2166	1	0	2000	miss	0
+a	104	Picture	group1;block1;29;Inhibition;stimulus_neutral_1.jpg;1;true;neutral	1028985	0	1	2167	1	0	2000	miss	0
+a	106	Picture	group1;block1;30;Inhibition;stimulus_sns_1.jpg;6;false;neutral	1044485	0	1	2167	1	0	2000	other	0
+a	108	Picture	group1;block1;31;Inhibition;stimulus_neutral_5.jpg;5;true;neutral	1061485	0	1	2167	1	0	2000	miss	0
+a	110	Picture	group1;block1;32;Inhibition;stimulus_neutral_4.jpg;4;true;neutral	1078485	0	1	2167	1	0	2000	miss	0
+a	112	Picture	group1;block1;33;Inhibition;stimulus_neutral_1.jpg;1;true;neutral	1091151	0	1	2167	1	0	2000	miss	0
+a	114	Picture	group1;block1;34;Inhibition;stimulus_neutral_1.jpg;1;true;neutral	1106318	0	1	2167	1	0	2000	miss	0
+a	116	Picture	group1;block1;35;Inhibition;stimulus_neutral_5.jpg;5;true;neutral	1119651	0	1	2167	1	0	2000	miss	0
+a	118	Picture	group1;block1;36;Inhibition;stimulus_sns_2.jpg;7;false;neutral	1134484	0	1	2167	1	0	2000	other	0
+a	120	Picture	group1;block1;37;Inhibition;stimulus_neutral_4.jpg;4;true;neutral	1147484	0	1	2167	1	0	2000	miss	0
+a	122	Picture	group1;block1;38;Inhibition;stimulus_neutral_5.jpg;5;true;neutral	1161984	0	1	2167	1	0	2000	miss	0
+a	124	Picture	group1;block1;39;Inhibition;stimulus_neutral_1.jpg;1;true;neutral	1176650	0	1	2167	1	0	2000	miss	0
+a	126	Picture	group1;block1;40;Inhibition;stimulus_neutral_2.jpg;2;true;neutral	1191483	0	1	2167	1	0	2000	miss	0
+a	128	Picture	group1;block1;41;Inhibition;stimulus_sns_3.jpg;8;false;neutral	1205983	0	1	2167	1	0	2000	other	0
+a	130	Picture	group1;block1;42;Inhibition;stimulus_neutral_2.jpg;2;true;neutral	1219983	0	1	2167	1	0	2000	miss	0
+a	132	Picture	group1;block1;43;Inhibition;stimulus_neutral_2.jpg;2;true;neutral	1236149	0	1	2167	1	0	2000	miss	0
+a	134	Picture	group1;block1;44;Inhibition;stimulus_sns_1.jpg;6;false;neutral	1250649	0	1	2167	1	0	2000	other	0
+a	136	Picture	group1;block1;45;Inhibition;stimulus_neutral_3.jpg;3;true;neutral	1265316	0	1	2167	1	0	2000	miss	0
+a	138	Picture	group1;block1;46;Inhibition;stimulus_neutral_3.jpg;3;true;neutral	1279815	0	1	2167	1	0	2000	miss	0
+a	140	Picture	group1;block1;47;Inhibition;stimulus_sns_4.jpg;9;false;neutral	1295815	0	1	2167	1	0	2000	other	0
+a	142	Picture	group1;block1;48;Inhibition;stimulus_neutral_1.jpg;1;true;neutral	1311815	0	1	2167	1	0	2000	miss	0
+a	144	Picture	group1;block1;49;Inhibition;stimulus_neutral_1.jpg;1;true;neutral	1326648	0	1	2167	1	0	2000	miss	0
+a	146	Picture	group1;block1;50;Inhibition;stimulus_sns_1.jpg;6;false;neutral	1339981	0	1	2167	1	0	2000	other	0
+a	148	Picture	group1;block1;51;Inhibition;stimulus_neutral_5.jpg;5;true;neutral	1352481	0	1	2167	1	0	2000	miss	0
+a	150	Picture	group1;block1;52;Inhibition;stimulus_neutral_2.jpg;2;true;neutral	1365647	0	1	2167	1	0	2000	miss	0
+a	152	Picture	group1;block1;53;Inhibition;stimulus_sns_4.jpg;9;false;neutral	1379813	0	1	2167	2	0	2000	other	0
+a	154	Picture	group1;block1;54;Inhibition;stimulus_neutral_3.jpg;3;true;neutral	1392981	0	1	2166	1	0	2000	miss	0
+a	156	Picture	group1;block1;55;Inhibition;stimulus_sns_3.jpg;8;false;neutral	1407147	0	1	2167	1	0	2000	other	0
+a	158	Picture	group1;block1;56;Inhibition;stimulus_neutral_1.jpg;1;true;neutral	1421813	0	1	2167	1	0	2000	miss	0
+a	160	Picture	group1;block1;57;Inhibition;stimulus_neutral_3.jpg;3;true;neutral	1437813	0	1	2167	1	0	2000	miss	0
+a	162	Picture	group1;block1;58;Inhibition;stimulus_sns_4.jpg;9;false;neutral	1450480	0	1	2167	1	0	2000	other	0
+a	164	Picture	group1;block1;59;Inhibition;stimulus_neutral_5.jpg;5;true;neutral	1463313	0	1	2167	1	0	2000	miss	0
+a	166	Picture	group1;block1;60;Inhibition;stimulus_neutral_3.jpg;3;true;neutral	1479646	0	1	2167	1	0	2000	miss	0
+a	167	Response	3	1535055	48242	0
+a	167	Response	3	1537133	50320	0
+a	167	Response	3	1538892	52080	0
+a	167	Response	4	1547534	60721	0
+a	167	Response	4	1549052	62240	0
+a	167	Response	4	1550492	63680	0
+a	167	Response	1	1552415	65602	0
+a	167	Response	1	1554013	67201	0
+a	167	Response	2	1556496	69683	0
+a	170	Picture	group1;block2;1;Inhibition;stimulus_sns_3.jpg;8;true;sns	1581978	0	1	2167	1	0	2000	miss	0
+a	172	Picture	group1;block2;2;Inhibition;stimulus_sns_1.jpg;6;true;sns	1596311	0	1	2167	1	0	2000	miss	0
+a	174	Picture	group1;block2;3;Inhibition;stimulus_neutral_2.jpg;2;false;sns	1610144	0	1	2166	1	0	2000	other	0
+a	176	Picture	group1;block2;4;Inhibition;stimulus_sns_4.jpg;9;true;sns	1626811	0	1	2167	1	0	2000	miss	0
+a	178	Picture	group1;block2;5;Inhibition;stimulus_sns_1.jpg;6;true;sns	1642310	0	1	2167	1	0	2000	miss	0
+a	180	Picture	group1;block2;6;Inhibition;stimulus_neutral_1.jpg;1;false;sns	1655977	0	1	2166	1	0	2000	other	0
+a	182	Picture	group1;block2;7;Inhibition;stimulus_sns_2.jpg;7;true;sns	1671977	0	1	2167	1	0	2000	miss	0
+a	184	Picture	group1;block2;8;Inhibition;stimulus_neutral_3.jpg;3;false;sns	1687976	0	1	2167	1	0	2000	other	0
+a	186	Picture	group1;block2;9;Inhibition;stimulus_neutral_5.jpg;5;false;sns	1701976	0	1	2167	1	0	2000	other	0
+a	188	Picture	group1;block2;10;Inhibition;stimulus_sns_4.jpg;9;true;sns	1716476	0	1	2167	1	0	2000	miss	0
+a	190	Picture	group1;block2;11;Inhibition;stimulus_sns_4.jpg;9;true;sns	1730809	0	1	2167	1	0	2000	miss	0
+a	192	Picture	group1;block2;12;Inhibition;stimulus_sns_1.jpg;6;true;sns	1743642	0	1	2167	1	0	2000	miss	0
+a	194	Picture	group1;block2;13;Inhibition;stimulus_sns_2.jpg;7;true;sns	1760642	0	1	2167	1	0	2000	miss	0
+a	196	Picture	group1;block2;14;Inhibition;stimulus_neutral_4.jpg;4;false;sns	1775142	0	1	2167	1	0	2000	other	0
+a	198	Picture	group1;block2;15;Inhibition;stimulus_sns_3.jpg;8;true;sns	1787642	0	1	2167	1	0	2000	miss	0
+a	200	Picture	group1;block2;16;Inhibition;stimulus_neutral_3.jpg;3;false;sns	1799974	0	1	2167	1	0	2000	other	0
+a	202	Picture	group1;block2;17;Inhibition;stimulus_sns_3.jpg;8;true;sns	1817141	0	1	2167	1	0	2000	miss	0
+a	204	Picture	group1;block2;18;Inhibition;stimulus_neutral_2.jpg;2;false;sns	1832474	0	1	2167	1	0	2000	other	0
+a	206	Picture	group1;block2;19;Inhibition;stimulus_sns_1.jpg;6;true;sns	1846141	0	1	2166	1	0	2000	miss	0
+a	208	Picture	group1;block2;20;Inhibition;stimulus_sns_3.jpg;8;true;sns	1860807	0	1	2166	2	0	2000	miss	0
+a	210	Picture	group1;block2;21;Inhibition;stimulus_neutral_5.jpg;5;false;sns	1877307	0	1	2167	1	0	2000	other	0
+a	212	Picture	group1;block2;22;Inhibition;stimulus_sns_1.jpg;6;true;sns	1889807	0	1	2167	1	0	2000	miss	0
+a	214	Picture	group1;block2;23;Inhibition;stimulus_sns_2.jpg;7;true;sns	1905307	0	1	2167	1	0	2000	miss	0
+a	216	Picture	group1;block2;24;Inhibition;stimulus_sns_1.jpg;6;true;sns	1919140	0	1	2167	1	0	2000	miss	0
+a	218	Picture	group1;block2;25;Inhibition;stimulus_sns_4.jpg;9;true;sns	1932640	0	1	2166	1	0	2000	miss	0
+a	220	Picture	group1;block2;26;Inhibition;stimulus_sns_1.jpg;6;true;sns	1947306	0	1	2167	1	0	2000	miss	0
+a	222	Picture	group1;block2;27;Inhibition;stimulus_sns_5.jpg;10;true;sns	1961306	0	1	2167	1	0	2000	miss	0
+a	224	Picture	group1;block2;28;Inhibition;stimulus_sns_4.jpg;9;true;sns	1973806	0	1	2167	1	0	2000	miss	0
+a	226	Picture	group1;block2;29;Inhibition;stimulus_sns_5.jpg;10;true;sns	1990972	0	1	2167	1	0	2000	miss	0
+a	228	Picture	group1;block2;30;Inhibition;stimulus_sns_5.jpg;10;true;sns	2008139	0	1	2166	1	0	2000	miss	0
+a	230	Picture	group1;block2;31;Inhibition;stimulus_neutral_3.jpg;3;false;sns	2024472	0	1	2167	1	0	2000	other	0
+a	232	Picture	group1;block2;32;Inhibition;stimulus_sns_5.jpg;10;true;sns	2039472	0	1	2167	1	0	2000	miss	0
+a	234	Picture	group1;block2;33;Inhibition;stimulus_sns_2.jpg;7;true;sns	2053471	0	1	2167	1	0	2000	miss	0
+a	236	Picture	group1;block2;34;Inhibition;stimulus_sns_4.jpg;9;true;sns	2070638	0	1	2167	1	0	2000	miss	0
+a	238	Picture	group1;block2;35;Inhibition;stimulus_neutral_1.jpg;1;false;sns	2087304	0	1	2167	1	0	2000	other	0
+a	240	Picture	group1;block2;36;Inhibition;stimulus_sns_3.jpg;8;true;sns	2102304	0	1	2167	1	0	2000	miss	0
+a	242	Picture	group1;block2;37;Inhibition;stimulus_sns_3.jpg;8;true;sns	2117137	0	1	2167	1	0	2000	miss	0
+a	244	Picture	group1;block2;38;Inhibition;stimulus_sns_1.jpg;6;true;sns	2132304	0	1	2167	1	0	2000	miss	0
+a	246	Picture	group1;block2;39;Inhibition;stimulus_sns_5.jpg;10;true;sns	2145470	0	2	2167	2	0	2000	miss	0
+a	248	Picture	group1;block2;40;Inhibition;stimulus_neutral_5.jpg;5;false;sns	2158470	0	1	2167	1	0	2000	other	0
+a	250	Picture	group1;block2;41;Inhibition;stimulus_sns_5.jpg;10;true;sns	2173470	0	1	2167	1	0	2000	miss	0
+a	252	Picture	group1;block2;42;Inhibition;stimulus_sns_5.jpg;10;true;sns	2189303	0	1	2167	1	0	2000	miss	0
+a	254	Picture	group1;block2;43;Inhibition;stimulus_sns_5.jpg;10;true;sns	2204136	0	1	2167	1	0	2000	miss	0
+a	256	Picture	group1;block2;44;Inhibition;stimulus_sns_1.jpg;6;true;sns	2217302	0	1	2167	1	0	2000	miss	0
+a	258	Picture	group1;block2;45;Inhibition;stimulus_sns_2.jpg;7;true;sns	2233635	0	1	2166	1	0	2000	miss	0
+a	260	Picture	group1;block2;46;Inhibition;stimulus_sns_3.jpg;8;true;sns	2248468	0	1	2167	1	0	2000	miss	0
+a	262	Picture	group1;block2;47;Inhibition;stimulus_sns_3.jpg;8;true;sns	2265302	0	1	2167	1	0	2000	miss	0
+a	264	Picture	group1;block2;48;Inhibition;stimulus_sns_2.jpg;7;true;sns	2278468	0	1	2167	1	0	2000	miss	0
+a	266	Picture	group1;block2;49;Inhibition;stimulus_sns_2.jpg;7;true;sns	2292635	0	1	2167	1	0	2000	miss	0
+a	268	Picture	group1;block2;50;Inhibition;stimulus_neutral_4.jpg;4;false;sns	2308468	0	1	2167	1	0	2000	other	0
+a	270	Picture	group1;block2;51;Inhibition;stimulus_sns_5.jpg;10;true;sns	2325468	0	1	2166	1	0	2000	miss	0
+a	272	Picture	group1;block2;52;Inhibition;stimulus_neutral_2.jpg;2;false;sns	2340300	0	1	2167	1	0	2000	other	0
+a	274	Picture	group1;block2;53;Inhibition;stimulus_sns_4.jpg;9;true;sns	2356467	0	1	2167	1	0	2000	miss	0
+a	276	Picture	group1;block2;54;Inhibition;stimulus_sns_3.jpg;8;true;sns	2370134	0	1	2167	1	0	2000	miss	0
+a	278	Picture	group1;block2;55;Inhibition;stimulus_sns_2.jpg;7;true;sns	2385467	0	1	2167	1	0	2000	miss	0
+a	280	Picture	group1;block2;56;Inhibition;stimulus_neutral_1.jpg;1;false;sns	2398133	0	1	2167	1	0	2000	other	0
+a	282	Picture	group1;block2;57;Inhibition;stimulus_sns_4.jpg;9;true;sns	2415132	0	1	2167	1	0	2000	miss	0
+a	284	Picture	group1;block2;58;Inhibition;stimulus_sns_4.jpg;9;true;sns	2428133	0	1	2167	1	0	2000	miss	0
+a	286	Picture	group1;block2;59;Inhibition;stimulus_sns_2.jpg;7;true;sns	2441299	0	1	2166	1	0	2000	miss	0
+a	288	Picture	group1;block2;60;Inhibition;stimulus_neutral_4.jpg;4;false;sns	2453799	0	1	2167	1	0	2000	other	0
+a	2084	Response	1	2796251	35123	0
+a	2084	Response	3	2800011	38883	0
+a	2084	Response	1	2801854	40726	0
+a	2084	Response	3	2803695	42566	0
+a	2084	Response	4	2806893	45765	0
+a	2084	Response	2	2811133	50004	0
+a	2086	Quit		2836251	4790	NA
+
+
+{
+   "app": "Presentation Version 20.3 Build 02.25.19",
+   "device": "To Be Filled By O.E.M. To Be Filled By O.E.M.",
+   "experiment": "{D641ED79-5C9E-4C22-BD16-86E78985E7F2}",
+   "os": "Windows 10 64 bit",
+   "package": "",
+   "parameters": {
+      "configuration": "Default configuration"
+   },
+   "scenario": "Hot Reaction Paradigma.sce",
+   "subject": "a",
+   "timestamp": "2020/05/17 19:08:10 GMT"
+}

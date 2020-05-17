@@ -1,0 +1,194 @@
+# create indiviual file for subject
+
+array<string> array_data[0][0];
+
+loop int stimulus_to_analyze = 1 until stimulus_to_analyze > stimulus_manager.stimulus_count()
+begin
+	stimulus_data stimulus_data_subject = stimulus_manager.get_stimulus_data(stimulus_to_analyze);
+	string event_code_of_stimulus_to_analyze = stimulus_data_subject.event_code();
+	
+	array <string> array_metadata[0];
+	event_code_of_stimulus_to_analyze.split(";", array_metadata);
+	
+	if(array_metadata[1] == "test")
+	then
+		stimulus_to_analyze = stimulus_to_analyze + 1;
+		continue;
+	end;
+	
+	string group = array_metadata[1];
+	string block = array_metadata[2];
+	string stimulus_index_in_block = array_metadata[3];
+	string block_type = array_metadata[4];
+	string filename = array_metadata[5];
+	string stimulus_id = array_metadata[6];
+	string stimulus_is_target = array_metadata[7];
+	string target_of_block = array_metadata[8];
+	
+	array<string> array_tmp_stimulus_data[0];
+	
+	array_tmp_stimulus_data.add(logfile.subject());
+	array_tmp_stimulus_data.add(string(parameter_manager.get_int("Configuration")));
+	array_tmp_stimulus_data.add(string(stimulus_data_subject.time()));
+	array_tmp_stimulus_data.add(string(stimulus_data_subject.reaction_time()));
+	array_tmp_stimulus_data.add(string(stimulus_data_subject.type()));
+	array_tmp_stimulus_data.add(group);
+	array_tmp_stimulus_data.add(block);
+	array_tmp_stimulus_data.add(stimulus_index_in_block);
+	array_tmp_stimulus_data.add(block_type);
+	array_tmp_stimulus_data.add(filename);
+	array_tmp_stimulus_data.add(stimulus_is_target);
+	array_tmp_stimulus_data.add(target_of_block);
+	
+
+	array_data.add(array_tmp_stimulus_data);
+	stimulus_to_analyze = stimulus_to_analyze + 1;
+end;
+
+output_file single = new output_file();
+if(logfile.subject() != "")
+then
+	single.open_append("singles/Hot_Reaction_Paradigma_" + logfile.subject() + ".txt");
+else
+	single.open_append("singles/no_name.txt");
+end;
+	string col_headings = "ID,configuration,time,reaction_time,reaction_type,group,block,stimulus_in_block,block_type,stimulus_id,target_non_target,targets_of_block";
+	single.print_line(col_headings);
+	loop int row = 1 until row > array_data.count()
+	begin
+		string string_row;
+		loop int col = 1 until col > array_data[row].count()
+		begin
+			string_row = string_row + array_data[row][col];
+			if (col != array_data[row].count())
+			then
+				string_row = string_row + ","
+			end;
+			col = col + 1;
+		end;
+		single.print_line(string_row);
+		row = row + 1;
+	end;
+	
+single.close();
+
+
+
+
+array<string> all_group_block_combinations[0][0];
+parameter_manager.get_strings("All Group Block Combinations", all_group_block_combinations);
+array<string> output_array[all_group_block_combinations.count()][7];
+											
+loop int block_counter = 1 until block_counter > all_group_block_combinations.count()
+begin	
+		
+	int hit_counter = 0;
+	int miss_counter = 0;
+	int false_alarm_counter = 0;
+	int other_counter = 0;
+	int reaction_time_sum = 0;
+	int reaction_counter = 0;
+	int to_short_counter = 0;
+	
+	string group = all_group_block_combinations[block_counter][1];
+	string block = all_group_block_combinations[block_counter][2];
+		
+	loop int stimulus_counter = 1 until stimulus_counter > stimulus_manager.stimulus_count()
+	begin
+		stimulus_data stim_data = stimulus_manager.get_stimulus_data(stimulus_counter);
+		string event_code = stim_data.event_code();
+		if(event_code.find(group) == 0 || event_code.find(block) == 0)
+		then
+			stimulus_counter = stimulus_counter + 1;
+			continue;
+		end;
+		
+		if(stim_data.type() == stimulus_data::HIT)
+		then
+			hit_counter = hit_counter + 1;
+		elseif(stim_data.type() == stimulus_data::MISS)
+		then
+			miss_counter = miss_counter + 1;
+		elseif(stim_data.type() == stimulus_data::FALSE_ALARM)
+		then
+			false_alarm_counter = false_alarm_counter + 1;
+		elseif(stim_data.type() == stimulus_data::OTHER)
+		then
+			other_counter = other_counter + 1;
+		end;
+		
+		if(stim_data.reaction_time() > 0)
+		then
+			reaction_time_sum = reaction_time_sum + stim_data.reaction_time();
+			reaction_counter = reaction_counter + 1;
+		end;
+		
+		if(stim_data.reaction_time() > 0 && stim_data.reaction_time() < parameter_manager.get_int("To Short Threshold"))
+		then
+			to_short_counter = to_short_counter + 1;
+		end;
+		
+		stimulus_counter = stimulus_counter + 1;
+	end;
+	
+	output_array[block_counter][1] = group + "_" + block;
+	output_array[block_counter][2] = string(hit_counter);
+	output_array[block_counter][3] = string(miss_counter);
+	output_array[block_counter][4] = string(false_alarm_counter);
+	output_array[block_counter][5] = string(other_counter);
+	if(reaction_counter > 0)
+	then
+		output_array[block_counter][6] = string(reaction_time_sum / reaction_counter);
+	else
+		output_array[block_counter][6] = "0";
+	end;
+
+	output_array[block_counter][7] = string(to_short_counter);
+	
+	block_counter = block_counter +1;
+end;
+
+output_file combined_results = new output_file();
+
+bool is_open = combined_results.open("combined_results.txt", 0, false);
+
+if(is_open)
+then
+	combined_results.print("ID,configuration");
+	
+	loop int block_counter = 1 until block_counter > output_array.count()
+	begin
+		string group_block = output_array[block_counter][1];
+		
+		combined_results.print("," + group_block + "_hit");
+		combined_results.print("," + group_block + "_miss");
+		combined_results.print("," + group_block + "_false_alarm");
+		combined_results.print("," + group_block + "_other");
+		combined_results.print("," + group_block + "_avg_reaction_time");
+		combined_results.print("," + group_block + "_to_short");
+		block_counter = block_counter + 1;
+	end;
+	combined_results.print_line("");
+else
+	combined_results.open_append("combined_results.txt");
+end;
+
+combined_results.print(logfile.subject() + "," + string(parameter_manager.get_int("Configuration")) + ",");
+loop int block_counter = 1 until block_counter > output_array.count()
+begin
+	loop int value_counter = 2 until value_counter > output_array[block_counter].count()
+	begin
+		combined_results.print(output_array[block_counter][value_counter]);
+		if(block_counter != output_array.count() || 
+			value_counter != output_array[block_counter].count())
+		then
+			combined_results.print(",");
+		end;
+		
+		value_counter = value_counter + 1;
+	end;
+
+	block_counter = block_counter + 1;
+end;
+
+combined_results.print_line("");

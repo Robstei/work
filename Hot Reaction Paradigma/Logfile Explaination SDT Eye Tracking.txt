@@ -1,0 +1,35 @@
+ID: Subject ID
+time: Absolute time of the presentation of the stimulus in the paradigm starts im ms
+reaction_time: reaction time, 0 means no response
+reaction_type:  Hit: 0
+		INCORRECT: 1
+		Miss: 2
+		FALSE_ALARM: 3
+		OTHER: 4
+
+group and block: The Current Version has 3 groups with 8 blocks each. Group3 with block5 for example is the 5th block in the 3rd group.
+		This allows to easily compare or compare or seperate specific time frames of the paradigm
+
+stimulus: Number of the stimulus starting from the first stimulus presented 
+
+block_type: Indicates the distribution if targets and non targets, for now following distributions are used:
+		A -> 30 Targets / 10 Non Targets
+		B -> 20 Targets / 20 Non Targets
+		C -> 10 Targets / 30 Non Targets
+		D -> 0 Targets / 40 Non Targets
+		E -> 40 Targets / 0 Non Targets
+
+color: Color of the Dot
+	1 -> red (255, 0, 0, 255)
+	2 -> yellow (255, 255, 0, 255)
+	3 -> violet (180, 30, 180, 255)
+	4 -> green (40, 200, 40, 255)
+	5 -> orange (255, 140, 0, 255)
+	6 -> blue (60, 170, 220, 255)
+
+target_non_target: States if stimulus was target or nontarget
+
+
+
+
+
